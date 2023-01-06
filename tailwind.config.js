@@ -1,20 +1,27 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  plugins: [require('@tailwindcss/line-clamp')],
-  purge: ['./src/**/*.{js,jsx,mdx,html}'],
-  darkMode: false, // or 'media' or 'class'
+  style: {
+    postcss: {
+      plugins: [require("tailwindcss"), require("autoprefixer")],
+    },
+  },
+  jit: false,
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       colors: {
-        'black-70': 'rgba(17, 24, 39, .7)',
-        'black-10': 'rgba(17, 24, 39, .1)',
-      },
-      boxShadow: {
-        'inner-sm': 'inset 1px 1px 3px rgba(17, 24, 39, 0.2)',
+        dod: {
+          100: '#529AD9',
+          300: '#3A6D99',
+          500: '#35648C',
+          700: '#2C5273',
+          900: '#1D364D',
+        },
       },
     },
+    plugins: [],
   },
-  variants: {
-    extend: {},
-  },
-}
+};
