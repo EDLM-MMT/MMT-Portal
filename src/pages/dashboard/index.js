@@ -7,7 +7,7 @@ export default function Dashboard() {
 
   return (
     <DefaultLayout>
-      {userData?.role === 'service_member' && <ServiceMemberDashboard />}
+      {userData?.role === 'Service Member' && <ServiceMemberDashboard />}
     </DefaultLayout>
   );
 }

@@ -1,5 +1,5 @@
 {
-    "role": "service_member",
+    "role": "Service Member",
     "learner": {
       "personnel": {
         "person": {
@@ -9,6 +9,7 @@
           "middleName": "Christian",
           "lastName": "Phillips",
           "namePrefix": "Mr.",
+          "email": "phillips@us.navy.mil",
           "titleAffixcode": null,
           "nameSuffix": null,
           "qualificationAffixcode": null,
