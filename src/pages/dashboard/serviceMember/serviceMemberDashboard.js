@@ -6,7 +6,7 @@ const cards = [
         title: "Transcripts",
         description: "Request to Download Transcript: Baisc Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
         buttonLabel: "Go to Transcript",
-        routePath:"transcript"
+        routePath:"serviceMember/transcript"
     },
     {
         title: "Inquiries",
@@ -36,9 +36,7 @@ export default function ServiceMemberDashboard() {
         <div className='flex justify-between gap-10'>
             {cards.map((card, index) => {
                 return(
-                    // <div className='flex p-2'>
-                        <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
-                    // </div>
+                    <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
                 )
             })}
         </div>
