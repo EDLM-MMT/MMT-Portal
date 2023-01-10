@@ -3,15 +3,33 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '/public/logo192.png';
+import useStore from '@/store/store';
+
 
 const menuItems = [
   {
-    label: 'Home',
-    path: '/',
+    label: 'My Transcripts',
+    path: '/transcripts',
   },
   {
-    label: 'Support',
-    path: '/support',
+    label: 'My Inquiries',
+    path: '/inquiries',
+  },
+  {
+    label: 'My Degree Agreements',
+    path: '/my-degree-agreements',
+  },
+  {
+    label: 'My Degree Pathways',
+    path: '/my-degree-pathways',
+  },
+  {
+    label: 'Career Plans',
+    path: '/career-plans',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quick-links',
   },
 ];
 
@@ -30,7 +48,7 @@ function Button({ data }) {
   return (
     <Link href={data.path}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <button className='transition-all duration-100 px-1 border-b-2 border-transparent text-white hover:text-gray-900'>
+      <button className='transition-all duration-100 px-1 border-b-2 border-transparent text-white hover:text-gray-300'>
         {data.label}
       </button>
     </Link>
@@ -38,9 +56,9 @@ function Button({ data }) {
 }
 
 export default function Header() {
-  //const { user } = [{first_name: 'Luis Reyes'}];
+  const user = useStore((state) => state.userData);
   return (
-    <header className={'bg-blue-400 w-full shadow z-50'}>
+    <header className={'bg-dod-700 w-full shadow z-50'}>
       <nav
         className={'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}
         aria-label={'Top'}
@@ -57,22 +75,19 @@ export default function Header() {
                 <Image src={logo} alt={'home'} height={'60'} width={'60'} />
               </button>
             </Link>
-            {menuItems.map((item) => {
+            
+            {user && menuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
             })}
           </div>
-          <div className='space-x-4'>
-            <Link href={'/login'} passHref>
-              <button className='disabled:hidden bg-blue-500 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
-                Sign in
-              </button>
-            </Link>
-            <Link href={'/register'} passHref>
-              <button className='disabled:hidden bg-blue-300 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
-                Sign up
-              </button>
-            </Link>
-          </div>
+            <div className='space-x-4'>
+              <Link href={'/register'} passHref>
+                <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
+                  Sign up
+                </button>
+              </Link>
+            </div>
+         
         </div>
       </nav>
     </header>
