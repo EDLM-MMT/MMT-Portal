@@ -1,5 +1,5 @@
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import ViewBtn from "@/components/buttons/ViewBtn";
 
 const renderer = () => {
