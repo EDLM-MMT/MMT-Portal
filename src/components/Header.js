@@ -4,32 +4,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '/public/logo192.png';
 import useStore from '@/store/store';
+import UserMenu from './menus/UserMenu';
 
 
 const menuItems = [
   {
     label: 'My Transcripts',
-    path: '/transcripts',
+    path: '/serviceMember/transcripts',
   },
   {
     label: 'My Inquiries',
-    path: '/inquiries',
+    path: '/serviceMember/inquiries',
   },
   {
     label: 'My Degree Agreements',
-    path: '/my-degree-agreements',
+    path: '/serviceMember/myDegreeAgreements',
   },
   {
     label: 'My Degree Pathways',
-    path: '/my-degree-pathways',
+    path: '/serviceMember/myDegreePathways',
   },
   {
     label: 'Career Plans',
-    path: '/career-plans',
+    path: '/serviceMember/careerPlans',
   },
   {
     label: 'Quick Links',
-    path: '/quick-links',
+    path: '/serviceMember/quickLinks',
   },
 ];
 
@@ -48,7 +49,7 @@ function Button({ data }) {
   return (
     <Link href={data.path}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <button className='transition-all duration-100 px-1 border-b-2 border-transparent text-white hover:text-gray-300'>
+      <button className='transition-all duration-100 px-2 border-b-2 border-transparent text-lg text-white hover:text-gray-300'>
         {data.label}
       </button>
     </Link>
@@ -56,7 +57,13 @@ function Button({ data }) {
 }
 
 export default function Header() {
+  const router = useRouter();
   const user = useStore((state) => state.userData);
+  const {userData, removeUserData} = useStore((state) => state);
+  const handleLogout = () => {
+    router.push('/');
+    removeUserData();
+  };
   return (
     <header className={'bg-dod-700 w-full shadow z-50'}>
       <nav
@@ -65,7 +72,7 @@ export default function Header() {
       >
         <div className='w-full py-4 inline-flex items-center justify-between z-50'>
           <div className={'flex items-center justify-start gap-2'}>
-            <Link href={'/'} passHref>
+            <Link href={'/dashboard'} passHref>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <button
                 title='home'
@@ -81,11 +88,16 @@ export default function Header() {
             })}
           </div>
             <div className='space-x-4'>
+              {!user? (
+              
               <Link href={'/register'} passHref>
                 <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
                   Sign up
                 </button>
               </Link>
+              ):(
+                <UserMenu logout={handleLogout} userData={user}/>
+              )}
             </div>
          
         </div>
