@@ -6,7 +6,7 @@ const cards = [
         title: "Transcripts",
         description: "Request to Download Transcript: Baisc Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
         buttonLabel: "Go to Transcript",
-        routePath:"serviceMember/transcript"
+        routePath:"serviceMember/transcripts"
     },
     {
         title: "Inquiries",
