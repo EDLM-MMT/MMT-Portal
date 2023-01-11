@@ -7,7 +7,7 @@ export default function DefaultLayout({ handleLogin, children }) {
       {/* <Header handleLogin={handleLogin} /> */}
       <Header />
       <main className='max-w-7xl mx-auto mt-10'>{children}</main>
-      <div className="absolute inset-x-0 bottom-0 h-16">
+      <div className="absolute inset-x-0 bottom-12 h-16">
         {<Footer />}
       </div>
     </>
