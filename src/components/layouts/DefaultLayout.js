@@ -1,5 +1,5 @@
-import Footer from '../Footer';
-import Header from '../Header';
+import Footer from '../common/Footer';
+import Header from '../common/Header';
 
 export default function DefaultLayout({ handleLogin, children }) {
   return (

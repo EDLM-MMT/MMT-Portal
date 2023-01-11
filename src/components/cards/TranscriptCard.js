@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
-import DownloadButton from "./DownloadButton";
-import ViewBtn from "./ViewBtn";
+import DownloadButton from "@/components/buttons/DownloadButton";
+import ViewBtn from "@/components/buttons/ViewBtn";
 
 export default function TranscriptCard({ title, description, type}){
     const router = useRouter();
@@ -21,6 +21,7 @@ export default function TranscriptCard({ title, description, type}){
             <div className='flex flex-row align-bottom justify-between mt-5'>
                 <ViewBtn transcriptType={type}/>
                 <DownloadButton/>
+                
             </div>
         </div>
     )

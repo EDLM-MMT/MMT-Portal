@@ -1,5 +1,5 @@
 import { act, fireEvent, render } from "@testing-library/react";
-import Button from "@/components/Button";
+import Button from "@/components/buttons/Button";
 
 describe("Button Component", () => {
   it("should render the component", () => {

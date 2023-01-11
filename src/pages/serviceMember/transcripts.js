@@ -1,6 +1,6 @@
-import Button from '@/components/Button';
+import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import TranscriptCard from '@/components/TranscriptCard';
+import TranscriptCard from '@/components/cards/TranscriptCard';
 import useStore from '@/store/store';
 
 export default function Transcript() {
