@@ -6,11 +6,12 @@ describe("TranscriptCard Component", () => {
   it("should render the component", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
-            <TranscriptCard title={"Test title"} description={"description"} type={"complete"}/>
+            <TranscriptCard title={"Test title"} type={"complete"}/>
         </MemoryRouterProvider>
     );
     expect(getByText(/Test title/i)).toBeInTheDocument();
-    expect(getByText(/description/i)).toBeInTheDocument();
+    expect(getByText(/Request Official Transcript/i)).toBeInTheDocument();
+    expect(getByText(/Return to Transcript Page/i)).toBeInTheDocument();
 
     const button = getByText('Download');
     act(() => {
