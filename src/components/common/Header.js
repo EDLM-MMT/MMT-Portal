@@ -29,7 +29,7 @@ const menuItems = [
   },
   {
     label: 'Quick Links',
-    path: '/serviceMember/quickLinks',
+    path: '/quickLinks',
   },
 ];
 
