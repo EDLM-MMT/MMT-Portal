@@ -12,7 +12,7 @@ export default function Transcript() {
                 <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
                         My Transcripts
-                        <Button btnText={"Request Official Transcript"} link={"/serviceMember/transcript/requestOfficialTranscript"}></Button>
+                        <Button btnText={"Request Official Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
                     </div> 
                 </h1>
 
