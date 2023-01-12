@@ -2,7 +2,7 @@ import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import QuickLinks from "@/pages/quickLinks";
 
-describe("Transcript Component", () => {
+describe("Quick Links Component", () => {
   it("should render the component", () => {
     const { getByText, getAllByText } = render(
         <MemoryRouterProvider>
