@@ -2,7 +2,7 @@ import RequestOfficialTranscript from "@/pages/serviceMember/requestOfficialTran
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
-describe("Transcripts Component", () => {
+describe("Request Transcript Component", () => {
   it("should render the component", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
