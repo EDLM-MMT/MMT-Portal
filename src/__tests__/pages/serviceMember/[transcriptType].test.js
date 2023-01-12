@@ -2,9 +2,9 @@ import TranscriptView from "@/pages/serviceMember/transcripts/[transcriptType]";
 import { render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
-describe("Transcripts Component", () => {
+describe("Transcript Type View Component", () => {
   it("should render the component", () => {
-    const { getByText, getAllByText } = render(
+    const { getByText } = render(
         <MemoryRouterProvider>
             <TranscriptView />
         </MemoryRouterProvider>

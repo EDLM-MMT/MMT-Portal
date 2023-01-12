@@ -17,7 +17,7 @@ export default function RequestOfficialTranscript() {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mt-4  text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        Request Offical Transcript
+                        Request Official Transcript
                     </div> 
                 </h1>
                 <div>
