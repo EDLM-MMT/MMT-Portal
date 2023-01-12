@@ -1,4 +1,4 @@
-import Card from '@/components/Card';
+import Card from '@/components/cards/Card';
 import useStore from '@/store/store';
 
 const cards = [
@@ -6,7 +6,7 @@ const cards = [
         title: "Transcripts",
         description: "Request to Download Transcript: Baisc Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
         buttonLabel: "Go to Transcript",
-        routePath:"serviceMember/transcript"
+        routePath:"serviceMember/transcripts"
     },
     {
         title: "Inquiries",
