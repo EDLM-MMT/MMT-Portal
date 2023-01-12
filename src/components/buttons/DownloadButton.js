@@ -7,11 +7,11 @@ export default function DownloadButton({ handleDownloadClick }) {
     return (
         <div className="rounded-md">
             <Menu as="div" className="relative inline-block text-left">
-                <div>
+                <div className='text-sm'>
                     <Menu.Button 
-                        className='flex justify-center items-center gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-2 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none' title='view transcript'>
+                        className='flex justify-center items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-2 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none' title='view transcript'>
                         <ArrowCircleDownIcon
-                            className=" -mr-1 h-5 w-5 text-white hover:text-dod-100"
+                            className=" -mr-1 h-4 w-4 text-white hover:text-dod-100"
                             aria-hidden="true"
                         />
                         Download
