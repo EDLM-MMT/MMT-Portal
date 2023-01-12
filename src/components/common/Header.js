@@ -1,10 +1,9 @@
-//import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '/public/logo192.png';
 import useStore from '@/store/store';
-import UserMenu from './menus/UserMenu';
+import UserMenu from '@/components/menus/UserMenu';
 
 
 const menuItems = [

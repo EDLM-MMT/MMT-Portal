@@ -1,6 +1,6 @@
-import Button from '@/components/Button';
+import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import TranscriptCard from '@/components/TranscriptCard';
+import TranscriptCard from '@/components/cards/TranscriptCard';
 import useStore from '@/store/store';
 
 export default function Transcript() {
@@ -12,7 +12,7 @@ export default function Transcript() {
                 <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
                         My Transcripts
-                        <Button btnText={"Request Official Transcript"} link={"/serviceMember/transcript/requestOfficialTranscript"}></Button>
+                        <Button btnText={"Request Official Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
                     </div> 
                 </h1>
 

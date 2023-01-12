@@ -24,34 +24,37 @@ export default function QuickLinks() {
 
     const navigationContent = [
     {   title: "ACE Military Guide",
-        answer: ""
+        link: "https://www.acenet.edu/Programs-Services/Pages/Credit-Transcripts/military-guide-online.aspx"
     },
     {   title: "Go Army Ed",
-        answer: ""
+        link: "https://www.goarmyed.com/login.aspx"
+    },
+    {   title: "Marine Corps Voluntary Education",
+        link: "https://usmc-mccs.org/services/education/voluntary-education/"
     },
     {   title: "MyEducation (WebTa)",
-        answer: ""
+        link: "https://myeducation.netc.navy.mil/"
     },
     {   title: "Navy College Program",
-        answer: ""
+        link: "https://www.navycollege.navy.mil/"
     },
-    {   title: "Defense Activity for Non-traditional Ed Spt",
-        answer: ""
+    {   title: "Defense Activity for Non-traditional Ed Spt (DANTES)",
+        link: "https://www.dantes.doded.mil/"
     },
     {   title: "Defense Language Inst (DLI)",
-        answer: ""
+        link: "http://www.dliflc.edu/"
     },
     {   title: "Marine Corps University",
-        answer: ""
+        link: "https://www.usmcu.edu/"
     },
     {   title: "National Personnel Center",
-        answer: ""
+        link: "https://www.archives.gov/veterans/military-service-records"
     },
     {   title: "U.S. Navy",
-        answer: ""
+        link: "https://www.navy.mil/"
     },
     {   title: "USAFI/GED Transcripts before July 1974",
-        answer: ""
+        link: "https://jst.doded.mil/usafi/"
     },
     ]
 
@@ -76,6 +79,7 @@ export default function QuickLinks() {
                     >
                     <Disclosure.Panel className="p-5 rounded-lg border border-t-0 ml-2 border-gray-300 focus:ring-4 focus:ring-gray-200 focus:bg-gray-50">
                         {question.answer}
+                        <a href={question.link} target="_blank" className='text-blue-800 text-semibold underline'>Click here to open in a new tab</a>
                     </Disclosure.Panel>
                     </Transition>
                 </div> )}
