@@ -7,7 +7,7 @@ describe("Alert Component", () => {
     it("should render the component", () => {
         const { getByText } = render(
             <MemoryRouterProvider>
-                <Alert />
+                <Alert toggleModal={()=>{}}/>
             </MemoryRouterProvider> );
             
         expect(getByText("Alert")).toBeInTheDocument();
