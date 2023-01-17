@@ -78,8 +78,10 @@ export default function QuickLinks() {
                         leaveTo="transform scale-95 opacity-0"
                     >
                     <Disclosure.Panel className="p-5 rounded-lg border border-t-0 ml-2 border-gray-300 focus:ring-4 focus:ring-gray-200 focus:bg-gray-50">
-                        {question.answer}
-                        <a href={question.link} target="_blank" className='text-blue-800 text-semibold underline'>Click here to open in a new tab</a>
+                        {question.answer} 
+                        {question.link && 
+                            <a href={question.link} target="_blank" className='text-blue-800 text-semibold underline'>Click here to open in a new tab</a>
+                        }
                     </Disclosure.Panel>
                     </Transition>
                 </div> )}
