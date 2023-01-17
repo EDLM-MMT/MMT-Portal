@@ -2,6 +2,7 @@ import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
+import AddBtn from '@/components/buttons/AddButton';
 
 
 export default function Inquiry() {
@@ -42,7 +43,7 @@ export default function Inquiry() {
                     </div> 
                 </h1>
                 <div className=' flex-col flex w-1/6 justify-start pb-6'>
-                    <Button className="rounded-none" btnText={"+ Start New Inquiry"} link={'/serviceMember/transcripts/'}/>
+                    <AddBtn className="rounded-none" btnText={"Start New Inquiry"} link={'/serviceMember/newInquiry/'}/>
 
                 </div>
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
