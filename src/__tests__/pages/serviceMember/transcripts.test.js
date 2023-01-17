@@ -3,6 +3,13 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import Transcripts from "@/pages/serviceMember/transcripts";
 
 describe("Transcripts Component", () => {
+  jest.mock('next/router', () => ({
+    ...jest.requireActual('next/router'),
+    useAuthRouter: () => ({
+
+    }),
+  }));
+
   it("should render the component", () => {
     const { getByText, getAllByText } = render(
         <MemoryRouterProvider>
