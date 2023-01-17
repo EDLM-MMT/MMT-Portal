@@ -9,7 +9,6 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { useState } from "react";
-import fooFile from '../../assets/PRICHARD_GREGORY_ComboTranscript.pdf'
 
 export default function TranscriptCard({ title, routePath, type}){
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
