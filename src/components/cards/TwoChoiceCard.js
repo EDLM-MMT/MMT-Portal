@@ -1,7 +1,8 @@
 import { twMerge } from "tailwind-merge";
 import { useRouter } from "next/router"
+import Button from "../buttons/Button";
 
-export default function TwoChoiceCard({ title, description, buttonLabel, routePath, children, className }){
+export default function TwoChoiceCard({ title, description, buttonLabel, firstRoutePath, viewRoutePath, className }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
@@ -19,19 +20,38 @@ export default function TwoChoiceCard({ title, description, buttonLabel, routePa
             <p className={descriptionClass}>
                 {description}
             </p>
-            {children}
             {buttonLabel &&
-            <div className='flex align-bottom items-bottom justify-center mt-10'>
-                <div className='inline-block align-bottom gap-2'>
-                    <button
-                        id={'view-course-button-'}
-                        className='flex justify-center items-center gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-2 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none'
-                        title='view course'
-                        onClick={handleClick}
-                    >
-                        {buttonLabel}
-                    </button>
+            <div className='flex flex-row align-bottom mt-5'>
+                <div className= 'w-1/2'>
+                    <Button 
+                        className='text-black bg-white hover:bg-white hover:text-black justify-center 
+                        h-18
+                        text-sm 
+                        font-bold
+                        items-center
+                        border-grey
+                        border
+                        border-l-0
+                        border-b-0
+                        rounded-none 
+                        gap-2 '
+                        btnText={buttonLabel} 
+                        link={firstRoutePath}/>
                 </div>
+                <div className= 'w-1/2'>
+                    <Button  className='text-black bg-white hover:bg-white hover:text-black justify-center 
+                        text-sm 
+                        font-bold
+                        items-center
+                        border-grey
+                        border
+                        border-r-0
+                        border-b-0
+                        rounded-none 
+                        gap-2 '
+                        btnText={"View"} 
+                        link={viewRoutePath}/>
+                </div>  
             </div>
             }
         </div>

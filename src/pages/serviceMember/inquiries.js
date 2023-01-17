@@ -12,22 +12,22 @@ export default function Inquiry() {
             title: "Course Update",
             description: "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.",
             // buttonLabel: "View Basic Transcript",
-            routePath:"serviceMember/transcripts/basicTranscript",
-            type: "Basic"
+            firstRoutePath:"transcripts/basicTranscript",
+            secondRoutePath: "transcripts/summaryTranscript"
         },
         {
             title: "Leadership Course",
             description: "Confutatis venedictis sae no adictis. ",
             // buttonLabel: "View Summary Transcript",
-            routePath:"serviceMember/transcripts/summaryTranscript",
-            type: "Summary"
+            firstRoutePath:"transcripts/summaryTranscript",
+            secondRoutePath: "transcripts/basicTranscript"
         },
         {
             title: "Course Update",
             description: "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.",
             // buttonLabel: "View Basic Transcript",
-            routePath:"serviceMember/transcripts/basicTranscript",
-            type: "Basic"
+            firstRoutePath:"transcripts/basicTranscript",
+            secondRoutePath: "/profile"
         },
         
         
@@ -49,40 +49,7 @@ export default function Inquiry() {
                     {cards.map((card, index) => {
                         return(
                             <>
-                                <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}>
-                                    <div className='flex flex-row align-bottom mt-5'>
-                                        <div className= 'w-1/2'>
-                                            <Button 
-                                                className='text-black bg-white hover:bg-white hover:text-black justify-center 
-                                                h-18
-                                                text-sm 
-                                                font-bold
-                                                items-center
-                                                border-black
-                                                border
-                                                border-l-0
-                                                border-b-0
-                                                rounded-none 
-                                                gap-2 '
-                                                btnText={"Reopen Inquiry"} 
-                                                link={'/serviceMember/transcripts/'}/>
-                                        </div>
-                                        <div className= 'w-1/2'>
-                                            <Button  className='text-black bg-white hover:bg-white hover:text-black justify-center 
-                                                text-sm 
-                                                font-bold
-                                                items-center
-                                                border-black
-                                                border
-                                                border-r-0
-                                                border-b-0
-                                                rounded-none 
-                                                gap-2 '
-                                                btnText={"View"} 
-                                                link={'/profile'}/>
-                                        </div>  
-                                    </div>
-                                </TwoChoiceCard>
+                                <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel="Reopen Inquiry" firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}/>
                             </>
                         )
                     })}
