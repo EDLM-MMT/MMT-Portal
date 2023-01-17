@@ -17,7 +17,7 @@ const menuItems = [
   },
   {
     label: 'My Degree Agreements',
-    path: '/serviceMember/myDegreeAgreements',
+    path: '/serviceMember/degreeAgreements',
   },
   {
     label: 'My Degree Pathways',

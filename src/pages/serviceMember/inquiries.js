@@ -1,9 +1,7 @@
-import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
 import AddBtn from '@/components/buttons/AddButton';
-
 
 export default function Inquiry() {
     const userData = useStore((state) => state.userData);
@@ -12,26 +10,21 @@ export default function Inquiry() {
         {
             title: "Course Update",
             description: "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.",
-            // buttonLabel: "View Basic Transcript",
             firstRoutePath:"transcripts/basicTranscript",
             secondRoutePath: "transcripts/summaryTranscript"
         },
         {
             title: "Leadership Course",
             description: "Confutatis venedictis sae no adictis. ",
-            // buttonLabel: "View Summary Transcript",
             firstRoutePath:"transcripts/summaryTranscript",
             secondRoutePath: "transcripts/basicTranscript"
         },
         {
             title: "Course Update",
             description: "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.",
-            // buttonLabel: "View Basic Transcript",
             firstRoutePath:"transcripts/basicTranscript",
             secondRoutePath: "/profile"
         },
-        
-        
     ]
 
     return (
@@ -49,9 +42,7 @@ export default function Inquiry() {
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     {cards.map((card, index) => {
                         return(
-                            <>
-                                <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel="Reopen Inquiry" firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}/>
-                            </>
+                            <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel="Reopen Inquiry" firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}/>
                         )
                     })}
                 </div>
