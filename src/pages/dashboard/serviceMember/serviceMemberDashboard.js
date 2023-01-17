@@ -12,7 +12,7 @@ const cards = [
         title: "Inquiries",
         description: "Open an Inquiry or access previous inquiries for assistance or corrections to your records",
         buttonLabel: "Go to Inquiries",
-        routePath:"inquiries"
+        routePath:"serviceMember/inquiries"
     },
     {
         title: "Degree Agreements",
