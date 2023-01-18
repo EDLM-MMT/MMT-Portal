@@ -57,7 +57,7 @@ import {
               >
                 <UserIcon className='h-6 text-blue-500 text-shadow' />
               </div>
-              <div className='line-clamp-1'>{user.learner.personnel.person.firstName}</div>
+              <div className='line-clamp-1'>{user?.learner.personnel.person.firstName}</div>
   
               <ChevronUpIcon
                 className={`${
