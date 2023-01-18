@@ -23,13 +23,13 @@ const menuItems = [
     label: 'My Degree Pathways',
     path: '/serviceMember/myDegreePathways',
   },
-  {
-    label: 'Career Plans',
-    path: '/serviceMember/careerPlans',
-  },
+  // {
+  //   label: 'Career Plans',
+  //   path: '/serviceMember/careerPlans',
+  // },
   {
     label: 'Quick Links',
-    path: '/serviceMember/quickLinks',
+    path: '/quickLinks',
   },
 ];
 

@@ -6,11 +6,6 @@ import Image from 'next/image';
 export default function Profile() {
     const userData = useStore((state) => state.userData);
 
-    console.log(userData);
-    const handleUpdate = (e) => {
-        
-    };
-
     return (
         <DefaultLayout >
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
@@ -18,7 +13,6 @@ export default function Profile() {
         
         <Image src={profileImage} alt='DOD' width={200} height={200} />
         <button type="submit" class="ml-8 mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload Image</button>
-
 
         <form className='mt-4'>
             <div class="grid gap-6 mb-6 md:grid-cols-2">

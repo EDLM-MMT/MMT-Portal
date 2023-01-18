@@ -13,7 +13,7 @@ describe("TranscriptCard Component", () => {
     expect(getByText(/Request Official Transcript/i)).toBeInTheDocument();
     expect(getByText(/Return to Transcript Page/i)).toBeInTheDocument();
 
-    const button = getByText('Download');
+    const button = getByText('Transcript');
     act(() => {
         fireEvent.click(button);
     });
