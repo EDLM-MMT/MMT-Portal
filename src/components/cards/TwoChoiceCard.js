@@ -1,20 +1,31 @@
 import { twMerge } from "tailwind-merge";
-import { useRouter } from "next/router"
 import Button from "../buttons/Button";
 import { useState } from 'react';
-import Overlay from "../Overlay";
+import DegreeAgreementsOverlay from "../DegreeAgreementsOverlay";
 
 
-export default function TwoChoiceCard({ title, description, buttonLabel, firstRoutePath, viewRoutePath, className }){
+export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
     `);
 
+    console.log(data)
     const [isOpen, setIsOpen] = useState(false);
+    // const [updatedCard, setUpdatedCard] = useState(card);
+    // const [updatedData, setUpdatedData] = useState(data);
+
 
     const handleClick = () => {
-        setIsOpen(true)
+        setIsOpen(true);
+        // setUpdatedCard((prev) => ({
+        //     ...prev,
+        //     status: "Reopen Degree Agreement",
+        //   }));
+        
+        // console.log(updatedCard);
+        // setUpdatedData(data[degreeIndex] = updatedCard);
+        // console.log(updatedData);
     }
     return(
         <div className='bg-white w-full border h-50 rounded-md border-gray-200 p-4 pb-0 shadow'>
@@ -24,7 +35,7 @@ export default function TwoChoiceCard({ title, description, buttonLabel, firstRo
             <p className={descriptionClass}>
                 {description}
             </p>
-            {buttonLabel &&
+            
             <div className='flex flex-row align-bottom mt-5'>
                 <div className= 'w-1/2'>
                     <button className='text-black bg-white hover:bg-white hover:text-black justify-center 
@@ -32,8 +43,10 @@ export default function TwoChoiceCard({ title, description, buttonLabel, firstRo
                         onClick={handleClick}>
                         {buttonLabel} 
                     </button>
-                    {isOpen && <Overlay toggleModal={setIsOpen} title={"Close Degree Agreement"} 
-                    message={"Please confirm you want to close this Degree Agreement."} btnText={"Yes, Close the Degree Agreement"}/>}
+                    {isOpen && <DegreeAgreementsOverlay toggleModal={setIsOpen} title={buttonLabel} 
+                    // updatedData={updatedData}
+                    message={`Please confirm you want to ${buttonLabel}`} btnText={`Yes, ${buttonLabel}`}
+                    data={data} card={card} degreeIndex={degreeIndex}/>}
                 </div>
                 <div className= 'w-1/2'>
                     <Button  className='text-black bg-white hover:bg-white hover:text-black justify-center 
@@ -50,7 +63,6 @@ export default function TwoChoiceCard({ title, description, buttonLabel, firstRo
                         link={viewRoutePath}/>
                 </div>  
             </div>
-            }
         </div>
     )
 }

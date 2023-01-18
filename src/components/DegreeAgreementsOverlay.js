@@ -1,13 +1,41 @@
 import { Dialog, Transition } from '@headlessui/react'
+import axios from 'axios';
 import React, { Fragment, useRef, useState } from 'react'
 
-export default function Overlay({ toggleModal, title, message, btnText }){
+export default function DegreeAgreementsOverlay({ toggleModal, title, message, btnText, data, card, degreeIndex }){
     let [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
+    const [updatedCard, setUpdatedCard] = useState(card);
+    const [updatedData, setUpdatedData] = useState(data);
     
     const closeModal = () => {
         var state= setOpen(false);
         toggleModal(state);
+    }
+
+    const changeStatus = () => {
+        var state= setOpen(false);
+        toggleModal(state);
+        
+        setUpdatedCard((prev) => ({
+            ...updatedCard,
+            test: "test",
+          }));
+
+        setUpdatedCard((prev) => ({
+            ...prev,
+            status: "Reopen Degree Agreement",
+          }));
+        
+        // console.log(updatedCard);
+        // setUpdatedData(updatedData[degreeIndex] = updatedCard);
+        // console.log(updatedData);
+
+        axios
+            .post('/api/updateDegreeAgreements', {degreeAgreements: [updatedCard]} )
+            .catch((err) =>{
+                console.log(err);
+            })
     }
 
 return (
@@ -63,7 +91,7 @@ return (
                     <button
                         type="button"
                         className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                        onClick={closeModal}
+                        onClick={changeStatus}
                         ref={cancelButtonRef}
                     >
                         {btnText}

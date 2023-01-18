@@ -21,7 +21,7 @@ const menuItems = [
   },
   {
     label: 'My Degree Pathways',
-    path: '/serviceMember/myDegreePathways',
+    path: '/serviceMember/degreePathways',
   },
   // {
   //   label: 'Career Plans',
