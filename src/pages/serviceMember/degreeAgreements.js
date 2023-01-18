@@ -10,7 +10,7 @@ export default function Inquiry() {
         {
             title: "Leadership Course",
             description: "Confutatis venedictis sae no adictis. ",
-            firstRoutePath:"transcripts/summaryTranscript",
+            status:"Close",
             secondRoutePath: "transcripts/basicTranscript"
         },
     ]
@@ -24,7 +24,7 @@ export default function Inquiry() {
                     </div> 
                 </h1>
                 <div className=' flex-col flex w-1/6 justify-start pb-6'>
-                    <AddBtn className="rounded-none" btnText={"Start New Degree Agreement"} link={'/serviceMember/newDegreeAgreement/'}/>
+                    <AddBtn className="rounded-none" btnText={"Start New Degree Agreement"} link={'/serviceMember/degreePathways/'}/>
                 </div>
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     {cards.map((card, index) => {
