@@ -1,5 +1,4 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import useStore from '@/store/store';
 import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
 import AddBtn from '@/components/buttons/AddButton';
 import axios from 'axios';
@@ -7,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function Inquiry() {  
     const [data, setData] = useState([]);
+    const [update, setUpdate] = useState(false);
 
     useEffect(() => {
         axios
@@ -20,7 +20,6 @@ export default function Inquiry() {
           });
     }, []);
 
-    console.log(data);
     return (
         <DefaultLayout>
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
@@ -36,7 +35,8 @@ export default function Inquiry() {
                     {data?.map((card, index) => {
                         return(
                             <TwoChoiceCard key={index} title={card.title} description={card.description} 
-                            buttonLabel={card.status} viewRoutePath={card.secondRoutePath} data={data} card={card} degreeIndex={index}/>
+                            buttonLabel={card.status} viewRoutePath={card.secondRoutePath} data={data} 
+                            card={card} degreeIndex={index} toggleModalUpdate={setUpdate}/>
                         )
                     })}
                 </div>

@@ -1,9 +1,11 @@
 import { Dialog, Transition } from '@headlessui/react'
 import axios from 'axios';
-import React, { Fragment, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 
-export default function DegreeAgreementsOverlay({ toggleModal, title, message, btnText, data, card, degreeIndex }){
+export default function DegreeAgreementsOverlay({ toggleModal, title, message, btnText, data, card, degreeIndex, toggleModalUpdate }){
     let [open, setOpen] = useState(true);
+
+    let [update, setUpdate] = useState(false);
     const cancelButtonRef = useRef(null);
     const [updatedCard, setUpdatedCard] = useState(card);
     const [updatedData, setUpdatedData] = useState(data);
@@ -13,29 +15,42 @@ export default function DegreeAgreementsOverlay({ toggleModal, title, message, b
         toggleModal(state);
     }
 
+    useEffect(() => {
+        console.log("flipping status");
+        if(card.status === "Close Degree Agreement"){
+            setUpdatedCard((prev) => ({
+                ...prev,
+                status: "Reopen Degree Agreement",
+            }));
+        }
+        else if(card.status === "Reopen Degree Agreement"){
+            setUpdatedCard((prev) => ({
+                ...prev,
+                status: "Close Degree Agreement",
+            }));
+        }
+        
+    }, [update]);
+
+    useEffect(() => {
+        data[degreeIndex] = updatedCard;
+        setUpdatedData(data);
+    }, [updatedCard]);
+
     const changeStatus = () => {
         var state= setOpen(false);
         toggleModal(state);
-        
-        setUpdatedCard((prev) => ({
-            ...updatedCard,
-            test: "test",
-          }));
+        setUpdate(true);
 
-        setUpdatedCard((prev) => ({
-            ...prev,
-            status: "Reopen Degree Agreement",
-          }));
-        
-        // console.log(updatedCard);
-        // setUpdatedData(updatedData[degreeIndex] = updatedCard);
-        // console.log(updatedData);
-
+        console.log(updatedCard);
+        console.log(updatedData);
         axios
-            .post('/api/updateDegreeAgreements', {degreeAgreements: [updatedCard]} )
+            .post('/api/updateDegreeAgreements', {degreeAgreements: updatedData} )
             .catch((err) =>{
                 console.log(err);
             })
+
+        toggleModalUpdate(true);
     }
 
 return (

@@ -4,29 +4,18 @@ import { useState } from 'react';
 import DegreeAgreementsOverlay from "../DegreeAgreementsOverlay";
 
 
-export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex }){
+export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
     `);
 
-    console.log(data)
     const [isOpen, setIsOpen] = useState(false);
-    // const [updatedCard, setUpdatedCard] = useState(card);
-    // const [updatedData, setUpdatedData] = useState(data);
-
 
     const handleClick = () => {
         setIsOpen(true);
-        // setUpdatedCard((prev) => ({
-        //     ...prev,
-        //     status: "Reopen Degree Agreement",
-        //   }));
-        
-        // console.log(updatedCard);
-        // setUpdatedData(data[degreeIndex] = updatedCard);
-        // console.log(updatedData);
     }
+
     return(
         <div className='bg-white w-full border h-50 rounded-md border-gray-200 p-4 pb-0 shadow'>
             <h1 className='text-xl font-semibold h-10'>
@@ -43,8 +32,7 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                         onClick={handleClick}>
                         {buttonLabel} 
                     </button>
-                    {isOpen && <DegreeAgreementsOverlay toggleModal={setIsOpen} title={buttonLabel} 
-                    // updatedData={updatedData}
+                    {isOpen && <DegreeAgreementsOverlay toggleModal={setIsOpen} title={buttonLabel} toggleModalUpdate={toggleModalUpdate}
                     message={`Please confirm you want to ${buttonLabel}`} btnText={`Yes, ${buttonLabel}`}
                     data={data} card={card} degreeIndex={degreeIndex}/>}
                 </div>
