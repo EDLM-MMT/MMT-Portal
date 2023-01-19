@@ -5,9 +5,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 import Alert from '@/components/Alert';
-// import DODImage from '@/public/DOD.png';
+import DODImage from '@/../public/logo.png';
 import DefaultLayout from "../components/layouts/DefaultLayout"
-// import Image from 'next/image';
+import Image from 'next/image';
 import axios from 'axios';
 import useAuthRouter from '@/hooks/useAuthRouter';
 import useStore from '@/store/store';
@@ -55,7 +55,7 @@ export default function LoginPage() {
     <>
       <DefaultLayout >
         <div className='flex flex-col justify-center items-center gap-8'>
-          {/* <Image src={DODImage} alt='DOD' width={200} height={200} /> */}
+          <Image src={DODImage} alt='DOD' width={200} height={200} />
           <h1 className='text-center text-2xl font-bold text-gray-800'>
             Welcome to the Joint Service Transcript
           </h1>
@@ -67,14 +67,14 @@ export default function LoginPage() {
               onChange={handleUpdate}
               name='username'
               type='text'
-              placeholder='username'
+              placeholder='Username'
               className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded shadow-sm placeholder-gray-400 focus:outline-none focus:ring-dod-500 focus:ring-2 ring-offset-1 focus:border-dod-500 sm:text-sm'
             />
             <input
               onChange={handleUpdate}
               name='password'
               type='password'
-              placeholder='password'
+              placeholder='Password'
               className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded shadow-sm placeholder-gray-400 focus:outline-none focus:ring-dod-500 focus:ring-2 ring-offset-1 focus:border-dod-500 sm:text-sm'
             />
           </div>

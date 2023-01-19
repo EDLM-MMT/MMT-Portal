@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '/public/logo192.png';
+import logo from '/public/logo.png';
 import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
 
