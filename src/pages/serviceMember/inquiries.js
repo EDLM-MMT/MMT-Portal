@@ -2,30 +2,26 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
 import AddBtn from '@/components/buttons/AddButton';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function Inquiry() {
-    const userData = useStore((state) => state.userData);
+    
+    const [data, setData] = useState([]);
 
-    const cards = [
-        {
-            title: "Course Update",
-            description: "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.",
-            firstRoutePath:"transcripts/basicTranscript",
-            secondRoutePath: "transcripts/summaryTranscript"
-        },
-        {
-            title: "Leadership Course",
-            description: "Confutatis venedictis sae no adictis. ",
-            firstRoutePath:"transcripts/summaryTranscript",
-            secondRoutePath: "transcripts/basicTranscript"
-        },
-        {
-            title: "Course Update",
-            description: "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.",
-            firstRoutePath:"transcripts/basicTranscript",
-            secondRoutePath: "/profile"
-        },
-    ]
+    useEffect(() => {
+        axios
+          .get('../api/inquiry')
+          .then((res) => {
+            console.log(res.data.inquiries);
+            setData(res.data.inquiries);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+    }, []);
+
+    console.log(data);
 
     return (
         <DefaultLayout>
@@ -40,9 +36,9 @@ export default function Inquiry() {
 
                 </div>
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
-                    {cards.map((card, index) => {
+                    {data?.map((card, index) => {
                         return(
-                            <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel="Reopen Inquiry" firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}/>
+                            <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel={card.status} firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}/>
                         )
                     })}
                 </div>

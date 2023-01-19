@@ -1,0 +1,29 @@
+{
+    "inquiries":[
+      {
+        "id": 300,
+        "title": "Leadership Course",
+        "description": "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet. ",
+        "status":"Close Inquiry",
+        "firstRoutePath":"transcripts/basicTranscript",
+        "secondRoutePath": "serviceMember/inquiries/300"
+      },
+      {
+        "id": 301,
+        "title": "Course Update",
+        "description": "Confutatis venedictis sae no adictis. ",
+        "status":"Reopen Inquiry",
+        "firstRoutePath":"transcripts/summaryTranscript",
+        "secondRoutePath": "serviceMember/inquiries/301"
+      },
+      {
+        "id": 302,
+        "title": "Degree Update",
+        "description": "Confutatis venedictis sae no adictis. ",
+        "status":"Reopen Inquiry",
+        "firstRoutePath":"/dashboard",
+        "secondRoutePath": "/profile"
+      }
+    ]
+
+}
