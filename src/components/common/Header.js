@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '/public/logo192.png';
+import logo from '/public/logo.png';
 import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
 
@@ -88,12 +88,18 @@ export default function Header() {
           </div>
             <div className='space-x-4'>
               {!user? (
-              
-              <Link href={'/register'} passHref>
+              <>
+              <Link href={'/'} passHref>
                 <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
-                  Sign up
+                  Sign In
                 </button>
               </Link>
+              <Link href={'/register'} passHref>
+                <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
+                  Sign Up
+                </button>
+              </Link>
+              </>
               ):(
                 <UserMenu logout={handleLogout} userData={user}/>
               )}

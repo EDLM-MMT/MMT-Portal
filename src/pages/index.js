@@ -5,9 +5,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 import Alert from '@/components/Alert';
-// import DODImage from '@/public/DOD.png';
+import DODImage from '@/../public/logo.png';
 import DefaultLayout from "../components/layouts/DefaultLayout"
-// import Image from 'next/image';
+import Image from 'next/image';
 import axios from 'axios';
 import useAuthRouter from '@/hooks/useAuthRouter';
 import useStore from '@/store/store';
@@ -54,46 +54,49 @@ export default function LoginPage() {
   return (
     <>
       <DefaultLayout >
-        <div className='flex flex-col justify-center items-center gap-8'>
-          {/* <Image src={DODImage} alt='DOD' width={200} height={200} /> */}
-          <h1 className='text-center text-2xl font-bold text-gray-800'>
-            Welcome to the Joint Service Transcript
-          </h1>
+        <div className='w-1/3 mx-auto p-8 rounded flex flex-col justify-center mb-10'>
+          <Image src={DODImage} alt='DOD' width={200} height={200} className='mx-auto' />
+            <h1 className="my-2 mx-auto text-2xl font-bold"> Sign in to your account </h1>
+
+            <span className="mx-auto">
+              or &nbsp;
+              <button
+                  id={'create-account-button'}
+                  className='text-blue-400 hover:underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'
+                  onClick={() => router.push("/register")}>
+                  Create an Account
+              </button>
+            </span>
+            
+            <form className="p-2 align-center mx-auto"
+              onSubmit={handleLogin} onChange={handleUpdate}>
+              <input 
+                  className='shadow focus:shadow-md rounded-md p-2 w-full border border-gray-200 text-gray-700 focus:ring-2 outline-none transition-all  duration-200'
+                  type="text" name="username" placeholder="Email"/> 
+              <input 
+                  className='mt-2 shadow focus:shadow-md rounded-md p-2 w-full border border-gray-200 text-gray-700 focus:ring-2 outline-none transition-all duration-200'
+                  type="password" name="password" placeholder="Password"/>
+              
+              
+              <div className='flex mx-auto flex-col justify-center items-center'>
+                  {/* <div className="flex mt-2 content-center items-center justify-center text-red-600 ">
+                      <span>{errorMsg}</span>
+                  </div> */}
+                  {isOpen && <Alert toggleModal={setIsOpen} message={errorMsg}/>}
+                  <Link href="/dashboard">
+                    <button
+                      onClick={handleLogin}
+                      className='mt-3 px-6 bg-dod-500 text-white font-bold py-2 rounded hover:bg-dod-300 focus:outline-none  focus:ring-dod-500 focus:shadow-outline-dod focus:ring-2 ring-offset-1'
+                    >
+                      Login
+                    </button>
+                  </Link>
+              </div>
+            </form>
+            <span className='mt-3 text-gray-500 text-sm font-bold'>
+              Trouble logging in? Please contact your IT department
+            </span>
         </div>
-        <form
-          className='flex justify-center flex-col items-center mt-10 gap-4 my-10'>
-          <div className='grid gap-2'>
-            <input
-              onChange={handleUpdate}
-              name='username'
-              type='text'
-              placeholder='username'
-              className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded shadow-sm placeholder-gray-400 focus:outline-none focus:ring-dod-500 focus:ring-2 ring-offset-1 focus:border-dod-500 sm:text-sm'
-            />
-            <input
-              onChange={handleUpdate}
-              name='password'
-              type='password'
-              placeholder='password'
-              className='appearance-none block w-full px-3 py-2 border border-gray-300 rounded shadow-sm placeholder-gray-400 focus:outline-none focus:ring-dod-500 focus:ring-2 ring-offset-1 focus:border-dod-500 sm:text-sm'
-            />
-          </div>
-          <p>Sign-in Using Common Access Card (CAC)</p>
-          <div >
-            {isOpen && <Alert toggleModal={setIsOpen} message={errorMsg}/>}
-          </div>
-          <Link href="/dashboard">
-            <button
-              onClick={handleLogin}
-              className='mt-3 px-6 bg-dod-500 text-white font-bold py-2 rounded hover:bg-dod-300 focus:outline-none  focus:ring-dod-500 focus:shadow-outline-dod focus:ring-2 ring-offset-1'
-            >
-              Login
-            </button>
-          </Link>
-          <span className='mt-3 text-gray-500 text-sm font-bold'>
-            Trouble logging in? Please contact your IT department
-          </span>
-        </form>
       </DefaultLayout>
     </>
   );
