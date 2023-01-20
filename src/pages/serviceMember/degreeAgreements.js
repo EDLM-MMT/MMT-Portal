@@ -4,7 +4,7 @@ import AddBtn from '@/components/buttons/AddButton';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export default function Inquiry() {  
+export default function DegreeAgreements() {  
     const [data, setData] = useState([]);
     const [update, setUpdate] = useState(false);
 
