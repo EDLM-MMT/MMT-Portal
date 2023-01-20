@@ -18,13 +18,13 @@ const cards = [
         title: "Degree Agreements",
         description: "View your current Degree Agreements with schools",
         buttonLabel: "Go to Degree Agreements",
-        routePath:"degreeAgreements"
+        routePath:"serviceMember/degreeAgreements"
     },
     {
         title: "Degree Pathways",
         description: "View Degree Pathway options:By Rating/MOS Codes, Individual Degree Plans, By School, or All Programs ",
         buttonLabel: "Go to Degree Pathways",
-        routePath:"degreePathways"
+        routePath:"serviceMember/degreePathways"
     },
 ]
 
