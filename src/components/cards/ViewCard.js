@@ -1,10 +1,8 @@
 import { twMerge } from "tailwind-merge";
 import Button from "../buttons/Button";
 import { useState } from 'react';
-import DegreeAgreementsOverlay from "../DegreeAgreementsOverlay";
 
-
-export default function ViewCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate }){
+export default function ViewCard({ title, description, className }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
@@ -24,6 +22,8 @@ export default function ViewCard({ title, description, buttonLabel, viewRoutePat
             <p className={descriptionClass}>
                 {description}
             </p>
+
         </div>
+        
     )
 }

@@ -1,10 +1,11 @@
-import inquiryData from '@/data/service_member/inquiries.json';
+import inquiryData from "@/data/service_member/inquiries.json";
 
 export default function handler(req, res) {
-  const inquiryid =  req.query.id;
+  const inquiryid =  req.query;
+  //console.log("Just checking whats here",inquiryData);
 
-  const match = inquiryData.find(
-    (inquiry) => inquiry.id == inquiryid
+  const match = inquiryData.inquiries.find(
+    (course) => course.id == parseInt(Object.values(inquiryid))
   );
 
     
@@ -14,6 +15,8 @@ export default function handler(req, res) {
     });
     return;
   }
+
+
 
   res.status(200).json(match || {});
 } 
