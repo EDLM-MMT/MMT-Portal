@@ -5,10 +5,12 @@ import Image from 'next/image';
 import Button from '@/components/buttons/Button';
 import { useState } from 'react';
 import ResetPasswordOverlay from '@/components/ResetPasswordOverlay';
+import Alert from '@/components/Alert';
 
 
 export default function ResetPassword() {
     const userData = useStore((state) => state.userData);
+    const [errorMessage, setErrorMessage] = useState();
     const [isOpen, setIsOpen] = useState(false);
     const [newPassword, setNewPassword] = useState({
         password: '',
@@ -25,8 +27,12 @@ export default function ResetPassword() {
     function handleSubmit(event){
         if (newPassword.password && newPassword.retypePassword){
             event.preventDefault();
-            setIsOpen(!isOpen);
-            console.log("here");
+            if(newPassword.password === newPassword.retypePassword){
+                setIsOpen(!isOpen);
+            }
+            else{
+                setErrorMessage("Passwords do not match");
+            }
         }
     }
 
@@ -57,7 +63,7 @@ export default function ResetPassword() {
             </div>
         </form>
         {isOpen && <ResetPasswordOverlay toggleModal={setIsOpen} message={"Are you sure you want to reset you password?"}/>}
-
+        {errorMessage && <Alert message={errorMessage} toggleModal={setIsOpen}></Alert>}
 
         </div>
         </DefaultLayout>
