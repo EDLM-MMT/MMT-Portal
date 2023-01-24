@@ -1,6 +1,6 @@
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import { act, fireEvent, render } from "@testing-library/react";
-import Alert from '@/components/Alert';
+import Alert from '@/components/overlays/Alert';
 
 describe("Alert Component", () => {
     
