@@ -3,28 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 export default function Button({ btnText, className, link }) {
 
-    const classes = twMerge(`
-        flex 
-        w-full 
-        justify-center 
-        text-sm 
-        items-center 
-        gap-2 
-        dod-500 
-        rounded-md 
-        hover:shadow-md 
-        text-white 
-        bg-dod-500/80 
-        hover:bg-blue-400 
-        hover:text-white 
-        px-2 p-1.5 transform 
-        transition-all 
-        duration-150 
-        ease-in-out 
-        border-dod-500 
-        border-2 
-        focus:ring-2 
-        ring-dod-500 outline-none
+    const classes = twMerge(`text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
         ${className ?? ""}
     `);
     return (
