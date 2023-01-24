@@ -6,7 +6,7 @@ import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
 
 
-const menuItems = [
+const ServiceMemberMenuItems = [
   {
     label: 'My Transcripts',
     path: '/serviceMember/transcripts',
@@ -27,6 +27,21 @@ const menuItems = [
   //   label: 'Career Plans',
   //   path: '/serviceMember/careerPlans',
   // },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
+const ProgramAdminMenuItems = [
+  {
+    label: 'Inquiry Management',
+    path: '/programAdmin/inquiryManagement',
+  },
+  {
+    label: 'Account Support',
+    path: '/accountSupport',
+  },
   {
     label: 'Quick Links',
     path: '/quickLinks',
@@ -82,7 +97,10 @@ export default function Header() {
               </button>
             </Link>
             
-            {user && menuItems.map((item) => {
+            {user?.role === 'Service Member' && ServiceMemberMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
+            })}
+            {user?.role === 'Program Administrator' && ProgramAdminMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
             })}
           </div>
