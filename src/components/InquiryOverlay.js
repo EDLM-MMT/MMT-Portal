@@ -2,14 +2,13 @@ import { Dialog, Transition } from '@headlessui/react'
 import axios from 'axios';
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 
-export default function DegreeAgreementsOverlay({ toggleModal, title, message, btnText, data, card, degreeIndex, toggleModalUpdate }){
+export default function InquiryOverlay({ toggleModal, title, message, btnText, data, card, degreeIndex, toggleModalUpdate }){
     let [open, setOpen] = useState(true);
 
     let [update, setUpdate] = useState(false);
     const cancelButtonRef = useRef(null);
     const [updatedCard, setUpdatedCard] = useState(card);
     const [updatedData, setUpdatedData] = useState(data);
-    const [inquiryFlag, setInquiryFlag] = useState(false);
     
     const closeModal = () => {
         var state= setOpen(false);
@@ -18,33 +17,18 @@ export default function DegreeAgreementsOverlay({ toggleModal, title, message, b
 
     useEffect(() => {
         console.log("flipping status");
-        if(card.status === "Close Degree Agreement"){
+        if(card.status === "Close Inquiry"){
             setUpdatedCard((prev) => ({
                 ...prev,
-                status: "Reopen Degree Agreement",
-            }));
-        }
-        else if(card.status === "Reopen Degree Agreement"){
-            setUpdatedCard((prev) => ({
-                ...prev,
-                status: "Close Degree Agreement",
+                status: "Reopen Inquiry",
             }));
         }
         else if(card.status === "Reopen Inquiry"){
             setUpdatedCard((prev) => ({
                 ...prev,
-                status: "Close Inquiry",
+                status: "Close Degree Agreement",
             }));
-            setInquiryFlag(true);
         }
-        else if(card.status === "Close Inquiry"){
-            setUpdatedCard((prev) => ({
-                ...prev,
-                status: "Reopen Inquiry",
-            }));
-            setInquiryFlag(true);
-        }
-
         
     }, [update]);
 
@@ -60,19 +44,11 @@ export default function DegreeAgreementsOverlay({ toggleModal, title, message, b
 
         console.log(updatedCard);
         console.log(updatedData);
-        if(!inquiryFlag){
-            axios
-            .post('/api/updateDegreeAgreements', {degreeAgreements: updatedData} )
+        axios
+            .post('/api/inquiry/updateInquiry', {inquiry: updatedData} )
             .catch((err) =>{
                 console.log(err);
             })
-        }else{
-            axios
-            .post('/api/inquiry/updateInquiry', {inquiries: updatedData} )
-            .catch((err) =>{
-                console.log(err);
-            })
-        }
 
         toggleModalUpdate(true);
     }

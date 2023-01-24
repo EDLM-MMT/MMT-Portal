@@ -8,6 +8,7 @@ import axios from 'axios';
 export default function Inquiry() {
     
     const [data, setData] = useState([]);
+    const [update, setUpdate] = useState(false);
 
     useEffect(() => {
         axios
@@ -38,7 +39,10 @@ export default function Inquiry() {
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     {data?.map((card, index) => {
                         return(
-                            <TwoChoiceCard key={index} title={card.title} description={card.description} buttonLabel={card.status} firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}/>
+                            <TwoChoiceCard key={index} title={card.title} description={card.description} 
+                            buttonLabel={card.status} data={data} card={card} degreeIndex={index} 
+                            firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}
+                            toggleModalUpdate={setUpdate}/>
                         )
                     })}
                 </div>
