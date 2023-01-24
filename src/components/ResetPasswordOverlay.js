@@ -1,13 +1,22 @@
 import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment, useRef, useState } from 'react'
+import { useRouter } from "next/router"
+
 
 export default function ResetPasswordOverlay({ toggleModal, message }){
     let [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
-    
+    const router = useRouter();
+
     const closeModal = () => {
         var state= setOpen(false);
         toggleModal(state);
+    }
+
+    const confirmModal = () => {
+        var state= setOpen(false);
+        toggleModal(state);
+        router.push("/profile");
     }
 
 return (
@@ -51,11 +60,19 @@ return (
                         </div>
                     </div>
                     </div>
-                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <div className="bg-gray-50 px-4 py-3 sm:flex justify-between sm:px-6">
                     <button
                         type="button"
                         className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                         onClick={closeModal}
+                        ref={cancelButtonRef}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        onClick={confirmModal}
                         ref={cancelButtonRef}
                     >
                         Confirm
