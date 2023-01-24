@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import DownloadButton from "@/components/buttons/DownloadButton";
 import Button from "../buttons/Button";
 
-export default function TranscriptCard({ title, routePath, type}){
+export default function TranscriptCard({ title, routePath, type, link}){
     const router = useRouter();
     const handleClick = () => {
         router.push(`/${routePath}`);
@@ -23,8 +23,9 @@ export default function TranscriptCard({ title, routePath, type}){
             </div>
 
             <div className="m-4 bg-gray-200 h-screen text-center">
-                <object data={"https://www.africau.edu/images/default/sample.pdf"} type="application/pdf" width="100%" height="100%">
-                    test
+                <object data={link}
+                    type="application/pdf" width="100%" height="100%">
+                    PDF Viewer
                 </object>
             </div>
 

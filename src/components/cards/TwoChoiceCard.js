@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import Button from "../buttons/Button";
 import { useState } from 'react';
-import DegreeAgreementsOverlay from "../DegreeAgreementsOverlay";
+import DegreeAgreementsOverlay from "../overlays/DegreeAgreementsOverlay";
 
 
 export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate }){
@@ -36,7 +36,7 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                     message={`Please confirm you want to ${buttonLabel}`} btnText={`Yes, ${buttonLabel}`}
                     data={data} card={card} degreeIndex={degreeIndex}/>}
                 </div>
-                <div className= 'w-1/2'>
+                <div className= ''>
                     <Button  className='text-black bg-white hover:bg-white hover:text-black justify-center 
                         text-sm 
                         font-bold
@@ -46,7 +46,7 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                         border-r-0
                         border-b-0
                         rounded-none 
-                        gap-2 '
+                        gap-2 w-full'
                         btnText={"View"} 
                         link={viewRoutePath}/>
                 </div>  
