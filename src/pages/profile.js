@@ -2,6 +2,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import profileImage from '@/../public/profile-picture.png';
 import Image from 'next/image';
+import Button from '@/components/buttons/Button';
 
 export default function Profile() {
     const userData = useStore((state) => state.userData);
@@ -9,8 +10,13 @@ export default function Profile() {
     return (
         <DefaultLayout >
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
-            <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>Profile</h1>
-        
+        <h1 className='my-2 pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
+            <div className='flex flex-row justify-between'>  
+                Profile
+                <Button btnText={"Reset Password"} link={"/resetPassword"} className={"mt-0"}></Button>
+            </div> 
+        </h1>
+
         <Image src={profileImage} alt='DOD' width={200} height={200} />
         <button type="submit" class="ml-8 mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Upload Image</button>
 
