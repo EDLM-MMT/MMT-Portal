@@ -2,7 +2,7 @@ import {
     UserCircleIcon,
     LogoutIcon
   } from '@heroicons/react/outline';
-  import { ChevronUpIcon, UserIcon, ViewListIcon } from '@heroicons/react/solid';
+  import { ChevronUpIcon, UserIcon } from '@heroicons/react/solid';
   import { Fragment } from 'react';
   import { Menu, Transition } from '@headlessui/react';
   import { useRouter } from 'next/router';
@@ -14,6 +14,13 @@ import {
       name: 'Profile',
       icon: <UserCircleIcon className='h-4 w-4' />,
       href: '/profile',
+    },
+    {
+      name: 'Login Activity',
+      icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+      </svg>,
+      href: '/loginActivity',
     },
   ];
   
