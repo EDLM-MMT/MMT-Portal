@@ -108,12 +108,12 @@ export default function Header() {
               {!user? (
               <>
               <Link href={'/'} passHref>
-                <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
+                <button className='disabled:hidden bg-dod-500 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
                   Sign In
                 </button>
               </Link>
               <Link href={'/register'} passHref>
-                <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
+                <button className='disabled:hidden bg-dod-500 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
                   Sign Up
                 </button>
               </Link>
