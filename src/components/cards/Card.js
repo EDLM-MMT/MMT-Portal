@@ -1,9 +1,26 @@
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 import { useRouter } from "next/router"
 
-export default function Card({ title, description, buttonLabel, routePath, children }){
+export default function Card({ title, description, buttonLabel, routePath, children, user }){
     const router = useRouter();
 
-    const handleClick = () => {
+    const handleClick = (title) => {
+        const context = {
+            actor: {
+              first_name: user?.user?.first_name || 'Anonymous',
+              last_name: user?.user?.last_name || 'User',
+            },
+            verb: {
+              id: 'https://w3id.org/xapi/acrossx/verbs/searched',
+              display: `viewed ${title}`,
+            },
+            object: {
+              definitionName: 'JST Pages Viewed',
+            },
+            // resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            // resultExtValue: title,
+          };
+          xAPISendStatement(context);
         router.push(`/${routePath}`);
     }
     return(

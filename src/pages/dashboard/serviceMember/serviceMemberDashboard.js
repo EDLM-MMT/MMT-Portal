@@ -36,7 +36,7 @@ export default function ServiceMemberDashboard() {
         <div className='flex justify-between gap-10'>
             {cards.map((card, index) => {
                 return(
-                    <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
+                    <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath} user={userData}/>
                 )
             })}
         </div>
