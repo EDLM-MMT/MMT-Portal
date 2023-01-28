@@ -12,7 +12,7 @@ const cards = [
         title: "Account Support",
         description: "Customer support: Locked out of account and General reporting",
         buttonLabel: "Go to Account Support",
-        routePath:"/accountSupport"
+        routePath:"accountSupport"
     },
 ]
 
