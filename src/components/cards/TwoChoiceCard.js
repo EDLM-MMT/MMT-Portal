@@ -2,7 +2,7 @@ import { twMerge } from "tailwind-merge";
 import Button from "../buttons/Button";
 import { useState } from 'react';
 import DegreeAgreementsOverlay from "../overlays/DegreeAgreementsOverlay";
-import AssignInquiryOverlay from "../AssignInquiryOverlay";
+import AssignInquiryOverlay from "../overlays/AssignInquiryOverlay";
 
 
 

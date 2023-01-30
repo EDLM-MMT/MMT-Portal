@@ -16,7 +16,7 @@ export default function AssignInquiryOverlay({ toggleModal, message }){
     const confirmModal = () => {
         var state= setOpen(false);
         toggleModal(state);
-        router.push("/profile");
+        router.push("/programAdmin/inquiryManagement");
     }
 
 return (
@@ -47,8 +47,7 @@ return (
                 >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div className="sm:flex sm:items-start">
-                        <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <div className="mt-3 text-center sm:mt-0 sm:mx-4 sm:text-left">
                         <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                         <span ><h1 className='text-center font-bold mb-8'>Assign Inquiry</h1></span>
                         </Dialog.Title>
@@ -57,12 +56,11 @@ return (
                             <p className="text-sm text-gray-500">
                             <span>{message}</span>
                             <div>
-                                <input type="text" id="email_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="email adress / account name" required />
+                                <input type="text" id="email_address" class="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address / Account Name" required />
                             </div>
                             </p>
                         </div>
                         </div>
-                    </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:flex justify-between sm:px-6">
                     <button
