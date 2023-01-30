@@ -36,6 +36,25 @@ describe("ResetPasswordOverlay Component", () => {
             fireEvent.click(button);
         });
 
+    });
+
+    it("Button click component", () => {
+        const mockIntersectionObserver = jest.fn();
+        mockIntersectionObserver.mockReturnValue({
+            observe: () => null,
+            unobserve: () => null,
+            disconnect: () => null
+        });
+        window.IntersectionObserver = mockIntersectionObserver;
+        
+        const { getByText } = render(
+            <MemoryRouterProvider>
+                <ResetPasswordOverlay toggleModal={()=>{}}
+                    message={"Please confirm you want to test"}/>
+            </MemoryRouterProvider> );
+            
+        expect(getByText("Cancel")).toBeInTheDocument();
+
         const button2 = getByText('Cancel');
         act(() => {
             fireEvent.click(button2);
