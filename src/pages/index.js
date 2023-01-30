@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-import Alert from '@/components/Alert';
+import Alert from '@/components/overlays/Alert';
 import DODImage from '@/../public/logo.png';
 import DefaultLayout from "../components/layouts/DefaultLayout"
 import Image from 'next/image';

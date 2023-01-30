@@ -4,8 +4,8 @@ import profileImage from '@/../public/profile-picture.png';
 import Image from 'next/image';
 import Button from '@/components/buttons/Button';
 import { useState } from 'react';
-import ResetPasswordOverlay from '@/components/ResetPasswordOverlay';
-import Alert from '@/components/Alert';
+import ResetPasswordOverlay from '@/components/overlays/ResetPasswordOverlay';
+import Alert from '@/components/overlays/Alert';
 
 
 export default function ResetPassword() {
