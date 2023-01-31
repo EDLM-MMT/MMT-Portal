@@ -7,11 +7,11 @@ export default function Card({ title, description, buttonLabel, routePath, child
         router.push(`/${routePath}`);
     }
     return(
-        <div className='bg-white w-1/4 border h-80 rounded-md border-gray-200 p-4 shadow'>
-            <h1 className='text-xl font-semibold h-10'>
+        <div className='bg-white border h-80 rounded-md border-gray-200 p-4 shadow-lg focus:shadow-lg'>
+            <h1 className='flex text-xl font-semibold h-10 items-center justify-center align-middle border-b'>
                 {title}
             </h1>
-            <p className='mt-4 font-sans line-clamp-6 h-36'>
+            <p className='flex px-6 pt-3 mt-4 font-sans line-clamp-6 h-36 text-center'>
                 {description}
             </p>
             {children}
@@ -20,7 +20,7 @@ export default function Card({ title, description, buttonLabel, routePath, child
                 <div className='inline-block align-bottom gap-2'>
                     <button
                         id={'view-course-button-'}
-                        className='flex justify-center items-center gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-2 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none'
+                        className='flex justify-center items-center gap-2 dod-500 w-56 rounded-lg hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-2 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none'
                         title='view course'
                         onClick={handleClick}
                     >
