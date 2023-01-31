@@ -16,7 +16,7 @@ jest.mock("axios", () => ({
   })
 }))
 
-describe("Transcript Type View Component", () => {
+describe("Inquiry View Page", () => {
   it("should render the component", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>

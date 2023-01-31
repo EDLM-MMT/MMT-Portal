@@ -2,7 +2,7 @@ import NewInquiry from "@/pages/serviceMember/newInquiry";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
-describe("Transcript Type View Component", () => {
+describe("New Inquiry Page", () => {
   it("should render the component", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
