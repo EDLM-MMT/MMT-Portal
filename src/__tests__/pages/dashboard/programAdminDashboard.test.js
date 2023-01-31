@@ -2,9 +2,9 @@ import { render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import ProgramAdminDashboard from "@/pages/dashboard/programAdmin/programAdminDashboard";
 
-describe("Card Component", () => {
+describe("Program Admin Dashbaord Page", () => {
   it("should render the component", () => {
-    const { getByText, getAllByText } = render(
+    const { getByText } = render(
         <MemoryRouterProvider>
             <ProgramAdminDashboard />
         </MemoryRouterProvider>
