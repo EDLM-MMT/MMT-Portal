@@ -1,43 +1,28 @@
-import InquiryView from "@/pages/serviceMember/viewInquiry/[inquiryId]";
+import NewInquiry from "@/pages/serviceMember/newInquiry";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import axios from 'axios'
-
-let url = ''
-let body = {}
-
-jest.mock("axios", () => ({
-  get: jest.fn((_url, _body) => { 
-    return new Promise((resolve) => {
-      url = _url
-      body = _body
-      resolve(true)
-    })
-  })
-}))
 
 describe("Transcript Type View Component", () => {
   it("should render the component", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
-            <InquiryView />
+            <NewInquiry />
         </MemoryRouterProvider>
     );
 
-    expect(getByText('View Inquiry')).toBeInTheDocument();
+    expect(getByText('New Inquiry')).toBeInTheDocument();
     expect(getByText('My Inquiries')).toBeInTheDocument();
-    expect(getByText('Submitted on')).toBeInTheDocument();
-    expect(getByText('Add a comment:')).toBeInTheDocument();
-    expect(getByText('Post')).toBeInTheDocument();
-    expect(getByText('Inquiry Timeline')).toBeInTheDocument();
+    expect(getByText('Inquiry Title')).toBeInTheDocument();
+    expect(getByText('Cancel')).toBeInTheDocument();
+    expect(getByText('Submit Inquiry')).toBeInTheDocument();
 
     act(() => {
-        fireEvent.change(getByPlaceholderText('Please provide comments if necessary.'), {
+        fireEvent.change(getByPlaceholderText('Enter Inquiry Title'), {
             target: { value: 'test' },
           });
     });
 
-    const button = getByText('Post');
+    const button = getByText('Cancel');
     act(() => {
         fireEvent.click(button);
     });
@@ -47,14 +32,11 @@ describe("Transcript Type View Component", () => {
   it("should navigate to inquiries", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
-            <InquiryView />
+            <NewInquiry />
         </MemoryRouterProvider>
     );
 
-    axios.get.mockResolvedValue({data: []});
-
     expect(getByText('My Inquiries')).toBeInTheDocument();
-   
     const button = getByText('My Inquiries');
     act(() => {
         fireEvent.click(button);
