@@ -23,7 +23,7 @@ export default function AccountSupport() {
     }
 
     const handleReset = () =>{
-        router.push("/programAdmin/resetPassword"); 
+        router.push("/resetPassword"); 
     }
 
     return (
