@@ -2,6 +2,8 @@ import { twMerge } from "tailwind-merge";
 import Button from "../buttons/Button";
 import { useState } from 'react';
 import DegreeAgreementsOverlay from "../overlays/DegreeAgreementsOverlay";
+import AssignInquiryOverlay from "../overlays/AssignInquiryOverlay";
+
 
 
 export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate, type }){
@@ -35,21 +37,20 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                         onClick={handleClick}>
                         {card.status} 
                     </button>
-                    {isOpen && <DegreeAgreementsOverlay toggleModal={setIsOpen} title={card.status} toggleModalUpdate={toggleModalUpdate}
-                    message={`Please confirm you want to ${card.status}`} btnText={`Yes, ${card.status}`}
-                    data={data} card={card} degreeIndex={degreeIndex}/>}
+
+                    {(isOpen && buttonLabel=== "Assign Inquiry") &&
+                    (<AssignInquiryOverlay toggleModal={setIsOpen} message={"Enter email address or account name below"} />)}
+                    
+                    {(isOpen && buttonLabel !== "Assign Inquiry") && 
+                    (<DegreeAgreementsOverlay toggleModal={setIsOpen} title={buttonLabel} toggleModalUpdate={toggleModalUpdate}
+                    message={`Please confirm you want to ${buttonLabel}`} btnText={`Yes, ${buttonLabel}`}
+                    data={data} card={card} degreeIndex={degreeIndex}/>)}
+                    
                 </div>
-                <div className= ''>
+                <div className= 'w-1/2'>
                     <Button  className='text-black bg-white hover:bg-white hover:text-black justify-center 
-                        text-sm 
-                        font-bold
-                        items-center
-                        border-grey
-                        border
-                        border-r-0
-                        border-b-0
-                        rounded-none 
-                        gap-2 w-full'
+                    h-18 w-full align-middle pt-2 text-sm font-bold items-center border-grey border border-r-0 border-b-0 rounded-none gap-2'
+
                         btnText={"View"} 
                         link={card.secondRoutePath}/>
                 </div>  

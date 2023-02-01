@@ -15,7 +15,7 @@ export default function ViewCard({ title, description, className }){
     }
 
     return(
-        <div className='bg-white w-full border h-50 rounded-md border-gray-200 p-4 pb-0 shadow'>
+        <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
             <h1 className='text-xl font-semibold h-10'>
                 {title}
             </h1>

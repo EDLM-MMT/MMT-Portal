@@ -1,5 +1,6 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import ServiceMemberDashboard from '@/pages/dashboard/serviceMember/serviceMemberDashboard'
+import ProgramAdminDashboard from './programAdmin/programAdminDashboard';
 import useStore from '@/store/store';
 
 export default function Dashboard() {
@@ -8,6 +9,7 @@ export default function Dashboard() {
   return (
     <DefaultLayout>
       {userData?.role === 'Service Member' && <ServiceMemberDashboard />}
+      {userData?.role === 'Program Administrator' && <ProgramAdminDashboard />}
     </DefaultLayout>
   );
 }

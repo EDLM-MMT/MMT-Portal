@@ -5,10 +5,22 @@
  * @returns
  */
 
+import { useRouter } from "next/router";
+
 export default function Table({
     rowsData,
     columnTitles,
 }) {
+    const router = useRouter();
+
+    const handleView = (e) =>{
+        router.push("/programAdmin/loginHistory");
+    }
+
+    const handleReset = () =>{
+        router.push("/programAdmin/resetPassword"); 
+    }
+
     return (
         <div className='px-4 sm:px-6 lg:px-8'>
             <div className='mt-8 flex flex-col'>
@@ -32,7 +44,7 @@ export default function Table({
                                             >
                                                 {eachTitle}
                                             </th>
-                                        ))}
+                                        ))} 
                                     </tr>
                                 </thead>
                                 <tbody className='bg-white text-left '>
@@ -45,7 +57,9 @@ export default function Table({
                                                 >
                                                     {row.map((eachItem, rindex) => (
                                                         <td key={rindex} className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2 '>
-                                                            {eachItem || '-'}
+                                                            {(eachItem === "View") && <button onClick={handleView} className="text-blue-700 ml-5">{(eachItem)} </button>}
+                                                            {(eachItem === "Reset") && <button onClick={handleReset} className="text-blue-700 ml-5">{(eachItem)} </button>}
+                                                            {(eachItem !== "View" && eachItem !== "Reset") && (eachItem || '-')}
                                                         </td>
                                                     ))}
                                                 </tr>
