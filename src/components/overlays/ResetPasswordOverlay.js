@@ -3,7 +3,7 @@ import React, { Fragment, useRef, useState } from 'react'
 import { useRouter } from "next/router"
 
 
-export default function ResetPasswordOverlay({ toggleModal, message }){
+export default function ResetPasswordOverlay({ toggleModal, message, path }){
     let [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
     const router = useRouter();
@@ -16,7 +16,7 @@ export default function ResetPasswordOverlay({ toggleModal, message }){
     const confirmModal = () => {
         var state= setOpen(false);
         toggleModal(state);
-        router.push("/profile");
+        router.push(path);
     }
 
 return (

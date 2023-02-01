@@ -6,17 +6,19 @@ import Table from '@/components/Table';
 import { useState } from 'react';
 import modifiedData from "../../data/programAdmin/accountSupport.json";
 import { useRouter } from 'next/router';
+import ResetPasswordOverlay from '@/components/overlays/ResetPasswordOverlay';
 
 
 export default function AccountSupport() {
     const userData = useStore((state) => state.userData);
     const [searchInput, setSearchInput] = useState("");
-    const [data, setData] = useState({
-        name: "",
-        username: "",
-        resetPassword: "",
-        viewHistory: "",
-    });
+    const [isOpen, setIsOpen] = useState(false);
+    // const [data, setData] = useState({
+    //     name: "",
+    //     username: "",
+    //     resetPassword: "",
+    //     viewHistory: "",
+    // });
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
@@ -30,7 +32,8 @@ export default function AccountSupport() {
     }
 
     const handleReset = () =>{
-        router.push("/programAdmin/resetPassword"); 
+        // router.push("/programAdmin/resetPassword"); 
+        setIsOpen(!isOpen);
     }
 
     return (
@@ -100,6 +103,8 @@ export default function AccountSupport() {
                     ))
                 }
             </table>
+            {isOpen && <ResetPasswordOverlay toggleModal={setIsOpen} path={"/programAdmin/accountSupport"}
+                message={"Upon clicking Confirm, a reset password email will be sent to the associated account."}/>}
             {/* <Table columnTitles={["Name", "Username", "Reset Password", "View Login History"]} rowsData={data}/> */}
         </div>
         </DefaultLayout>
