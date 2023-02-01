@@ -5,14 +5,14 @@ const cards = [
     {
         title: "Inquiry Management",
         description: "Manages Inquiries: Prioritizes, categorizes, and assignes inquiries. Tracks correspondense",
-        buttonLabel: "Go to Inquiries",
+        buttonLabel: "Go to Inquiry Management",
         routePath:"/programAdmin/inquiryManagement"
     },
     {
         title: "Account Support",
         description: "Customer support: Locked out of account and General reporting",
         buttonLabel: "Go to Account Support",
-        routePath:"accountSupport"
+        routePath:"/programAdmin/accountSupport"
     },
 ]
 
