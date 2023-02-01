@@ -38,7 +38,7 @@ export default function Transcripts() {
                 <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
                         My Transcripts
-                        <Button btnText={"Request Official Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
+                        <Button btnText={"Official JST Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
                     </div> 
                 </h1>
                 <div className='flex justify-between gap-10'>
