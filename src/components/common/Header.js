@@ -40,7 +40,7 @@ const ProgramAdminMenuItems = [
   },
   {
     label: 'Account Support',
-    path: '/accountSupport',
+    path: '/programAdmin/accountSupport',
   },
   {
     label: 'Quick Links',

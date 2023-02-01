@@ -4,12 +4,19 @@ import profileImage from '@/../public/profile-picture.png';
 import Image from 'next/image';
 import Table from '@/components/Table';
 import { useState } from 'react';
-import modifiedData from "../data/programAdmin/accountSupport.json";
+import modifiedData from "../../data/programAdmin/accountSupport.json";
 import { useRouter } from 'next/router';
+
 
 export default function AccountSupport() {
     const userData = useStore((state) => state.userData);
     const [searchInput, setSearchInput] = useState("");
+    const [data, setData] = useState({
+        name: "",
+        username: "",
+        resetPassword: "",
+        viewHistory: "",
+    });
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
@@ -84,6 +91,7 @@ export default function AccountSupport() {
                     }).map((post, index) => (
                         
                                 <tr key={index} className=' even:bg-gray-50 group'>
+                                    {/* {setData(post)} */}
                                     <td className='pl-4'>{post.name}</td>
                                     <td className='pl-4'>{post.username}</td>
                                     <td className='pl-4'><button onClick={handleReset} className="text-blue-700 ml-5">{post.resetPassword} </button></td>
