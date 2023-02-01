@@ -33,10 +33,12 @@ export default function ServiceMemberDashboard() {
     const userData = useStore((state) => state.userData);
 
     return (
-        <div className='flex justify-between gap-10'>
+        <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16">
             {cards.map((card, index) => {
                 return(
+                    <div className=''>
                     <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
+                    </div>
                 )
             })}
         </div>
