@@ -2,7 +2,7 @@ import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import { useRouter } from "next/router"
-import InquiryDropdown from '@/components/Dropdowns/InquiryDropdown';
+import InquiryDropdown from '@/components/dropdowns/InquiryDropdown';
 import { useCallback, useState } from 'react';
 
 
@@ -11,27 +11,51 @@ export default function NewInquiry() {
     const userData = useStore((state) => state.userData);
     const router = useRouter();
 
+    const issues = [
+        "How do I view and print my student copy/unofficial transcript?",
+        "Academic Institution Courses",
+        "How do I request an official transcript for employment?"
+    ];
+
     const solutions = [
         {
-            name: "School",
-            solution: "lorem ipsum confutatis maledictus"
+            solution: `Click on the "Transcripts" link that is located at the top of the page. After you click the link, another screen will appear and you will need to click the first link labeled "Transcript" and your JST will open as an Adobe PDF file. You will be able to view and print the PDF version of your JST.`
+        },
+        {
+            solution: `College courses taken while on active duty: If TA or NCPACE they should automatically show up on JST.
+            Active Duty and Veterans: TA/NCPACE issues should be sent to SFLY_TA.Navy@navy.mil
+            Other funded courses (i.e. CCAF, MGIB funded, etc.) (3 Options)
+            Have official transcript mailed from institution to the JST Operations Center.
+            Bring Official transcript to the Lifelong Learning Center to have certified and faxed to the JST Operations Center.
+            
+            Have Official Transcript certified or notarized and mail to the JST Operations Center.
+            
+            JST Mailing address:
+            NETC
+            ATTN JST Operations Center, N644
+            6490 Saufley Field Road
+            Pensacola, FL 32509`
+            
+        },
+        {
+            solution: "The JST is set up to send official electronic transcripts to institutes so for the most part transcripts are delivered electronically. Official transcripts are not provided to individuals. If you need to have a transcript special mailed please complete a Special Mail Request form with the employer/program information and upload to this website, fax, or e-mail to jst@doded.mil. A point-of-contact must be included on the form or request will not be processed."
         }
     ];
     
-    const [selected, setSelected] = useState("School");
+    const [selected, setSelected] = useState("");
     const [commonSolution, setCommonSolution] = useState("");
     const [isNewInquiry, setNewInquiry] = useState(false);
     const [selectedFile, setSelectedFile] = useState();
 	const [isFilePicked, setIsFilePicked] = useState(false);
 
-    const onChange = useCallback((e) => {
+    const onChange = (e) => {
         setSelected(e.target.name);
         solutions.map((post,index)=>{
-            if(post.name === selected){
+            if(issues[index] === selected){
                 setCommonSolution(post.solution);
             }
         })
-    }, [userData])
+    }
 
     const handleClick = () => {
         router.push(`/serviceMember/inquiries`);
@@ -62,18 +86,16 @@ export default function NewInquiry() {
                     className='text-dod-500 mb-3 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
                     Inquiries </button> -{`>`} Start New Inquiry 
                 </div>
-                <form className='mt-4'>
-                    <div class="grid gap-6 mb-6 md:grid-rows-2">
-                        <div>
-                            <label for="inquiry_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type of Issue</label>
-                            <InquiryDropdown options={["School", "Major", "MOS Code"]} keyName={"issueFilter"} initialValue={"Type of Issues"} onChange={onChange} />
-                        </div>
-                        <div>
-                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Common Solution</label>
-                            {commonSolution}
-                        </div>  
+                <div class="grid gap-6 md:grid-rows-2">
+                    <div>
+                        <label for="inquiry_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type of Issue</label>
+                        <InquiryDropdown options={issues} keyName={"issueFilter"} initialValue={"Type of Issues"} onChange={onChange} />
                     </div>
-                </form>
+                    <div>
+                        <label for="description" class="block text-sm mb-2 font-medium text-gray-900 dark:text-white">Common Solution</label>
+                        {commonSolution}
+                    </div>  
+                </div>
                 <div className='flex my-5 justify-center'>
                     <Button btnText={"This Solved my Issue"} link={"/serviceMember/inquiries"} className='mr-4 bg-green-700'></Button> or
                     <button onClick={handleInquiry}

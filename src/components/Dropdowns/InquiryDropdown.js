@@ -43,8 +43,8 @@ export default function InquiryDropdown({
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='absolute left-0 top-10 w-44 origin-top-left bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-2 ring-gray-300 outline-none line-clamp-1'>
-          <div className='p-1'>
+        <Menu.Items className='absolute left-0 top-10 w-full origin-top-left bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-2 ring-gray-300 outline-none line-clamp-1'>
+          <div className='p-1 w-full'>
             {options?.map((group) => {
               return (
                 <Menu.Item key={group}>
@@ -58,7 +58,7 @@ export default function InquiryDropdown({
                       }}
                       className={`${
                         active && 'bg-gray-50'
-                      } cursor-pointer rounded-md w-full text-left flex justify-between items-center `}
+                      } cursor-pointer rounded-md text-left flex justify-between items-center `}
                     >
                       {group}
                     </button>

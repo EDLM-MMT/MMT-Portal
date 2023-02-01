@@ -36,7 +36,7 @@ export default function DegreeAgreements() {
                         return(
                             <TwoChoiceCard key={index} title={card.title} description={card.description} 
                             buttonLabel={card.status} viewRoutePath={card.secondRoutePath} data={data} 
-                            card={card} degreeIndex={index} toggleModalUpdate={setUpdate}/>
+                            card={card} degreeIndex={index} toggleModalUpdate={setUpdate} type="DA"/>
                         )
                     })}
                 </div>

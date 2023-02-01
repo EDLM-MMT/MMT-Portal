@@ -4,7 +4,7 @@ import { useState } from 'react';
 import DegreeAgreementsOverlay from "../overlays/DegreeAgreementsOverlay";
 
 
-export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate }){
+export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate, type }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
@@ -19,10 +19,13 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
     return(
         <div className='bg-white w-full border h-50 rounded-md border-gray-200 p-4 pb-0 shadow'>
             <h1 className='text-xl font-semibold h-10'>
-                {title}
+                <div className='flex flex-row justify-between'>
+                    {card.title}
+                    {(type === 'I') && <div className='text-lg'> Inquiry ID: {card.id}</div>}
+                </div>
             </h1>
             <p className={descriptionClass}>
-                {description}
+                {card.description}
             </p>
             
             <div className='flex flex-row align-bottom mt-5'>
@@ -30,10 +33,10 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                     <button className='text-black bg-white hover:bg-white hover:text-black justify-center 
                         h-18 w-full align-middle pt-2 text-sm font-bold items-center border-grey border border-l-0 border-b-0 rounded-none gap-2'
                         onClick={handleClick}>
-                        {buttonLabel} 
+                        {card.status} 
                     </button>
-                    {isOpen && <DegreeAgreementsOverlay toggleModal={setIsOpen} title={buttonLabel} toggleModalUpdate={toggleModalUpdate}
-                    message={`Please confirm you want to ${buttonLabel}`} btnText={`Yes, ${buttonLabel}`}
+                    {isOpen && <DegreeAgreementsOverlay toggleModal={setIsOpen} title={card.status} toggleModalUpdate={toggleModalUpdate}
+                    message={`Please confirm you want to ${card.status}`} btnText={`Yes, ${card.status}`}
                     data={data} card={card} degreeIndex={degreeIndex}/>}
                 </div>
                 <div className= ''>
@@ -48,7 +51,7 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                         rounded-none 
                         gap-2 w-full'
                         btnText={"View"} 
-                        link={viewRoutePath}/>
+                        link={card.secondRoutePath}/>
                 </div>  
             </div>
         </div>

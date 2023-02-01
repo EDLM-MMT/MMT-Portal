@@ -42,7 +42,7 @@ export default function Inquiry() {
                             <TwoChoiceCard key={index} title={card.title} description={card.description} 
                             buttonLabel={card.status} data={data} card={card} degreeIndex={index} 
                             firstRoutePath={card.firstRoutePath} viewRoutePath={card.secondRoutePath}
-                            toggleModalUpdate={setUpdate}/>
+                            toggleModalUpdate={setUpdate} type="I" />
                         )
                     })}
                 </div>
