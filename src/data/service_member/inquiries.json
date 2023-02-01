@@ -6,7 +6,7 @@
             "description": "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet. ",
             "status": "Close Inquiry",
             "firstRoutePath": "transcripts/basicTranscript",
-            "secondRoutePath": "viewInquiry/300",
+            "secondRoutePath": "inquiries/300",
             "timestampCreated": "1/21/2023 1:43:20 PM",
             "inquiryComments": [
                 {
@@ -29,7 +29,7 @@
             "description": "Confutatis venedictis sae no adictis. ",
             "status": "Close Inquiry",
             "firstRoutePath": "transcripts/summaryTranscript",
-            "secondRoutePath": "viewInquiry/301",
+            "secondRoutePath": "inquiries/301",
             "timestampCreated": "1/22/2023 12:25:20 PM",
             "inquiryComments": []
         },

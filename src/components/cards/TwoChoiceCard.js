@@ -42,7 +42,7 @@ export default function TwoChoiceCard({ title, description, buttonLabel, viewRou
                     message={`Please confirm you want to ${buttonLabel}`} btnText={`Yes, ${buttonLabel}`}
                     data={data} card={card} degreeIndex={degreeIndex}/>)}
                 </div>
-                <div className= ''>
+                <div className= 'w-1/2'>
                     <Button  className='text-black bg-white hover:bg-white hover:text-black justify-center 
                     h-18 w-full align-middle pt-2 text-sm font-bold items-center border-grey border border-r-0 border-b-0 rounded-none gap-2'
 
