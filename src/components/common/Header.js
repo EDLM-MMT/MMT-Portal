@@ -86,6 +86,7 @@ export default function Header() {
       >
         <div className='w-full py-4 inline-flex items-center justify-between z-50'>
           <div className={'flex items-center justify-start gap-2'}>
+            {user &&
             <Link href={'/dashboard'} passHref>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <button
@@ -96,6 +97,7 @@ export default function Header() {
                 <Image src={logo} alt={'home'} height={'60'} width={'60'} />
               </button>
             </Link>
+            }
             
             {user?.role === 'Service Member' && ServiceMemberMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
