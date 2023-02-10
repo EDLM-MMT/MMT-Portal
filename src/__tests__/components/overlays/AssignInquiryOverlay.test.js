@@ -16,23 +16,4 @@ describe("Assign Inquiry Overlay component", () => {
       expect(getByText(/Cancel/i)).toBeInTheDocument();
       expect(getByText(/Save/i)).toBeInTheDocument();
     });
-
-    // it("should click the button", () => {
-    //     const { getByText } = render(
-    //         <MemoryRouterProvider>
-    //           <AssignInquiryOverlay />
-    //         </MemoryRouterProvider>
-    //       );
-    
-    //     const cancelButton = getByText('Cancel');
-    //     act(() => {
-    //         fireEvent.click(cancelButton);
-    //     });
-  
-    //     const SaveButton = getByText('Save');
-    //     act(() => {
-    //         fireEvent.click(SaveButton);
-    //     });
-    //   });
-
 });
