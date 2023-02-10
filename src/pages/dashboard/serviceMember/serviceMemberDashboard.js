@@ -1,4 +1,4 @@
-import Card from '@/components/cards/Card';
+import DashboardCard from '@/components/cards/DashboardCard';
 import useStore from '@/store/store';
 
 const cards = [
@@ -33,14 +33,21 @@ export default function ServiceMemberDashboard() {
     const userData = useStore((state) => state.userData);
 
     return (
-        <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16">
-            {cards.map((card, index) => {
-                return(
-                    <div className=''>
-                    <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
-                    </div>
-                )
-            })}
+        <div className='w-full p-4'>
+            <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
+                <div className='flex flex-row justify-between'>  
+                    JST Dashboard
+                </div> 
+            </h1>
+            <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16">
+                {cards.map((card, index) => {
+                    return(
+                        <div className=''>
+                        <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 }

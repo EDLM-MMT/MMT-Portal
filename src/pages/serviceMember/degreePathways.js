@@ -1,15 +1,24 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/solid';
 import Dropdown from '@/components/dropdowns/Dropdown';
+import Filter from '@/components/Filter';
 
 export default function DegreePathways() {  
-    const [selected, setSelected] = useState("School")
+    const [selected, setSelected] = useState("School");
+    const [searchInput, setSearchInput] = useState("");
+    const [filter, setFilter] = useState("");
 
     const onChange = (e) => {
         setSelected(e.target.name);
     }
+
+    useEffect(() =>{
+
+        
+
+    },[]);
 
     const schoolsList = [
         {   name: "City University",
@@ -222,23 +231,53 @@ export default function DegreePathways() {
 
     const sort = () => {
         if (selected === "School"){
+            const filtered = schoolsList.filter(post => {
+                if (searchInput === ''){
+                    return post;
+                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }
+    
+            })
             return (
                 <>
-                {panelCode(schoolsList)}
+                {panelCode(filtered)}
                 </>
             ) 
         }
         else if (selected === "Major"){
+            const filtered = majorsList.filter(post => {
+                if (searchInput === ''){
+                    return post;
+                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }
+    
+            })
             return (
                 <>
-                {panelCode(majorsList)}
+                {panelCode(filtered)}
                 </>
             ) 
         } 
         else if (selected === "MOS Code"){
+            const filtered = mosList.filter(post => {
+                if (searchInput === ''){
+                    return post;
+                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }
+    
+            })
             return (
                 <>
-                {panelCode(mosList)}
+                {panelCode(filtered)}
                 </>
             ) 
         } 
@@ -302,20 +341,35 @@ export default function DegreePathways() {
             );
         });
 
+        const handleChange = (e) => {
+            setSearchInput(e.target.value);
+            console.log(searchInput)
+        };
+
     return (
-        <DefaultLayout>
-            <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
-                <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
-                    <div className='flex flex-row justify-between'>  
-                        My Degree Pathways
-                    </div> 
-                </h1>
-                <div className='flex justify-end align-middle '>
-                    <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["School", "Major", "MOS Code"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
+        <div>
+            <DefaultLayout>
+                <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
+                    <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
+                        <div className='flex flex-row justify-between'>  
+                            Degree Pathways Catalog
+                        </div> 
+                    </h1>
+                    <div>
+                        <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder={`Search for ${selected}`} onChange={handleChange} value={searchInput} />
+                    </div>
+                    <div className='flex justify-end align-middle '>
+                        <div className='p-2 font-medium'> Sort By: </div> 
+                        <Dropdown options={["School", "Major", "MOS Code"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
+                    </div>
+                    <h2 className='pb-4 pl-4 mt-4 mb-4 text-2xl font-medium'>
+                        <div className='flex flex-row justify-between'>  
+                            Degree Pathways By {selected}
+                        </div> 
+                    </h2>
+                    {sort()}
                 </div>
-                {sort()}
-            </div>
-        </DefaultLayout>
+            </DefaultLayout>
+        </div>
     );
 }
