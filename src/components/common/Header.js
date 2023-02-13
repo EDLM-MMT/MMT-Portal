@@ -23,6 +23,10 @@ const ServiceMemberMenuItems = [
     label: 'My Degree Pathways',
     path: '/serviceMember/degreePathways',
   },
+  {
+    label: 'Career Counseling',
+    path: '/serviceMember/careerCounseling',
+  },
   // {
   //   label: 'Career Plans',
   //   path: '/serviceMember/careerPlans',
