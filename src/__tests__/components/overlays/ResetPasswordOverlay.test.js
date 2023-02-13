@@ -23,7 +23,7 @@ describe("ResetPasswordOverlay Component", () => {
         const { getByText } = render(
             <MemoryRouterProvider>
                 <ResetPasswordOverlay toggleModal={()=>{}}
-                    message={"Please confirm you want to test"}/>
+                    message={"Please confirm you want to test"} path={"/"}/>
             </MemoryRouterProvider> );
             
             
@@ -50,7 +50,7 @@ describe("ResetPasswordOverlay Component", () => {
         const { getByText } = render(
             <MemoryRouterProvider>
                 <ResetPasswordOverlay toggleModal={()=>{}}
-                    message={"Please confirm you want to test"}/>
+                    message={"Please confirm you want to test"} path={"/"}/>
             </MemoryRouterProvider> );
             
         expect(getByText("Cancel")).toBeInTheDocument();

@@ -84,7 +84,7 @@ export default function NewInquiry() {
                 <div>
                     <button onClick={handleClick}
                     className='text-dod-500 mb-3 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
-                    Inquiries </button> -{`>`} Start New Inquiry 
+                    My Inquiries </button> -{`>`} Start New Inquiry 
                 </div>
                 <div class="grid gap-6 md:grid-rows-2">
                     <div>
