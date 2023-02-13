@@ -360,7 +360,7 @@ export default function DegreePathways() {
                         </div> 
                     </h1>
                     <div>
-                        <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder={`Search for ${selected}`} onChange={handleChange} value={searchInput} />
+                        <input type="text" className=" w-1/2 mb-1 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder={`Search for ${selected}`} onChange={handleChange} value={searchInput} />
                     </div>
                     <div className='flex align-middle '>
                          <div className='p-2 font-medium'> Filter By MOS Code: </div> 
@@ -370,7 +370,7 @@ export default function DegreePathways() {
                        
 
                     </div>
-                    <h2 className='pb-4 pl-4 mt-4 mb-4 text-2xl font-medium'>
+                    <h2 className='pb-4 mt-4  text-2xl font-medium'>
                         <div className='flex flex-row justify-between'>  
                             Degree Pathways By {selected}
                         </div> 
