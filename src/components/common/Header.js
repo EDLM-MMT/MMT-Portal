@@ -27,10 +27,6 @@ const ServiceMemberMenuItems = [
     label: 'Career Counseling',
     path: '/serviceMember/careerCounseling',
   },
-  // {
-  //   label: 'Career Plans',
-  //   path: '/serviceMember/careerPlans',
-  // },
   {
     label: 'Quick Links',
     path: '/quickLinks',

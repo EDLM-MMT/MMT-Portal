@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/solid';
 import Dropdown from '@/components/dropdowns/Dropdown';
-import Filter from '@/components/Filter';
+import AddBtn from '@/components/buttons/AddButton';
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School");
     const [searchInput, setSearchInput] = useState("");
-    const [filter, setFilter] = useState("");
 
     const onChange = (e) => {
         setSelected(e.target.name);
@@ -18,46 +17,40 @@ export default function DegreePathways() {
         console.log(e.target.name)
     }
 
-    useEffect(() =>{
-
-        
-
-    },[]);
-
     const schoolsList = [
         {   name: "City University",
             datas: [
                 {
                     data: "BA Applied Psychology",
-                    codes: ["NC", "RP"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "BA Applied Psychology (Criminal Behavior)",
-                    codes: ["MA"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102"]
                 },
                 {
                     data: "BSBA Project Management",
-                    codes: ["AZ", "LS", "PS", "SH (Barber/Clerk)", "SH (Laundry/DC)", "SH (Tailor)", "YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "BSIS Information Networking Track",
-                    codes: ["CTN", "CTR", "CTT", "IT"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98"]
                 },
                 {
                     data: "BSIS Information Security",
-                    codes: ["IT"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "BSIS Programming",
-                    codes: ["IT"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 106"]
                 },
                 {
                     data: "BSIS Speciality Systems Development and Mgmt",
-                    codes: ["IT"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 96"]
                 },
                 {
                     data: "BSIS Web 2.0 Web Track",
-                    codes: ["IT"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102"]
                 }
             ]
         },
@@ -65,15 +58,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "AS Professional Aeronautics",
-                    codes: ["X", "XX", "Unrestricted"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "BS Professional Aeronautics",
-                    codes: ["X", "XXXXX", "XXXXXX"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102"]
                 },
                 {
                     data: "BS Technical Management",
-                    codes: ["CM", "XX", "XXX"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98"]
                 }
             ]
         },
@@ -81,23 +74,23 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "AA Business Administration",
-                    codes: ["IS", "MC", "RP"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "AA Criminal Justice",
-                    codes: ["ABE, ABF", "ABH, AD, AE, AG, AM, AME, AO, AS, AT, AWF, AWO, AWR, AWS, AWV, AZ, PR", "AC", "IS", "LN, LS, MA"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 103"]
                 },
                 {
                     data: "AS Accounting",
-                    codes: ["IT, LS"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 100"]
                 },
                 {
                     data: "AS Business Administration",
-                    codes: ["AWF, AWO, AWR, AWS, AWV, AZ, FC, IC, IS, LN, LS, MA, OS, PS, QM, SB, SH, SO, YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98"]
                 },
                 {
                     data: "AS Computer Information Technology",
-                    codes: ["IC, IT, OS"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 112"]
                 }
             ]
         },
@@ -105,19 +98,19 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "BA Sociology",
-                    codes: ["ABE, ABF, ABH, AC, AD, AE, AG, AM, AME, AO, AS, AT, AWF, AWO, AWR, AWS, AWV, AZ, BM, BU, CE, CM, CS, CTI, CTM, CTN, CTR, CTT, DC, EA, EM, EN, EO, EOD, ET, FC, FT, GM, GSE, GSM, HM, HT, IC, IS, IT, LN, LS, MA, MC, MM, MN, MR, MT, MU, NC, ND, OS, PR, PS, QM, RP, SB, SO, STG, STS, SW, UT, YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 86"]
                 },
                 {
                     data: "BGS General Studies",
-                    codes: ["ABE, ABF, ABH, AC, AD, AE, AG, AM, AME, AO, AS, AT, AWF, AWO, AWR, AWS, AWV, AZ, BM, BU, CE, CM, CS, CTI, CTM, CTN, CTR, CTT, DC, EA, EM, EN, EO, EOD, ET, FC, FT, GM, GSE, GSM, HM, HT, IC, IS, IT, LN, LS, MA, MC, MM, MN, MR, MT, MU, NC, ND, OS, PR, PS, QM, RP, SB, SH, SO, STG, STS, SW, UT, YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98"]
                 },
                 {
                     data: "BS Justice Studies",
-                    codes: ["MA"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "BS Organizational Leadership",
-                    codes: ["BM", "NC", "QM", "RP"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102"]
                 }
             ]
         },
@@ -125,15 +118,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "BS Interdisciplinary Studies",
-                    codes: ["ABF, AD, AE, AM, AO, AS, AT, AZ, CM, CS, CTI, CTR, CTT, HT, LS, PS, QM, SO, STG, STS, YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 89"]
                 },
                 {
                     data: "BS Psychology",
-                    codes: ["ABF, AD, AM, AO, AS, AT, AZ, CM, CS, CTI, CTR, CTT, HT, QM, SO, STG, STS, YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "BS Religion",
-                    codes: ["ABF, AD, AM, AO, AS, AT, AZ, CM, CS, CTI, CTR, CTT, HT, PS, QM, SO, STG, STS"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 116"]
                 }
             ]
         },
@@ -144,15 +137,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "American Military University (WV)",
-                    codes: ["Unrestricted"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "Florida National University (FL)",
-                    codes: ["IS, MC, RP"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 110"]
                 },
                 {
                     data: "Strayer University (DC)",
-                    codes: ["BM, CS, CTI, LN, LS, QM"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 96"]
                 },
             ]
         },
@@ -160,15 +153,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "Bismarck State College (ND)",
-                    codes: ["MA"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 97"]
                 },
                 {
                     data: "Central Texas College (TX)",
-                    codes: ["MA"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98"]
                 },
                 {
                     data: "Dallas County Community College District - TeleCollege (TX)",
-                    codes: ["AO, AZ, CTI, CTM, CTN, CTR, CTT, ET, FC, GM, IS, IT, LS, MN, MU, ND, OS, PS, SH, YN", "NC"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102"]
                 },
             ]
         },
@@ -176,19 +169,19 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "American Military University (WV)",
-                    codes: ["PS"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
                 },
                 {
                     data: "American Military University (WV)",
-                    codes: ["AMT", "AST", "LS", "YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 104"]
                 },
                 {
                     data: "Berkeley College - Online (NJ)",
-                    codes: ["ABE, ABF, ABH, AC, AD, AE, AG, AM, AME, AO, AS, AT, AWF, AWO, AWR, AWS, AWV, AZ, BM, CS, CTI, CTM, CTR, DC, EM, EN, EO, FC, GSE, HT, IC, IS, LS, MM, MR, NC, ND, OS, PR, PS, QM, SB, SH, SO, SW, UT, YN"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 109"]
                 },
                 {
                     data: "University of the Incarnate Word (TX)",
-                    codes: ["AZ, LS, PS, SH"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 115"]
                 }
             ]
         }
@@ -326,11 +319,16 @@ export default function DegreePathways() {
                                             leaveTo="transform scale-95 opacity-0"
                                         >
                                         <Disclosure.Panel className="p-5 rounded-lg border border-t-0 ml-2 border-gray-300 focus:ring-4 focus:ring-gray-200 focus:bg-gray-50">
+                                        <div className='flex flex-row justify-between'>
                                         {data.codes?.map((code, index) => {
                                             return(
-                                                <div className='flex flex-row text-dod-700 font-bold hover:underline'> {code} </div>
+                                                <div className='flex flex-col font-bold'> 
+                                                    {code}
+                                                </div>
                                             );
                                         })}
+                                        {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
+                                        </div>
                                         </Disclosure.Panel>
                                         </Transition>
                                     </div> )}
