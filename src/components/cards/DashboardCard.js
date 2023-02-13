@@ -9,11 +9,13 @@ export default function DashboardCard({ title, description, buttonLabel, dashboa
     }
     return(
         <div className='bg-white border h-83 rounded-md border-gray-200 p-4 shadow-lg focus:shadow-lg'>
-            <h1 className='flex text-xl font-semibold h-10 items-center justify-center align-middle border-b'>
+            <h1 className='flex text-xl font-semibold h-10 mb-4 items-center justify-center align-middle border-b'>
                 {title}
             </h1>
-            <Image src={dashboardImage} alt={'home'} />
-            <p className='flex px-6 pt-3 mt-4 font-sans line-clamp-6 h-36 text-center'>
+            <div className="flex h-48">
+                <Image src={dashboardImage} alt={'home'} />
+            </div>
+            <p className='flex px-6 pt-3 mt-4 font-sans line-clamp-6 h-28 text-center'>
                 {description}
             </p>
             {children}
