@@ -18,7 +18,7 @@ export default function Table({
     }
 
     const handleReset = () =>{
-        router.push("/programAdmin/resetPassword"); 
+        router.push("/resetPassword"); 
     }
 
     const handleCareerCounseling = () =>{

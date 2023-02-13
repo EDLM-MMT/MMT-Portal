@@ -26,6 +26,10 @@ module.exports = {
 
     //imports for @ imports
     '^@/(.*)$': '<rootDir>/src/$1',
+
+    //for axios
+    "axios": "axios/dist/node/axios.cjs"
+
   },
 
   testPathIgnorePatterns: [],
