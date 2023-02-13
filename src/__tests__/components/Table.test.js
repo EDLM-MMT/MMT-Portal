@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { useRouter } from 'next/router';
 import Table from '@/components/Table';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
@@ -12,7 +11,7 @@ describe('Table component', () => {
 
   it('renders the component with the correct number of rows and columns', () => {
     const { getByText, container } = render(
-      <MemoryRouterProvider>
+      <MemoryRouterProvider url='/'>
         <Table rowsData={rowsData} columnTitles={columnTitles} />
       </MemoryRouterProvider>
     );
@@ -37,7 +36,10 @@ describe('Table component', () => {
   });
 
   it('renders the "No data found" message when there is no data', () => {
-    const { getByText } = render(<Table rowsData={[]} columnTitles={[]} />);
+    const { getByText } = render(
+      <MemoryRouterProvider>
+        <Table rowsData={[]} columnTitles={[]} />
+      </MemoryRouterProvider> );
     expect(getByText('No data found')).toBeInTheDocument();
   });
 
