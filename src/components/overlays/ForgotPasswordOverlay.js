@@ -2,8 +2,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment, useRef, useState } from 'react'
 import { useRouter } from "next/router"
 
-
-export default function ResetPasswordOverlay({ toggleModal, message, path }){
+export default function ForgotPasswordOverlay({ toggleModal, message }){
     let [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
     const router = useRouter();
@@ -16,7 +15,7 @@ export default function ResetPasswordOverlay({ toggleModal, message, path }){
     const confirmModal = () => {
         var state= setOpen(false);
         toggleModal(state);
-        router.push(path);
+        router.push("/");
     }
 
 return (

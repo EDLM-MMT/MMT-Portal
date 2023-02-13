@@ -93,6 +93,12 @@ export default function LoginPage() {
                   </Link>
               </div>
             </form>
+            <button
+                  id={'create-account-button'}
+                  className='mt-3 text-blue-400 hover:underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'
+                  onClick={() => router.push("/forgotPassword")}>
+                  Forgot your password?
+              </button>
             <span className='mt-3 text-gray-500 text-sm font-bold'>
               Trouble logging in? Please contact your IT department
             </span>

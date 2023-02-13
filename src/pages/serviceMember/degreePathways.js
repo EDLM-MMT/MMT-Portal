@@ -2,7 +2,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState } from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/solid';
-import Dropdown from '@/components/Dropdown';
+import Dropdown from '@/components/dropdowns/Dropdown';
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School")
