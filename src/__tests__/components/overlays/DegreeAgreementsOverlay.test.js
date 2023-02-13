@@ -23,8 +23,9 @@ describe("DegreeAgreementsOverlay Component", () => {
         const { getByText } = render(
             <MemoryRouterProvider>
                 <DegreeAgreementsOverlay toggleModal={()=>{}} title={"test title"} toggleModalUpdate={()=>{}}
-                    message={"Please confirm you want to test"} btnText={"Yes, test"}
-                    degreeIndex={"0"}/>
+                    data={{"degreeAgreements": ["test"]}}
+                    message={"Please confirm you want to test"} btnText={"Yes, test"} card={{status:"Close Degree Agreement"}}
+                    degreeIndex={0}/>
             </MemoryRouterProvider> );
             
         expect(getByText("test title")).toBeInTheDocument();
@@ -35,6 +36,28 @@ describe("DegreeAgreementsOverlay Component", () => {
         act(() => {
             fireEvent.click(button);
         });
+
+    });
+
+    it("should click yes button", () => {
+        const mockIntersectionObserver = jest.fn();
+        mockIntersectionObserver.mockReturnValue({
+            observe: () => null,
+            unobserve: () => null,
+            disconnect: () => null
+        });
+        window.IntersectionObserver = mockIntersectionObserver;
+
+        const { getByText } = render(
+            <MemoryRouterProvider>
+                <DegreeAgreementsOverlay toggleModal={()=>{}} title={"test title"} toggleModalUpdate={()=>{}}
+                    data={{"degreeAgreements": ["test"]}}
+                    message={"Please confirm you want to test"} btnText={"Yes, test"} card={{status:"Close Degree Agreement"}}
+                    degreeIndex={0}/>
+            </MemoryRouterProvider> );
+            
+        expect(getByText("Yes, test")).toBeInTheDocument();
+
         const button2 = getByText('Yes, test');
         act(() => {
             fireEvent.click(button2);

@@ -71,11 +71,13 @@ export default function ProgramAdminInquiryView({inquiryId}) {
       const newComment = {
         author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
         title:"Program Admin",
-        comment: event.target.comment.value,
+        comment: event.target.comment?.value,
         timestamp: timestamp,
       }
       setComments(comments =>[newComment, ...comments]);
-      event.target[0].value = "";
+      if(event.target.comment?.value){
+        event.target[0].value = "";
+      }
     }
     console.log(comments);
     
