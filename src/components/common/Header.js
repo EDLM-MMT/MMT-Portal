@@ -25,7 +25,7 @@ const ServiceMemberMenuItems = [
   },
   {
     label: 'Career Counseling',
-    path: '/serviceMember/careerCounseling',
+    path: '/serviceMember/degreePathwaysList',
   },
   // {
   //   label: 'Career Plans',
