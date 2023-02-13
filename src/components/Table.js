@@ -21,6 +21,14 @@ export default function Table({
         router.push("/programAdmin/resetPassword"); 
     }
 
+    const handleCareerCounseling = () =>{
+        router.push("/serviceMember/careerCouseling/[id]"); 
+    }
+
+    const handleDelete = () =>{
+        console.log("delete row")
+    }
+
     return (
         <div className='px-4 sm:px-6 lg:px-8'>
             <div className='mt-8 flex flex-col'>
@@ -60,6 +68,8 @@ export default function Table({
                                                             {(eachItem === "View") && <button onClick={handleView} className="text-blue-700 ml-5">{(eachItem)} </button>}
                                                             {(eachItem === "Reset") && <button onClick={handleReset} className="text-blue-700 ml-5">{(eachItem)} </button>}
                                                             {(eachItem !== "View" && eachItem !== "Reset") && (eachItem || '-')}
+                                                            {(eachItem === "Career Counseling") && <button onClick={handleCareerCounseling} className="text-blue-700 ml-5">{(eachItem)} </button>}
+                                                            {(eachItem === "Delete") && <button onClick={handleDelete} className="text-blue-700 ml-5">{(eachItem)} </button>}
                                                         </td>
                                                     ))}
                                                 </tr>

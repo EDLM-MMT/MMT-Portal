@@ -1,6 +1,13 @@
 import DefaultLayout from "@/components/layouts/DefaultLayout";
+import Table from '@/components/Table';
 
 export default function DegreePathwaysList() {
+
+    const data = [
+        [ "Bussiness Administration", "Berkeley College - Online (NJ)", "40hr", "40hr" ],
+        [ "Data Scientist", "Florida State College at Jacksonville (FL)", "40hr", "40hr" ],
+        [ "Computer Science", "University of Florida - Online (FL)", "24hr", "24hr" ],
+      ]
 
     return (
         <DefaultLayout>
@@ -10,29 +17,10 @@ export default function DegreePathwaysList() {
                         My Degree Pathways List
                     </div> 
                 </h1>
-                <hr></hr>
-                    <table
-                        className='w-full border-separate '
-                        style={{ borderSpacing: 0 }}
-                    >
-                        <thead className='bg-gray-50 '>
-                            <tr>
-                                <h1>row1</h1>
-                            </tr>
-                        </thead>
-                        <tbody className='bg-white text-left '>
-                            <tc>
-                                col1
-                            </tc>
-                            <tc>
-                                col2
-                            </tc>
-                            <tc>
-                                col3
-                            </tc>
-
-                        </tbody>
-                    </table>
+                <p className="border-b-none">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non vulputate est. Pellentesque ultrices eget orci sit amet sollicitudin. Maecenas tincidunt tortor eu mattis malesuada. Donec vel libero facilisis, pretium ligula ut, consectetur ex. Quisque quam justo, ornare in erat nec, cursus finibus massa. Curabitur a accumsan nunc.
+                </p>
+                <Table columnTitles={["Major", "School", "Required Hours", "Hours Still Needed", "Career Counseling", "Delete"]} rowsData={data}/>
             </div>
         </DefaultLayout>
     );
