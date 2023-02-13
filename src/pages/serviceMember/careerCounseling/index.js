@@ -76,17 +76,26 @@ export default function CareerCounseling() {
 
     const handleAddCourse = (event) => {
         event.preventDefault()
-        //console.log(event.target[0].value)
-        const newComment = {
-          author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
-          title:"",
-          comment: event.target.comment.value,
-          timestamp: timestamp,
-        }
-        setComments(comments =>[newComment, ...comments]);
-        event.target[0].value = "";
+        console.log(event.target[1].value)
+        const newCourse = {
+            course_number: event.target.courseNumber.value ,
+            course_name:event.target.courseName.value,
+            credit_hours: event.target.creditHours.value,
+            projected_semester: event.target.projectedSemester.value,
+            status: "Pending Approval",
+          }
+          setCoursePlan(coursePlan =>[...coursePlan, newCourse]);
+          event.target[0].value = "";
+          event.target[1].value = "";
+          event.target[2].value = "";
+          event.target[3].value = "";
       }
-    console.log(comments);
+    console.log(coursePlan);
+
+    const handleSave = (event) => {
+        event.preventDefault()
+        console.log("Save button is clicked!")
+      }
 
     //console.log("Whats inside data:", inquiry.id)
     return (
@@ -135,20 +144,20 @@ export default function CareerCounseling() {
                         <form onSubmit={handleAddCourse}>
                             <div className="flex flex-wrap flex-row gap-20 mb-4">
                                 <div>
-                                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Number</label>
-                                    <input type="text-area" id="description" name="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <label for="courseNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Number</label>
+                                    <input type="text-area" id="courseNumber" name="courseNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                </div>
+                                <div className="w-64">
+                                    <label for="courseName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Name</label>
+                                    <input type="text-area" id="courseName" name="courseName" class="justify-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
                                 <div>
-                                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Name</label>
-                                    <input type="text-area" id="description" name="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 px-16 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <label for="creditHours" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Credit Hours</label>
+                                    <input type="text-area" id="creditHours" name="creditHours" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
                                 <div>
-                                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Credit Hours</label>
-                                    <input type="text-area" id="description" name="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                </div>
-                                <div>
-                                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projected Semester</label>
-                                    <input type="text-area" id="description" name="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                    <label for="projectedSemester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projected Semester</label>
+                                    <input type="text-area" id="projectedSemester" name="projectedSemester" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
                             </div>
                             <div className="flex justify-end w-full">
@@ -158,6 +167,9 @@ export default function CareerCounseling() {
                     </Disclosure.Panel>
                 </div> )}
                 </Disclosure>
+                <div className="flex justify-end w-full mt-4 mb-4">
+                    <button onClick={handleSave} className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Save Changes</button>
+                </div>
             </div>
             <div className='bg-white w-full border h-50 mt-4 mb-4 rounded-md border-gray-200 p-4 pb-2 shadow'>
               <form onSubmit={handlePost}>
