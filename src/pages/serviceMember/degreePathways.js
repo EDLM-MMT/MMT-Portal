@@ -14,6 +14,10 @@ export default function DegreePathways() {
         setSelected(e.target.name);
     }
 
+    const onFilterChange = (e) => {
+        console.log(e.target.name)
+    }
+
     useEffect(() =>{
 
         
@@ -358,9 +362,13 @@ export default function DegreePathways() {
                     <div>
                         <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder={`Search for ${selected}`} onChange={handleChange} value={searchInput} />
                     </div>
-                    <div className='flex justify-end align-middle '>
+                    <div className='flex align-middle '>
+                         <div className='p-2 font-medium'> Filter By MOS Code: </div> 
+                        <Dropdown options={["All", "ABE", "ABF", "ABH", "AC", "AD", "AE", "BM", "CS", "CTR", "DC", "EM", "HT", "IC", "PS", "SW", "UT", "YN"]} keyName={"degreeFilter"} initialValue={"All"} onChange={onFilterChange} />
                         <div className='p-2 font-medium'> Sort By: </div> 
-                        <Dropdown options={["School", "Major", "MOS Code"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
+                        <Dropdown options={["School", "Major"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
+                       
+
                     </div>
                     <h2 className='pb-4 pl-4 mt-4 mb-4 text-2xl font-medium'>
                         <div className='flex flex-row justify-between'>  
