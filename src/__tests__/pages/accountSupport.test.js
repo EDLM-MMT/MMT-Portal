@@ -1,6 +1,6 @@
+import AccountSupport from "@/pages/programAdmin/accountSupport";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import AccountSupport from "../../pages/accountSupport";
 
 describe("AccountSupport page", () => {
   it("should render the page", () => {

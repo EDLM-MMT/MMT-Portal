@@ -11,21 +11,9 @@ describe("New Inquiry Page", () => {
     );
 
     expect(getByText('New Inquiry')).toBeInTheDocument();
-    expect(getByText('My Inquiries')).toBeInTheDocument();
-    expect(getByText('Inquiry Title')).toBeInTheDocument();
-    expect(getByText('Cancel')).toBeInTheDocument();
-    expect(getByText('Submit Inquiry')).toBeInTheDocument();
-
-    act(() => {
-        fireEvent.change(getByPlaceholderText('Enter Inquiry Title'), {
-            target: { value: 'test' },
-          });
-    });
-
-    const button = getByText('Cancel');
-    act(() => {
-        fireEvent.click(button);
-    });
+    expect(getByText('Type of Issue')).toBeInTheDocument();
+    expect(getByText('Type of Issues')).toBeInTheDocument();
+    expect(getByText('Common Solution')).toBeInTheDocument();
 
   });
 

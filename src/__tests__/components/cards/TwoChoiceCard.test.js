@@ -8,7 +8,8 @@ describe('TwoChoiceCard', () => {
   it('renders title and description', () => {
     const card = {
       title: 'Test Title',
-      description: 'Test Description'
+      description: 'Test Description',
+      secondRoutePath:"/"
     };
 
     const { getByText } = render(
@@ -24,7 +25,8 @@ describe('TwoChoiceCard', () => {
     const card = {
       title: 'Test Title',
       description: 'Test Description',
-      status: 'Assign Inquiry'
+      status: 'Assign Inquiry',
+      secondRoutePath:"/"
     };
 
     const { getByText, queryByText } = render(

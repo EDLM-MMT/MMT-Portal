@@ -13,7 +13,7 @@ export default function TranscriptCard({ title, routePath, type, link}){
             <h1 className='pb-4 border-b mb-2 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
                         {title}
-                        <Button btnText={"Official JST Transcripts"} link={"/serviceMember/requestOfficialTranscript"}></Button>
+                        <Button btnText={"Official JST Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
                     </div> 
             </h1>
             <div>

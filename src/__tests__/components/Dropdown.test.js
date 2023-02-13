@@ -1,6 +1,7 @@
+import Dropdown from "@/components/dropdowns/Dropdown";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import Dropdown from "../../components/Dropdown";
+
 
 describe("Dropdown component", () => {
 

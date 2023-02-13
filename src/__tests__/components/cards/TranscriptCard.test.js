@@ -10,7 +10,7 @@ describe("TranscriptCard Component", () => {
         </MemoryRouterProvider>
     );
     expect(getByText(/Test title/i)).toBeInTheDocument();
-    expect(getByText(/Request Official Transcript/i)).toBeInTheDocument();
+    expect(getByText(/Official JST Transcript/i)).toBeInTheDocument();
     expect(getByText(/Return to Transcript Page/i)).toBeInTheDocument();
 
     const button = getByText('Transcript');
