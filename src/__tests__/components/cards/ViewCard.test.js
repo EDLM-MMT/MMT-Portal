@@ -7,7 +7,7 @@ describe("View Card component", () => {
   it("should render the component", () => {
     const { getByText } = render(
       <MemoryRouterProvider>
-        <ViewCard />
+        <ViewCard title={"My Degree Agreements"}/>
       </MemoryRouterProvider>
     );
 

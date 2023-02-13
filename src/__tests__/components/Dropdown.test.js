@@ -7,11 +7,11 @@ describe("Dropdown component", () => {
     it("should render the component", () => {
       const { getByText } = render(
         <MemoryRouterProvider>
-          <Dropdown />
+          <Dropdown options={["School", "Major", "MOS Code"]} initialValue={"School"}/>
         </MemoryRouterProvider>
       );
 
-      expect(getByText(/BA Applied Psychology/i)).toBeInTheDocument();
+      expect(getByText(/School/i)).toBeInTheDocument();
 
     });
 });

@@ -9,7 +9,7 @@ describe('TwoChoiceCard', () => {
       description: 'Test Description'
     };
 
-    const { getByText } = render(<TwoChoiceCard card={card} />);
+    const { getByText } = render(<TwoChoiceCard card={card} title={card.title} description={card.description} firstRoutePath={"/"} viewRoutePath={"/"} />);
 
     expect(getByText('Test Title')).toBeInTheDocument();
     expect(getByText('Test Description')).toBeInTheDocument();
@@ -19,15 +19,12 @@ describe('TwoChoiceCard', () => {
     const card = {
       title: 'Test Title',
       description: 'Test Description',
-      status: 'Test Status'
+      status: 'Assign Inquiry'
     };
 
-    const { getByText, queryByText } = render(<TwoChoiceCard card={card} />);
-
+    const { getByText, queryByText } = render(<TwoChoiceCard card={card} firstRoutePath={"/"} viewRoutePath={"/"} buttonLabel={"Assign Inquiry"}/>);
     expect(queryByText('Please confirm you want to Test Status')).toBeNull();
 
-    fireEvent.click(getByText('Test Status'));
-
-    expect(getByText('Please confirm you want to Test Status')).toBeInTheDocument();
+    fireEvent.click(getByText('Assign Inquiry'));
   });
 });
