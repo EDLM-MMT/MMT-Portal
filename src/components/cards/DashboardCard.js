@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
-import neto from '../../assets/images/inquiries.png';
+import Image from "next/image";
 
-export default function DashboardCard({ title, description, buttonLabel, routePath, children }){
+export default function DashboardCard({ title, description, buttonLabel, dashboardImage, routePath, children }){
     const router = useRouter();
 
     const handleClick = () => {
@@ -12,7 +12,7 @@ export default function DashboardCard({ title, description, buttonLabel, routePa
             <h1 className='flex text-xl font-semibold h-10 items-center justify-center align-middle border-b'>
                 {title}
             </h1>
-            <img src={neto} alt="default" />
+            <Image src={dashboardImage} alt={'home'} />
             <p className='flex px-6 pt-3 mt-4 font-sans line-clamp-6 h-36 text-center'>
                 {description}
             </p>

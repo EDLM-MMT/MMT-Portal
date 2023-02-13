@@ -1,29 +1,39 @@
 import DashboardCard from '@/components/cards/DashboardCard';
 import useStore from '@/store/store';
+import transcriptImage from '@/assets/images/transcripts.png';
+import inquiriesImage from '../../../assets/images/inquiries.png';
+import degreePathwaysImage from '../../../assets/images/degreepathways.png';
+import degreeAgreementsImage from '../../../assets/images/degreeagreements.png';
+import careerCounselingImage from '../../../assets/images/careercounseling.png';
+
 
 const cards = [
     {
         title: "Transcripts",
         description: "Request to Download Transcript: Baisc Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
         buttonLabel: "Go to Transcript",
+        image: transcriptImage,
         routePath:"serviceMember/transcripts"
     },
     {
         title: "Inquiries",
         description: "Open an Inquiry or access previous inquiries for assistance or corrections to your records",
         buttonLabel: "Go to Inquiries",
+        image: inquiriesImage,
         routePath:"serviceMember/inquiries"
     },
     {
         title: "Degree Agreements",
         description: "View your current Degree Agreements with schools",
         buttonLabel: "Go to Degree Agreements",
+        image: degreeAgreementsImage,
         routePath:"serviceMember/degreeAgreements"
     },
     {
         title: "Degree Pathways",
         description: "View Degree Pathway options:By Rating/MOS Codes, Individual Degree Plans, By School, or All Programs ",
         buttonLabel: "Go to Degree Pathways",
+        image: degreePathwaysImage,
         routePath:"serviceMember/degreePathways"
     },
 ]
@@ -43,7 +53,7 @@ export default function ServiceMemberDashboard() {
                 {cards.map((card, index) => {
                     return(
                         <div className=''>
-                        <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}/>
+                        <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} dashboardImage={card.image} routePath={card.routePath}/>
                         </div>
                     )
                 })}

@@ -15,7 +15,7 @@ export default function ViewCounselingCard({ title, school, startDate, endDate, 
     }
 
     return(
-        <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
+        <div className='bg-white w-full border h-50 pb-4 mb-1 rounded-md border-gray-200 p-4 shadow'>
             <h1 className='text-xl font-semibold h-10'>
                 {title}
             </h1>
