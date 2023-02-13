@@ -36,6 +36,13 @@ const cards = [
         image: degreePathwaysImage,
         routePath:"serviceMember/degreePathways"
     },
+    {
+        title: "Career Counseling",
+        description: "Access or update Career counseling options with an ESO",
+        buttonLabel: "Go to Career Counseling",
+        image: careerCounselingImage,
+        routePath:"serviceMember/careerCounseling"
+    },
 ]
 
 
@@ -43,8 +50,8 @@ export default function ServiceMemberDashboard() {
     const userData = useStore((state) => state.userData);
 
     return (
-        <div className='w-full p-4'>
-            <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
+        <div className='w-full'>
+            <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     JST Dashboard
                 </div> 
