@@ -7,8 +7,16 @@ import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
 import CounselingTable from '@/components/Tables/CounselingTable';
 
+export function getServerSideProps(context) {
+    const { careerCounselingId } = context.query;
+    return {
+      props: {
+        careerCounselingId,
+      },
+    };
+  }
 
-export default function CareerCounseling() {
+export default function CareerCounseling({careerCounselingId}) {
 
     const userData = useStore((state) => state.userData);
     const currDate = new Date().toLocaleDateString();
@@ -23,12 +31,12 @@ export default function CareerCounseling() {
 
     useEffect(() => {
         axios
-          .get(`/api/careerCounseling`)
+          .get(`/api/careerCounseling/${careerCounselingId}`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.counseling[0].course_plan);
-            setCareer(res.data.counseling[0]);
-            setCoursePlan(res.data.counseling[0].course_plan);
-            setComments(res.data.counseling[0].inquiryComments);
+            console.log("Result inside viewInquiry", res.data.course_plan);
+            setCareer(res.data);
+            setCoursePlan(res.data.course_plan);
+            setComments(res.data.counselingComments);
           })
           .catch((err) => {
             console.log(err);
