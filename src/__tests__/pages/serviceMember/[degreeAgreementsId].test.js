@@ -33,7 +33,7 @@ describe("Degree Agreements View  Page", () => {
 
   });
 
-  it("should navigate to inquiries", () => {
+  it("should navigate to degree agreements", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
             <DegreeAgreementsView />
