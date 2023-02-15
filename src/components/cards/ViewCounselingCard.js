@@ -1,5 +1,4 @@
 import { twMerge } from "tailwind-merge";
-import Button from "../buttons/Button";
 import { useState } from 'react';
 
 export default function ViewCounselingCard({ title, school, startDate, endDate, assignedESO, totalHours, completedHours, className }){
@@ -7,12 +6,6 @@ export default function ViewCounselingCard({ title, school, startDate, endDate, 
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
     `);
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleClick = () => {
-        setIsOpen(true);
-    }
 
     return(
         <div className='bg-white w-full border h-50 pb-4 mb-1 rounded-md border-gray-200 p-4 shadow'>
