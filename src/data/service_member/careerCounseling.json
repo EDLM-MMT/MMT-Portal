@@ -59,22 +59,22 @@
             "creditHours_completed": 24,
             "course_plan": [
                 {
-                    "course_number": "MAC1105",
-                    "course_name": "Intro to Algebra",
+                    "course_number": "MGT101",
+                    "course_name": "Intro to Management",
                     "credit_hours": 3,
                     "projected_semester": "Fall 2022",
                     "status": "Approved"
                 },
                 {
-                    "course_number": "COP1000",
-                    "course_name": "Intro to Programming",
+                    "course_number": "POA105",
+                    "course_name": "Principles of Administration",
                     "credit_hours": 3,
                     "projected_semester": "Spring 2023",
                     "status": "Approved"
                 },
                 {
-                    "course_number": "  SOC 1101",
-                    "course_name": "Sociology",
+                    "course_number": "ABC 305",
+                    "course_name": "Advanced Statistics",
                     "credit_hours": 3,
                     "projected_semester": "Summer 2023",
                     "status": "Pending Approval"

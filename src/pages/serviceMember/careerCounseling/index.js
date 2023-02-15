@@ -1,5 +1,5 @@
 import DefaultLayout from "@/components/layouts/DefaultLayout";
-import Table from '@/components/Tables/CounselingDashboardTable';
+import CounselingTable from '@/components/Tables/CounselingDashboardTable';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -21,12 +21,6 @@ export default function CareerCounselingList() {
           });
     }, []);
 
-    const data = [
-        [ "Computer Science", "University of Florida - Online (FL)", "24hr", "24hr", "Go To Career Counseling", "Delete" ],
-        [ "Bussiness Administration", "Berkeley College - Online (NJ)", "40hr", "40hr", "Go To Career Counseling", "Delete" ],
-        [ "Data Scientist", "Florida State College at Jacksonville (FL)", "40hr", "40hr", "Go To Career Counseling", "Delete" ],
-      ]
-
     return (
         <DefaultLayout>
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
@@ -39,7 +33,7 @@ export default function CareerCounselingList() {
                     Welcome to Career Counseling! Below is a list of majors at schools you can add and remove from. You can contact an ESO for further questions for each option listed below by clicking "Go to Career Counseling".
                 
                 </p>
-                <Table careerList={careerList}/>
+                <CounselingTable careerList={careerList}/>
             </div>
         </DefaultLayout>
     );

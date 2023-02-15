@@ -89,7 +89,7 @@ export default function CareerCounseling({careerCounselingId}) {
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
-                    Career Counseling
+                    {career.degree} Career Counseling
                 </div> 
             </h1>
             <div>

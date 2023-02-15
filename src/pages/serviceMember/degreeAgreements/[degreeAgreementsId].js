@@ -72,7 +72,7 @@ export default function DegreeAgreementsView({degreeAgreementsId}) {
                     </div>
                     <div className='flex flex-col font-semibold'>
                         Total Cedit Hours: {degreeAgreement.totalCreditHours} <br />
-                        Credit Hours Completed: {degreeAgreement.completedCreditHours} <br />
+                        Hours Still Needed: {degreeAgreement.totalCreditHours - degreeAgreement.completedCreditHours} <br />
                         Projected Graduation Date: {degreeAgreement.projectedGradDate}
                     </div>  
                 </div>

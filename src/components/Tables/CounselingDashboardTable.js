@@ -7,17 +7,18 @@ export default function CounselingDashboardTable({careerList}) {
 
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
-
+    const [degree, setDegree] = useState('')
 
     const handleCareerCounseling = (event) =>{
         router.push(`/serviceMember/careerCounseling/${event}`); 
     }
 
-    const handleDelete = () =>{
+    const handleDelete = (degree) =>{
         console.log("delete row")
+        setDegree(degree)
         setIsOpen(true)
+        console.log(degree)
     }
-
 
     return(
         <div className='mt-8'>
@@ -82,11 +83,11 @@ export default function CounselingDashboardTable({careerList}) {
                                 <td className='pl-4'>{career.total_creditHours}</td>
                                 <td className='pl-4'>{career.total_creditHours - career.creditHours_completed}</td>
                                 <td><button onClick={() => handleCareerCounseling(career.id)} className="text-blue-700">Go To Career Counseling</button></td>
-                                <td><button onClick={handleDelete} className="text-blue-700">Delete</button></td>
+                                <td><button onClick={() => handleDelete(career.degree)} className="text-blue-700">Delete</button></td>
                             </tr>
                 ))}
             </table>
-            {isOpen && <DeletePopup toggleModal={setIsOpen} message={"Are you sure you want to delete this row?"} path={"/profile"}/>}
+            {isOpen && <DeletePopup toggleModal={setIsOpen} message={"Are you sure you want to delete this row?"} path={"/serviceMember/careerCounseling"} degree={degree}/>}
         </div>
 
     )

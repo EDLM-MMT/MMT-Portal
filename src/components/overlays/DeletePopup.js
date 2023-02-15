@@ -3,7 +3,7 @@ import React, { Fragment, useRef, useState } from 'react'
 import { useRouter } from "next/router"
 
 
-export default function ResetPasswordOverlay({ toggleModal, message, path }){
+export default function DeletePopupComponent({ toggleModal, message, path, degree }){
     let [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
     const router = useRouter();
@@ -50,7 +50,7 @@ return (
                     <div className="sm:flex sm:items-start">
                         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                         <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                        <span className=''>Delete Row Confirmation</span>
+                        <span className=''>Delete {degree} Confirmation</span>
                         </Dialog.Title>
                         <div className="mt-2">
                             <p className="text-sm text-gray-500">
