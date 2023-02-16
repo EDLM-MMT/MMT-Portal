@@ -5,6 +5,7 @@ import Card from '@/components/cards/Card';
 import ViewBtn from '@/components/buttons/ViewBtn';
 import DownloadButton from '@/components/buttons/DownloadButton';
 import Table from '@/components/Tables/Table';
+import Accordion from '@/components/Accordion';
 
 export default function Transcripts() {
     const userData = useStore((state) => state.userData);
@@ -64,11 +65,10 @@ export default function Transcripts() {
                         )
                     })}
                 </div>
-                <div className='m-4 mt-16 bg-white border h-50 rounded-md border-gray-200 p-4 mr-4 shadow'>
-                    <h1 className='text-2xl font-semibold'>
-                        Transcript Session History
-                    </h1>
-                    <Table columnTitles={["Login date", "Basic", "Summary", "Academic", "Complete"]} rowsData={data}/>
+                <div className='m-4 mt-16'>
+                    <Accordion title={"Transcript Session History"} 
+                    content={<Table columnTitles={["Login date", "Basic", "Summary", "Academic", "Complete"]} rowsData={data}/>}
+                    className={"text-xl font-semibold"}/>
                 </div>
             </div>
         </DefaultLayout>
