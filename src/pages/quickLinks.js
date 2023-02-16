@@ -1,6 +1,5 @@
+import Accordion from '@/components/Accordion';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { Disclosure, Transition } from '@headlessui/react';
-import {ChevronDownIcon} from '@heroicons/react/solid';
 
 export default function QuickLinks() {
 
@@ -61,31 +60,13 @@ export default function QuickLinks() {
     const panelCode = (content) =>
         content.map((question, index) => {
             return(
-                <Disclosure key={index}>
-                {({ open }) => (
-                <div className='p-2 hover:bg-gray-200 hover:rounded-lg'>
-                    <Disclosure.Button className="flex items-center rounded-lg justify-between text-left w-full p-5 font-medium border bg-dod-500/60 text-white border-gray-300 hover:opacity-90 hover:shadow ">
-                        {question.title}
-                        <ChevronDownIcon className={`w-6 h-6 ${open ? "transform rotate-180" : ""} `} />
-                    </Disclosure.Button>
-
-                    <Transition
-                        enter="transition duration-100 ease-out"
-                        enterFrom="transform scale-95 opacity-0"
-                        enterTo="transform scale-100 opacity-100"
-                        leave="transition duration-75 ease-out"
-                        leaveFrom="transform scale-100 opacity-100"
-                        leaveTo="transform scale-95 opacity-0"
-                    >
-                    <Disclosure.Panel className="p-5 rounded-lg border border-t-0 ml-2 border-gray-300 focus:ring-4 focus:ring-gray-200 focus:bg-gray-50">
+                <Accordion title={question.title} className={"bg-dod-700/70 text-white"}
+                    content={<div> 
                         {question.answer} 
                         {question.link && 
-                            <a href={question.link} target="_blank" className='text-blue-800 text-semibold underline'>Click here to open in a new tab</a>
-                        }
-                    </Disclosure.Panel>
-                    </Transition>
-                </div> )}
-                </Disclosure>
+                            <a href={question.link} target="_blank" className='text-blue-800 text-semibold underline'>Click here to open in a new tab</a> }
+                    </div>
+                }/>
             );
         });
 
