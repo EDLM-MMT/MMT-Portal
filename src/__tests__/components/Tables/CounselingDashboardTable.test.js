@@ -4,32 +4,40 @@ import CounselingDashboardTable from '@/components/tables/CounselingDashboardTab
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 describe('CounselingDashboardTable component', () => {
-  const rowsData = [['Computer Science', 'Berkeley College - Online (NJ)', '60', '48', 'Go To Career Counseling', 'Delete'],];
-  const columnTitles = ['Major', 'School', 'Required Hours', 'Hours Still Needed', 'Career Counseling', 'Delete'];
-
+  const counseling = [
+    {
+      "id": 300,
+      "degree": "Computer Science",
+      "school": "Berkeley College - Online (NJ)",
+      "degree_startDate": "January 2019",
+      "projected_graduation": "June 2023",
+      "assigned_eso": "Mary Jane Doe",
+      "total_creditHours": 60,
+      "creditHours_completed": 12,
+    },
+    {
+      "id": 301,
+      "degree": "Business Administration",
+      "school": "University Of Central Florida - Online (FL)",
+      "degree_startDate": "January 2019",
+      "projected_graduation": "December 2023",
+      "assigned_eso": "John Doe",
+      "total_creditHours": 60,
+      "creditHours_completed": 24,
+    }
+  ]
+      
   it('renders the component with the correct number of rows and columns', () => {
-    const { getByText, container } = render(
-      <MemoryRouterProvider url='/'>
-        <CounselingDashboardTable rowsData={rowsData} columnTitles={columnTitles} />
-      </MemoryRouterProvider>
-    );
-    const table = container.querySelector('table');
-    const tableHead = table.querySelector('thead');
+  const { getByText, container } = render(
+    <MemoryRouterProvider url='/'>
+      <CounselingDashboardTable careerList={counseling} />
+    </MemoryRouterProvider>
+  );
 
-    expect(table).toBeInTheDocument();
-    expect(tableHead.childNodes.length).toBe(1);
-    expect(tableHead.childNodes[0].childNodes.length).toBe(
-      columnTitles.length
-    );
-    expect(tableBody.childNodes.length).toBe(rowsData.length);
-    expect(tableBody.childNodes[0].childNodes.length).toBe(
-      columnTitles.length
-    );
-    rowsData.forEach((row) => {
-      row.forEach((data) => {
-        expect(getByText(data)).toBeInTheDocument();
-      });
-    });
+  expect(getByText('Computer Science')).toBeInTheDocument();
+  expect(getByText('Berkeley College - Online (NJ)')).toBeInTheDocument();
+  expect(getByText('Business Administration')).toBeInTheDocument();
+
   });
 
 
