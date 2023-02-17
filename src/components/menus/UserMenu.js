@@ -57,7 +57,7 @@ import {
       >
         {({ open }) => (
           <div className='relative'>
-            <Menu.Button className='group inline-flex justify-end items-center bg-blue-500 hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 font-semibold rounded-md outline-none focus:ring-4 ring-blue-400'>
+            <Menu.Button data-testid='user-menu-button' className='group inline-flex justify-end items-center bg-blue-500 hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 font-semibold rounded-md outline-none focus:ring-4 ring-blue-400'>
               <div
                 id='avatar'
                 className='h-8 w-8 rounded-full flex-shrink-0 bg-white shadow-inner-sm overflow-hidden flex justify-center items-center'
