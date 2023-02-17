@@ -3,19 +3,38 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import { useRouter } from "next/router"
 import InquiryDropdown from '@/components/dropdowns/InquiryDropdown';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 
 export default function NewInquiry() {
     const userData = useStore((state) => state.userData);
     const router = useRouter();
+    const [issuesList, setIssuesList] = useState([]);
+    // const [issues, setIssues] = useState([]);
+
+    useEffect(() => {
+        axios
+          .get(`/api/commonIssues`)
+          .then((res) => {
+            console.log("Result inside newInquiry", res.data.common_issues);
+            setIssuesList(res.data.common_issues);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+    }, []);
 
     const issues = [
         "How do I view and print my student copy/unofficial transcript?",
         "Academic Institution Courses",
         "How do I request an official transcript for employment?"
     ];
+    
+
+
 
     const solutions = [
         {
@@ -50,8 +69,8 @@ export default function NewInquiry() {
 
     const onChange = (e) => {
         setSelected(e.target.name);
-        solutions.map((post,index)=>{
-            if(issues[index] === selected){
+        issuesList.map((post,index)=>{
+            if(post.issue === selected){
                 setCommonSolution(post.solution);
             }
         })
