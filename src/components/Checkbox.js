@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Checkbox({ label, value, onChange, index }) {
+export default function Checkbox({ label, value, onChange, index, testid }) {
 
     return (
         <label>
@@ -9,6 +9,7 @@ export default function Checkbox({ label, value, onChange, index }) {
                 id={`custom-checkbox-${index}`}
                 checked={value}
                 onChange={onChange}
+                data-testid={testid}
             />
             {label}
         </label>

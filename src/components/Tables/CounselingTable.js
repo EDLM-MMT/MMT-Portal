@@ -86,6 +86,7 @@ export default function CounselingTable({coursePlan}) {
                                             value={checkedState[index]}
                                             onChange={() => handleChange(index)}
                                             index={index}
+                                            testid={`test-${course.course_number}`}
                                         />
                                     </label></td>
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>{course.course_number}</td>
