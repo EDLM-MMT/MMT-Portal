@@ -5,11 +5,19 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
-import CounselingTable from '@/components/Tables/CounselingTable';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
+import CounselingTable from '@/components/tables/CounselingTable';
 
+export function getServerSideProps(context) {
+    const { careerCounselingId } = context.query;
+    return {
+      props: {
+        careerCounselingId,
+      },
+    };
+  }
 
-export default function CareerCounseling() {
+export default function CareerCounseling({careerCounselingId}) {
 
     const userData = useStore((state) => state.userData);
     const currDate = new Date().toLocaleDateString();
@@ -26,12 +34,12 @@ export default function CareerCounseling() {
 
     useEffect(() => {
         axios
-          .get(`/api/careerCounseling`)
+          .get(`/api/careerCounseling/${careerCounselingId}`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.counseling[0].course_plan);
-            setCareer(res.data.counseling[0]);
-            setCoursePlan(res.data.counseling[0].course_plan);
-            setComments(res.data.counseling[0].inquiryComments);
+            console.log("Result inside viewInquiry", res.data.course_plan);
+            setCareer(res.data);
+            setCoursePlan(res.data.course_plan);
+            setComments(res.data.counselingComments);
           })
           .catch((err) => {
             console.log(err);
@@ -89,9 +97,8 @@ export default function CareerCounseling() {
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
-                    Career Counseling
+                    {career.degree} Career Counseling
                     <button onClick={handleTranscript} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Send Unofficial Transcript to ESO</button>
-
                 </div> 
                 {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/programAdmin/accountSupport"}
                 title={"Send Unofficial Transcript"} message={`Upon clicking Confirm, an Unofficial Transcript will be sent to assigned ESO: ${career.assigned_eso}`}/>}
@@ -99,7 +106,7 @@ export default function CareerCounseling() {
             <div>
               <button onClick={handleClick}
               className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
-              Career Counseling </button> -{`>`} {career.degree}
+              Career Counseling Dashboard</button> -{`>`} {career.degree}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCounselingCard key={career.id} title={career.degree} 

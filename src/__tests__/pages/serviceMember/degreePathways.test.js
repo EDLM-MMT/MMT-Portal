@@ -12,7 +12,7 @@ describe("Degree Pathways Page", () => {
     );
 
 
-    expect(getByText('My Degree Pathways')).toBeInTheDocument();
+    expect(getByText('Degree Pathways Catalog')).toBeInTheDocument();
     expect(getByText('Sort By:')).toBeInTheDocument();
     expect(getByText('School')).toBeInTheDocument();
     expect(getByText('City University')).toBeInTheDocument();
@@ -36,21 +36,6 @@ describe("Degree Pathways Page", () => {
     button2 = getByText('Major');
     act(() => {
         fireEvent.click(button2);
-    });
-
-    button = getByText('MOS Code');
-    act(() => {
-        fireEvent.click(button);
-    });
-
-    button2 = getByText('AE, AME');
-    act(() => {
-        fireEvent.click(button2);
-    });
-
-    button = getByText('Bismarck State College (ND)');
-    act(() => {
-        fireEvent.click(button);
     });
 
   });

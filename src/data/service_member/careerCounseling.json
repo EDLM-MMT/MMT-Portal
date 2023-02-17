@@ -2,13 +2,13 @@
     "counseling": [
         {
             "id": 300,
-            "degree": "AA Computer Science",
+            "degree": "Computer Science",
             "school": "Berkeley College - Online (NJ)",
             "degree_startDate": "January 2019",
             "projected_graduation": "June 2023",
             "assigned_eso": "Mary Jane Doe",
             "total_creditHours": 60,
-            "creditHours_completed": 36,
+            "creditHours_completed": 12,
             "course_plan": [
                 {
                     "course_number": "MAC1105",
@@ -33,9 +33,105 @@
                 }
 
             ],
-            "inquiryComments": [
+            "counselingComments": [
                 {
                     "author": "John Doe",
+                    "title": "ESO",
+                    "comment": "Please provide more information to better assist you on our end",
+                    "timestamp": "1/24/2023 2:43:20 PM"
+                },
+                {
+                    "author": "Bill Phillips",
+                    "title": "",
+                    "comment": "Can I please get an ETA on when this can be resolved?",
+                    "timestamp": "1/24/2023 2:43:19 PM"
+                }
+            ]
+        },
+        {
+            "id": 301,
+            "degree": "Business Administration",
+            "school": "University Of Central Florida - Online (FL)",
+            "degree_startDate": "January 2019",
+            "projected_graduation": "December 2023",
+            "assigned_eso": "John Doe",
+            "total_creditHours": 60,
+            "creditHours_completed": 24,
+            "course_plan": [
+                {
+                    "course_number": "MGT101",
+                    "course_name": "Intro to Management",
+                    "credit_hours": 3,
+                    "projected_semester": "Fall 2022",
+                    "status": "Approved"
+                },
+                {
+                    "course_number": "POA105",
+                    "course_name": "Principles of Administration",
+                    "credit_hours": 3,
+                    "projected_semester": "Spring 2023",
+                    "status": "Approved"
+                },
+                {
+                    "course_number": "ABC 305",
+                    "course_name": "Advanced Statistics",
+                    "credit_hours": 3,
+                    "projected_semester": "Summer 2023",
+                    "status": "Pending Approval"
+                }
+
+            ],
+            "counselingComments": [
+                {
+                    "author": "John Doe",
+                    "title": "ESO",
+                    "comment": "Please provide more information to better assist you on our end",
+                    "timestamp": "1/24/2023 2:43:20 PM"
+                },
+                {
+                    "author": "Bill Phillips",
+                    "title": "",
+                    "comment": "Can I please get an ETA on when this can be resolved?",
+                    "timestamp": "1/24/2023 2:43:19 PM"
+                }
+            ]
+        },
+        {
+            "id": 302,
+            "degree": "Data Scientist",
+            "school": "Florida State College at Jacksonville (FL)",
+            "degree_startDate": "May 2020",
+            "projected_graduation": "December 2024",
+            "assigned_eso": "Luis Doe",
+            "total_creditHours": 60,
+            "creditHours_completed": 28,
+            "course_plan": [
+                {
+                    "course_number": "MAC1105",
+                    "course_name": "Intro to Algebra",
+                    "credit_hours": 3,
+                    "projected_semester": "Fall 2022",
+                    "status": "Approved"
+                },
+                {
+                    "course_number": "COP1000",
+                    "course_name": "Intro to Programming",
+                    "credit_hours": 3,
+                    "projected_semester": "Spring 2023",
+                    "status": "Approved"
+                },
+                {
+                    "course_number": "  SOC 1101",
+                    "course_name": "Sociology",
+                    "credit_hours": 3,
+                    "projected_semester": "Summer 2023",
+                    "status": "Pending Approval"
+                }
+
+            ],
+            "counselingComments": [
+                {
+                    "author": "Luis Doe",
                     "title": "ESO",
                     "comment": "Please provide more information to better assist you on our end",
                     "timestamp": "1/24/2023 2:43:20 PM"
