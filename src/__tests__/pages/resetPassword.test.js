@@ -33,6 +33,11 @@ describe("Reset password page", () => {
           });
       });
 
+      const UpdateButton = getByText('Update Password');
+      act(() => {
+          fireEvent.click(UpdateButton);
+      });
+
     });
 
     it("should click the button", () => {
@@ -51,6 +56,32 @@ describe("Reset password page", () => {
       act(() => {
           fireEvent.click(UpdateButton);
       });
+    });
+
+    it("should check for wrong password in the form field", () => {
+      const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+          <ResetPassword />
+        </MemoryRouterProvider>
+      );
+
+      act(() => {
+        fireEvent.change(getByPlaceholderText('password'), {
+            target: { value: 'test' },
+          });
+      });
+
+      act(() => {
+        fireEvent.change(getByPlaceholderText('confirm password'), {
+            target: { value: 'test2' },
+          });
+      });
+
+      const UpdateButton = getByText('Update Password');
+      act(() => {
+          fireEvent.click(UpdateButton);
+      });
+
     });
 
 });
