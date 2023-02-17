@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
 import ViewCard from '@/components/cards/ViewCard';
-import Table from '@/components/Tables/Table';
+import Table from '@/components/tables/Table';
 
 export function getServerSideProps(context) {
     const { degreeAgreementsId } = context.query;

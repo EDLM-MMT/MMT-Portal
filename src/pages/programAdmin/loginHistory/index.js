@@ -2,7 +2,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import profileImage from '@/../public/profile-picture.png';
 import Image from 'next/image';
-import Table from '@/components/Tables/Table';
+import Table from '@/components/tables/Table';
 import { useRouter } from 'next/router';
 
 export default function LoginHistory() {

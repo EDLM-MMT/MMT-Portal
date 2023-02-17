@@ -1,5 +1,5 @@
 import DefaultLayout from "@/components/layouts/DefaultLayout";
-import CounselingTable from '@/components/Tables/CounselingDashboardTable';
+import CounselingTable from '@/components/tables/CounselingDashboardTable';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 

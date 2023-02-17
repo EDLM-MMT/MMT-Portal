@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
-import CounselingTable from '@/components/Tables/CounselingTable';
+import CounselingTable from '@/components/tables/CounselingTable';
 
 export function getServerSideProps(context) {
     const { careerCounselingId } = context.query;

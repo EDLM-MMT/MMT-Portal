@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import CounselingDashboardTable from '@/components/Tables/CounselingDashboardTable';
+import CounselingDashboardTable from '@/components/tables/CounselingDashboardTable';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 describe('CounselingDashboardTable component', () => {

@@ -4,7 +4,7 @@ import useStore from '@/store/store';
 import Card from '@/components/cards/Card';
 import ViewBtn from '@/components/buttons/ViewBtn';
 import DownloadButton from '@/components/buttons/DownloadButton';
-import Table from '@/components/Tables/Table';
+import Table from '@/components/tables/Table';
 import Accordion from '@/components/Accordion';
 
 export default function Transcripts() {
