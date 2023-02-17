@@ -11,6 +11,9 @@ describe('CareerCounselingList component', () => {
         <CareerCounselingList />
       </MemoryRouterProvider>
     );
+
+    
+    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
   });
 
 
