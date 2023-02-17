@@ -75,7 +75,7 @@ describe('CounselingDashboardTable component', () => {
   
     });
 
-  it('renders the buttons', () => {
+  it('clicks career counseling button', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
         <CounselingDashboardTable careerList={counselingOne} />
@@ -87,10 +87,20 @@ describe('CounselingDashboardTable component', () => {
         fireEvent.click(counselingButton);
       });
 
-    // const deleteButton = getByText('Delete'[1]);
-    //   act(() => {
-    //     fireEvent.click(deleteButton);
-    //   });
+  });
+
+  it('clicks delete', () => {
+    const { getByTestId } = render(
+      <MemoryRouterProvider url='/'>
+        <CounselingDashboardTable careerList={counselingOne} />
+      </MemoryRouterProvider>
+    );
+
+    expect(getByTestId('delete-button')).toBeInTheDocument();
+    const deleteButton = getByTestId('delete-button');
+      act(() => {
+        fireEvent.click(deleteButton);
+      });
   });
 
 });
