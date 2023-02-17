@@ -252,24 +252,6 @@ export default function DegreePathways() {
                 }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
                     return post;
                 }
-    
-            })
-            return (
-                <>
-                {panelCode(filtered)}
-                </>
-            ) 
-        } 
-        else if (selected === "MOS Code"){
-            const filtered = mosList.filter(post => {
-                if (searchInput === ''){
-                    return post;
-                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
-                    return post;
-                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
-                    return post;
-                }
-    
             })
             return (
                 <>
