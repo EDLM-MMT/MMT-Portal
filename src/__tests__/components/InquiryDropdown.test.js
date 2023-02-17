@@ -1,18 +1,15 @@
-import Dropdown from "@/components/dropdowns/Dropdown";
+import InquiryDropdown from "@/components/dropdowns/InquiryDropdown";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 
 describe("Dropdown component", () => {
 
-    const onChange = (e) => {
-      console.log(e);
-    }
-    
+    const onChange = jest.fn()
     it("should render the component", () => {
       const { getByText } = render(
         <MemoryRouterProvider>
-          <Dropdown options={["School", "Major", "MOS Code"]} initialValue={"School"} keyName={"Type"} onChange={onChange}/>
+          <InquiryDropdown options={["School", "Major", "MOS Code"]} initialValue={"School"} keyName={"Type"} onChange={onChange}/>
         </MemoryRouterProvider>
       );
       expect(getByText(/School/i)).toBeInTheDocument();
