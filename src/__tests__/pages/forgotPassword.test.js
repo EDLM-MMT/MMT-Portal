@@ -15,7 +15,6 @@ describe("Forgot password page", () => {
       expect(getByText(/Cancel/i)).toBeInTheDocument();
       expect(getByText(/Reset Password/i)).toBeInTheDocument();
 
-
     });
 
     it("should change the text in the form field", () => {
@@ -29,6 +28,11 @@ describe("Forgot password page", () => {
         fireEvent.change(getByPlaceholderText('Email'), {
             target: { value: 'test' },
           });
+      });
+
+      const button = getByText('Reset Password');
+      act(() => {
+          fireEvent.click(button);
       });
 
     });
@@ -48,32 +52,32 @@ describe("Forgot password page", () => {
     });
 
     it("should click the button", () => {
-        const { getByText } = render(
-          <MemoryRouterProvider>
-            <ForgotPassword />
-          </MemoryRouterProvider>
-        );
-  
-        const UpdateButton = getByText('Reset Password');
-        act(() => {
-            fireEvent.click(UpdateButton);
-        });
+      const { getByText } = render(
+        <MemoryRouterProvider>
+          <ForgotPassword />
+        </MemoryRouterProvider>
+      );
+
+      const UpdateButton = getByText('Reset Password');
+      act(() => {
+          fireEvent.click(UpdateButton);
       });
+    });
 
     it("should navigate to Login", () => {
-        const { getByText } = render(
-            <MemoryRouterProvider>
-                <ForgotPassword />
-            </MemoryRouterProvider>
-        );
-        
-        expect(getByText('Login')).toBeInTheDocument();
-       
-        const button = getByText('Login');
-        act(() => {
-            fireEvent.click(button);
-        });
-    
+      const { getByText } = render(
+          <MemoryRouterProvider>
+              <ForgotPassword />
+          </MemoryRouterProvider>
+      );
+      
+      expect(getByText('Login')).toBeInTheDocument();
+      
+      const button = getByText('Login');
+      act(() => {
+          fireEvent.click(button);
       });
+  
+    });
 
 });
