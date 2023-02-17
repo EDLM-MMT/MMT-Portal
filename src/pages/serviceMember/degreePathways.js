@@ -1,9 +1,8 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState, useEffect } from 'react';
-import { Disclosure, Transition } from '@headlessui/react';
-import {ChevronDownIcon} from '@heroicons/react/solid';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import AddBtn from '@/components/buttons/AddButton';
+import Accordion from '@/components/Accordion';
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School");
@@ -283,63 +282,28 @@ export default function DegreePathways() {
     const panelCode = (content) =>
         content.map((school, index) => {
             return(
-                <Disclosure key={index}>
-                {({ open }) => (
-                <div className='p-2 hover:bg-gray-200 hover:rounded-lg'>
-                    <Disclosure.Button className="flex items-center rounded-lg justify-between text-left w-full p-3 font-medium border bg-dod-300/50 border-gray-300 hover:opacity-90 hover:shadow ">
-                        {school.name}
-                    </Disclosure.Button>
-
-                    <Transition
-                        enter="transition duration-100 ease-out"
-                        enterFrom="transform scale-95 opacity-0"
-                        enterTo="transform scale-100 opacity-100"
-                        leave="transition duration-75 ease-out"
-                        leaveFrom="transform scale-100 opacity-100"
-                        leaveTo="transform scale-95 opacity-0"
-                    >
-                    <Disclosure.Panel className="p-5 rounded-lg border border-t-0 ml-2 border-gray-300 focus:ring-4 focus:ring-gray-200 focus:bg-gray-50">                        
+                <Accordion title={school.name} className={"p-3 bg-dod-300/50"}
+                content={
+                    <div>
                         {school.datas.map((data, index) => {
                             return(
-                                <>
-                                <Disclosure key={index}>
-                                    {({ open }) => (
-                                    <div className='p-2 hover:bg-gray-200 hover:rounded-lg'>
-                                        <Disclosure.Button className="flex items-center rounded-lg justify-between text-left w-full p-2 font-medium border bg-slate-300  border-gray-300 hover:opacity-90 hover:shadow ">
-                                            {data.data}
-                                            <ChevronDownIcon className={`w-6 h-6 ${open ? "transform rotate-180" : ""} `} />
-                                        </Disclosure.Button>
-
-                                        <Transition
-                                            enter="transition duration-100 ease-out"
-                                            enterFrom="transform scale-95 opacity-0"
-                                            enterTo="transform scale-100 opacity-100"
-                                            leave="transition duration-75 ease-out"
-                                            leaveFrom="transform scale-100 opacity-100"
-                                            leaveTo="transform scale-95 opacity-0"
-                                        >
-                                        <Disclosure.Panel className="p-5 rounded-lg border border-t-0 ml-2 border-gray-300 focus:ring-4 focus:ring-gray-200 focus:bg-gray-50">
-                                        <div className='flex flex-row justify-between'>
-                                        {data.codes?.map((code, index) => {
-                                            return(
-                                                <div className='flex flex-col font-bold'> 
-                                                    {code}
-                                                </div>
-                                            );
-                                        })}
-                                        {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
+                            <Accordion title={data.data} className={"p-2 bg-slate-300"} 
+                                content={
+                                <div className='flex flex-row justify-between'>
+                                {data.codes?.map((code, index) => {
+                                    return(
+                                        <div className='flex flex-col font-bold'> 
+                                            {code}
                                         </div>
-                                        </Disclosure.Panel>
-                                        </Transition>
-                                    </div> )}
-                                </Disclosure>
-                                </>
+                                    );
+                                })}
+                                {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
+                                </div>
+                            }/>
                             );
                         })}
-                    </Disclosure.Panel>
-                    </Transition>
-                </div> )}
-                </Disclosure>
+                    </div>
+                }/>
             );
         });
 
