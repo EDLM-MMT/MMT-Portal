@@ -1,8 +1,8 @@
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import { act, fireEvent, render } from "@testing-library/react";
-import ResetPasswordOverlay from '@/components/overlays/ResetPasswordOverlay';
+import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 
-describe("ResetPasswordOverlay Component", () => {
+describe("GeneralPurposeOverlay Component", () => {
 
     jest.fn(() => ({
         userData: 
@@ -22,7 +22,8 @@ describe("ResetPasswordOverlay Component", () => {
     it("should render the component", () => {
         const { getByText } = render(
             <MemoryRouterProvider>
-                <ResetPasswordOverlay toggleModal={()=>{}}
+                <GeneralPurposeOverlay toggleModal={()=>{}}
+                    title={"Reset Password Confirmation"}
                     message={"Please confirm you want to test"} path={"/"}/>
             </MemoryRouterProvider> );
             
@@ -49,7 +50,8 @@ describe("ResetPasswordOverlay Component", () => {
         
         const { getByText } = render(
             <MemoryRouterProvider>
-                <ResetPasswordOverlay toggleModal={()=>{}}
+                <GeneralPurposeOverlay toggleModal={()=>{}}
+                    title={"Reset Password Confirmation"}
                     message={"Please confirm you want to test"} path={"/"}/>
             </MemoryRouterProvider> );
             
