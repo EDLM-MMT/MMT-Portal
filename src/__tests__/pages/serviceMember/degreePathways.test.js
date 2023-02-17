@@ -40,4 +40,36 @@ describe("Degree Pathways Page", () => {
 
   });
 
+  it("should check the search bar in the component", () => {
+
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <DegreePathways />
+        </MemoryRouterProvider>
+    );
+    expect(getByPlaceholderText('Search for School')).toBeInTheDocument();
+
+    act(() => {
+        fireEvent.change(getByPlaceholderText('Search for School'), {
+            target: { value: 'City University' },
+          });
+      });
+  });
+
+  it("should check the inner information using the search bar in the component", () => {
+
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <DegreePathways />
+        </MemoryRouterProvider>
+    );
+    expect(getByPlaceholderText('Search for School')).toBeInTheDocument();
+
+    act(() => {
+        fireEvent.change(getByPlaceholderText('Search for School'), {
+            target: { value: 'BA' },
+          });
+      });
+  });
+
 });

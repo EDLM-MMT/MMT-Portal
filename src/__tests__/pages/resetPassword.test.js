@@ -59,6 +59,15 @@ describe("Reset password page", () => {
     });
 
     it("should check for wrong password in the form field", () => {
+
+      const mockIntersectionObserver = jest.fn();
+      mockIntersectionObserver.mockReturnValue({
+        observe: () => null,
+        unobserve: () => null,
+        disconnect: () => null
+      });
+      window.IntersectionObserver = mockIntersectionObserver;
+      
       const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
           <ResetPassword />
