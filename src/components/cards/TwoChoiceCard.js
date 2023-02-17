@@ -6,7 +6,7 @@ import AssignInquiryOverlay from "../overlays/AssignInquiryOverlay";
 
 
 
-export default function TwoChoiceCard({ title, description, buttonLabel, viewRoutePath, className, data, card, degreeIndex, toggleModalUpdate, type }){
+export default function TwoChoiceCard({ buttonLabel, className, data, card, degreeIndex, toggleModalUpdate, type }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
