@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from "next/router"
 import ForgotPasswordOverlay from '@/components/overlays/ForgotPasswordOverlay';
 
-export default function ResetPassword() {
+export default function ForgotPassword() {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
     const [email, setEmail] = useState('');
@@ -44,7 +44,7 @@ export default function ResetPassword() {
             <div class="grid gap-6 mb-6 w-1/3 ">
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter the Email Address associated with your account</label>
-                    <input type="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <input type="email" name="email" placeholder="Email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                 </div>
             </div>
 

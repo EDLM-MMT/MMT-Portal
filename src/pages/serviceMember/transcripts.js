@@ -4,6 +4,8 @@ import useStore from '@/store/store';
 import Card from '@/components/cards/Card';
 import ViewBtn from '@/components/buttons/ViewBtn';
 import DownloadButton from '@/components/buttons/DownloadButton';
+import Table from '@/components/Tables/Table';
+import Accordion from '@/components/Accordion';
 
 export default function Transcripts() {
     const userData = useStore((state) => state.userData);
@@ -29,7 +31,15 @@ export default function Transcripts() {
             description: "Included the Basic transcript data, Summary Transcript data, and Aedemic Courses completed.",
             type: "Complete"
         },
-        
+    ]
+
+    const data = [
+        ["01/22/2023", 1, 3, 1, 1],
+        ["01/21/2023", 3, 2, "", 2],
+        ["01/20/2023", 1, 3, 1, 1],
+        ["01/20/2023", 3, "", 2, 2],
+        ["01/19/2023", 1, 3, 1, ""],
+        ["01/18/2023", "", 2, 1, 2],
     ]
 
     return (
@@ -41,10 +51,10 @@ export default function Transcripts() {
                         <Button btnText={"Official JST Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
                     </div> 
                 </h1>
-                <div className='flex justify-between gap-10'>
+                <div className='grid grid-cols-2 gap-y-10 gap-x-16'>
                     {cards.map((card, index) => {
                         return(
-                            <div className='w-1/3'>
+                            <div className='px-4'>
                                 <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}>
                                     <div className='flex flex-row align-bottom justify-between mt-5'>
                                         <ViewBtn transcriptType={card.type}/>
@@ -54,6 +64,11 @@ export default function Transcripts() {
                             </div>
                         )
                     })}
+                </div>
+                <div className='m-4 mt-16'>
+                    <Accordion title={"Transcript Session History"} 
+                    content={<Table columnTitles={["Login date", "Basic", "Summary", "Academic", "Complete"]} rowsData={data}/>}
+                    className={"text-xl font-semibold"}/>
                 </div>
             </div>
         </DefaultLayout>

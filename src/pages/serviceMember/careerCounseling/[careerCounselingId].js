@@ -95,7 +95,7 @@ export default function CareerCounseling({careerCounselingId}) {
             <div>
               <button onClick={handleClick}
               className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
-              Career Counseling </button> -{`>`} {career.degree}
+              Career Counseling Dashboard</button> -{`>`} {career.degree}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCounselingCard key={career.id} title={career.degree} 

@@ -1,6 +1,6 @@
 import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import Table from '@/components/Table';
+import Table from '@/components/Tables/Table';
 import useStore from '@/store/store';
 import { useRouter } from "next/router"
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
 import ViewCard from '@/components/cards/ViewCard';
-import Table from '@/components/Table';
+import Table from '@/components/Tables/Table';
 
 export function getServerSideProps(context) {
     const { degreeAgreementsId } = context.query;
@@ -52,7 +52,7 @@ export default function DegreeAgreementsView({degreeAgreementsId}) {
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
-                    View Degree Agreements
+                    {degreeAgreement.title}
                 </div> 
             </h1>
             <div>
