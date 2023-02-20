@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { useState } from 'react';
 
-export default function ViewCounselingCard({ title, school, startDate, endDate, assignedESO, totalHours, completedHours, className }){
+export default function ViewCounselingCard({ title, school, startDate, endDate, assignedESO, serviceMember, totalHours, completedHours, className }){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
@@ -16,9 +16,16 @@ export default function ViewCounselingCard({ title, school, startDate, endDate, 
                 <p className={descriptionClass}>
                     School: {school}
                 </p>
+                {assignedESO &&
                 <p className={descriptionClass}>
                     Assigned ESO: {assignedESO}
                 </p>
+                }
+                {serviceMember &&
+                <p className={descriptionClass}>
+                    Service Member: {serviceMember}
+                </p>
+                }
             </div>
             <div className="flex flex-row justify-between font-semibold">
                 <p className={descriptionClass}>
