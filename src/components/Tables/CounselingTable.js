@@ -70,7 +70,7 @@ export default function CounselingTable({coursePlan}) {
                             </th>                            
                     </tr>
                 </thead>
-                {coursePlan.map((course, index) => ( 
+                {(coursePlan.length !== 0) ? (coursePlan.map((course, index) => ( 
                             <tr key={index} className=' even:bg-gray-50 group'>
                                 {/* {setData(post)} */}
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>
@@ -95,7 +95,18 @@ export default function CounselingTable({coursePlan}) {
                                 <td className='pl-4'>{course.projected_semester}</td>
                                 <td className='pl-4'>{course.status}</td>
                             </tr>
-                ))}
+                ))):(
+                    <tr key={0}>
+                        <td className='text-sm font-medium text-gray-900'></td>
+                        <td></td>
+                        <td></td>
+                        <td >
+                            <div className='justify-center m-2 font-light text-gray-600'>
+                                No courses found
+                            </div>
+                        </td>
+                    </tr>
+                    )}
             </table>
         </div>
 

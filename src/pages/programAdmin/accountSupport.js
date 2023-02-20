@@ -6,7 +6,7 @@ import Table from '@/components/tables/Table';
 import { useState } from 'react';
 import modifiedData from "../../data/programAdmin/accountSupport.json";
 import { useRouter } from 'next/router';
-import ResetPasswordOverlay from '@/components/overlays/ResetPasswordOverlay';
+import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 
 
 export default function AccountSupport() {
@@ -103,8 +103,8 @@ export default function AccountSupport() {
                     ))
                 }
             </table>
-            {isOpen && <ResetPasswordOverlay toggleModal={setIsOpen} path={"/programAdmin/accountSupport"}
-                message={"Upon clicking Confirm, a reset password email will be sent to the associated account."}/>}
+            {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/programAdmin/accountSupport"}
+                title={"Reset Password Confirmation"} message={"Upon clicking Confirm, a reset password email will be sent to the associated account."}/>}
             {/* <Table columnTitles={["Name", "Username", "Reset Password", "View Login History"]} rowsData={data}/> */}
         </div>
         </DefaultLayout>

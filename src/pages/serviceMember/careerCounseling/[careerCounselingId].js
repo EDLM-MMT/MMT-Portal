@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
+import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import CounselingTable from '@/components/tables/CounselingTable';
 
 export function getServerSideProps(context) {
@@ -28,6 +29,8 @@ export default function CareerCounseling({careerCounselingId}) {
     const router = useRouter();
     const [coursePlan,setCoursePlan] = useState([]);
     const [comments,setComments] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
 
     useEffect(() => {
         axios
@@ -45,6 +48,11 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleClick = () => {
         router.push("/serviceMember/careerCounseling");
+    }
+
+    const handleTranscript = () => {
+        console.log("This button works!")
+        setIsOpen(!isOpen);
     }
 
     const handlePost = (event) => {
@@ -100,7 +108,10 @@ export default function CareerCounseling({careerCounselingId}) {
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     {career.degree} Career Counseling
+                    <button onClick={handleTranscript} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Send Unofficial Transcript to ESO</button>
                 </div> 
+                {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/serviceMember/careerCounseling/[careerCounselingId]"}
+                title={"Send Unofficial Transcript"} message={`Upon clicking Confirm, an Unofficial Transcript will be sent to assigned ESO: ${career.assigned_eso}`}/>}
             </h1>
             <div>
               <button onClick={handleClick}
@@ -157,7 +168,7 @@ export default function CareerCounseling({careerCounselingId}) {
                                 </div>
                             </div>
                             <div className="flex justify-end w-full">
-                                <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Add Course</button>
+                                <button className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Add Course</button>
                             </div>
                         </form>
                     </Disclosure.Panel>
