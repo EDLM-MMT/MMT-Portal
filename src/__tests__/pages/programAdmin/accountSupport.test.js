@@ -4,7 +4,7 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 describe("AccountSupport page", () => {
   it("should render the page", () => {
-    const { getByText, getAllByText } = render(
+    const { getByText } = render(
         <MemoryRouterProvider>
             <AccountSupport />
         </MemoryRouterProvider>
@@ -13,7 +13,7 @@ describe("AccountSupport page", () => {
   });
 
   it("should fill the form fields", () => {
-    const { getByText, getByPlaceholderText } = render(
+    const { getByPlaceholderText } = render(
       <MemoryRouterProvider>
           <AccountSupport />
       </MemoryRouterProvider>
@@ -26,7 +26,7 @@ describe("AccountSupport page", () => {
   });
 
   it("should render the table", () => {
-    const { getByText, getAllByText } = render(
+    const { getByText } = render(
         <MemoryRouterProvider>
             <AccountSupport />
         </MemoryRouterProvider>
@@ -36,4 +36,43 @@ describe("AccountSupport page", () => {
     expect(getByText('Reset Password')).toBeInTheDocument();
     expect(getByText('View Login History')).toBeInTheDocument();
   });
+
+  it("should click the view button", () => {
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <AccountSupport />
+        </MemoryRouterProvider>
+    );
+
+    act(() => {
+      fireEvent.change(getByPlaceholderText('Search here'), {
+          target: { value: 'jsmith' },
+        });
+    });
+
+    const viewButton = getByText('View');
+    act(() => {
+      fireEvent.click(viewButton);
+    });
+  });
+
+  it("should click the reset button", () => {
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <AccountSupport />
+        </MemoryRouterProvider>
+    );
+
+    act(() => {
+      fireEvent.change(getByPlaceholderText('Search here'), {
+          target: { value: 'John' },
+        });
+    });
+
+    const resetButton = getByText('Reset');
+    act(() => {
+      fireEvent.click(resetButton);
+    });
+  });
+
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { act, render, fireEvent } from '@testing-library/react';
 import CounselingDashboardTable from '@/components/tables/CounselingDashboardTable';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
@@ -26,13 +26,31 @@ describe('CounselingDashboardTable component', () => {
       "creditHours_completed": 24,
     }
   ]
+
+  const counselingOne = [
+    {
+      "id": 300,
+      "degree": "Computer Science",
+      "school": "Berkeley College - Online (NJ)",
+      "degree_startDate": "January 2019",
+      "projected_graduation": "June 2023",
+      "assigned_eso": "Mary Jane Doe",
+      "total_creditHours": 60,
+      "creditHours_completed": 12,
+    }
+  ]
       
+
   it('renders the component with the correct number of rows and columns', () => {
-  const { getByText, container } = render(
+  const { getByText } = render(
     <MemoryRouterProvider url='/'>
       <CounselingDashboardTable careerList={counseling} />
     </MemoryRouterProvider>
   );
+
+  expect(getByText('Major')).toBeInTheDocument();
+  expect(getByText('School')).toBeInTheDocument();
+  expect(getByText('Required Hours')).toBeInTheDocument();
 
   expect(getByText('Computer Science')).toBeInTheDocument();
   expect(getByText('Berkeley College - Online (NJ)')).toBeInTheDocument();
@@ -40,5 +58,49 @@ describe('CounselingDashboardTable component', () => {
 
   });
 
+  it('renders the component with the correct number of rows and columns', () => {
+    const { getByText } = render(
+      <MemoryRouterProvider url='/'>
+        <CounselingDashboardTable careerList={counseling} />
+      </MemoryRouterProvider>
+    );
+  
+    expect(getByText('Major')).toBeInTheDocument();
+    expect(getByText('School')).toBeInTheDocument();
+    expect(getByText('Required Hours')).toBeInTheDocument();
+  
+    expect(getByText('Computer Science')).toBeInTheDocument();
+    expect(getByText('Berkeley College - Online (NJ)')).toBeInTheDocument();
+    expect(getByText('Business Administration')).toBeInTheDocument();
+  
+    });
+
+  it('clicks career counseling button', () => {
+    const { getByText } = render(
+      <MemoryRouterProvider url='/'>
+        <CounselingDashboardTable careerList={counselingOne} />
+      </MemoryRouterProvider>
+    );
+  
+    const counselingButton = getByText('Go To Career Counseling');
+      act(() => {
+        fireEvent.click(counselingButton);
+      });
+
+  });
+
+  it('clicks delete', () => {
+    const { getByTestId } = render(
+      <MemoryRouterProvider url='/'>
+        <CounselingDashboardTable careerList={counselingOne} />
+      </MemoryRouterProvider>
+    );
+
+    expect(getByTestId('delete-button')).toBeInTheDocument();
+    const deleteButton = getByTestId('delete-button');
+      act(() => {
+        fireEvent.click(deleteButton);
+      });
+  });
 
 });

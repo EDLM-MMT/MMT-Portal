@@ -8,12 +8,6 @@ export default function ViewCard({ title, description, className }){
         ${className ?? ""}
     `);
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleClick = () => {
-        setIsOpen(true);
-    }
-
     return(
         <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
             <h1 className='text-xl font-semibold h-10'>

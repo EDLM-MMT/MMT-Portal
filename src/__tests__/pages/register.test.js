@@ -62,5 +62,18 @@ describe("Register page", () => {
     });
   });
 
+  it("should click the button", () => {
+    const { getByText } = render(
+      <MemoryRouterProvider>
+        <Register />
+      </MemoryRouterProvider>
+    );
+
+    const signInButton = getByText('Sign in to your Account');
+    act(() => {
+        fireEvent.click(signInButton);
+    });
+  });
+
   
 });
