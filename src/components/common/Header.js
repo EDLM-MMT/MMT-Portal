@@ -48,6 +48,21 @@ const ProgramAdminMenuItems = [
   },
 ];
 
+const ESOMenuItems = [
+  {
+    label: 'ESO Inquiries',
+    path: '/eso/inquiries',
+  },
+  {
+    label: 'Career Counseling',
+    path: '/eso/careerCounseling',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
 function Button({ data }) {
   const router = useRouter();
   if (data.path === router?.asPath) {
@@ -103,6 +118,9 @@ export default function Header() {
                 return <Button key={item.label} data={item} />;
             })}
             {user?.role === 'Program Administrator' && ProgramAdminMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
+            })}
+            {user?.role === 'ESO' && ESOMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
             })}
           </div>
