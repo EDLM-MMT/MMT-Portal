@@ -9,7 +9,7 @@ const cards = [
     {
         title: "ESO Inquiries",
         description: "Manage Service member inquiries, update service member profiles",
-        buttonLabel: "Go to Inquiries",
+        buttonLabel: "Go to ESO Inquiries",
         image: inquiriesImage,
         routePath:"eso/inquiries"
     },
