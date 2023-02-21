@@ -120,7 +120,7 @@ export default function CareerCounseling({careerCounselingId}) {
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCounselingCard key={career.id} title={career.degree} 
                                         school={career.school} startDate={career.degree_startDate} 
-                                        endDate={career.projected_graduation} serviceMember={career.serviceMember}
+                                        endDate={career.projected_graduation} serviceMember={career.submitted_by}
                                         totalHours={career.total_creditHours} completedHours={career.creditHours_completed}/>                   
             </div>
             <div className='bg-white w-full border h-50 mt-4 rounded-md border-gray-200 p-4 pb-0 shadow'>

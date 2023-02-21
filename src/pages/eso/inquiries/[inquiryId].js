@@ -65,6 +65,10 @@ export default function ESOInquiryView({inquiryId}) {
         router.push("/eso/inquiries");
     }
 
+    const handleInquiry = () => {
+        inquiry.inquiry_status = "Closed";
+    }
+
     const handlePost = (event) => {
       event.preventDefault()
       //console.log(event.target[0].value)
@@ -89,6 +93,9 @@ export default function ESOInquiryView({inquiryId}) {
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     View Inquiry
+                    {inquiry.inquiryStatus !== 'Closed' &&
+                    (<button onClick={handleInquiry} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Close Inquiry</button>) 
+                    }
                 </div> 
             </h1>
             <div>
@@ -97,7 +104,7 @@ export default function ESOInquiryView({inquiryId}) {
               Inquiries </button> -{`>`} {inquiry.title}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
-                    <ViewCard key={inquiry.id} title={inquiry.title} description={inquiry.description}/>                   
+                    <ViewCard key={inquiry.id} title={inquiry.title} description={inquiry.description} inquiryStatus={inquiry.inquiry_status}/>                   
             </div>
             <div className='bg-white w-full border h-50 mt-4 rounded-md border-gray-200 p-4 pb-0 shadow'>
                 Submitted on {inquiry.timestampCreated}
