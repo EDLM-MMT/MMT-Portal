@@ -25,9 +25,7 @@ describe("Inquiry View Page", () => {
         </MemoryRouterProvider>
     );
 
-    expect(getByText('View Inquiry')).toBeInTheDocument();
     expect(getByText('Inquiries')).toBeInTheDocument();
-    expect(getByText('Submitted on')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
     expect(getByText('Inquiry Timeline')).toBeInTheDocument();

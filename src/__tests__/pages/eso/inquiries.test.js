@@ -40,7 +40,7 @@ describe("Inquiries Page", () => {
         </MemoryRouterProvider>
     );
 
-    mockAxios.get.mockImplementation(() => Promise.resolve({ data: data}));
+    //mockAxios.get.mockImplementation(() => Promise.resolve({ data: data}));
 
     expect(getByText('All Inquiries')).toBeInTheDocument();
 

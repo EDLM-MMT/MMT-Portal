@@ -23,7 +23,7 @@ export default function ViewCounselingCard({ title, school, startDate, endDate, 
                 }
                 {serviceMember &&
                 <p className={descriptionClass}>
-                    Learner: {serviceMember}
+                    Service Member: {serviceMember}
                 </p>
                 }
             </div>

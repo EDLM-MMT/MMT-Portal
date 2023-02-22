@@ -203,7 +203,7 @@ export default function CareerCounseling({careerCounselingId}) {
                                 </div>
                             ):(
                                 <div className="mt-4 mb-4 ml-96">
-                                    <div className='bg-dod-300 bg-opacity-50 w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
+                                    <div className='bg-dod-300 bg-opacity-30 w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
                                         <div className="flex-row flex justify-between text-base mb-4 font-medium">
                                             <div className="flex-row flex pr-2 text-base mb-2 font-medium">{data.author} </div> 
                                             <div>{data.timestamp}</div>
