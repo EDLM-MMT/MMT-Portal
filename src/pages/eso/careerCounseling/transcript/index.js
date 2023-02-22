@@ -25,7 +25,7 @@ export default function TranscriptView() {
             <div>
                 <button onClick={handleClick}
                 className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
-                Career Counseling Dashbaord </button> -{`>`} Complete Transcript 
+                Career Counseling Dashboard </button> -{`>`} Complete Transcript 
             </div>
 
             <div className="m-4 bg-gray-200 h-screen text-center">
