@@ -3,9 +3,7 @@ import useStore from '@/store/store';
 import inquiriesImage from '../../../assets/images/esoInquiry.png';
 import careerCounselingImage from '../../../assets/images/careercounseling.png';
 
-
 const cards = [
-
     {
         title: "ESO Inquiries",
         description: "Manage Service member inquiries, update service member profiles",
@@ -13,7 +11,6 @@ const cards = [
         image: inquiriesImage,
         routePath:"eso/inquiries"
     },
-
     {
         title: "Career Counseling",
         description: "Assist service memeber in Career counseling and view service member transcripts",
@@ -23,10 +20,8 @@ const cards = [
     },
 ]
 
-
 export default function ESODashboard() {
     const userData = useStore((state) => state.userData);
-
     return (
         <div className='w-full'>
             <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>

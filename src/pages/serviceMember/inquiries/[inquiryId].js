@@ -88,7 +88,7 @@ export default function InquiryView({inquiryId}) {
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
-                    View Inquiry
+                  {inquiry.title} Inquiry
                 </div> 
             </h1>
             <div>
@@ -109,7 +109,7 @@ export default function InquiryView({inquiryId}) {
                 <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-2 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Post</button>
               </form>
             </div>
-            <div className="font-medium">
+            <div className="font-semibold text-xl">
             Inquiry Timeline
             </div>
             {comments?.map((data, index) => {
@@ -124,7 +124,7 @@ export default function InquiryView({inquiryId}) {
                         </div>
                       ):(
                         <div className="mt-4 mb-4 ml-96">
-                          <div className='bg-white w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
+                          <div className='bg-dod-300 bg-opacity-50 w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
                             <div className="flex-row flex justify-between text-base mb-4 font-medium">
                               <div className="flex-row flex pr-2 text-base mb-2 font-medium">{data.author} </div> 
                               <div>{data.timestamp}</div>

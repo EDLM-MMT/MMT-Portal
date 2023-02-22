@@ -1,7 +1,8 @@
-import InquiryView from "@/pages/serviceMember/inquiries/[inquiryId]";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import axios from 'axios'
+import ESOInquiryView from "@/pages/eso/inquiries/[inquiryId]";
+
 
 let url = ''
 let body = {}
@@ -20,13 +21,11 @@ describe("Inquiry View Page", () => {
   it("should render the component", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
-            <InquiryView />
+            <ESOInquiryView />
         </MemoryRouterProvider>
     );
 
-    
-    expect(getByText('My Inquiries')).toBeInTheDocument();
-    expect(getByText('Submitted on')).toBeInTheDocument();
+    expect(getByText('Inquiries')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
     expect(getByText('Inquiry Timeline')).toBeInTheDocument();
@@ -47,15 +46,15 @@ describe("Inquiry View Page", () => {
   it("should navigate to inquiries", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
-            <InquiryView />
+            <ESOInquiryView />
         </MemoryRouterProvider>
     );
 
     axios.get.mockResolvedValue({data: []});
 
-    expect(getByText('My Inquiries')).toBeInTheDocument();
+    expect(getByText('Inquiries')).toBeInTheDocument();
    
-    const button = getByText('My Inquiries');
+    const button = getByText('Inquiries');
     act(() => {
         fireEvent.click(button);
     });
