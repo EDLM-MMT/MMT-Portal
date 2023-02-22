@@ -60,8 +60,8 @@ export default function CareerCounseling({careerCounselingId}) {
       event.preventDefault()
       //console.log(event.target[0].value)
       const newComment = {
-        author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName} (ESO)`,
-        title:"",
+        author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
+        title:"ESO",
         comment: event.target.comment?.value,
         timestamp: timestamp,
       }
@@ -187,24 +187,24 @@ export default function CareerCounseling({careerCounselingId}) {
                 </div>
               </form>
             
-                <div className="font-medium">
+                <div className="font-semibold text-xl">
                 Counseling Timeline
                 </div>
                     {comments?.map((data, index) => {
                         return(
-                            (data.title === 'ESO') ? (
+                            (data.title !== 'ESO') ? (
                                 <div className='bg-white w-3/4 text-black border h-50 mt-2 mb-4 rounded-md border-gray-200 p-4 pb-2 shadow'>
                                     <div className="flex-row flex justify-between text-base mb-4 font-medium">
-                                        <div className="flex-row flex pr-2 text-base mb-2 font-medium">{`${data.author} (${data.title})`}</div> 
+                                        <div className="flex-row flex pr-2 text-base mb-2 font-medium">{data.author}</div> 
                                         <div>{data.timestamp}</div>
                                     </div>
                                     <div className="text-sm pl-4">{data.comment}</div>
                                 </div>
                             ):(
                                 <div className="mt-4 mb-4 ml-96">
-                                    <div className='bg-white w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
+                                    <div className='bg-dod-300 bg-opacity-50 w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
                                         <div className="flex-row flex justify-between text-base mb-4 font-medium">
-                                            <div className="flex-row flex pr-2 text-base mb-2 font-medium">{data.author} </div> 
+                                            <div className="flex-row flex pr-2 text-base mb-2 font-medium">{`${data.author} (${data.title})`} </div> 
                                             <div>{data.timestamp}</div>
                                         </div>
                                         <div className="text-sm pl-4">{data.comment}</div>
