@@ -32,6 +32,7 @@ export default function CareerCounseling({careerCounselingId}) {
     const [comments,setComments] = useState([]);
     const [ESOComments,setESOComments] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [dropdownValue, setDropdownValue] = useState("");
 
 
     useEffect(() => {
@@ -43,7 +44,6 @@ export default function CareerCounseling({careerCounselingId}) {
             setCoursePlan(res.data.course_plan);
             setComments(res.data.counselingComments);
             setESOComments(res.data.ESOComments);
-            console.log(res.data.ESOComments);
         })
           .catch((err) => {
             console.log(err);
@@ -64,6 +64,17 @@ export default function CareerCounseling({careerCounselingId}) {
       }
       setComments(comments =>[newComment, ...comments]);
       event.target.reset();
+    }
+
+    const handleCommentPost = (event) => {
+        event.preventDefault()
+        const newComment = {
+          date: timestamp,
+          purpose: dropdownValue,
+          comment: event.target.comment?.value,
+        }
+        setESOComments(ESOComments =>[newComment, ...ESOComments]);
+        event.target.reset();
     }
 
     const handleAddCourse = (event) => {
@@ -200,16 +211,21 @@ export default function CareerCounseling({careerCounselingId}) {
                 <div className="font-semibold text-xl h-10 border-b mb-2">
                     Notes Timeline
                 </div>
-                <div className='flex flex-row'>
-                    <div className='pt-4 flex flex-col'>
-                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose:</label>
-                        <Dropdown options={["Advised", "Updated", "Approved"]} initialValue={"Advised"}/>
+                <form onSubmit={handleCommentPost}>
+                    <div className='flex flex-row'>
+                        <div className='pt-4 flex flex-col'>
+                            <label for="purpose" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose:</label>
+                            <Dropdown options={["Advised", "Updated", "Approved"]} initialValue={"Select one"} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
+                        </div>
+                        <div className='pt-4 px-4 flex flex-col w-full'>
+                        <label for="comments" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>
+                        <input placeholder="Notes" type="text-area" id="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                        </div>
                     </div>
-                    <div className='pt-4 px-4 flex flex-col w-full'>
-                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>
-                    <input placeholder="Notes" type="text-area" id="courseNumber" name="courseNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <div className="flex justify-end w-full pt-2">
+                        <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Post</button>
                     </div>
-                </div>
+                </form>
                 <div>
                     <ESOCommentsTable ESOComments={ESOComments}/>
                 </div>
