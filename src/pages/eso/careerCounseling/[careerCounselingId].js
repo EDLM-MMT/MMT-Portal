@@ -5,7 +5,6 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
-import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import CounselingTable from '@/components/tables/CounselingTable';
 import Button from '@/components/buttons/Button';
 
@@ -24,7 +23,6 @@ export default function CareerCounseling({careerCounselingId}) {
     const currDate = new Date().toLocaleDateString();
     const currTime = new Date().toLocaleTimeString();
     const timestamp = `${currDate}  ${currTime}`;
-
 
     const [career, setCareer] = useState([]);
     const router = useRouter();
@@ -51,14 +49,8 @@ export default function CareerCounseling({careerCounselingId}) {
         router.push("/serviceMember/careerCounseling");
     }
 
-    const handleTranscript = () => {
-        console.log("This button works!")
-        setIsOpen(!isOpen);
-    }
-
     const handlePost = (event) => {
       event.preventDefault()
-      //console.log(event.target[0].value)
       const newComment = {
         author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
         title:"ESO",
@@ -66,14 +58,11 @@ export default function CareerCounseling({careerCounselingId}) {
         timestamp: timestamp,
       }
       setComments(comments =>[newComment, ...comments]);
-      if(event.target.comment?.value){
-        event.target[0].value = "";
-      }
+      event.target.reset();
     }
 
     const handleAddCourse = (event) => {
         event.preventDefault()
-        console.log(event.target[1]?.value)
         const newCourse = {
             course_number: event.target.courseNumber?.value,
             course_name:event.target.courseName?.value,
@@ -82,27 +71,14 @@ export default function CareerCounseling({careerCounselingId}) {
             status: "Pending Approval",
           }
           setCoursePlan(coursePlan =>[...coursePlan, newCourse]);
-          if(event.target.courseNumber?.value){
-            event.target[0].value = "";
-          }
-          if(event.target.courseName?.value){
-          event.target[1].value = "";
-          }
-          if(event.target.creditHours?.value){
-          event.target[2].value = "";
-          }
-          if(event.target.projectedSemester?.value){
-          event.target[3].value = "";
-          }
-      }
-    console.log(coursePlan);
+          event.target.reset();
+    }
 
     const handleSave = (event) => {
         event.preventDefault()
         console.log("Save button is clicked!")
       }
 
-    //console.log("Whats inside data:", inquiry.id)
     return (
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 

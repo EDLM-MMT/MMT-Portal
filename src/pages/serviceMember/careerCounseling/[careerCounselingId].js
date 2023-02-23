@@ -65,9 +65,7 @@ export default function CareerCounseling({careerCounselingId}) {
         timestamp: timestamp,
       }
       setComments(comments =>[newComment, ...comments]);
-      if(event.target.comment?.value){
-        event.target[0].value = "";
-      }
+      event.target.reset();
     }
 
     const handleAddCourse = (event) => {
@@ -81,20 +79,8 @@ export default function CareerCounseling({careerCounselingId}) {
             status: "Pending Approval",
           }
           setCoursePlan(coursePlan =>[...coursePlan, newCourse]);
-          if(event.target.courseNumber?.value){
-            event.target[0].value = "";
-          }
-          if(event.target.courseName?.value){
-          event.target[1].value = "";
-          }
-          if(event.target.creditHours?.value){
-          event.target[2].value = "";
-          }
-          if(event.target.projectedSemester?.value){
-          event.target[3].value = "";
-          }
-      }
-    console.log(coursePlan);
+          event.target.reset();
+    }
 
     const handleSave = (event) => {
         event.preventDefault()
