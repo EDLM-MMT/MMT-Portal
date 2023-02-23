@@ -7,6 +7,7 @@ import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
 import CounselingTable from '@/components/tables/CounselingTable';
 import Button from '@/components/buttons/Button';
+import Dropdown from '@/components/dropdowns/Dropdown';
 
 export function getServerSideProps(context) {
     const { careerCounselingId } = context.query;
@@ -189,6 +190,21 @@ export default function CareerCounseling({careerCounselingId}) {
                             )
                         )
                     })}            
+                </div>
+            </div>
+            <div className='bg-white w-full border h-50 mt-4 rounded-md border-gray-200 p-4 pb-0 shadow'>
+                <div className="font-semibold">
+                    Notes Timeline
+                </div>
+                <div className='flex flex-row'>
+                    <div className='px-4 flex flex-col'>
+                        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose:</label>
+                        <Dropdown options={["Advised", "Updated", "Approved"]} initialValue={"Advised"}/>
+                    </div>
+                    <div className='px-4 flex flex-col w-full'>
+                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>
+                    <input placeholder="Notes" type="text-area" id="courseNumber" name="courseNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    </div>
                 </div>
             </div>
         </DefaultLayout>
