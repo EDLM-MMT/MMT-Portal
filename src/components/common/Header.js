@@ -20,7 +20,7 @@ const ServiceMemberMenuItems = [
     path: '/serviceMember/degreeAgreements',
   },
   {
-    label: 'My Degree Pathways',
+    label: 'My Degree Pathways Catalog',
     path: '/serviceMember/degreePathways',
   },
   {
