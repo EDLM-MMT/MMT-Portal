@@ -1,6 +1,6 @@
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import ViewCard from '../../../components/cards/ViewCard';
+import ViewCard from '../../../components/cards/InquiryViewCard';
 
 describe("View Card component", () => {
 

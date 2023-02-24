@@ -17,7 +17,7 @@ describe("Transcripts Component", () => {
         </MemoryRouterProvider>
     );
     expect(getByText('My Transcripts')).toBeInTheDocument();
-    expect(getByText('Official JST Transcript')).toBeInTheDocument();
+    expect(getByText('Official Transcript')).toBeInTheDocument();
     expect(getByText('Basic Transcript')).toBeInTheDocument();
     expect(getByText('Summary Transcript')).toBeInTheDocument();
     expect(getByText('Academic Transcript')).toBeInTheDocument();

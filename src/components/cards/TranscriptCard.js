@@ -13,13 +13,13 @@ export default function TranscriptCard({ title, routePath, type, link}){
             <h1 className='pb-4 border-b mb-2 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
                         {title}
-                        <Button btnText={"Official JST Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
+                        <Button btnText={"Official Transcript"} link={"/serviceMember/requestOfficialTranscript"}></Button>
                     </div> 
             </h1>
             <div>
                 <button onClick={handleClick}
                 className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
-                Transcript </button> -{`>`} {type} Transcript 
+                My Transcripts </button> -{`>`} {type} Transcript 
             </div>
 
             <div className="m-4 bg-gray-200 h-screen text-center">
@@ -30,7 +30,7 @@ export default function TranscriptCard({ title, routePath, type, link}){
             </div>
 
             <div className='flex flex-row align-bottom justify-between mt-5'>
-                <Button btnText={"Return to Transcript Page"} link={"/serviceMember/transcripts"}></Button>
+                <Button btnText={"Return to My Transcripts Page"} link={"/serviceMember/transcripts"}></Button>
                 <DownloadButton/>
             </div>
         </div>

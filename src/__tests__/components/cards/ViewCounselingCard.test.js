@@ -1,7 +1,7 @@
 import ViewCounselingCard from "@/components/cards/ViewCounselingCard";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import ViewCard from '../../../components/cards/ViewCard';
+import ViewCard from '../../../components/cards/InquiryViewCard';
 
 describe("View Counseling Card component", () => {
 
@@ -12,7 +12,7 @@ describe("View Counseling Card component", () => {
       </MemoryRouterProvider>
     );
 
-    expect(getByText(/Counseling Card/i)).toBeInTheDocument();
+    expect(getByText(/Overview/i)).toBeInTheDocument();
   });
 
 });

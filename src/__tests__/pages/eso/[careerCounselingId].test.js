@@ -19,7 +19,7 @@ jest.mock("axios", () => ({
 
 describe("Career Counseling View Page", () => {
   it("should render the component", () => {
-    const { getByText, getByPlaceholderText } = render(
+    const { getByText, getAllByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
             <CareerCounseling />
         </MemoryRouterProvider>
@@ -32,7 +32,7 @@ describe("Career Counseling View Page", () => {
     expect(getByText('Total Credit Hours:')).toBeInTheDocument();
     expect(getByText('Projected Graduation Date:')).toBeInTheDocument();
     expect(getByText('Save Changes')).toBeInTheDocument();
-    expect(getByText('Add a comment:')).toBeInTheDocument();
+    expect(getAllByText('Add a comment:').length).toBe(2);
     expect(getByText('Post')).toBeInTheDocument();
     expect(getByText('Counseling Timeline')).toBeInTheDocument();
 

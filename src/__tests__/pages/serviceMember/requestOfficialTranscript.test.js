@@ -10,11 +10,11 @@ describe("Request Transcript Component", () => {
         </MemoryRouterProvider>
     );
 
-    expect(getByText('Official JST Transcript')).toBeInTheDocument();
+    expect(getByText('Official Transcript')).toBeInTheDocument();
     expect(getByText('Transcript')).toBeInTheDocument();
     expect(getByText('Enter Academic Institute')).toBeInTheDocument();
     expect(getByText('Cancel')).toBeInTheDocument();
-    expect(getByText('Send JST Transcript')).toBeInTheDocument();
+    expect(getByText('Send Transcript')).toBeInTheDocument();
 
     const button = getByText('Transcript');
     act(() => {

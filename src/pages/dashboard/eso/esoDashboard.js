@@ -6,14 +6,14 @@ import careerCounselingImage from '../../../assets/images/careercounseling.png';
 const cards = [
     {
         title: "ESO Inquiries",
-        description: "Manage Service member inquiries, update service member profiles",
+        description: "Manage service member inquiries, update service member profiles",
         buttonLabel: "Go to ESO Inquiries",
         image: inquiriesImage,
         routePath:"eso/inquiries"
     },
     {
         title: "Career Counseling",
-        description: "Assist service memeber in Career counseling and view service member transcripts",
+        description: "Assist service memeber in career counseling and view service member transcripts",
         buttonLabel: "Go to Career Counseling",
         image: careerCounselingImage,
         routePath:"eso/careerCounseling"
