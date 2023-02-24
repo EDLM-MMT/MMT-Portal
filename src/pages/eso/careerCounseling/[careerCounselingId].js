@@ -51,7 +51,7 @@ export default function CareerCounseling({careerCounselingId}) {
     }, []);
 
     const handleClick = () => {
-        router.push("/serviceMember/careerCounseling");
+        router.push("/eso/careerCounseling");
     }
 
     const handlePost = (event) => {

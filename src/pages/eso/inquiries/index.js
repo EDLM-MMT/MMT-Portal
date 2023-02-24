@@ -29,7 +29,7 @@ export default function ESOInquiryDashboard() {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        All Inquiries
+                        Service Member Inquiries
                     </div> 
                 </h1>
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
