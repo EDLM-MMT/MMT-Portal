@@ -9,8 +9,8 @@ export default function ViewCounselingCard({ title, school, startDate, endDate, 
 
     return(
         <div className='bg-white w-full border h-50 pb-4 mb-1 rounded-md border-gray-200 p-4 shadow'>
-            <h1 className='text-xl font-semibold h-10'>
-                {title}
+            <h1 className='text-xl font-semibold h-10 border-b'>
+                Overview
             </h1>
             <div className="flex flex-row justify-between font-semibold">
                 <p className={descriptionClass}>
