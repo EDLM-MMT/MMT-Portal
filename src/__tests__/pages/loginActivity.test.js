@@ -11,7 +11,7 @@ describe("Login Activity Page", () => {
     );
 
     expect(getByText('Login Activity')).toBeInTheDocument();
-    expect(getByText('Login date')).toBeInTheDocument();
+    expect(getByText('Login Date/Time')).toBeInTheDocument();
     expect(getByText('Trascripts')).toBeInTheDocument();
     expect(getByText('Inquiries')).toBeInTheDocument();
     expect(getByText('Degree Agreements')).toBeInTheDocument();
