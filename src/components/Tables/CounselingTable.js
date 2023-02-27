@@ -100,7 +100,7 @@ export default function CounselingTable({coursePlan}) {
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>{course.course_number}</td>
                                 <td className='pl-2'>{course.course_name}</td>
                                 <td className='pl-2'>{course.required}</td>
-                                <td className='pl-2'>{course.credit_hours}</td>
+                                <td className='pl-12'>{course.credit_hours}</td>
                                 <td className='pl-2'>{course.projected_semester}</td>
                                 <td className='pl-2'>{course.status}</td>
                             </tr>
