@@ -25,7 +25,7 @@ describe("Inquiry View Page", () => {
         </MemoryRouterProvider>
     );
 
-    expect(getByText('Inquiries')).toBeInTheDocument();
+    expect(getByText('Inquiry')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
     expect(getByText('Inquiry Timeline')).toBeInTheDocument();
@@ -52,9 +52,9 @@ describe("Inquiry View Page", () => {
 
     axios.get.mockResolvedValue({data: []});
 
-    expect(getByText('Inquiries')).toBeInTheDocument();
+    expect(getByText('Service Member Inquiries')).toBeInTheDocument();
    
-    const button = getByText('Inquiries');
+    const button = getByText('Service Member Inquiries');
     act(() => {
         fireEvent.click(button);
     });

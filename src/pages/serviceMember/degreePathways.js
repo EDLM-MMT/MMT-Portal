@@ -304,7 +304,7 @@ export default function DegreePathways() {
                         </div> 
                     </h1>
                     <div>
-                        <input type="text" className=" w-1/2 mb-1 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder={`Search for ${selected} or Major`} onChange={handleChange} value={searchInput} />
+                        <input type="text" className=" w-1/2 mb-1 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder={`Search for School or Major`} onChange={handleChange} value={searchInput} />
                     </div>
                     <div className='flex align-middle '>
                          <div className='p-2 font-medium'> Filter By MOS Code: </div> 
