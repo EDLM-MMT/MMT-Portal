@@ -11,12 +11,12 @@ describe("Request Transcript Component", () => {
     );
 
     expect(getByText('Official Transcript')).toBeInTheDocument();
-    expect(getByText('Transcript')).toBeInTheDocument();
+    expect(getByText('My Transcripts')).toBeInTheDocument();
     expect(getByText('Enter Academic Institute')).toBeInTheDocument();
     expect(getByText('Cancel')).toBeInTheDocument();
     expect(getByText('Send Transcript')).toBeInTheDocument();
 
-    const button = getByText('Transcript');
+    const button = getByText('My Transcripts');
     act(() => {
         fireEvent.click(button);
     });

@@ -12,8 +12,8 @@ describe("Transcript Type View Component", () => {
 
     expect(getByText('undefined Transcript')).toBeInTheDocument();
     expect(getByText('Official Transcript')).toBeInTheDocument();
-    expect(getByText('Transcript')).toBeInTheDocument();
-    expect(getByText('Return to Transcript Page')).toBeInTheDocument();
+    expect(getByText('PDF Viewer')).toBeInTheDocument();
+    expect(getByText('Return to My Transcripts Page')).toBeInTheDocument();
     expect(getByText('Download')).toBeInTheDocument();
 
   });

@@ -57,7 +57,7 @@ describe("InquiriesPage", () => {
 
     axios.get.mockResolvedValue({data: data});
 
-    expect(getByText('All Inquiries')).toBeInTheDocument();
+    expect(getByText('Service Member Inquiries')).toBeInTheDocument();
 
   });
 

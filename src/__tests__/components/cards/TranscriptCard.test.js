@@ -11,9 +11,9 @@ describe("TranscriptCard Component", () => {
     );
     expect(getByText(/Test title/i)).toBeInTheDocument();
     expect(getByText(/Official Transcript/i)).toBeInTheDocument();
-    expect(getByText(/Return to Transcript Page/i)).toBeInTheDocument();
+    expect(getByText(/Return to My Transcripts Page/i)).toBeInTheDocument();
 
-    const button = getByText('Transcript');
+    const button = getByText('My Transcripts');
     act(() => {
         fireEvent.click(button);
     });

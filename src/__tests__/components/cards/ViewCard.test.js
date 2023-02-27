@@ -7,11 +7,13 @@ describe("View Card component", () => {
   it("should render the component", () => {
     const { getByText } = render(
       <MemoryRouterProvider>
-        <ViewCard title={"My Degree Agreements"}/>
+        <ViewCard />
       </MemoryRouterProvider>
     );
 
-    expect(getByText(/My Degree Agreements/i)).toBeInTheDocument();
+    expect(getByText("Description")).toBeInTheDocument();
+    expect(getByText("Status:")).toBeInTheDocument();
+
   });
 
 });

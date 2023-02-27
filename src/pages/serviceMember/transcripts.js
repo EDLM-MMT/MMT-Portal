@@ -34,12 +34,12 @@ export default function Transcripts() {
     ]
 
     const data = [
-        ["01/22/2023", 1, 3, 1, 1],
-        ["01/21/2023", 3, 2, "", 2],
-        ["01/20/2023", 1, 3, 1, 1],
-        ["01/20/2023", 3, "", 2, 2],
-        ["01/19/2023", 1, 3, 1, ""],
-        ["01/18/2023", "", 2, 1, 2],
+        ["01/22/2023 2:43:20 PM", 1, 3, 1, 1],
+        ["01/21/2023 5:43:20 PM", 3, 2, "", 2],
+        ["01/20/2023 4:32:20 PM", 1, 3, 1, 1],
+        ["01/20/2023 6:47:20 PM", 3, "", 2, 2],
+        ["01/19/2023 3:43:20 PM", 1, 3, 1, ""],
+        ["01/18/2023 2:15:20 PM", "", 2, 1, 2],
     ]
 
     return (
@@ -67,7 +67,7 @@ export default function Transcripts() {
                 </div>
                 <div className='m-4 mt-16'>
                     <Accordion title={"Transcript Session History"} 
-                    content={<Table columnTitles={["Login date", "Basic", "Summary", "Academic", "Complete"]} rowsData={data}/>}
+                    content={<Table columnTitles={["Login Date/Time", "Basic", "Summary", "Academic", "Complete"]} rowsData={data}/>}
                     className={"text-xl font-semibold"}/>
                 </div>
             </div>
