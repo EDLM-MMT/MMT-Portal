@@ -80,8 +80,8 @@ export default function CounselingDashboardTable({careerList}) {
                                 {/* {setData(post)} */}
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>{career.degree}</td>
                                 <td className='pl-2'>{career.school}</td>
-                                <td className='pl-2'>{career.total_creditHours}</td>
-                                <td className='pl-2'>{career.total_creditHours - career.creditHours_completed}</td>
+                                <td className='pl-14'>{career.total_creditHours}</td>
+                                <td className='pl-16'>{career.total_creditHours - career.creditHours_completed}</td>
                                 <td><button onClick={() => handleCareerCounseling(career.id)} className="text-blue-700 pl-2">Go To Career Counseling</button></td>
                                 <td><button data-testid={"delete-button"} onClick={() => handleDelete(career.degree)} className="text-blue-700 pl-2">Delete</button></td>
                             </tr>
