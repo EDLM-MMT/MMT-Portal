@@ -84,7 +84,7 @@ export default function CareerCounseling({careerCounselingId}) {
         const newCourse = {
             course_number: event.target.courseNumber?.value,
             course_name:event.target.courseName?.value,
-            required:((event.target.requiredCheck?.value) ? "Yes" : "No"),
+            required:((checkedState) ? "Yes" : "No"),
             credit_hours: event.target.creditHours?.value,
             projected_semester: event.target.projectedSemester?.value,
             status: "Pending Approval",
@@ -152,20 +152,9 @@ export default function CareerCounseling({careerCounselingId}) {
                                     <label for="courseNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Number</label>
                                     <input placeholder="Course Number" type="text-area" id="courseNumber" name="courseNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
-                                <div className="w-64">
+                                <div className="w-48">
                                     <label for="courseName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Name</label>
                                     <input placeholder="Course Name" type="text-area" id="courseName" name="courseName" class="justify-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                                </div>
-                                <div className="w-64">
-                                    <label for="requiredCourse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Required Course</label>
-                                    <Checkbox 
-                                            label=""
-                                            value={checkedState}
-                                            name={"requiredCheck"}
-                                            onChange={handleChange}
-                                            index={0}
-                                            testid={`test-course-required`}
-                                    />
                                 </div>
                                 <div>
                                     <label for="creditHours" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Credit Hours</label>
@@ -174,6 +163,19 @@ export default function CareerCounseling({careerCounselingId}) {
                                 <div>
                                     <label for="projectedSemester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projected Semester</label>
                                     <input placeholder="Projected Semester" type="text-area" id="projectedSemester" name="projectedSemester" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                </div>
+                                <div className="w-30">
+                                    <label for="requiredCourse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Required</label>
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            id={`custom-checkbox`}
+                                            name="requiredCheck"
+                                            checked={checkedState}
+                                            onChange={handleChange}
+                                            data-testid="test-course-required"
+                                        />
+                                    </label>
                                 </div>
                             </div>
                             <div className="flex justify-end w-full">
