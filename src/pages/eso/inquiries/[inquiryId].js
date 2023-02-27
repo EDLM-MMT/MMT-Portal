@@ -107,8 +107,8 @@ export default function ESOInquiryView({inquiryId}) {
                     <ViewCard key={inquiry.id} inquiry={inquiry}/>                  
             </div>
             <div className='bg-white w-full border h-50 mt-4 mb-4 rounded-md border-gray-200 p-4 pb-2 shadow'>
-              <div className="font-semibold text-xl mb-4">
-                Inquiry Timeline
+              <div className="font-semibold text-xl border-b mb-4">
+                Inquiry Communication Timeline
               </div>
               <form onSubmit={handlePost}>
                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>

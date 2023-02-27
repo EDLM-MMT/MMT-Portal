@@ -24,7 +24,7 @@ export default function TwoChoiceCard({ buttonLabel, className, data, card, degr
                 <div className='flex flex-row justify-between'>
                     {card.title}
                     {(type === 'I') && <div className='text-lg'> Inquiry ID: {card.id}</div>}
-                    {(type === 'ESO') && <div className='text-lg'> Learner: {card.submitted_by}</div>}
+                    {(type === 'ESO') && <div className='text-lg'> Service Member: {card.submitted_by}</div>}
                 </div>
             </h1>
             <p className={descriptionClass}>
