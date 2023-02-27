@@ -34,7 +34,7 @@ describe("Career Counseling View Page", () => {
     expect(getByText('Save Changes')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
-    expect(getByText('Counseling Timeline')).toBeInTheDocument();
+    expect(getByText('Counseling Communication Timeline')).toBeInTheDocument();
 
     expect(getByPlaceholderText('Please provide comments if necessary.')).toBeInTheDocument();
     act(() => {
