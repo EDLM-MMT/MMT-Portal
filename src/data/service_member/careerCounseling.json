@@ -53,13 +53,13 @@
             ],
             "ESOComments": [
                 {
-                    "date": "02/14/2023",
+                    "date": "2/14/2023 3:12:57 PM",
                     "purpose": "Approved",
                     "comment": "Approved added elective courses"
 
                 },
                 {
-                    "date": "02/12/2023",
+                    "date": "2/12/2023 11:30:25 AM",
                     "purpose": "Advised",
                     "comment": "Advised to add all courses including electives in the table. Waiting for update"
                 }
@@ -115,7 +115,8 @@
                     "comment": "Can I please get an ETA on when this can be resolved?",
                     "timestamp": "1/24/2023 2:43:19 PM"
                 }
-            ]
+            ],
+            "ESOComments": []
         },
         {
             "id": 302,
@@ -167,7 +168,8 @@
                     "comment": "Can I please get an ETA on when this can be resolved?",
                     "timestamp": "1/24/2023 2:43:19 PM"
                 }
-            ]
+            ],
+            "ESOComments": []
         }
     ]
 }

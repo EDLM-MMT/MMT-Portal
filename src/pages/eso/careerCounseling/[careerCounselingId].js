@@ -77,6 +77,7 @@ export default function CareerCounseling({careerCounselingId}) {
         }
         setESOComments(ESOComments =>[newComment, ...ESOComments]);
         event.target.reset();
+        setDropdownValue("");
     }
 
     const handleAddCourse = (event) => {

@@ -116,9 +116,12 @@ export default function NewInquiry() {
                     </div>  
                 </div>
                 <div className='flex my-5 justify-center'>
-                    <Button btnText={"This Solved my Issue"} link={"/serviceMember/inquiries"} className='mr-4 bg-green-700'></Button> or
+                    <Button btnText={"This Solved my Issue"} link={"/serviceMember/inquiries"} className='bg-green-700'></Button> 
+                    <div className="ml-4 mr-4">
+                        or
+                    </div>
                     <button onClick={handleInquiry}
-                    className='text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm ml-4 w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>                    
+                    className='text-white bg-dod-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>                    
                     I still need asssitance </button> 
                 </div>
                 <div>

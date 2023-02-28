@@ -20,33 +20,10 @@ export default function ESOInquiryView({inquiryId}) {
   const currDate = new Date().toLocaleDateString();
   const currTime = new Date().toLocaleTimeString();
   const timestamp = `${currDate}  ${currTime}`;
-
-  const mockData = [
-    {
-      author:"John Doe",
-      title:"ESO",
-      comment:"SOMETHIGN SOMETHING",
-      timestamp: timestamp,
-
-    },
-    {
-      author:"Mary Doe",
-      title:"",
-      comment:"SOMETHIGN SOMETHING",
-      timestamp: timestamp,
-    },
-    {
-      author:"John Doe",
-      title:"ESO",
-      comment:"SOMETHIGN SOMETHING",
-      timestamp: currDate,
-    },
-
-];
-
-    const [inquiry, setInquiry] = useState([]);
-    const router = useRouter();
-    const [comments,setComments] = useState([]);
+  const [status, setStatus] = useState(false);
+  const [inquiry, setInquiry] = useState([]);
+  const router = useRouter();
+  const [comments,setComments] = useState([]);
 
     useEffect(() => {
         axios
@@ -66,7 +43,12 @@ export default function ESOInquiryView({inquiryId}) {
     }
 
     const handleInquiry = () => {
+      setStatus(!status)
+      if(status){
+        inquiry.inquiry_status = "Open";
+      }else{
         inquiry.inquiry_status = "Closed";
+      }
     }
 
     const handlePost = (event) => {
@@ -94,7 +76,7 @@ export default function ESOInquiryView({inquiryId}) {
                 <div className='flex flex-row justify-between'>  
                     {inquiry.title} Inquiry
                     {inquiry.inquiryStatus !== 'Closed' &&
-                    (<button onClick={handleInquiry} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Close Inquiry</button>) 
+                    (<button onClick={handleInquiry} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">{status ? "Reopen" : "Close"} Inquiry</button>) 
                     }
                 </div> 
             </h1>
