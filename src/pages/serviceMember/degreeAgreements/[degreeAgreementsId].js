@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/router"
 import useStore from '@/store/store';
-import ViewCard from '@/components/cards/ViewCard';
+import DegAgreementsViewCard from '@/components/cards/DegAgreementsViewCard';
 import Table from '@/components/tables/Table';
 
 export function getServerSideProps(context) {
@@ -61,24 +61,16 @@ export default function DegreeAgreementsView({degreeAgreementsId}) {
               My Degree Agreements </button> -{`>`} {degreeAgreement.title}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5 pb-2 mt-4'>
-                <ViewCard key={degreeAgreement.id} title={degreeAgreement.title} description={degreeAgreement.description}/>                   
+                <DegAgreementsViewCard key={degreeAgreement.id} degreeAgreement={degreeAgreement}/>                   
             </div>
-            <div className='bg-white w-full border h-50 mt-4 rounded-md border-gray-200 p-4 pb-2 shadow'>
-                <div className='grid grid-cols-2'>
-                    <div className='flex flex-col font-semibold'>
-                        Approved By: {degreeAgreement.approvedBy} <br />
-                        Assigned DSO: {degreeAgreement.assignedESO} <br />
-                        Degree Start Date: {degreeAgreement.degreeStartDate}
-                    </div>
-                    <div className='flex flex-col font-semibold'>
-                        Total Cedit Hours: {degreeAgreement.totalCreditHours} <br />
-                        Hours Still Needed: {degreeAgreement.totalCreditHours - degreeAgreement.completedCreditHours} <br />
-                        Projected Graduation Date: {degreeAgreement.projectedGradDate}
-                    </div>  
-                </div>
-            </div>
+
+            <div className='bg-white w-full border h-50 mt-6 pb-4 rounded-md border-gray-200 p-4 shadow'>
+            <h1 className='flex flex-row justify-between text-xl font-semibold border-b h-10'>
+                Course Plan
+            </h1>
             <Table columnTitles={["Course Number", "Course Name", "Credit Hours", "Status", "Semester"]}
-                 rowsData={data}/>        
+                 rowsData={data}/>   
+            </div>     
         </div>
 
         

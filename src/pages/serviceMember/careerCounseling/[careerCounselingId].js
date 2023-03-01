@@ -30,6 +30,8 @@ export default function CareerCounseling({careerCounselingId}) {
     const [coursePlan,setCoursePlan] = useState([]);
     const [comments,setComments] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+    const [checkedState, setCheckedState] = useState(false);
+
 
 
     useEffect(() => {
@@ -65,9 +67,7 @@ export default function CareerCounseling({careerCounselingId}) {
         timestamp: timestamp,
       }
       setComments(comments =>[newComment, ...comments]);
-      if(event.target.comment?.value){
-        event.target[0].value = "";
-      }
+      event.target.reset();
     }
 
     const handleAddCourse = (event) => {
@@ -76,25 +76,18 @@ export default function CareerCounseling({careerCounselingId}) {
         const newCourse = {
             course_number: event.target.courseNumber?.value,
             course_name:event.target.courseName?.value,
+            required:((checkedState) ? "Yes" : "No"),
             credit_hours: event.target.creditHours?.value,
             projected_semester: event.target.projectedSemester?.value,
             status: "Pending Approval",
           }
           setCoursePlan(coursePlan =>[...coursePlan, newCourse]);
-          if(event.target.courseNumber?.value){
-            event.target[0].value = "";
-          }
-          if(event.target.courseName?.value){
-          event.target[1].value = "";
-          }
-          if(event.target.creditHours?.value){
-          event.target[2].value = "";
-          }
-          if(event.target.projectedSemester?.value){
-          event.target[3].value = "";
-          }
-      }
-    console.log(coursePlan);
+          event.target.reset();
+    }
+
+    const handleChange = () => {
+        setCheckedState(!checkedState);
+    };
 
     const handleSave = (event) => {
         event.preventDefault()
@@ -154,7 +147,7 @@ export default function CareerCounseling({careerCounselingId}) {
                                     <label for="courseNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Number</label>
                                     <input placeholder="Course Number" type="text-area" id="courseNumber" name="courseNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
-                                <div className="w-64">
+                                <div className="w-48">
                                     <label for="courseName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Name</label>
                                     <input placeholder="Course Name" type="text-area" id="courseName" name="courseName" class="justify-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                                 </div>
@@ -165,6 +158,19 @@ export default function CareerCounseling({careerCounselingId}) {
                                 <div>
                                     <label for="projectedSemester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Projected Semester</label>
                                     <input placeholder="Projected Semester" type="text-area" id="projectedSemester" name="projectedSemester" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                </div>
+                                <div className="w-30">
+                                    <label for="requiredCourse" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Required</label>
+                                    <label>
+                                        <input
+                                            type="checkbox"
+                                            id={`custom-checkbox`}
+                                            name="requiredCheck"
+                                            checked={checkedState}
+                                            onChange={handleChange}
+                                            data-testid="test-course-required"
+                                        />
+                                    </label>
                                 </div>
                             </div>
                             <div className="flex justify-end w-full">
@@ -179,6 +185,9 @@ export default function CareerCounseling({careerCounselingId}) {
                 </div>
             </div>
             <div className='bg-white w-full border h-50 mt-4 mb-4 rounded-md border-gray-200 p-4 pb-2 shadow'>
+                <div className="font-semibold mb-4 border-b text-xl">
+                    Counseling Communication Timeline
+                </div>
               <form onSubmit={handlePost}>
                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>
                 <input type="text-area" id="description" name="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={"Please provide comments if necessary."} required />
@@ -187,10 +196,6 @@ export default function CareerCounseling({careerCounselingId}) {
                     <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Post</button>
                 </div>
               </form>
-            
-                <div className="font-medium">
-                Counseling Timeline
-                </div>
                     {comments?.map((data, index) => {
                         return(
                             (data.title === 'ESO') ? (
@@ -203,7 +208,7 @@ export default function CareerCounseling({careerCounselingId}) {
                                 </div>
                             ):(
                                 <div className="mt-4 mb-4 ml-96">
-                                    <div className='bg-white w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
+                                    <div className='bg-dod-300 bg-opacity-30 w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
                                         <div className="flex-row flex justify-between text-base mb-4 font-medium">
                                             <div className="flex-row flex pr-2 text-base mb-2 font-medium">{data.author} </div> 
                                             <div>{data.timestamp}</div>

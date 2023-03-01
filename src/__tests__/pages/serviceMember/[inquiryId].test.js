@@ -24,12 +24,11 @@ describe("Inquiry View Page", () => {
         </MemoryRouterProvider>
     );
 
-    expect(getByText('View Inquiry')).toBeInTheDocument();
+    
     expect(getByText('My Inquiries')).toBeInTheDocument();
-    expect(getByText('Submitted on')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
-    expect(getByText('Inquiry Timeline')).toBeInTheDocument();
+    expect(getByText('Inquiry Communication Timeline')).toBeInTheDocument();
 
     act(() => {
         fireEvent.change(getByPlaceholderText('Please provide comments if necessary.'), {

@@ -20,7 +20,7 @@ const ServiceMemberMenuItems = [
     path: '/serviceMember/degreeAgreements',
   },
   {
-    label: 'My Degree Pathways',
+    label: 'Degree Pathways Catalog',
     path: '/serviceMember/degreePathways',
   },
   {
@@ -41,6 +41,21 @@ const ProgramAdminMenuItems = [
   {
     label: 'Account Support',
     path: '/programAdmin/accountSupport',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
+const ESOMenuItems = [
+  {
+    label: 'ESO Inquiries',
+    path: '/eso/inquiries',
+  },
+  {
+    label: 'Career Counseling',
+    path: '/eso/careerCounseling',
   },
   {
     label: 'Quick Links',
@@ -103,6 +118,9 @@ export default function Header() {
                 return <Button key={item.label} data={item} />;
             })}
             {user?.role === 'Program Administrator' && ProgramAdminMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
+            })}
+            {user?.role === 'ESO' && ESOMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
             })}
           </div>

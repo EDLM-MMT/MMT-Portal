@@ -25,13 +25,13 @@ export default function RequestOfficialTranscript() {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mt-4  text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        Official JST Transcript
+                        Official Transcript
                     </div> 
                 </h1>
                 <div>
                     <button onClick={handleClick}
                     className='text-dod-500 mb-3 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
-                    Transcript </button> -{`>`} Official JST Transcript 
+                    My Transcripts </button> -{`>`} Official Transcript 
                 </div>
                 <div className='flex flex-col p-4 gap-2 mt-4 bg-gray-100'>
                 <div>
@@ -47,19 +47,19 @@ export default function RequestOfficialTranscript() {
                         <input type="text" id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={"Institute name"} required />
                     </div>  
                     <div className='mt-3 flex flex-col font-medium'>
-                        By pressing the "Send JST Transcript" button below, I give my consent to release my transcript to the institute selected above.
+                        By pressing the "Send Transcript" button below, I give my consent to release my transcript to the institute selected above.
                     </div>
 
                 </div>
                 <div className='flex my-5 justify-between'>
                     <Button btnText={"Cancel"} link={"/serviceMember/transcripts"}></Button>
-                    <Button btnText={"Send JST Transcript"} link={"/dashboard"}></Button>
+                    <Button btnText={"Send Transcript"} link={"/dashboard"}></Button>
                 </div>
                 </div>
 
                 <h1 className='pb-2 border-b mt-16 text-xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        Official JST Transcript Request History
+                        Official Transcript Request History
                     </div> 
                 </h1>
                 <Table columnTitles={["Requested Date", "School", "Delivery Method", "School ID", "Date Viewed", "Org/School POC"]} 

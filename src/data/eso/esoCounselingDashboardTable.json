@@ -1,0 +1,34 @@
+{
+    "counseling": [
+        {
+            "id": 300,
+            "name": "John Smith",
+            "mos_code": "AET",
+            "career_counseling": ["Computer Science"]
+        },
+        {
+            "id": 301,
+            "name": "Zach Blanchard",
+            "mos_code": "ET",
+            "career_counseling": ["Business Administration"]
+        },
+        {
+            "id": 302,
+            "name": "Aimee Wallis",
+            "mos_code": "DC",
+            "career_counseling": ["Data Scientist", "Computer Science", "Software Engineer"]
+        },
+        {
+            "id": 300,
+            "name": "Tyreece Hume",
+            "mos_code": "DC",
+            "career_counseling": ["Computer Science"]
+        },
+        {
+            "id": 301,
+            "name": "Aadam Healy",
+            "mos_code": "IT",
+            "career_counseling": ["Business Administration"]
+        }
+    ]
+}

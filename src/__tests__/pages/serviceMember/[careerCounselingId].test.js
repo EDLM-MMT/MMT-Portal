@@ -28,14 +28,13 @@ describe("Career Counseling View Page", () => {
     expect(getByText('Career Counseling')).toBeInTheDocument();
     expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
     expect(getByText('School:')).toBeInTheDocument();
-    expect(getByText('Assigned ESO:')).toBeInTheDocument();
     expect(getByText('Degree Start Date:')).toBeInTheDocument();
     expect(getByText('Total Credit Hours:')).toBeInTheDocument();
     expect(getByText('Projected Graduation Date:')).toBeInTheDocument();
     expect(getByText('Save Changes')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
-    expect(getByText('Counseling Timeline')).toBeInTheDocument();
+    expect(getByText('Counseling Communication Timeline')).toBeInTheDocument();
 
     expect(getByPlaceholderText('Please provide comments if necessary.')).toBeInTheDocument();
     act(() => {

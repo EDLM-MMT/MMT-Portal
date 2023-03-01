@@ -5,7 +5,7 @@ import Dashboard from "@/pages/dashboard";
 describe("Dashboard Component", () => {
     
     it("should render the component", () => {
-        const { getByText, getAllByText } = render(
+        const { getByText } = render(
             <MemoryRouterProvider>
                 <Dashboard />
             </MemoryRouterProvider> );

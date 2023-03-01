@@ -26,7 +26,6 @@ describe("Inquiry View Page", () => {
 
     expect(getByText('View Inquiry')).toBeInTheDocument();
     expect(getByText('Inquiry Management')).toBeInTheDocument();
-    expect(getByText('Submitted on')).toBeInTheDocument();
     expect(getByText('Add a comment:')).toBeInTheDocument();
     expect(getByText('Post')).toBeInTheDocument();
     expect(getByText('Inquiry Timeline')).toBeInTheDocument();

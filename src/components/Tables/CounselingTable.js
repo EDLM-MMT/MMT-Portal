@@ -50,6 +50,14 @@ export default function CounselingTable({coursePlan}) {
                                     text-left font-semibold text-gray-900 backdrop-blur
                                     backdrop-filter sm:table-cell'
                             >
+                                Required
+                            </th> 
+                            <th scope='col'
+                                className='text-lg sticky top-0 z-10 hidden border-b
+                                    border-gray-300 bg-gray-50 bg-opacity-75 pl-2 py-2
+                                    text-left font-semibold text-gray-900 backdrop-blur
+                                    backdrop-filter sm:table-cell'
+                            >
                                 Credit Hours
                             </th> 
                             <th scope='col'
@@ -90,10 +98,11 @@ export default function CounselingTable({coursePlan}) {
                                         />
                                     </label></td>
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>{course.course_number}</td>
-                                <td className='pl-4'>{course.course_name}</td>
-                                <td className='pl-4'>{course.credit_hours}</td>
-                                <td className='pl-4'>{course.projected_semester}</td>
-                                <td className='pl-4'>{course.status}</td>
+                                <td className='pl-2'>{course.course_name}</td>
+                                <td className='pl-2'>{course.required}</td>
+                                <td className='pl-12'>{course.credit_hours}</td>
+                                <td className='pl-2'>{course.projected_semester}</td>
+                                <td className='pl-2'>{course.status}</td>
                             </tr>
                 ))):(
                     <tr key={0}>

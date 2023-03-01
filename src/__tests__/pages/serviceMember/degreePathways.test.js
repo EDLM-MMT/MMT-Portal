@@ -49,16 +49,16 @@ describe("Degree Pathways Page", () => {
             <DegreePathways />
         </MemoryRouterProvider>
     );
-    expect(getByPlaceholderText('Search for School')).toBeInTheDocument();
+    expect(getByPlaceholderText('Search for School or Major')).toBeInTheDocument();
 
     act(() => {
-        fireEvent.change(getByPlaceholderText('Search for School'), {
+        fireEvent.change(getByPlaceholderText('Search for School or Major'), {
             target: { value: 'City University' },
         });
     });
 
     act(() => {
-        fireEvent.change(getByPlaceholderText('Search for School'), {
+        fireEvent.change(getByPlaceholderText('Search for School or Major'), {
             target: { value: 'BS' },
         });
     });
@@ -80,16 +80,16 @@ describe("Degree Pathways Page", () => {
         fireEvent.click(getByText('Major'));
     });
 
-    expect(getByPlaceholderText('Search for Major')).toBeInTheDocument();
+    expect(getByPlaceholderText('Search for School or Major')).toBeInTheDocument();
 
     act(() => {
-        fireEvent.change(getByPlaceholderText('Search for Major'), {
+        fireEvent.change(getByPlaceholderText('Search for School or Major'), {
             target: { value: 'Business Administration' },
           });
     });
 
     act(() => {
-        fireEvent.change(getByPlaceholderText('Search for Major'), {
+        fireEvent.change(getByPlaceholderText('Search for School or Major'), {
             target: { value: 'American' },
           });
     });

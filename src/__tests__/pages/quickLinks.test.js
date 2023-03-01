@@ -4,7 +4,7 @@ import QuickLinks from "@/pages/quickLinks";
 
 describe("Quick Links Component", () => {
   it("should render the component", () => {
-    const { getByText, getAllByText } = render(
+    const { getByText } = render(
         <MemoryRouterProvider>
             <QuickLinks />
         </MemoryRouterProvider>

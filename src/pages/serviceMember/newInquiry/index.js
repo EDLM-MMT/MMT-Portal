@@ -116,9 +116,12 @@ export default function NewInquiry() {
                     </div>  
                 </div>
                 <div className='flex my-5 justify-center'>
-                    <Button btnText={"This Solved my Issue"} link={"/serviceMember/inquiries"} className='mr-4 bg-green-700'></Button> or
+                    <Button btnText={"This Solved my Issue"} link={"/serviceMember/inquiries"} className='bg-green-700'></Button> 
+                    <div className="ml-4 mr-4">
+                        or
+                    </div>
                     <button onClick={handleInquiry}
-                    className='text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm ml-4 w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>                    
+                    className='text-white bg-dod-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>                    
                     I still need asssitance </button> 
                 </div>
                 <div>
@@ -161,10 +164,10 @@ export default function NewInquiry() {
                                     <button onClick={handleSubmission}>Submit</button>
                                 </div>          */}
                             </div>
-                            <div className='flex flex-row my-5 justify-center'>
-                                <Button btnText={"Cancel"} link={"/serviceMember/inquiries"} className='mr-64'></Button>
+                            <div className='flex flex-row my-5 justify-between'>
+                                <Button btnText={"Cancel"} link={"/serviceMember/inquiries"} ></Button>
                                 {/* <button type="submit" class="flex justify text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit Request</button> */}
-                                <Button btnText={"Submit Inquiry"} link={"/dashboard"} className='ml-64'></Button>
+                                <Button btnText={"Submit Inquiry"} link={"/dashboard"}></Button>
                             </div>
                         </div>
                     }

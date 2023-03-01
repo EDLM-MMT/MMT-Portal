@@ -11,7 +11,7 @@ export default function Dropdown({
 }) {
   const [selected, setSelected] = useState(initialValue);
   return (
-    <Menu as='div' className='relative inline-block text-left mt-0.5'>
+    <Menu as='div' className='relative inline-block text-left mt-0.5 z-50'>
       <div className='flex flex-col gap-2'>
         <Menu.Button
           title={`${keyName} filter`}

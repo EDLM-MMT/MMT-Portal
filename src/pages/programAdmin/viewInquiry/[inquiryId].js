@@ -1,5 +1,5 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import ViewCard from '@/components/cards/ViewCard';
+import ViewCard from '@/components/cards/InquiryViewCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/router"

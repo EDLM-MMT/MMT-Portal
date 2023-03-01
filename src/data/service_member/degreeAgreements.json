@@ -12,7 +12,8 @@
         "degreeStartDate": "Jan 2019",
         "totalCreditHours": "60",
         "completedCreditHours": "6",
-        "projectedGradDate": "Jun 2023"
+        "projectedGradDate": "Jun 2023",
+        "degAgr_status": "Open"
       },
       {
         "id": 101,
@@ -25,7 +26,8 @@
         "degreeStartDate": "Jan 2019",
         "totalCreditHours": "60",
         "completedCreditHours": "6",
-        "projectedGradDate": "Jun 2023"
+        "projectedGradDate": "Jun 2023",
+        "degAgr_status": "Open"
       }
     ]
   }
