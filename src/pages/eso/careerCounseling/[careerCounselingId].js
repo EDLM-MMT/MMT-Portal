@@ -32,10 +32,8 @@ export default function CareerCounseling({careerCounselingId}) {
     const [coursePlan,setCoursePlan] = useState([]);
     const [comments,setComments] = useState([]);
     const [ESOComments,setESOComments] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
-    const [dropdownValue, setDropdownValue] = useState("");
+    const [dropdownValue, setDropdownValue] = useState("Select one");
     const [checkedState, setCheckedState] = useState(false);
-
 
     useEffect(() => {
         axios
@@ -70,14 +68,19 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleCommentPost = (event) => {
         event.preventDefault()
-        const newComment = {
-          date: timestamp,
-          purpose: dropdownValue,
-          comment: event.target.comment?.value,
+        if(dropdownValue !== "Select one"){
+            const newComment = {
+            date: timestamp,
+            purpose: dropdownValue,
+            comment: event.target.comment?.value,
+            }
+            setESOComments(ESOComments =>[newComment, ...ESOComments]);
+            event.target.reset();
+            setDropdownValue("Select one");
         }
-        setESOComments(ESOComments =>[newComment, ...ESOComments]);
-        event.target.reset();
-        setDropdownValue("");
+        else{
+            console.log("Choose a value from the dropdown for Purpose");
+        }
     }
 
     const handleAddCourse = (event) => {
@@ -235,7 +238,7 @@ export default function CareerCounseling({careerCounselingId}) {
                     <div className='flex flex-row'>
                         <div className='pt-4 flex flex-col'>
                             <label for="purpose" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose:</label>
-                            <Dropdown options={["Advised", "Updated", "Approved"]} initialValue={"Select one"} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
+                            <Dropdown options={["Advised", "Updated", "Approved"]} value={dropdownValue} initialValue={"Select one"} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
                         </div>
                         <div className='pt-4 px-4 flex flex-col w-full'>
                         <label for="comments" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>

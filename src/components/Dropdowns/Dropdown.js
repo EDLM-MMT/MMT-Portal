@@ -1,15 +1,22 @@
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { Fragment, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
+import { useEffect } from 'react';
 
 export default function Dropdown({
   options,
   keyName,
   initialValue,
   onChange,
+  value,
 //   onClear,
 }) {
   const [selected, setSelected] = useState(initialValue);
+
+  useEffect(() => {
+    setSelected(value);
+  }, [value]);
+  
   return (
     <Menu as='div' className='relative inline-block text-left mt-0.5 z-50'>
       <div className='flex flex-col gap-2'>
