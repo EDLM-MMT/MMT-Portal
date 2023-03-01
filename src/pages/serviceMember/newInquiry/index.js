@@ -9,10 +9,8 @@ import axios from 'axios';
 
 
 export default function NewInquiry() {
-    const userData = useStore((state) => state.userData);
     const router = useRouter();
     const [issuesList, setIssuesList] = useState([]);
-    // const [issues, setIssues] = useState([]);
 
     useEffect(() => {
         axios
@@ -33,44 +31,14 @@ export default function NewInquiry() {
         "How do I request an official transcript for employment?"
     ];
     
-
-
-
-    const solutions = [
-        {
-            solution: `Click on the "Transcripts" link that is located at the top of the page. After you click the link, another screen will appear and you will need to click the first link labeled "Transcript" and your JST will open as an Adobe PDF file. You will be able to view and print the PDF version of your JST.`
-        },
-        {
-            solution: `College courses taken while on active duty: If TA or NCPACE they should automatically show up on JST.
-            Active Duty and Veterans: TA/NCPACE issues should be sent to SFLY_TA.Navy@navy.mil
-            Other funded courses (i.e. CCAF, MGIB funded, etc.) (3 Options)
-            Have official transcript mailed from institution to the JST Operations Center.
-            Bring Official transcript to the Lifelong Learning Center to have certified and faxed to the JST Operations Center.
-            
-            Have Official Transcript certified or notarized and mail to the JST Operations Center.
-            
-            JST Mailing address:
-            NETC
-            ATTN JST Operations Center, N644
-            6490 Saufley Field Road
-            Pensacola, FL 32509`
-            
-        },
-        {
-            solution: "The JST is set up to send official electronic transcripts to institutes so for the most part transcripts are delivered electronically. Official transcripts are not provided to individuals. If you need to have a transcript special mailed please complete a Special Mail Request form with the employer/program information and upload to this website, fax, or e-mail to jst@doded.mil. A point-of-contact must be included on the form or request will not be processed."
-        }
-    ];
-    
-    const [selected, setSelected] = useState("");
     const [commonSolution, setCommonSolution] = useState("");
     const [isNewInquiry, setNewInquiry] = useState(false);
-    const [selectedFile, setSelectedFile] = useState();
-	const [isFilePicked, setIsFilePicked] = useState(false);
+    // const [selectedFile, setSelectedFile] = useState();
+	// const [isFilePicked, setIsFilePicked] = useState(false);
 
     const onChange = (e) => {
-        setSelected(e.target.name);
-        issuesList.map((post,index)=>{
-            if(post.issue === selected){
+        issuesList.map((post, index)=>{
+            if(post.issue === e.target.name){
                 setCommonSolution(post.solution);
             }
         })
@@ -88,9 +56,8 @@ export default function NewInquiry() {
 		setIsFilePicked(true);
 	};
 
-    const handleSubmission = () => {
-	};
-
+    // const handleSubmission = () => {
+	// };
 
     return (
         <DefaultLayout>
@@ -105,19 +72,19 @@ export default function NewInquiry() {
                     className='text-dod-500 mb-3 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
                     My Inquiries </button> -{`>`} Start New Inquiry 
                 </div>
-                <div class="grid gap-6 md:grid-rows-2">
+                <div>
                     <div>
-                        <label for="inquiry_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type of Issue</label>
+                        <label for="inquiry_title" class="flex mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white">Type of Issue</label>
                         <InquiryDropdown options={issues} keyName={"issueFilter"} initialValue={"Type of Issues"} onChange={onChange} />
                     </div>
-                    <div>
-                        <label for="description" class="block text-sm mb-2 font-medium text-gray-900 dark:text-white">Common Solution</label>
+                    <div class="w-5/6">
+                        <label for="description" class="flex text-sm mb-2 mt-4 font-medium text-gray-900 dark:text-white">Common Solution</label>
                         {commonSolution}
                     </div>  
                 </div>
                 <div className='flex my-5 justify-center'>
                     <Button btnText={"This Solved my Issue"} link={"/serviceMember/inquiries"} className='bg-green-700'></Button> 
-                    <div className="ml-4 mr-4">
+                    <div className="ml-4 mr-4 mt-2">
                         or
                     </div>
                     <button onClick={handleInquiry}
@@ -164,7 +131,7 @@ export default function NewInquiry() {
                                     <button onClick={handleSubmission}>Submit</button>
                                 </div>          */}
                             </div>
-                            <div className='flex flex-row my-5 justify-between'>
+                            <div className='flex flex-row my-5 w-5/6 justify-between'>
                                 <Button btnText={"Cancel"} link={"/serviceMember/inquiries"} ></Button>
                                 {/* <button type="submit" class="flex justify text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit Request</button> */}
                                 <Button btnText={"Submit Inquiry"} link={"/dashboard"}></Button>
