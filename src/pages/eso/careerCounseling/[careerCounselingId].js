@@ -69,7 +69,7 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleCommentPost = (event) => {
         event.preventDefault()
-        if(dropdownValue !== "Select one"){
+        if(dropdownValue !== "Select one" && event.target.comment?.value){
             const newComment = {
             date: timestamp,
             purpose: dropdownValue,
@@ -249,12 +249,13 @@ export default function CareerCounseling({careerCounselingId}) {
                             <input placeholder="Notes" type="text-area" id="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </div>
                     </div>
+                    <div className="flex flex-row">
+                        {errorFlag && <div className="font-md text-red-500 w-3/4">Value for dropdown must be selected and comment must be added before posting!</div>}  
+                    </div>
                     <div className="flex justify-end w-full pt-2">      
                         <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Post</button>
                     </div>
-                    <div className="flex flex-row">
-                        {errorFlag && <div className="font-md text-red-500 w-3/4">Value for dropdown must be selected before posting!</div>}  
-                    </div>
+                    
                 </form>
                 <div>
                     <ESOCommentsTable ESOComments={ESOComments}/>
