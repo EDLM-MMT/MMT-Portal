@@ -242,7 +242,7 @@ export default function CareerCounseling({careerCounselingId}) {
                     <div className='flex flex-row'>
                         <div className='pt-4 flex flex-col'>
                             <label for="purpose" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Purpose:</label>
-                            <Dropdown options={["Advised", "Updated", "Approved"]} value={dropdownValue} initialValue={"Select one"} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
+                            <Dropdown options={["Advised", "Updated", "Approved"]} value={dropdownValue} keyName={"Purpose"} initialValue={"Select one"} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
                         </div>
                         <div className='pt-4 px-4 flex flex-col w-full'>
                             <label for="comments" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add a comment:</label>

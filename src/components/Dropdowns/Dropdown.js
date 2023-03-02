@@ -16,7 +16,7 @@ export default function Dropdown({
   useEffect(() => {
     setSelected(value);
   }, [value]);
-  
+
   return (
     <Menu as='div' className='relative inline-block text-left mt-0.5 z-50'>
       <div className='flex flex-col gap-2'>
@@ -24,7 +24,7 @@ export default function Dropdown({
           title={`${keyName} filter`}
           className='text-gray-800 items-center gap-2 inline-flex  justify-between w-36 bg-white shadow-md px-2 py-1 rounded-md focus:ring-2 ring-blue-400 transform transition-all duration-150 ease-in-out outline-none'
         >
-          <div className='line-clamp-1'>{selected || keyName}</div>
+          <div className='line-clamp-1'>{selected || initialValue}</div>
           <ChevronDownIcon className='h-4 w-4 text-gray-600' />
         </Menu.Button>
         <div className='flex justify-end'>
