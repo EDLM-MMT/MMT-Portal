@@ -310,7 +310,7 @@ export default function DegreePathways() {
                          <div className='p-2 font-medium'> Filter By MOS Code: </div> 
                         <Dropdown options={["All", "ABE", "ABF", "ABH", "AC", "AD", "AE", "BM", "CS", "CTR", "DC", "EM", "HT", "IC", "PS", "SW", "UT", "YN"]} keyName={"degreeFilter"} initialValue={"All"} onChange={onFilterChange} />
                         <div className='p-2 font-medium'> Sort By: </div> 
-                        <Dropdown options={["School", "Major"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
+                         <Dropdown options={["School", "Major"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
                        
 
                     </div>

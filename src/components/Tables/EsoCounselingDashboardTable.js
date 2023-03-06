@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from 'react';
+import Dropdown from '@/components/dropdowns/Dropdown';
 
 
 export default function CounselingTable(careerList) {
@@ -21,10 +22,16 @@ export default function CounselingTable(careerList) {
         console.log(searchInput)
     };
 
+    const onChange = (e) => {
+        setSelected(e.target.name);
+    }
+
     return(
         <div>
-            <div>
+            <div className='flex align-middle'>
                 <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
+                <div className='p-2 font-medium'> Sort By: </div> 
+                <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Student Name"} onChange={onChange} />
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
