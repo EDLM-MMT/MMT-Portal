@@ -2,17 +2,23 @@ import Card from '@/components/cards/Card';
 import useStore from '@/store/store';
 
 const cards = [
+    // {
+    //     title: "Inquiry Management",
+    //     description: "Manages Inquiries: Prioritizes, categorizes, and assignes inquiries. Tracks correspondense",
+    //     buttonLabel: "Go to Inquiry Management",
+    //     routePath:"/programAdmin/inquiryManagement"
+    // },
     {
-        title: "Inquiry Management",
-        description: "Manages Inquiries: Prioritizes, categorizes, and assignes inquiries. Tracks correspondense",
-        buttonLabel: "Go to Inquiry Management",
-        routePath:"/programAdmin/inquiryManagement"
+        title: "Accounts Management",
+        description: "Reset account passwords and general reporting",
+        buttonLabel: "Go to Accounts Management",
+        routePath:"/programAdmin/accountsManagement"
     },
     {
-        title: "Account Support",
-        description: "Customer support: Locked out of account and General reporting",
-        buttonLabel: "Go to Account Support",
-        routePath:"/programAdmin/accountSupport"
+        title: "ESO Management",
+        description: "Manages ESO workflows and monior their current workload",
+        buttonLabel: "Go to ESO Management",
+        routePath:"/programAdmin/esoManagement"
     },
 ]
 

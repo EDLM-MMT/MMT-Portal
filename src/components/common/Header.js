@@ -34,13 +34,17 @@ const ServiceMemberMenuItems = [
 ];
 
 const ProgramAdminMenuItems = [
+  // {
+  //   label: 'Inquiry Management',
+  //   path: '/programAdmin/inquiryManagement',
+  // },
   {
-    label: 'Inquiry Management',
-    path: '/programAdmin/inquiryManagement',
+    label: 'Accounts Management',
+    path: '/programAdmin/accountsManagement',
   },
   {
-    label: 'Account Support',
-    path: '/programAdmin/accountSupport',
+    label: 'ESO Management',
+    path: '/programAdmin/esoManagement',
   },
   {
     label: 'Quick Links',
