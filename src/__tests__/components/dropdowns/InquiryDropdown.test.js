@@ -8,7 +8,7 @@ describe("Inquiry Dropdown component", () => {
     it("should render the component", () => {
       const { getByText } = render(
         <MemoryRouterProvider>
-          <InquiryDropdown options={["School", "Major", "MOS Code"]} initialValue={"School"} keyName={"Type"} onChange={onChange}/>
+          <InquiryDropdown options={["School", "Major", "MOS Code"]} initialValue={"School"} onChange={onChange}/>
         </MemoryRouterProvider>
       );
       expect(getByText(/School/i)).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("Inquiry Dropdown component", () => {
       const button2 = getByText('Major');
       act(() => {
           fireEvent.mouseOver(getByText('Major'));
-          fireEvent.click(button);
+          fireEvent.click(button2);
       });
 
     });
