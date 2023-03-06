@@ -1,11 +1,7 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import useStore from '@/store/store';
-import profileImage from '@/../public/profile-picture.png';
-import Image from 'next/image';
 import Table from '@/components/tables/Table';
 
 export default function LoginActivity() {
-    const userData = useStore((state) => state.userData);
 
     const data = [
         ["1/24/2023 2:43:20 PM", 1, 3, 1, 1, 2],

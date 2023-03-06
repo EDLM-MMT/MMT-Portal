@@ -1,9 +1,8 @@
 import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import useStore from '@/store/store';
 import { useRouter } from "next/router"
 import InquiryDropdown from '@/components/dropdowns/InquiryDropdown';
-import { useCallback, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
@@ -16,7 +15,6 @@ export default function NewInquiry() {
         axios
           .get(`/api/commonIssues`)
           .then((res) => {
-            console.log("Result inside newInquiry", res.data.common_issues);
             setIssuesList(res.data.common_issues);
           })
           .catch((err) => {
