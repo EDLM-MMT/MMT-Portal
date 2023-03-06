@@ -2,36 +2,48 @@
     {
         "name": "John Smith",
         "username": "jsmith",
+        "role": "Service Member",
+        "status": "Active",
         "resetPassword": "Reset",
         "viewHistory": "View"
     },
     {
         "name": "Zach Blanchard",
         "username": "zblanchard",
+        "role": "Service Member",
+        "status": "Active",
         "resetPassword": "Reset",
         "viewHistory": "View"
     },
     {
         "name": "Aimee Wallis",
         "username": "awillis",
+        "role": "Service Member",
+        "status": "Veteran",
         "resetPassword": "Reset",
         "viewHistory": "View"
     },
     {
         "name": "Alexia Jacobs",
         "username": "ajacobs",
+        "role": "Program Admin",
+        "status": "Active",
         "resetPassword": "Reset",
         "viewHistory": "View"
     },
     {
         "name": "Jennie Haywards",
         "username": "jhaywards",
+        "role": "ESO",
+        "status": "Active",
         "resetPassword": "Reset",
         "viewHistory": "View"
     },
     {
         "name": "Tyreece Hume",
         "username": "thume",
+        "role": "ESO",
+        "status": "Active",
         "resetPassword": "Reset",
         "viewHistory": "View"
     }

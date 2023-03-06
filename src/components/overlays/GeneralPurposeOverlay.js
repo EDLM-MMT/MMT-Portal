@@ -16,6 +16,9 @@ export default function GeneralPurposeOverlay({ toggleModal, title, message, pat
     const confirmModal = () => {
         var state= setOpen(false);
         toggleModal(state);
+        if(disable){
+            disable(true);
+        }
         // router.push(path);
     }
 

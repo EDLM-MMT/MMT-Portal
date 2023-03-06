@@ -1,4 +1,4 @@
-import AccountSupport from "@/pages/programAdmin/accountSupport";
+import AccountSupport from "@/pages/programAdmin/accountsManagement";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
