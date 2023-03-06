@@ -1,5 +1,5 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import AddBtn from '@/components/buttons/AddButton';
 import Accordion from '@/components/Accordion';
@@ -312,11 +312,6 @@ export default function DegreePathways() {
                        
 
                     </div>
-                    {/* <h2 className='pb-4 mt-4  text-2xl font-medium'>
-                        <div className='flex flex-row justify-between'>  
-                            Degree Pathways By {selected}
-                        </div> 
-                    </h2> */}
                     {sort()}
                 </div>
             </DefaultLayout>

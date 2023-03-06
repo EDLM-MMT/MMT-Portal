@@ -38,7 +38,6 @@ export default function CareerCounseling({careerCounselingId}) {
         axios
           .get(`/api/careerCounseling/${careerCounselingId}`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.course_plan);
             setCareer(res.data);
             setCoursePlan(res.data.course_plan);
             setComments(res.data.counselingComments);
@@ -53,13 +52,11 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleTranscript = () => {
-        console.log("This button works!")
         setIsOpen(!isOpen);
     }
 
     const handlePost = (event) => {
       event.preventDefault()
-      //console.log(event.target[0].value)
       const newComment = {
         author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
         title:"",
@@ -72,7 +69,6 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleAddCourse = (event) => {
         event.preventDefault()
-        console.log(event.target[1]?.value)
         const newCourse = {
             course_number: event.target.courseNumber?.value,
             course_name:event.target.courseName?.value,
@@ -91,10 +87,8 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleSave = (event) => {
         event.preventDefault()
-        console.log("Save button is clicked!")
       }
 
-    //console.log("Whats inside data:", inquiry.id)
     return (
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 

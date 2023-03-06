@@ -13,7 +13,6 @@ export default function CareerCounselingList() {
         axios
           .get(`/api/careerCounseling`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.counseling);
             setCareerList(res.data.counseling);
           })
           .catch((err) => {

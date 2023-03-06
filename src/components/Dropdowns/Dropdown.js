@@ -27,19 +27,6 @@ export default function Dropdown({
           <div className='line-clamp-1'>{selected || initialValue}</div>
           <ChevronDownIcon className='h-4 w-4 text-gray-600' />
         </Menu.Button>
-        <div className='flex justify-end'>
-          {/* <button
-            id={options?.field_name}
-            className='w-min text-gray-600 hover:text-blue-400 cursor-pointer text-xs text-right my-2 px-2 hover:underline focus:ring-2 ring-blue-300 outline-none rounded-full -mt-1 focus:text-blue-300 focus-text-shadow'
-            title='clear selection'
-            onClick={() => {
-              onClear(options?.field_name);
-              setSelected(null);
-            }}
-          >
-            clear
-          </button> */}
-        </div>
       </div>
       <Transition
         as={Fragment}

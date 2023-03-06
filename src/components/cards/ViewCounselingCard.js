@@ -1,5 +1,4 @@
 import { twMerge } from "tailwind-merge";
-import { useState } from 'react';
 
 export default function ViewCounselingCard({ title, school, startDate, endDate, assignedESO, serviceMember, totalHours, completedHours, className }){
     const descriptionClass = twMerge(`

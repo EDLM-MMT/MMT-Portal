@@ -2,7 +2,6 @@ import counselingData from "@/data/service_member/careerCounseling.json";
 
 export default function handler(req, res) {
   const counselingid =  req.query;
-  //console.log("Just checking whats here",counselingData);
 
   const match = counselingData.counseling.find(
     (course) => course.id == parseInt(Object.values(counselingid))

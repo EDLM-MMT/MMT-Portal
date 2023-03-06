@@ -1,6 +1,5 @@
 import Button from '@/components/buttons/Button';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import useStore from '@/store/store';
 import Card from '@/components/cards/Card';
 import ViewBtn from '@/components/buttons/ViewBtn';
 import DownloadButton from '@/components/buttons/DownloadButton';
@@ -8,7 +7,6 @@ import Table from '@/components/tables/Table';
 import Accordion from '@/components/Accordion';
 
 export default function Transcripts() {
-    const userData = useStore((state) => state.userData);
 
     const cards = [
         {
