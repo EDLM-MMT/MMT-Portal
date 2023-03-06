@@ -1,0 +1,50 @@
+[
+    {
+        "id":"500",
+        "name": "John Smith",
+        "permissions": "Career Counseling",
+        "branch": "Army",
+        "workload": "4",
+        "viewProfile": "View"
+    },
+    {
+        "id":"501",
+        "name": "Zach Blanchard",
+        "permissions": "Inquiries, Career Counseling",
+        "branch": "Navy",
+        "workload": "5",
+        "viewProfile": "View"
+    },
+    {
+        "id":"502",
+        "name": "Aimee Wallis",
+        "permissions": "Career Counseling",
+        "branch": "Marines",
+        "workload": "6",
+        "viewProfile": "View"
+    },
+    {
+        "id":"503",
+        "name": "Alexia Jacobs",
+        "permissions": "Inquiries",
+        "branch": "Air Force",
+        "workload": "3",
+        "viewProfile": "View"
+    },
+    {
+        "id":"504",
+        "name": "Jennie Haywards",
+        "permissions": "Inquiries, Career Counseling",
+        "branch": "Navy",
+        "workload": "8",
+        "viewProfile": "View"
+    },
+    {
+        "id":"505",
+        "name": "Tyreece Hume",
+        "permissions": "Career Counseling",
+        "branch": "Army",
+        "workload": "2",
+        "viewProfile": "View"
+    }
+]
