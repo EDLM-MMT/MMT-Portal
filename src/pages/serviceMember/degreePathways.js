@@ -13,7 +13,6 @@ export default function DegreePathways() {
     }
 
     const onFilterChange = (e) => {
-        console.log(e.target.name)
     }
 
     const schoolsList = [
@@ -291,7 +290,6 @@ export default function DegreePathways() {
 
         const handleChange = (e) => {
             setSearchInput(e.target.value);
-            console.log(searchInput)
         };
 
     return (

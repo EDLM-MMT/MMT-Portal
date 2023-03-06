@@ -7,6 +7,8 @@ export default function CounselingTable(careerList) {
 
     const router = useRouter();
     const [searchInput, setSearchInput] = useState("");
+    const [selected, setSelected] = useState("Student Name");
+
 
 
     const handleView = (e) =>{
@@ -19,11 +21,46 @@ export default function CounselingTable(careerList) {
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
-        console.log(searchInput)
     };
 
     const onChange = (e) => {
         setSelected(e.target.name);
+    }
+
+    const sort = () => {
+        if (selected === "Student Name"){
+            const filtered = careerList.careerArray.filter(post => {
+                if (searchInput === ''){
+                    return post;
+                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }
+    
+            })
+            return (
+                <>
+                {panelCode(filtered)}
+                </>
+            ) 
+        }
+        else if (selected === "Most Recent"){
+            const filtered = majorsList.filter(post => {
+                if (searchInput === ''){
+                    return post;
+                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
+                    return post;
+                }
+            })
+            return (
+                <>
+                {panelCode(filtered)}
+                </>
+            ) 
+        } 
     }
 
     return(

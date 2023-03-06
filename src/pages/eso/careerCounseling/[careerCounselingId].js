@@ -40,14 +40,12 @@ export default function CareerCounseling({careerCounselingId}) {
         axios
           .get(`/api/careerCounseling/${careerCounselingId}`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.course_plan);
             setCareer(res.data);
             setCoursePlan(res.data.course_plan);
             setComments(res.data.counselingComments);
             setESOComments(res.data.ESOComments);
         })
           .catch((err) => {
-            console.log(err);
           });
     }, []);
 
@@ -81,7 +79,6 @@ export default function CareerCounseling({careerCounselingId}) {
             setErrorFlag(false);
         }
         else{
-            console.log("Choose a value from the dropdown for Purpose");
             setErrorFlag(true);
 
         }
@@ -103,7 +100,6 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleSave = (event) => {
         event.preventDefault()
-        console.log("Save button is clicked!")
     }
     
     const handleChange = () => {

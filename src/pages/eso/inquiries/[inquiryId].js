@@ -29,12 +29,10 @@ export default function ESOInquiryView({inquiryId}) {
         axios
           .get(`/api/inquiry/${inquiryId}`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.inquiryComments);
             setInquiry(res.data);
             setComments(res.data.inquiryComments);
           })
           .catch((err) => {
-            console.log(err);
           });
     }, []);
 
@@ -53,7 +51,6 @@ export default function ESOInquiryView({inquiryId}) {
 
     const handlePost = (event) => {
       event.preventDefault()
-      //console.log(event.target[0].value)
       const newComment = {
         author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
         title:"ESO",
@@ -65,10 +62,8 @@ export default function ESOInquiryView({inquiryId}) {
         event.target[0].value = "";
       }
     }
-    console.log(comments);
     
 
-    //console.log("Whats inside data:", inquiry.id)
     return (
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
