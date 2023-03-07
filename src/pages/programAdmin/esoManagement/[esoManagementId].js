@@ -29,6 +29,7 @@ export default function ESOManagementView({esoManagementId}) {
           .then((res) => {
             setEsoData(res.data);
             setSelected(res.data.branch)
+            setChecked(res.data.permissions)
         })
           .catch((err) => {
             console.log(err);
