@@ -2,6 +2,8 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/router"
+import Dropdown from '@/components/dropdowns/Dropdown';
+import Checkbox from '@/components/Checkbox';
 
 export function getServerSideProps(context) {
     const { esoManagementId } = context.query;
@@ -15,6 +17,10 @@ export function getServerSideProps(context) {
 export default function ESOManagementView({esoManagementId}) {
 
     const [esoData, setEsoData] = useState([]);
+    const [editFlag, setEditFlag] = useState(false);
+    const [selected, setSelected] = useState("");
+    const [checked, setChecked] = useState("");
+
     const router = useRouter();
 
     useEffect(() => {
@@ -22,6 +28,7 @@ export default function ESOManagementView({esoManagementId}) {
           .get(`/api/programAdmin/${esoManagementId}`)
           .then((res) => {
             setEsoData(res.data);
+            setSelected(res.data.branch)
         })
           .catch((err) => {
             console.log(err);
@@ -30,6 +37,28 @@ export default function ESOManagementView({esoManagementId}) {
 
     const handleClick = () => {
         router.push("/programAdmin/esoManagement");
+    }
+
+    const handleEdit = () => {
+        setEditFlag(true);
+    }
+
+    const handleSave = () => {
+        setEsoData((prev) => ({
+            ...prev,
+            branch: selected,
+            permissions: checked,
+        }))
+        setEditFlag(false);
+    }
+
+    const onChange = (e) => {
+        setSelected(e.target.name);
+    }
+
+    const onCheck = (e) => {
+        setChecked(e.target.id);
+        console.log(e.target.id);
     }
 
     console.log(esoData.tasks);
@@ -48,9 +77,34 @@ export default function ESOManagementView({esoManagementId}) {
             </div>
 
             <div className='bg-white w-full border h-50 mt-4 mb-4 rounded-md border-gray-200 p-4 pb-2 shadow'>
-                <div className="font-semibold text-xl h-10 mb-4 border-b">
+                <div className="flex flex-row justify-between font-semibold text-xl h-10 mb-4 border-b">
                     Permissions
+                    {!editFlag  &&
+                    <button onClick={handleEdit} className="flex justify-end mb-2 items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Edit</button>
+                    }
                 </div>
+
+                {editFlag ? 
+                <div className="flex flex-col">
+                    <div className="flex flex-row">
+                        <p className="p-2 font-semibold">
+                            Branch:
+                        </p>
+                        <Dropdown options={["Army", "Military", "Navy"]} keyName={"Branch"} initialValue={esoData.branch} onChange={onChange} />
+                    </div>
+                    <div className="flex flex-col">
+                        <p className="p-2 font-semibold" >
+                            Permissions: 
+                        </p>
+                       <div className="flex flex-col pl-8">
+                            <Checkbox label="Inquiries" index="Inquiries" onChange={onCheck}/>
+                            <Checkbox label="Career Counseling" index="Career Counseling" onChange={onCheck}/>
+                        </div>
+                    </div>
+                    <div className="flex justify-end">
+                        <button onClick={handleSave} className="flex justify-end w-20 mb-2 items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Save</button>
+                    </div>
+                </div> : 
                 <div className="flex flex-col font-semibold">
                     <p className="p-2">
                         Branch: {esoData.branch}
@@ -59,6 +113,7 @@ export default function ESOManagementView({esoManagementId}) {
                         Permissions: {esoData.permissions}
                     </p>
                 </div>
+                }
             </div>
 
             <div className='bg-white w-full border h-50 mt-4 mb-4 rounded-md border-gray-200 p-4 pb-2 shadow'>

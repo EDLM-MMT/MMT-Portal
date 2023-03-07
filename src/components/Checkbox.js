@@ -6,7 +6,7 @@ export default function Checkbox({ label, value, name, onChange, index, testid }
         <label>
             <input
                 type="checkbox"
-                id={`custom-checkbox-${index}`}
+                id={`${index}`}
                 name={name}
                 checked={value}
                 onChange={onChange}
