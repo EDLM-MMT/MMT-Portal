@@ -7,9 +7,7 @@ export default function CounselingTable(careerList) {
 
     const router = useRouter();
     const [searchInput, setSearchInput] = useState("");
-    const [selected, setSelected] = useState("Student Name");
-
-
+    const [selected, setSelected] = useState("");
 
     const handleView = (e) =>{
         router.push("/eso/careerCounseling/transcript");
@@ -25,50 +23,59 @@ export default function CounselingTable(careerList) {
 
     const onChange = (e) => {
         setSelected(e.target.name);
+        if(e.target.name === "Student Name"){
+            careerListNameSort()
+        } else {
+            careerListIDSort()
+        }
     }
 
-    const sort = () => {
-        if (selected === "Student Name"){
-            const filtered = careerList.careerArray.filter(post => {
-                if (searchInput === ''){
-                    return post;
-                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
-                    return post;
-                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
-                    return post;
-                }
-    
-            })
-            return (
-                <>
-                {panelCode(filtered)}
-                </>
-            ) 
-        }
-        else if (selected === "Most Recent"){
-            const filtered = majorsList.filter(post => {
-                if (searchInput === ''){
-                    return post;
-                } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
-                    return post;
-                }else if(post.datas[0].data.toLowerCase().includes(searchInput.toLowerCase())){
-                    return post;
-                }
-            })
-            return (
-                <>
-                {panelCode(filtered)}
-                </>
-            ) 
-        } 
+    const careerListNameSort = () => {
+        let newArray = careerList.careerArray.sort(function(a, b) {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+          
+            return 0;
+          });
+        return newArray
     }
+
+    const careerListIDSort = () => {
+        let newArray = careerList.careerArray.sort(function(a, b) {
+            const nameA = a.id
+            const nameB = b.id
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+          
+            return 0;
+          });
+        return newArray
+    }
+
+    // ISSUE
+    // Sort functionality is running but only when selecting the "Most Recent" dropdown option. I have tested the sort func alone, and after it runs
+    // it does not automatically rearrange the table below it
+    // I cannot understand why the table only rearranges when the Most Recent option is selected
+
+    // Right now, the second selection rearranges the table, idk why
+    // Also using the search bar after 1 selection and then deleting the text in the search bar rearranges the table, maybe something similiar to preventDefault?
 
     return(
         <div>
             <div className='flex align-middle'>
                 <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
                 <div className='p-2 font-medium'> Sort By: </div> 
-                <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Student Name"} onChange={onChange} />
+                <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Filter By"} onChange={onChange} />
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
