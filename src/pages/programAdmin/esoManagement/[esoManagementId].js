@@ -175,13 +175,14 @@ export default function ESOManagementView({esoManagementId}) {
                         Tasks Progress: 
                     </p>
                     <p className="pl-6">
-                        In Progress: {esoData.inProgressTasks}
+                        In Progress: {esoData.inProgressTasks || 0}
                     </p><p className="pl-6">
-                        Done: {esoData.completedTasks}
+                        Done: {esoData.completedTasks || 0}
                     </p><p className="pl-6">
-                        Not Started: {esoData.notStartedTasks}
+                        Not Started: {esoData.notStartedTasks || 0}
                     </p>
                 </div>
+                {esoData.totalTasks &&
                 <div className="pt-2 ml-32 w-1/4 h-1/4">
                 <PieChart
                     data={[
@@ -207,8 +208,9 @@ export default function ESOManagementView({esoManagementId}) {
                         fontColor: "FFFFFA",
                         fontWeight: "500",
                     }}
-                    />;
+                    />
                 </div>
+                }
                 </div>
             </div>
             
