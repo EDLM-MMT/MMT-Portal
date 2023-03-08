@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import Dropdown from '@/components/dropdowns/Dropdown';
 import Checkbox from '@/components/Checkbox';
+import { PieChart } from 'react-minimal-pie-chart';
 
 export function getServerSideProps(context) {
     const { esoManagementId } = context.query;
@@ -165,11 +166,45 @@ export default function ESOManagementView({esoManagementId}) {
                 </div>
                 <div className="flex flex-col font-semibold">
                     <p className="p-2">
-                        Tasks Completed: {esoData.completedTasks}
-                    </p>
-                    <p className="p-2">
                         Approximate time for Task Completion: {esoData.avgTime}
                     </p>
+                </div>
+                <p className="p-2 font-semibold">
+                    Tasks Progress: 
+                </p>
+                <p className="pl-6">
+                    In Progress: {esoData.inProgressTasks}
+                </p><p className="pl-6">
+                    Done: {esoData.completedTasks}
+                </p><p className="pl-6">
+                    Not Started: {esoData.notStartedTasks}
+                </p>
+                <div className="pt-2 pl-6 w-1/4 h-1/4">
+                <PieChart
+                    data={[
+                        { title: 'In Progress', value: esoData.inProgressTasks/esoData.totalTasks, color: '#2697E9' },
+                        { title: 'Done', value: esoData.completedTasks/esoData.totalTasks, color: '#27E546' },
+                        { title: 'Not Started', value: esoData.notStartedTasks/esoData.totalTasks, color: '#989494' },
+                    ]}
+                    animation
+                    animationDuration={500}
+                    animationEasing="ease-out"
+                    center={[50, 50]}
+                    lengthAngle={360}
+                    lineWidth={45}
+                    paddingAngle={0}
+                    radius={50}
+                    // rounded
+                    startAngle={0}
+                    viewBoxSize={[100, 100]}
+                    label={(data) => data.dataEntry.title}
+                    labelPosition={75}
+                    labelStyle={{
+                        fontSize: "6px",
+                        fontColor: "FFFFFA",
+                        fontWeight: "500",
+                    }}
+                    />;
                 </div>
             </div>
             

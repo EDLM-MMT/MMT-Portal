@@ -6,7 +6,10 @@
         "branch": "Army",
         "workload": "4",
         "viewProfile": "View",
+        "inProgressTasks": 35,
+        "notStartedTasks": 12,
         "completedTasks": 16,
+        "totalTasks": 63,
         "avgTime": "12 days",
         "tasks": [
             {

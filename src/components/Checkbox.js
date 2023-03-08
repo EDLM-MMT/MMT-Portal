@@ -11,6 +11,7 @@ export default function Checkbox({ label, value, name, onChange, index, testid }
                 checked={value}
                 onChange={onChange}
                 data-testid={testid}
+                className="m-2"
             />
             {label}
         </label>
