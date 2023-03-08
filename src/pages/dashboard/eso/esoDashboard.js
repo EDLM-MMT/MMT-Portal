@@ -29,7 +29,7 @@ export default function ESODashboard() {
                     ESO Dashboard
                 </div> 
             </h1>
-            <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16 justify-center">
+            <div className="flex flex-row gap-20 px-56 justify-center">
                 {cards.map((card, index) => {
                     return(
                         <div className=''>

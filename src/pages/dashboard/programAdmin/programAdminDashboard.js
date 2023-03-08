@@ -31,12 +31,20 @@ export default function ProgramAdminDashboard() {
     const userData = useStore((state) => state.userData);
 
     return (
-        <div className="ml-12 grid grid-cols-3 gap-24">
-            {cards.map((card, index) => {
-                return(
-                    <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} dashboardImage={card.image} routePath={card.routePath}/>
-                )
-            })}
+        <div className='w-full'>
+            <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>
+                <div className='flex flex-row justify-between'>  
+                    Program Administrator Dashboard
+                </div> 
+            </h1>
+            {/* <div className="flex flex-row gap-20 px-56 justify-center"></div> */}
+            <div className="ml-12 grid grid-cols-3 gap-24">
+                {cards.map((card, index) => {
+                    return(
+                        <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} dashboardImage={card.image} routePath={card.routePath}/>
+                    )
+                })}
+            </div>
         </div>
     );
 }
