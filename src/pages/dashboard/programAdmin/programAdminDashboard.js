@@ -1,4 +1,4 @@
-import Card from '@/components/cards/Card';
+import DashboardCard from "@/components/cards/DashboardCard"
 import useStore from '@/store/store';
 import accountsmanagment from "../../../assets/images/accountsmanagment.jpg"
 import esomanagement from "../../../assets/images/esomanagement.png"
@@ -34,7 +34,7 @@ export default function ProgramAdminDashboard() {
         <div className="ml-12 grid grid-cols-3 gap-24">
             {cards.map((card, index) => {
                 return(
-                    <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} cardImage={card.image} routePath={card.routePath}/>
+                    <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} dashboardImage={card.image} routePath={card.routePath}/>
                 )
             })}
         </div>

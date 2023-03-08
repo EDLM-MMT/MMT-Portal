@@ -1,7 +1,6 @@
 import { useRouter } from "next/router"
-import Image from "next/image";
 
-export default function Card({ title, description, buttonLabel, cardImage, routePath, children }){
+export default function Card({ title, description, buttonLabel, routePath, children }){
     const router = useRouter();
 
     const handleClick = () => {
@@ -12,9 +11,6 @@ export default function Card({ title, description, buttonLabel, cardImage, route
             <h1 className='flex text-xl font-semibold h-14 items-center justify-center align-middle border-b'>
                 {title}
             </h1>
-            <div className="flex h-48">
-                <Image src={cardImage} alt={'home'} />
-            </div>
             <p className='flex px-6 pt-3 mt-4 font-sans line-clamp-6 text-center align-middle justify-center'>
                 {description}
             </p>
