@@ -44,7 +44,6 @@ export default function LoginPage() {
           router.push('/dashboard');
         })
         .catch(() => {
-          console.log("Error");
           setErrorMsg('Invalid credentials');
           setIsOpen(!isOpen);
         });

@@ -1,5 +1,5 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import AddBtn from '@/components/buttons/AddButton';
 import Accordion from '@/components/Accordion';
@@ -13,7 +13,6 @@ export default function DegreePathways() {
     }
 
     const onFilterChange = (e) => {
-        console.log(e.target.name)
     }
 
     const schoolsList = [
@@ -291,7 +290,6 @@ export default function DegreePathways() {
 
         const handleChange = (e) => {
             setSearchInput(e.target.value);
-            console.log(searchInput)
         };
 
     return (
@@ -308,17 +306,12 @@ export default function DegreePathways() {
                     </div>
                     <div className='flex align-middle '>
                          <div className='p-2 font-medium'> Filter By MOS Code: </div> 
-                        <Dropdown options={["All", "ABE", "ABF", "ABH", "AC", "AD", "AE", "BM", "CS", "CTR", "DC", "EM", "HT", "IC", "PS", "SW", "UT", "YN"]} keyName={"degreeFilter"} initialValue={"All"} onChange={onFilterChange} />
+                        <Dropdown options={["All", "ABE", "ABF", "ABH", "AC", "AD", "AE", "BM", "CS", "CTR", "DC", "EM", "HT", "IC", "PS", "SW", "UT", "YN"]} keyName={"MOS"} initialValue={"All"} onChange={onFilterChange} />
                         <div className='p-2 font-medium'> Sort By: </div> 
-                        <Dropdown options={["School", "Major"]} keyName={"degreeFilter"} initialValue={"School"} onChange={onChange} />
+                        <Dropdown options={["School", "Major"]} keyName={"Degree"} initialValue={"School"} onChange={onChange} />
                        
 
                     </div>
-                    {/* <h2 className='pb-4 mt-4  text-2xl font-medium'>
-                        <div className='flex flex-row justify-between'>  
-                            Degree Pathways By {selected}
-                        </div> 
-                    </h2> */}
                     {sort()}
                 </div>
             </DefaultLayout>
