@@ -169,17 +169,20 @@ export default function ESOManagementView({esoManagementId}) {
                         Approximate time for Task Completion: {esoData.avgTime}
                     </p>
                 </div>
-                <p className="p-2 font-semibold">
-                    Tasks Progress: 
-                </p>
-                <p className="pl-6">
-                    In Progress: {esoData.inProgressTasks}
-                </p><p className="pl-6">
-                    Done: {esoData.completedTasks}
-                </p><p className="pl-6">
-                    Not Started: {esoData.notStartedTasks}
-                </p>
-                <div className="pt-2 pl-6 w-1/4 h-1/4">
+                <div className='flex flex-row'>
+                <div>
+                    <p className="p-2 font-semibold">
+                        Tasks Progress: 
+                    </p>
+                    <p className="pl-6">
+                        In Progress: {esoData.inProgressTasks}
+                    </p><p className="pl-6">
+                        Done: {esoData.completedTasks}
+                    </p><p className="pl-6">
+                        Not Started: {esoData.notStartedTasks}
+                    </p>
+                </div>
+                <div className="pt-2 ml-32 w-1/4 h-1/4">
                 <PieChart
                     data={[
                         { title: 'In Progress', value: esoData.inProgressTasks/esoData.totalTasks, color: '#2697E9' },
@@ -205,6 +208,7 @@ export default function ESOManagementView({esoManagementId}) {
                         fontWeight: "500",
                     }}
                     />;
+                </div>
                 </div>
             </div>
             
