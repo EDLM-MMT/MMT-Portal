@@ -72,10 +72,12 @@ export default function CounselingTable(careerList) {
 
     return(
         <div>
-            <div className='flex align-middle'>
-                <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
-                <div className='p-2 font-medium'> Sort By: </div> 
-                <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Filter By"} onChange={onChange} />
+            <div className='flex align-middle justify-between'>
+                <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
+                <div className='flex flex-row align-middle'>
+                    <div className='p-2 font-medium'> Sort By: </div> 
+                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Most Recent"} onChange={onChange} />
+                </div>
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
