@@ -31,14 +31,13 @@ export default function CareerCounseling({careerCounselingId}) {
     const [comments,setComments] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [checkedState, setCheckedState] = useState(false);
-
+    const [disableButton, setDisableButton] = useState(false);
 
 
     useEffect(() => {
         axios
           .get(`/api/careerCounseling/${careerCounselingId}`)
           .then((res) => {
-            console.log("Result inside viewInquiry", res.data.course_plan);
             setCareer(res.data);
             setCoursePlan(res.data.course_plan);
             setComments(res.data.counselingComments);
@@ -53,13 +52,11 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleTranscript = () => {
-        console.log("This button works!")
         setIsOpen(!isOpen);
     }
 
     const handlePost = (event) => {
       event.preventDefault()
-      //console.log(event.target[0].value)
       const newComment = {
         author: `${userData?.learner.personnel.person.firstName} ${userData?.learner.personnel.person.lastName}`,
         title:"",
@@ -72,7 +69,6 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleAddCourse = (event) => {
         event.preventDefault()
-        console.log(event.target[1]?.value)
         const newCourse = {
             course_number: event.target.courseNumber?.value,
             course_name:event.target.courseName?.value,
@@ -91,19 +87,17 @@ export default function CareerCounseling({careerCounselingId}) {
 
     const handleSave = (event) => {
         event.preventDefault()
-        console.log("Save button is clicked!")
       }
 
-    //console.log("Whats inside data:", inquiry.id)
     return (
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     {career.degree} Career Counseling
-                    <button onClick={handleTranscript} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Send Unofficial Transcript to ESO</button>
+                    <button onClick={handleTranscript} disabled={disableButton} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Send Unofficial Transcript to ESO</button>
                 </div> 
-                {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/serviceMember/careerCounseling/[careerCounselingId]"}
+                {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={"/serviceMember/careerCounseling/[careerCounselingId]"}
                 title={"Send Unofficial Transcript"} message={`Upon clicking Confirm, an Unofficial Transcript will be sent to assigned ESO: ${career.assigned_eso}`}/>}
             </h1>
             <div>

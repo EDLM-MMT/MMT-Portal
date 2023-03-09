@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
 import { useState } from 'react';
+import Dropdown from '@/components/dropdowns/Dropdown';
 
 
 export default function CounselingTable(careerList) {
 
     const router = useRouter();
     const [searchInput, setSearchInput] = useState("");
-
+    const [selected, setSelected] = useState("");
 
     const handleView = (e) =>{
         router.push("/eso/careerCounseling/transcript");
@@ -18,13 +19,65 @@ export default function CounselingTable(careerList) {
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
-        console.log(searchInput)
     };
+
+    const onChange = (e) => {
+        setSelected(e.target.name);
+        if(e.target.name === "Student Name"){
+            careerListNameSort()
+        } else {
+            careerListIDSort()
+        }
+    }
+
+    const careerListNameSort = () => {
+        let newArray = careerList.careerArray.sort(function(a, b) {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+          
+            return 0;
+          });
+        return newArray
+    }
+
+    const careerListIDSort = () => {
+        let newArray = careerList.careerArray.sort(function(a, b) {
+            const nameA = a.id
+            const nameB = b.id
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+          
+            return 0;
+          });
+        return newArray
+    }
+
+    // ISSUE
+    // Sort functionality is running but only when selecting the "Most Recent" dropdown option. I have tested the sort func alone, and after it runs
+    // it does not automatically rearrange the table below it
+    // I cannot understand why the table only rearranges when the Most Recent option is selected
+
+    // Right now, the second selection rearranges the table, idk why
+    // Also using the search bar after 1 selection and then deleting the text in the search bar rearranges the table, maybe something similiar to preventDefault?
 
     return(
         <div>
-            <div>
-                <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
+            <div className='flex align-middle justify-between'>
+                <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
+                <div className='flex flex-row align-middle'>
+                    <div className='p-2 font-medium'> Sort By: </div> 
+                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Most Recent"} onChange={onChange} />
+                </div>
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
@@ -78,7 +131,7 @@ export default function CounselingTable(careerList) {
                             <td className='pl-4 p-2 text-left'>{student.name}</td>
                             <td className='pl-12'>{student.mos_code}</td>
                             {(student.career_counseling.map((career) => (
-                                <tr className='pl-4 text-blue-600 font-medium'><button onClick={() => handleCareerClick(student.id)}>{career}</button></tr>
+                                <tr className='pl-4 text-blue-600 font-medium'><button onClick={() => handleCareerClick(career.id)}>{career.major}</button></tr>
                             )))}
                             <td className='pl-0 text-blue-600 font-medium'><button onClick={handleView}>View</button></td>
                         </tr>

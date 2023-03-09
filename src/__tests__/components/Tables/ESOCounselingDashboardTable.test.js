@@ -5,32 +5,52 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 describe('ESOCounselingDashboardTable component', () => {
   const careerArray = [
+    {
+      "id": 200,
+      "name": "John Smith",
+      "mos_code": "AET",
+      "career_counseling": [{
+          "id": 300,
+          "major": "Computer Science"
+      }]
+    },
+    {
+        "id": 201,
+        "name": "Zach Blanchard",
+        "mos_code": "ET",
+        "career_counseling": [{
+            "id": 301,
+            "major": "Business Administration"
+        }]
+    },
+    {
+        "id": 202,
+        "name": "Aimee Wallis",
+        "mos_code": "DC",
+        "career_counseling": [{
+            "id": 302,
+            "major": "Data Scientist"
+        },
         {
             "id": 300,
-            "name": "John Smith",
-            "mos_code": "AET",
-            "career_counseling": ["Computer Science"]
+            "major": "Computer Science"
         },
         {
-            "id": 301,
-            "name": "Zach Blanchard",
-            "mos_code": "ET",
-            "career_counseling": ["Business Administration"]
-        },
-        {
-            "id": 302,
-            "name": "Aimee Wallis",
-            "mos_code": "DC",
-            "career_counseling": ["Data Scientist", "Computer Science", "Software Engineer"]
-        },
-    ]
+            "id": 303,
+            "major": "Software Engineer"
+        }]
+    },
+  ]
 
   const careerArrayOne = [
     {
-        "id": 300,
-        "name": "John Smith",
-        "mos_code": "AET",
-        "career_counseling": ["Computer Science"]
+      "id": 200,
+      "name": "John Smith",
+      "mos_code": "AET",
+      "career_counseling": [{
+          "id": 300,
+          "major": "Computer Science"
+      }]
     },
   ]
       

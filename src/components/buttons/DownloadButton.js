@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ArrowCircleDownIcon } from '@heroicons/react/solid'
+import { ArrowCircleDownIcon } from '@heroicons/react/solid'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 

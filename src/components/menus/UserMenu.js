@@ -48,7 +48,6 @@ import {
   export default function UserMenu({logout, userData}) {
     
     const user = useStore((state) => state.userData);
-    const router = useRouter();
   
     return (
       <Menu

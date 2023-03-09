@@ -1,5 +1,4 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import useStore from '@/store/store';
 import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
 import AddBtn from '@/components/buttons/AddButton';
 import { useState, useEffect } from 'react';
@@ -14,15 +13,12 @@ export default function Inquiry() {
         axios
           .get('../api/inquiry')
           .then((res) => {
-            console.log(res.data.inquiries);
             setData(res.data.inquiries);
           })
           .catch((err) => {
             console.log(err);
           });
     }, []);
-
-    console.log(data);
 
     return (
         <DefaultLayout>

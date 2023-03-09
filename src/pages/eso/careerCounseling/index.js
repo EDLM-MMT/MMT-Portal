@@ -12,11 +12,9 @@ export default function CareerCounseling({}) {
         axios
           .get(`/api/eso/careerCounselingTable`)
           .then((res) => {
-            console.log("Results in ESO Career Counseling Table Data", res.data.counseling);
             setCareerList(res.data.counseling);
           })
           .catch((err) => {
-            console.log(err);
           });
     }, []);
 
