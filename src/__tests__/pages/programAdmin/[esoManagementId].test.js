@@ -42,11 +42,6 @@ describe("ESO Management View page", () => {
       fireEvent.click(viewButton);
     });
 
-    const button = getByText('');
-    act(() => {
-      fireEvent.click(button);
-    });
-
     const saveButton = getByText('Save');
     act(() => {
       fireEvent.click(saveButton);
