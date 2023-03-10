@@ -42,11 +42,29 @@ describe("ESO Management View page", () => {
       fireEvent.click(viewButton);
     });
 
+    const button = getByText('');
+    act(() => {
+      fireEvent.click(button);
+    });
+
     const saveButton = getByText('Save');
     act(() => {
       fireEvent.click(saveButton);
     });
 
+  });
+
+  it("route back to ESOManagement page", () => {
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <ESOManagementView />
+        </MemoryRouterProvider>
+    );
+
+    const button = getByText('ESO Management');
+    act(() => {
+      fireEvent.click(button);
+    });
   });
 
 });
