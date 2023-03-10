@@ -1,7 +1,7 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
 import { useState } from 'react';
-import modifiedData from "../../data/programAdmin/accountsManagement.json";
+import modifiedData from "../../../data/programAdmin/accountsManagement.json";
 import { useRouter } from 'next/router';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 
@@ -23,7 +23,7 @@ export default function AccountsManagement() {
     const router = useRouter();
 
     const handleView = (e) =>{
-        router.push("/programAdmin/loginHistory");
+        router.push(`/programAdmin/accountsManagement/${e}`);
     }
 
     const handleReset = () =>{
@@ -74,19 +74,11 @@ export default function AccountsManagement() {
                             </th> 
                             <th scope='col'
                                 className='text-lg sticky top-0 z-10 hidden border-b
-                                    border-gray-300 bg-gray-50 bg-opacity-75 pl-2 py-2
+                                    border-gray-300 bg-gray-50 bg-opacity-75 pl-14 py-2
                                     text-left font-semibold text-gray-900 backdrop-blur
                                     backdrop-filter sm:table-cell'
                             >
-                                Reset Password
-                            </th> 
-                            <th scope='col'
-                                className='text-lg sticky top-0 z-10 hidden border-b
-                                    border-gray-300 bg-gray-50 bg-opacity-75 pl-2 py-2
-                                    text-left font-semibold text-gray-900 backdrop-blur
-                                    backdrop-filter sm:table-cell'
-                            >
-                                View Login History
+                                View Profile
                             </th>                             
                     </tr>
                 </thead>
@@ -109,8 +101,7 @@ export default function AccountsManagement() {
                                     <td className='pl-2'>{post.username}</td>
                                     <td className='pl-2'>{post.role}</td>
                                     <td className='pl-2'>{post.status}</td>
-                                    <td className='pl-8'><button onClick={handleReset} className="text-blue-700 ml-5">{post.resetPassword} </button></td>
-                                    <td className='pl-10'><button onClick={handleView} className="text-blue-700 ml-5">{post.viewHistory} </button></td>
+                                    <td className='pl-10'><button onClick={()=> {handleView(post.id)}} className="text-blue-700 ml-5">{post.viewHistory} </button></td>
                                 </tr>
                     ))
                 }
