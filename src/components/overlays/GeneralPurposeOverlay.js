@@ -3,7 +3,7 @@ import React, { Fragment, useRef, useState } from 'react'
 import { useRouter } from "next/router"
 
 
-export default function GeneralPurposeOverlay({ toggleModal, title, message, path }){
+export default function GeneralPurposeOverlay({ toggleModal, disable, title, message, path }){
     let [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
     const router = useRouter();

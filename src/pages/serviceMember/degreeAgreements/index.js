@@ -12,7 +12,6 @@ export default function DegreeAgreements() {
         axios
           .get('../api/degreeAgreements')
           .then((res) => {
-            console.log(res.data.degreeAgreements);
             setData(res.data.degreeAgreements);
           })
           .catch((err) => {

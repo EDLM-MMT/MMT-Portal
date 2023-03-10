@@ -14,9 +14,7 @@ export default function ForgotPassword() {
     };
 
     function handleSubmit(event){
-        console.log(event)
         if(email !== ''){
-            console.log(email);
             event.preventDefault();
             setIsOpen(!isOpen);
         }

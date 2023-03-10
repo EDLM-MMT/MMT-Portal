@@ -14,15 +14,11 @@ export default function ESOInquiryDashboard() {
         axios
           .get('../api/inquiry')
           .then((res) => {
-            console.log(res.data.inquiries);
             setData(res.data.inquiries);
           })
           .catch((err) => {
-            console.log(err);
           });
     }, []);
-
-    console.log(data);
 
     return (
         <DefaultLayout>
