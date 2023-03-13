@@ -30,7 +30,7 @@ const cards = [
         routePath:"serviceMember/degreeAgreements"
     },
     {
-        title: "Degree Pathways",
+        title: "Degree Pathways Catalog",
         description: "View degree pathway options: by school, major or MOS code ",
         buttonLabel: "Go to Degree Pathways",
         image: degreePathwaysImage,
