@@ -98,7 +98,7 @@ export default function CareerCounseling({careerCounselingId}) {
                     {career.degree} Career Counseling
                     <button onClick={handleTranscript} disabled={disableButton} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Send Unofficial Transcript to ESO</button>
                 </div> 
-                {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={"/serviceMember/careerCounseling/[careerCounselingId]"}
+                {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={`/serviceMember/careerCounseling/${careerCounselingId}`}
                 title={"Send Unofficial Transcript"} message={`Upon clicking Confirm, an Unofficial Transcript will be sent to assigned ESO: ${career.assigned_eso}`}/>}
             </h1>
             <div>

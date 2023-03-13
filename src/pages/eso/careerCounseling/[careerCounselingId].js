@@ -10,6 +10,8 @@ import Button from '@/components/buttons/Button';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import ESOCommentsTable from '@/components/tables/ESOCommentsTable';
 import Checkbox from '@/components/Checkbox';
+import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
+
 
 export function getServerSideProps(context) {
     const { careerCounselingId } = context.query;
@@ -35,6 +37,8 @@ export default function CareerCounseling({careerCounselingId}) {
     const [dropdownValue, setDropdownValue] = useState("Select one");
     const [checkedState, setCheckedState] = useState(false);
     const [errorFlag, setErrorFlag] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
 
     useEffect(() => {
         axios
@@ -99,12 +103,16 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleSave = (event) => {
-        event.preventDefault()
+        event.preventDefault();
     }
     
     const handleChange = () => {
         setCheckedState(!checkedState);
     };
+
+    const comfirmOverlay = () => {
+        setIsOpen(true);
+    }
 
     return (
       <DefaultLayout>
@@ -112,7 +120,12 @@ export default function CareerCounseling({careerCounselingId}) {
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     {career.degree} Career Counseling
+                    <div className='flex flex-row gap-6'>
                     <Button btnText={"View Transcript"} link={"/eso/careerCounseling/transcript"}/>
+                    <button onClick={comfirmOverlay} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Confirm Plan</button>
+                    {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/eso/careerCounseling"}
+                    title={"Confirm Career Plan"} message={`Upon clicking Confirm, this Career Counseling plan will be approved.`}/>}
+                    </div>
                 </div> 
             </h1>
             <div>

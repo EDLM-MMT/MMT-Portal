@@ -18,10 +18,12 @@ export default function GeneralPurposeOverlay({ toggleModal, disable, title, mes
         var state= setOpen(false);
         var value = setMsg("now");
         toggleModal(state);
-        toggle2ndModal(state);
-        // if(disable){
-        //     disable(true);
-        // }
+        if(toggle2ndModal){
+            toggle2ndModal(state);
+        }
+        if(disable){
+            disable(true);
+        }
         router.push(path);
     }
 
