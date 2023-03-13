@@ -58,7 +58,7 @@ export default function AccountManagementView({accountsManagementId}) {
               Account Management</button> -{`>`} {accountData.name}
             </div>
             <div className="mb-8">
-                <ProgramAdminViewCard account={accountData} />
+                <ProgramAdminViewCard account={accountData} routePath={accountsManagementId}/>
             </div>
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>Login History</h1>
