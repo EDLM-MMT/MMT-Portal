@@ -58,6 +58,10 @@ const ESOMenuItems = [
     path: '/eso/inquiries',
   },
   {
+    label: 'Degree Pathways Catalog',
+    path: '/eso/degreePathways',
+  },
+  {
     label: 'Career Counseling',
     path: '/eso/careerCounseling',
   },

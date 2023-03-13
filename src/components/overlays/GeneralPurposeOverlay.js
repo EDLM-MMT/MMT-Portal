@@ -16,10 +16,10 @@ export default function GeneralPurposeOverlay({ toggleModal, disable, title, mes
     const confirmModal = () => {
         var state= setOpen(false);
         toggleModal(state);
-        if(disable){
-            disable(true);
-        }
-        // router.push(path);
+        // if(disable){
+        //     disable(true);
+        // }
+        router.push(path);
     }
 
 return (
