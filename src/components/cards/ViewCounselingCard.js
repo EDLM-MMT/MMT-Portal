@@ -25,18 +25,13 @@ export default function ViewCounselingCard({ title, school, startDate, endDate, 
                     Service Member: {serviceMember}
                 </p>
                 }
-            </div>
-            <div className="flex flex-row justify-between font-semibold">
                 <p className={descriptionClass}>
                     Degree Start Date: {startDate}
                 </p>
-                <p className={descriptionClass}>
-                    Total Credit Hours: {totalHours}
-                </p>
             </div>
             <div className="flex flex-row justify-between font-semibold">
                 <p className={descriptionClass}>
-                    Projected Graduation Date: {endDate}
+                    Total Credit Hours: {totalHours}
                 </p>
                 <p className={descriptionClass}>
                     Hours Still Needed: {totalHours - completedHours}

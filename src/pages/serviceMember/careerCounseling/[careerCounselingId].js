@@ -7,6 +7,7 @@ import useStore from '@/store/store';
 import { Disclosure, Transition } from '@headlessui/react';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import CounselingTable from '@/components/tables/CounselingTable';
+import CounselingEditableCard from '@/components/cards/CounselingEditableCard';
 
 export function getServerSideProps(context) {
     const { careerCounselingId } = context.query;
@@ -107,9 +108,11 @@ export default function CareerCounseling({careerCounselingId}) {
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCounselingCard key={career.id} title={career.degree} 
-                                        school={career.school} startDate={career.degree_startDate} 
-                                        endDate={career.projected_graduation} assignedESO={career.assigned_eso}
+                                        school={career.school} startDate={career.degree_startDate}
                                         totalHours={career.total_creditHours} completedHours={career.creditHours_completed}/>                   
+            </div>
+            <div className='mt-8 mb-8'>
+                <CounselingEditableCard career={career} routePath={career.id}/>
             </div>
             <div className='bg-white w-full border h-50 mt-4 rounded-md border-gray-200 p-4 pb-0 shadow'>
                 <div className="font-semibold">

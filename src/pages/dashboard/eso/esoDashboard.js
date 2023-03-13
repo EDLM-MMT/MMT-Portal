@@ -2,6 +2,7 @@ import DashboardCard from '@/components/cards/DashboardCard';
 import useStore from '@/store/store';
 import inquiriesImage from '../../../assets/images/esoInquiry.png';
 import careerCounselingImage from '../../../assets/images/careercounseling.png';
+import degreePathwaysImage from '../../../assets/images/degreepathways.png';
 
 const cards = [
     {
@@ -10,6 +11,13 @@ const cards = [
         buttonLabel: "Go to ESO Inquiries",
         image: inquiriesImage,
         routePath:"eso/inquiries"
+    },
+    {
+        title: "Degree Pathways Catalog",
+        description: "View degree pathway options: by school, major or MOS code ",
+        buttonLabel: "Go to Degree Pathways",
+        image: degreePathwaysImage,
+        routePath:"eso/degreePathways"
     },
     {
         title: "Career Counseling",
@@ -29,7 +37,7 @@ export default function ESODashboard() {
                     ESO Dashboard
                 </div> 
             </h1>
-            <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16 justify-center">
+            <div className="flex flex-row gap-20 px-10 justify-center">
                 {cards.map((card, index) => {
                     return(
                         <div className=''>

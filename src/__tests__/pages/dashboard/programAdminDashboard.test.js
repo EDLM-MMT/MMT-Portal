@@ -9,10 +9,11 @@ describe("Program Admin Dashbaord Page", () => {
             <ProgramAdminDashboard />
         </MemoryRouterProvider>
     );
-    expect(getByText('Inquiry Management')).toBeInTheDocument();
-    expect(getByText('Go to Inquiry Management')).toBeInTheDocument();
-    expect(getByText('Account Support')).toBeInTheDocument();
-    expect(getByText('Go to Account Support')).toBeInTheDocument();
 
+    expect(getByText('Accounts Management')).toBeInTheDocument();
+    expect(getByText('Go to Accounts Management')).toBeInTheDocument();
+    expect(getByText('ESO Management')).toBeInTheDocument();
+    expect(getByText('Go to ESO Management')).toBeInTheDocument();
+    
   });
 });

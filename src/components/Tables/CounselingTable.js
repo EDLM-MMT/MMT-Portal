@@ -6,6 +6,11 @@ export default function CounselingTable({coursePlan}) {
     const [checkedState, setCheckedState] = useState(
         new Array(coursePlan.length).fill(false)
     );
+    const [courseTable, setCourseTable] = useState(coursePlan)
+    console.log("coursePlan: ",coursePlan)
+    console.log("courseTable: ",courseTable)
+
+
 
     const handleChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -14,7 +19,14 @@ export default function CounselingTable({coursePlan}) {
 
         setCheckedState(updatedCheckedState);
 
+
     };
+    const handleDelete = (courseIndex,e) =>{
+        console.log("delete row")
+        setCourseTable(coursePlan.filter((i) => i !== courseIndex));
+        //setIsOpen(true)
+        console.log(courseIndex)
+    }
 
     return(
         <div>
@@ -75,10 +87,18 @@ export default function CounselingTable({coursePlan}) {
                                     backdrop-filter sm:table-cell'
                             >
                                 Status
-                            </th>                            
+                            </th>       
+                            <th scope='col'
+                                className='text-lg sticky top-0 z-10 hidden border-b
+                                    border-gray-300 bg-gray-50 bg-opacity-75 pl-2 py-2
+                                    text-left font-semibold text-gray-900 backdrop-blur
+                                    backdrop-filter sm:table-cell'
+                            >
+                                
+                            </th>                      
                     </tr>
                 </thead>
-                {(coursePlan.length !== 0) ? (coursePlan.map((course, index) => ( 
+                {(coursePlan.length !== 0) ? (courseTable.map((course, index) => ( 
                             <tr key={index} className=' even:bg-gray-50 group'>
                                 {/* {setData(post)} */}
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>
@@ -103,6 +123,7 @@ export default function CounselingTable({coursePlan}) {
                                 <td className='pl-12'>{course.credit_hours}</td>
                                 <td className='pl-2'>{course.projected_semester}</td>
                                 <td className='pl-2'>{course.status}</td>
+                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-blue-700 pl-2">Remove</button></td>
                             </tr>
                 ))):(
                     <tr key={0}>
