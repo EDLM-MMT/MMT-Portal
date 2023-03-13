@@ -4,11 +4,16 @@ import { useState } from 'react';
 import modifiedData from "../../../data/programAdmin/accountsManagement.json";
 import { useRouter } from 'next/router';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
+import Dropdown from '@/components/dropdowns/Dropdown';
 
 
 export default function AccountsManagement() {
     const [searchInput, setSearchInput] = useState("");
     const [isOpen, setIsOpen] = useState(false);
+    const [selected, setSelected] = useState("");
+
+    const router = useRouter();
+
     // const [data, setData] = useState({
     //     name: "",
     //     username: "",
@@ -19,8 +24,48 @@ export default function AccountsManagement() {
     const handleChange = (e) => {
         setSearchInput(e.target.value);
     };
+
+    const onChange = (e) => {
+        setSelected(e.target.name);
+        if(e.target.name === "Student Name"){
+            careerListNameSort()
+        } else {
+            careerListRoleSort()
+        }
+    }
     
-    const router = useRouter();
+    const careerListNameSort = () => {
+        let newArray = modifiedData.sort(function(a, b) {
+            const nameA = a.name.toUpperCase();
+            const nameB = b.name.toUpperCase();
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+          
+            return 0;
+          });
+        return newArray
+    }
+
+    const careerListRoleSort = () => {
+        let newArray = modifiedData.sort(function(a, b) {
+            const nameA = a.role
+            const nameB = b.role
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (nameA < nameB) {
+              return -1;
+            }
+          
+            return 0;
+          });
+        return newArray
+    }
+    
 
     const handleView = (e) =>{
         router.push(`/programAdmin/accountsManagement/${e}`);
@@ -34,8 +79,13 @@ export default function AccountsManagement() {
         <DefaultLayout >
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
             <h1 className='pt-2 pb-4 border-b mb-8 text-3xl font-semibold'>Accounts Management</h1>
-            <div>
-                <input type="text" className=" w-1/2 mb-4 pl-4 bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search here" onChange={handleChange} value={searchInput} />
+
+            <div className='flex align-middle justify-between'>
+                <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search here" onChange={handleChange} value={searchInput} />
+                <div className='flex flex-row align-middle'>
+                    <div className='p-2 font-medium'> Sort By: </div> 
+                    <Dropdown options={["Student Name", "Role"]} keyName={"Student Filter"} initialValue={"Student Name"} onChange={onChange} />
+                </div>
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
