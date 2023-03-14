@@ -38,6 +38,7 @@ export default function CareerCounseling({careerCounselingId}) {
     const [checkedState, setCheckedState] = useState(false);
     const [errorFlag, setErrorFlag] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [disableButton, setDisableButton] = useState(false);
 
 
     useEffect(() => {
@@ -122,8 +123,8 @@ export default function CareerCounseling({careerCounselingId}) {
                     {career.degree} Career Counseling
                     <div className='flex flex-row gap-6'>
                     <Button btnText={"View Transcript"} link={"/eso/careerCounseling/transcript"}/>
-                    <button onClick={comfirmOverlay} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Confirm Plan</button>
-                    {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/eso/careerCounseling"}
+                    <button onClick={comfirmOverlay} disabled={disableButton} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Confirm Plan</button>
+                    {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={`/eso/careerCounseling/${careerCounselingId}`}
                     title={"Confirm Career Plan"} message={`Upon clicking Confirm, this Career Counseling plan will be approved.`}/>}
                     </div>
                 </div> 

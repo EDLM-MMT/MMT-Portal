@@ -131,11 +131,11 @@ export default function CounselingTable(careerList) {
                     }).map((student, index) => (
                         <tr key={index} className=' even:bg-gray-50 group'>
                             <td className='pl-4 p-2 text-left'>{student.name}</td>
-                            <td className='pl-12'>{student.mos_code}</td>
+                            <td className='pl-10'>{student.mos_code}</td>
                             {(student.career_counseling.map((career) => (
                                 <tr className='pl-4 text-blue-600 font-medium'><button onClick={() => handleCareerClick(career.id)}>{career.major}</button></tr>
                             )))}
-                            <td className='pl-0 text-blue-600 font-medium'><button onClick={handleView}>View</button></td>
+                            <td className='pl-16 text-blue-600 font-medium'><button onClick={handleView}>View</button></td>
                         </tr>
                     ))
                 }
