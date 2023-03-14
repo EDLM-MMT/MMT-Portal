@@ -39,18 +39,6 @@ export default function LoginActivity() {
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
             <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>Login Activity</h1>
 
-            {/* {user?.role === 'Service Member' ((item) => {
-                return <Button key={item.label} data={item} />;
-            })}
-            {user?.role === 'Program Administrator' && ProgramAdminMenuItems.map((item) => {
-                return <Button key={item.label} data={item} />;
-            })}
-            {user?.role === 'ESO' && ESOMenuItems.map((item) => {
-                return <Button key={item.label} data={item} />;
-            })} */}
-
-
-
             <div>
                 {user.role === "Service Member" &&
                     <Table columnTitles={["Login Date/Time", "Trascripts", "Inquiries", "Degree Agreements", "Degree Pathways", "Career Counseling", "Quick Links"]} rowsData={dataServiceMember}/>            
