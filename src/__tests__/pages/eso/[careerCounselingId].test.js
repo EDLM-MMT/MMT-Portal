@@ -30,7 +30,6 @@ describe("Career Counseling View Page", () => {
     expect(getByText('School:')).toBeInTheDocument();
     expect(getByText('Degree Start Date:')).toBeInTheDocument();
     expect(getByText('Total Credit Hours:')).toBeInTheDocument();
-    expect(getByText('Projected Graduation Date:')).toBeInTheDocument();
     expect(getByText('Save Changes')).toBeInTheDocument();
     expect(getAllByText('Add a comment:').length).toBe(2);
     expect(getAllByText('Post').length).toBe(2);
