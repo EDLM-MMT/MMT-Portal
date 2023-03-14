@@ -37,11 +37,13 @@ export default function ProgramAdminDashboard() {
                     Program Administrator Dashboard
                 </div> 
             </h1>
-            {/* <div className="flex flex-row gap-20 px-56 justify-center"></div> */}
-            <div className="ml-12 grid grid-cols-3 gap-24">
+            <div className="flex flex-row gap-20 px-56 justify-center">
+            {/* <div className="ml-12 grid grid-cols-3 gap-24"> */}
                 {cards.map((card, index) => {
                     return(
+                        <div className='w-1/2'>
                         <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} dashboardImage={card.image} routePath={card.routePath}/>
+                        </div>
                     )
                 })}
             </div>
