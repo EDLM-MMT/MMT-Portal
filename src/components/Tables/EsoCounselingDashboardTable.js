@@ -62,14 +62,6 @@ export default function CounselingTable(careerList) {
         return newArray
     }
 
-    // ISSUE
-    // Sort functionality is running but only when selecting the "Most Recent" dropdown option. I have tested the sort func alone, and after it runs
-    // it does not automatically rearrange the table below it
-    // I cannot understand why the table only rearranges when the Most Recent option is selected
-
-    // Right now, the second selection rearranges the table, idk why
-    // Also using the search bar after 1 selection and then deleting the text in the search bar rearranges the table, maybe something similiar to preventDefault?
-
     return(
         <div>
 
@@ -80,7 +72,7 @@ export default function CounselingTable(careerList) {
                     <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Most Recent"} onChange={onChange} />
                 </div>
             </div>
-            
+
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
                     <tr>
