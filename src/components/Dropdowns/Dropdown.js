@@ -22,7 +22,7 @@ export default function Dropdown({
       <div className='flex flex-col gap-2'>
         <Menu.Button
           title={`${keyName} filter`}
-          className='text-gray-800 items-center gap-2 inline-flex  justify-between w-36 bg-white shadow-md px-2 py-1 rounded-md focus:ring-2 ring-blue-400 transform transition-all duration-150 ease-in-out outline-none'
+          className='text-gray-800 items-center gap-2 inline-flex  justify-between w-48 bg-white shadow-md px-2 py-1 rounded-md focus:ring-2 ring-blue-400 transform transition-all duration-150 ease-in-out outline-none'
         >
           <div className='line-clamp-1'>{selected || initialValue}</div>
           <ChevronDownIcon className='h-4 w-4 text-gray-600' />
