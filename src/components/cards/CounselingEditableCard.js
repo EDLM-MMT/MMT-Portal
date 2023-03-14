@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import Button from "../buttons/Button";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import GeneralPurposeOverlay from "../overlays/GeneralPurposeOverlay";
 
@@ -19,11 +19,15 @@ export default function CounselingEditableCard({ career , routePath, className})
     console.log("currDate", currDate)
     const [edit, setEdit] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [dropdownValue, setDropdownValue] = useState("");
-    const [secondDropdownValue, setSecondDropdownValue] = useState("");
+    const [dropdownValue, setDropdownValue] = useState(career.assigned_eso);
+    const [secondDropdownValue, setSecondDropdownValue] = useState(career.projected_graduation);
 
+    console.log("career:", career)
 
-
+    useEffect(() => {
+        setDropdownValue(career.assigned_eso)
+        setSecondDropdownValue(career.projected_graduation)
+    }, [career]);
 
 
    // let passwordLastChanged = Math.ceil((currDate.getTime()-currDate.getTime())/(one_day))
@@ -56,24 +60,26 @@ export default function CounselingEditableCard({ career , routePath, className})
 
             </h1>
             {edit ? 
-                (<div className="flex flex-row justify-between">
-                    <p className="flex flex-row mt-4 font-sans line-clamp-6">
-                        <b className="mr-2">Assigned ESO:</b>
-                        {!isOpen ? 
-                            (<Dropdown options={["John Doe", "Mary Jane Doe"]} initialValue={career?.assigned_eso} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
-                            ):(<>{career?.assigned_eso}</>)
-                        }
-                    </p>
-                    <p className="mt-6">
-                        <div className="flex flex-row justify-between">
-                            <b className="ml-32">Projected Graduation Date:</b>
+                (<div>
+                    <div className="flex flex-row justify-between">
+                        <p className="flex flex-row mt-4 font-sans line-clamp-6">
+                            <b className="mt-2 mr-2">Assigned ESO:</b>
                             {!isOpen ? 
-                                (<Dropdown options={["Fall 2023", "Spring 2024", "Summer 2024", "Fall 2024"]} initialValue={career?.projected_graduation} onChange={(event)=>{event.preventDefault(); setSecondDropdownValue(event.target.value);}}/>
-                                ):(<>{career?.projected_graduation}</>)
+                                (<Dropdown options={["John Doe", "Mary Jane Doe"]} initialValue={career?.assigned_eso} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
+                                ):(<>{career?.assigned_eso}</>)
                             }
-                        </div>
-                    </p>
-                    <div className="flex justify-end w-1/2 mt-4">
+                        </p>
+                        <p className="mt-4">
+                            <div className="flex flex-row justify-between">
+                                <b className="mt-2 mr-2">Projected Graduation Date:</b>
+                                {!isOpen ? 
+                                    (<Dropdown options={["Fall 2023", "Spring 2024", "Summer 2024", "Fall 2024"]} initialValue={career?.projected_graduation} onChange={(event)=>{event.preventDefault(); setSecondDropdownValue(event.target.value);}}/>
+                                    ):(<>{career?.projected_graduation}</>)
+                                }
+                            </div>
+                        </p>
+                    </div>
+                    <div className="flex flex-row justify-end w-full mt-4">
                         <button onClick={handleSave} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md text-white bg-blue-500 px-6 p-1.5 mb-2 transform transition-all duration-150 ease-in-out border-dod-500 border-2  ring-dod-500 outline-none">Save Changes</button>
                     </div>
                 </div>) :

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Checkbox from "../Checkbox";
 
 export default function CounselingTable({coursePlan}) {
@@ -6,9 +6,13 @@ export default function CounselingTable({coursePlan}) {
     const [checkedState, setCheckedState] = useState(
         new Array(coursePlan.length).fill(false)
     );
-    const [courseTable, setCourseTable] = useState(coursePlan)
+    const [courseTable, setCourseTable] = useState([])
     console.log("coursePlan: ",coursePlan)
     console.log("courseTable: ",courseTable)
+
+    useEffect(() => {
+        setCourseTable(coursePlan)
+    }, [coursePlan]);
 
 
 
@@ -23,9 +27,9 @@ export default function CounselingTable({coursePlan}) {
     };
     const handleDelete = (courseIndex,e) =>{
         console.log("delete row")
-        setCourseTable(coursePlan.filter((i) => i !== courseIndex));
+        setCourseTable(courseTable.filter((course,i) => i !== courseIndex));
         //setIsOpen(true)
-        console.log(courseIndex)
+        console.log("after delete:",courseTable)
     }
 
     return(
