@@ -98,7 +98,7 @@ export default function CounselingTable({coursePlan}) {
                                     text-left font-semibold text-gray-900 backdrop-blur
                                     backdrop-filter sm:table-cell'
                             >
-                                
+                               Delete 
                             </th>                      
                     </tr>
                 </thead>
@@ -127,7 +127,7 @@ export default function CounselingTable({coursePlan}) {
                                 <td className='pl-12'>{course.credit_hours}</td>
                                 <td className='pl-2'>{course.projected_semester}</td>
                                 <td className='pl-2'>{course.status}</td>
-                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-blue-700 pl-2">Remove</button></td>
+                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-blue-700 pl-2">Delete</button></td>
                             </tr>
                 ))):(
                     <tr key={0}>
