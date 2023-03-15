@@ -40,18 +40,18 @@ export default function LoginActivity() {
             <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>Login Activity</h1>
 
             <div>
-                {user.role === "Service Member" &&
-                    <Table columnTitles={["Login Date/Time", "Trascripts", "Inquiries", "Degree Agreements", "Degree Pathways", "Career Counseling", "Quick Links"]} rowsData={dataServiceMember}/>            
+                {user?.role === "Service Member" &&
+                    <Table columnTitles={["Login Date/Time", "Transcripts", "Inquiries", "Degree Agreements", "Degree Pathways", "Career Counseling", "Quick Links"]} rowsData={dataServiceMember}/>            
                 }
             </div>
             <div>
-                {user.role === "Program Administrator" &&
+                {user?.role === "Program Administrator" &&
                     <Table columnTitles={["Login Date/Time", "Accounts Management", "ESO Management", "Quick Links"]} rowsData={dataProgramAdmin}/>            
                 }
             </div>
             <div>
-                {user.role === "ESO" &&
-                    <Table columnTitles={["Login Date/Time", "Inquiries", "Degree Pathways", "Career Counseling", "Quick Links"]} rowsData={dataESO}/>            
+                {user?.role === "ESO" &&
+                    <Table columnTitles={["Login Date/Time", "ESO Inquiries", "Degree Pathways Catalog", "Career Counseling", "Quick Links"]} rowsData={dataESO}/>            
                 }
             </div>
             
