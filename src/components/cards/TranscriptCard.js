@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import DownloadButton from "@/components/buttons/DownloadButton";
 import Button from "../buttons/Button";
 
-export default function TranscriptCard({ title, routePath, type, link}){
+export default function TranscriptCard({ title, routePath, type, link, downloadLink}){
     const router = useRouter();
     const handleClick = () => {
         router.push(`/${routePath}`);
@@ -31,7 +31,7 @@ export default function TranscriptCard({ title, routePath, type, link}){
 
             <div className='flex flex-row align-bottom justify-between mt-5'>
                 <Button btnText={"Return to My Transcripts Page"} link={"/serviceMember/transcripts"}></Button>
-                <DownloadButton/>
+                <DownloadButton link={downloadLink}/>
             </div>
         </div>
     )

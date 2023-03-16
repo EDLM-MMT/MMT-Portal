@@ -12,22 +12,26 @@ export default function Transcripts() {
         {
             title: "Basic Transcript",
             description: "Includes military courses taken by service member.",
-            type: "Basic"
+            type: "Basic",
+            downloadLink : 'Prichard, Gregory E_TRANSCRIPT.pdf'
         },
         {
             title: "Summary Transcript",
             description: "Summary of trainings and courses completed. ",
-            type: "Summary"
+            type: "Summary",
+            downloadLink : 'Prichard, Gregory E_SUMMARY_TRANSCRIPT.pdf'
         },
         {
             title: "Academic Transcript",
             description: "Includes degree and certificates completed as well as all academic courses taken.",
-            type: "Academic"
+            type: "Academic",
+            downloadLink : 'Prichard, Gregory E_ACADEMIC_TRANSCRIPT.pdf'
         },
         {
             title: "Complete Transcript",
             description: "Included the Basic transcript data, Summary Transcript data, and Aedemic Courses completed.",
-            type: "Complete"
+            type: "Complete",
+            downloadLink : 'PRICHARD_GREGORY_ComboTranscript.pdf'
         },
     ]
 
@@ -39,6 +43,8 @@ export default function Transcripts() {
         ["01/19/2023 3:43:20 PM", 1, 3, 1, ""],
         ["01/18/2023 2:15:20 PM", "", 2, 1, 2],
     ]
+
+    
 
     return (
         <DefaultLayout>
@@ -56,7 +62,7 @@ export default function Transcripts() {
                                 <Card key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} routePath={card.routePath}>
                                     <div className='flex flex-row align-bottom justify-between mt-5'>
                                         <ViewBtn transcriptType={card.type}/>
-                                        <DownloadButton/> 
+                                        <DownloadButton link={card.downloadLink}/> 
                                     </div>
                                 </Card>
                             </div>
