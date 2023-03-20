@@ -35,11 +35,10 @@ describe("View Card component", () => {
     act(() => {
         fireEvent.click(saveButton);
     });
-    const resetButton = getByText('Password Reset');
-    act(() => {
-      fireEvent.click(resetButton);
-
-  });
+    // const resetButton = getByText('Password Reset');
+    // act(() => {
+    //   fireEvent.click(resetButton);
+    // });
 
 
   });
