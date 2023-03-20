@@ -1,7 +1,6 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState} from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
-import AddBtn from '@/components/buttons/AddButton';
 import Accordion from '@/components/Accordion';
 
 export default function DegreePathways() {  
@@ -278,7 +277,6 @@ export default function DegreePathways() {
                                         </div>
                                     );
                                 })}
-                                {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
                                 </div>
                             }/>
                             );
