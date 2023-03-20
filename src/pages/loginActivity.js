@@ -16,12 +16,12 @@ export default function LoginActivity() {
 
     ]
     const dataProgramAdmin = [
-        ["1/24/2023 2:43:20 PM", 1, 3, 1],
-        ["1/21/2023 3:43:20 PM", 3, 2, ""],
-        ["1/20/2023 2:53:20 PM", 1, 3, 1],
-        ["1/20/2023 7:43:20 PM", 3, "", 2],
-        ["1/19/2023 9:45:20 PM", 1, 3, 1],
-        ["1/18/2023 2:30:20 PM", "", 2, 1],
+        ["1/24/2023 2:43:20 PM", 2, 1, 3, 1],
+        ["1/21/2023 3:43:20 PM", 3, 1, 2, ""],
+        ["1/20/2023 2:53:20 PM", 1, 1, 3, 1],
+        ["1/20/2023 7:43:20 PM", "", 3, "", 2],
+        ["1/19/2023 9:45:20 PM", 1, 3, 3, 1],
+        ["1/18/2023 2:30:20 PM", "", 1, 2, 1],
 
     ]
     const dataESO = [
@@ -46,7 +46,7 @@ export default function LoginActivity() {
             </div>
             <div>
                 {user?.role === "Program Administrator" &&
-                    <Table columnTitles={["Login Date/Time", "Accounts Management", "ESO Management", "Quick Links"]} rowsData={dataProgramAdmin}/>            
+                    <Table columnTitles={["Login Date/Time", "Inquiries", "Accounts Management", "ESO Management", "Quick Links"]} rowsData={dataProgramAdmin}/>            
                 }
             </div>
             <div>

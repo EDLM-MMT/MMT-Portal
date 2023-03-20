@@ -56,7 +56,7 @@ export default function ServiceMemberDashboard() {
                     Dashboard
                 </div> 
             </h1>
-            <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16">
+            <div className="mx-6 grid grid-cols-3 gap-y-10 gap-x-16">
                 {cards.map((card, index) => {
                     return(
                         <div className=''>
