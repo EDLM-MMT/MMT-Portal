@@ -25,7 +25,7 @@ export default function Inquiry() {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        My Inquiries
+                        Program Admin Inquiries
                     </div> 
                 </h1>
                 <div className=' flex-col flex w-1/6 justify-start pb-6'>
