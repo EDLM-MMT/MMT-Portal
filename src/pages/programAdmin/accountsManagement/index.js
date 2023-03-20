@@ -81,10 +81,10 @@ export default function AccountsManagement() {
             <h1 className='pt-2 pb-4 border-b mb-8 text-3xl font-semibold'>Accounts Management</h1>
 
             <div className='flex align-middle justify-between'>
-                <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search here" onChange={handleChange} value={searchInput} />
+                <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search here by name or username " onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
                     <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Student Name", "Role"]} keyName={"Student Filter"} initialValue={"Student Name"} onChange={onChange} />
+                    <Dropdown options={["Name", "Role"]} keyName={"Student Filter"} initialValue={"Name"} onChange={onChange} />
                 </div>
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
