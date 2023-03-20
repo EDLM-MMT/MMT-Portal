@@ -113,11 +113,11 @@ export default function Header() {
             <Link href={'/dashboard'} passHref>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <button
-                title='home'
+                title='Home'
                 id={'homepage-button'}
                 className={'cursor-pointer'}
               >
-                <Image src={logo} alt={'home'} height={'60'} width={'60'} />
+                <Image src={logo} alt={'Home'} height={'60'} width={'60'} />
               </button>
             </Link>
             }
