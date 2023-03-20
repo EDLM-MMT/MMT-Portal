@@ -34,10 +34,10 @@ const ServiceMemberMenuItems = [
 ];
 
 const ProgramAdminMenuItems = [
-  // {
-  //   label: 'Inquiry Management',
-  //   path: '/programAdmin/inquiryManagement',
-  // },
+  {
+    label: 'Inquiries',
+    path: '/programAdmin/inquiries',
+  },
   {
     label: 'Accounts Management',
     path: '/programAdmin/accountsManagement',
