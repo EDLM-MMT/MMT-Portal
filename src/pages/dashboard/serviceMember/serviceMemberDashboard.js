@@ -10,7 +10,7 @@ import careerCounselingImage from '../../../assets/images/careercounseling.png';
 const cards = [
     {
         title: "Transcripts",
-        description: "Request to download transcript: Baisc Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
+        description: "Request to download transcript: Basic Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
         buttonLabel: "Go to Transcript",
         image: transcriptImage,
         routePath:"serviceMember/transcripts"

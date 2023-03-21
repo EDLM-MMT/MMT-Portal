@@ -29,7 +29,7 @@ export default function Transcripts() {
         },
         {
             title: "Complete Transcript",
-            description: "Included the Basic transcript data, Summary Transcript data, and Aedemic Courses completed.",
+            description: "Included the Basic transcript data, Summary Transcript data, and Academic Courses completed.",
             type: "Complete",
             downloadLink : 'PRICHARD_GREGORY_ComboTranscript.pdf'
         },

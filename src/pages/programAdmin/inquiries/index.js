@@ -11,7 +11,7 @@ export default function Inquiry() {
 
     useEffect(() => {
         axios
-          .get('../api/inquiry')
+          .get('../api/programAdmin/inquiry')
           .then((res) => {
             setData(res.data.inquiries);
           })
