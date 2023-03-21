@@ -37,7 +37,7 @@ export default function ESOInquiryView({inquiryId}) {
     }, []);
 
     const handleClick = () => {
-        router.push("/eso/inquiries");
+        router.push("/programAdmin/inquiries");
     }
 
     const handleInquiry = () => {
