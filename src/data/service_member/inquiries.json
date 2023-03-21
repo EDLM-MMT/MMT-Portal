@@ -3,7 +3,7 @@
         {
             "id": 300,
             "title": "Leadership Course",
-            "description": "Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet.Lorem Ipsum dolor sit amet. ",
+            "description": "Course authorization required to join class with full attendance",
             "status": "Close Inquiry",
             "inquiry_status": "Open",
             "firstRoutePath": "transcripts/basicTranscript",
@@ -28,7 +28,7 @@
         {
             "id": 301,
             "title": "Course Update",
-            "description": "Confutatis venedictis sae no adictis. ",
+            "description": "Will the required texts for this course be available online?",
             "status": "Close Inquiry",
             "inquiry_status": "Open",
             "firstRoutePath": "transcripts/summaryTranscript",
@@ -40,7 +40,7 @@
         {
             "id": 302,
             "title": "Degree Update",
-            "description": "Confutatis venedictis sae no adictis. ",
+            "description": "Will any of my other College credits apply to this degree?",
             "status": "Reopen Inquiry",
             "inquiry_status": "Closed",
             "firstRoutePath": "/dashboard",

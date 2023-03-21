@@ -50,7 +50,7 @@
         "id":"501",
         "name": "Zach Blanchard",
         "permissions": "Inquiries, Career Counseling",
-        "branch": "Navy",
+        "branch": "Army",
         "workload": "5",
         "viewProfile": "View"
     },
@@ -58,7 +58,7 @@
         "id":"502",
         "name": "Aimee Wallis",
         "permissions": "Career Counseling",
-        "branch": "Marines",
+        "branch": "Army",
         "workload": "6",
         "viewProfile": "View"
     },
@@ -66,7 +66,7 @@
         "id":"503",
         "name": "Alexia Jacobs",
         "permissions": "Inquiries",
-        "branch": "Air Force",
+        "branch": "Army",
         "workload": "3",
         "viewProfile": "View"
     },
@@ -74,7 +74,7 @@
         "id":"504",
         "name": "Jennie Haywards",
         "permissions": "Inquiries, Career Counseling",
-        "branch": "Navy",
+        "branch": "Army",
         "workload": "8",
         "viewProfile": "View"
     },
