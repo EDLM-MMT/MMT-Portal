@@ -2,11 +2,11 @@
     "inquiries": [
         {
             "id": 300,
-            "title": "Leadership Course",
-            "description": "Course authorization required to join class to complete as a part of my degree. This is the first course for the required classes in the Buisness admin specialization track. This is my choosen elective class that approval is required for.",
+            "title": "Password Reset request",
+            "description": "Logged out of account. Requesting a password reset.",
             "status": "Close Inquiry",
             "inquiry_status": "Open",
-            "firstRoutePath": "transcripts/basicTranscript",
+            "firstRoutePath": "accountsManagement",
             "secondRoutePath": "inquiries/300",
             "timestampCreated": "1/21/2023 1:43:20 PM",
             "submitted_by": "Bill Phillips",
@@ -52,8 +52,8 @@
         },
         {
             "id": 302,
-            "title": "Degree Update",
-            "description": "Looking to pursue a degree completion Buisness Administration, which courses are reamining? Will any of my other College credits apply to this degree? ",
+            "title": "Update Status",
+            "description": "My status has been recently changed from veteran to seperated but the same is not refelected in the portal. Please suggest next steps in getting that updated. ",
             "status": "Reopen Inquiry",
             "inquiry_status": "Closed",
             "firstRoutePath": "/dashboard",
