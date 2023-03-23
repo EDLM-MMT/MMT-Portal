@@ -3,11 +3,14 @@ import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
 import AddBtn from '@/components/buttons/AddButton';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import useStore from '@/store/store';
 
 export default function Inquiry() {
     
     const [data, setData] = useState([]);
     const [update, setUpdate] = useState(false);
+    const user = useStore((store) => store.userData);
+
 
     useEffect(() => {
         axios

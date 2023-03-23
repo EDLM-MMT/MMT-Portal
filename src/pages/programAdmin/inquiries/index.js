@@ -11,7 +11,7 @@ export default function Inquiry() {
 
     useEffect(() => {
         axios
-          .get('../api/inquiry')
+          .get('../api/programAdmin/inquiry')
           .then((res) => {
             setData(res.data.inquiries);
           })
@@ -28,10 +28,7 @@ export default function Inquiry() {
                         Program Admin Inquiries
                     </div> 
                 </h1>
-                <div className=' flex-col flex w-1/6 justify-start pb-6'>
-                    <AddBtn className="rounded-none" btnText={"Start New Inquiry"} link={'/serviceMember/newInquiry/'}/>
 
-                </div>
                 <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     {data?.map((card, index) => {
                         return(
