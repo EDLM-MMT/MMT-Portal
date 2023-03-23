@@ -135,15 +135,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "American Military University (WV)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: January"]
                 },
                 {
                     data: "Florida National University (FL)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 110"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 110", "Start Date: August"]
                 },
                 {
                     data: "Strayer University (DC)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 96"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 96", "Start Date: January"]
                 },
             ]
         },
@@ -151,15 +151,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "Bismarck State College (ND)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 97"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 97", "Start Date: January"]
                 },
                 {
                     data: "Central Texas College (TX)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98", "Start Date: August"]
                 },
                 {
                     data: "Dallas County Community College District - TeleCollege (TX)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102", "Start Date: January"]
                 },
             ]
         },
@@ -167,19 +167,19 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "American Military University (WV)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: January"]
                 },
                 {
                     data: "American Military University (WV)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 104"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 104", "Start Date: January"]
                 },
                 {
                     data: "Berkeley College - Online (NJ)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 109"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 109", "Start Date: August"]
                 },
                 {
                     data: "University of the Incarnate Word (TX)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 115"]
+                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 115", "Start Date: August"]
                 }
             ]
         }
