@@ -69,7 +69,7 @@ export default function CounselingTable(careerList) {
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
                     <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Most Recent"} onChange={onChange} />
+                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
                 </div>
             </div>
 
@@ -125,9 +125,9 @@ export default function CounselingTable(careerList) {
                             <td className='pl-4 p-2 text-left'>{student.name}</td>
                             <td className='pl-10'>{student.mos_code}</td>
                             {(student.career_counseling.map((career) => (
-                                <tr className='pl-4 text-blue-600 font-medium'><button onClick={() => handleCareerClick(career.id)}>{career.major}</button></tr>
+                                <tr className='pl-4 text-dod-700 font-medium'><button onClick={() => handleCareerClick(career.id)}>{career.major}</button></tr>
                             )))}
-                            <td className='pl-16 text-blue-600 font-medium'><button onClick={handleView}>View</button></td>
+                            <td className='pl-16 text-dod-700 font-medium'><button onClick={handleView}>View</button></td>
                         </tr>
                     ))
                 }

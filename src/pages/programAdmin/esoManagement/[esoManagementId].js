@@ -187,8 +187,8 @@ export default function ESOManagementView({esoManagementId}) {
                 <div className="pt-2 ml-32 w-1/4 h-1/4">
                 <PieChart
                     data={[
-                        { title: 'In Progress', value: esoData.inProgressTasks/esoData.totalTasks, color: '#2697E9' },
-                        { title: 'Done', value: esoData.completedTasks/esoData.totalTasks, color: '#27E546' },
+                        { title: 'In Progress', value: esoData.inProgressTasks/esoData.totalTasks, color: '#2492C9' },
+                        { title: 'Done', value: esoData.completedTasks/esoData.totalTasks, color: '#8BC3E1' },
                         { title: 'Not Started', value: esoData.notStartedTasks/esoData.totalTasks, color: '#989494' },
                     ]}
                     animation
@@ -196,14 +196,14 @@ export default function ESOManagementView({esoManagementId}) {
                     animationEasing="ease-out"
                     center={[50, 50]}
                     lengthAngle={360}
-                    lineWidth={45}
+                    lineWidth={100}
                     paddingAngle={0}
                     radius={50}
                     // rounded
                     startAngle={0}
                     viewBoxSize={[100, 100]}
                     label={(data) => data.dataEntry.title}
-                    labelPosition={75}
+                    labelPosition={65}
                     labelStyle={{
                         fontSize: "6px",
                         fontColor: "FFFFFA",

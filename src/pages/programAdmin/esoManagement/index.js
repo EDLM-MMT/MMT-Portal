@@ -70,7 +70,7 @@ export default function ESOManagement() {
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search by ESO Name" onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
                     <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Name", "Branch"]} keyName={"Name Filter"} initialValue={"Name"} onChange={onChange} />
+                    <Dropdown options={["Name", "Branch"]} keyName={"Sort"} initialValue={"Name"} onChange={onChange} />
                 </div>
             </div>
 
@@ -129,7 +129,7 @@ export default function ESOManagement() {
                             <td className='pl-2'>{post.permissions}</td>
                             <td className='pl-2'>{post.branch}</td>
                             <td className='pl-24'>{post.workload}</td>
-                            <td className='pl-5'><button onClick={() => handleView(post.id)} className="text-blue-700 ml-5">{post.viewProfile} </button></td>
+                            <td className='pl-5'><button onClick={() => handleView(post.id)} className="text-dod-700 ml-5">{post.viewProfile} </button></td>
                         </tr>
                     ))
                 }

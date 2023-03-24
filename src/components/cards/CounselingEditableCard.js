@@ -57,7 +57,7 @@ export default function CounselingEditableCard({ career , routePath, className})
         <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
             <h1 className='flex flex-row justify-between text-xl font-semibold border-b h-10 mb-6'>
                 Details
-                {!edit && <button onClick={handleEdit} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md text-white bg-blue-500 px-6 p-1.5 mb-2 transform transition-all duration-150 ease-in-out border-dod-500 border-2  ring-dod-500 outline-none">Edit</button>}
+                {!edit && <button onClick={handleEdit} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md text-white bg-dod-300 px-6 p-1.5 mb-2 transform transition-all duration-150 ease-in-out border-dod-500 border-2  ring-dod-500 outline-none">Edit</button>}
             </h1>
             {edit ? 
                 (<div>
@@ -80,7 +80,7 @@ export default function CounselingEditableCard({ career , routePath, className})
                         </p>
                     </div>
                     <div className="flex flex-row justify-end w-full mt-4">
-                        <button onClick={handleSave} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md text-white bg-blue-500 px-6 p-1.5 mb-2 transform transition-all duration-150 ease-in-out border-dod-500 border-2  ring-dod-500 outline-none">Save Changes</button>
+                        <button onClick={handleSave} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md text-white bg-dod-300 px-6 p-1.5 mb-2 transform transition-all duration-150 ease-in-out border-dod-500 border-2  ring-dod-500 outline-none">Save Changes</button>
                     </div>
                 </div>) :
                 (<div className=" flex flex-row justify-between">

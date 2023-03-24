@@ -86,8 +86,8 @@ export default function CounselingDashboardTable({careerList}) {
                                 <td className='pl-2'>{career.school}</td>
                                 <td className='pl-14'>{career.total_creditHours}</td>
                                 <td className='pl-16'>{career.total_creditHours - career.creditHours_completed}</td>
-                                <td><button onClick={() => handleCareerCounseling(career.id)} className="text-blue-700 pl-2">Go To Career Counseling</button></td>
-                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-blue-700 pl-2">Delete</button></td>
+                                <td><button onClick={() => handleCareerCounseling(career.id)} className="text-dod-500 pl-2">Go To Career Counseling</button></td>
+                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-dod-700 pl-2">Delete</button></td>
                             </tr>
                 ))}
             </table>
