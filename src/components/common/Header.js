@@ -71,6 +71,21 @@ const ESOMenuItems = [
   },
 ];
 
+const ExecMenuItems = [
+  {
+    label: 'Enrollment Statistics',
+    path: '/execStakeholder/enrollment',
+  },
+  {
+    label: 'Personnel by Branch',
+    path: '/execStakeholder/personnelData',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
 function Button({ data }) {
   const router = useRouter();
   if (data.path === router?.asPath) {
@@ -129,6 +144,9 @@ export default function Header() {
                 return <Button key={item.label} data={item} />;
             })}
             {user?.role === 'ESO' && ESOMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
+            })}
+            {user?.role === 'Executive Stakeholder' && ExecMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
             })}
           </div>
