@@ -27,7 +27,7 @@ export default function ESOInquiryView({inquiryId}) {
 
     useEffect(() => {
         axios
-          .get(`/api/inquiry/${inquiryId}`)
+          .get(`/api/programAdmin/inquiry/${inquiryId}`)
           .then((res) => {
             setInquiry(res.data);
             setComments(res.data.inquiryComments);
@@ -37,7 +37,7 @@ export default function ESOInquiryView({inquiryId}) {
     }, []);
 
     const handleClick = () => {
-        router.push("/eso/inquiries");
+        router.push("/programAdmin/inquiries");
     }
 
     const handleInquiry = () => {
@@ -78,7 +78,7 @@ export default function ESOInquiryView({inquiryId}) {
             <div>
               <button onClick={handleClick}
               className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
-              ESO Inquiries </button> -{`>`} {inquiry.title}
+              Program Admin Inquiries </button> -{`>`} {inquiry.title}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCard key={inquiry.id} inquiry={inquiry}/>                  
@@ -108,7 +108,7 @@ export default function ESOInquiryView({inquiryId}) {
                           <div className="mt-4 mb-4 ml-96">
                             <div className='bg-dod-300 bg-opacity-30 w-3/4 text-black border h-50 mt-0 rounded-md border-gray-200 p-4 pb-2 shadow'>
                               <div className="flex-row flex justify-between text-base mb-4 font-medium">
-                                <div className="flex-row flex pr-2 text-base mb-2 font-medium">{`${data.author} (${data.title})`}</div> 
+                                <div className="flex-row flex pr-2 text-base mb-2 font-medium">{`Liz Glass (Program Admin)`}</div> 
                                 <div>{data.timestamp}</div>
                               </div>
                               <div className="text-sm pl-4">{data.comment}</div>

@@ -1,4 +1,4 @@
-import inquiries from "@/data/service_member/inquiries.json"
+import inquiries from "@/data/programAdmin/inquiries.json"
 
 export default function handler(req, res) {
     // console.log("here", inquiries);

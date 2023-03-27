@@ -10,7 +10,7 @@ import careerCounselingImage from '../../../assets/images/careercounseling.png';
 const cards = [
     {
         title: "Transcripts",
-        description: "Request to download transcript: Baisc Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
+        description: "Request to download transcript: Basic Enterprise Transcript, Complete Enterprise Transcript, Transcript Summary, and Academic Transcript",
         buttonLabel: "Go to Transcript",
         image: transcriptImage,
         routePath:"serviceMember/transcripts"
@@ -56,7 +56,7 @@ export default function ServiceMemberDashboard() {
                     Dashboard
                 </div> 
             </h1>
-            <div className="ml-12 grid grid-cols-3 gap-y-10 gap-x-16">
+            <div className="mx-6 grid grid-cols-3 gap-y-10 gap-x-16">
                 {cards.map((card, index) => {
                     return(
                         <div className=''>

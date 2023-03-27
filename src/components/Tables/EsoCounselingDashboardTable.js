@@ -62,14 +62,6 @@ export default function CounselingTable(careerList) {
         return newArray
     }
 
-    // ISSUE
-    // Sort functionality is running but only when selecting the "Most Recent" dropdown option. I have tested the sort func alone, and after it runs
-    // it does not automatically rearrange the table below it
-    // I cannot understand why the table only rearranges when the Most Recent option is selected
-
-    // Right now, the second selection rearranges the table, idk why
-    // Also using the search bar after 1 selection and then deleting the text in the search bar rearranges the table, maybe something similiar to preventDefault?
-
     return(
         <div>
 
@@ -77,10 +69,10 @@ export default function CounselingTable(careerList) {
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
                     <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Student Filter"} initialValue={"Most Recent"} onChange={onChange} />
+                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
                 </div>
             </div>
-            
+
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
                 <thead className='bg-gray-50 '>
                     <tr>
@@ -131,11 +123,11 @@ export default function CounselingTable(careerList) {
                     }).map((student, index) => (
                         <tr key={index} className=' even:bg-gray-50 group'>
                             <td className='pl-4 p-2 text-left'>{student.name}</td>
-                            <td className='pl-12'>{student.mos_code}</td>
+                            <td className='pl-10'>{student.mos_code}</td>
                             {(student.career_counseling.map((career) => (
-                                <tr className='pl-4 text-blue-600 font-medium'><button onClick={() => handleCareerClick(career.id)}>{career.major}</button></tr>
+                                <tr className='pl-4 text-dod-700 font-medium'><button onClick={() => handleCareerClick(career.id)}>{career.major}</button></tr>
                             )))}
-                            <td className='pl-0 text-blue-600 font-medium'><button onClick={handleView}>View</button></td>
+                            <td className='pl-16 text-dod-700 font-medium'><button onClick={handleView}>View</button></td>
                         </tr>
                     ))
                 }

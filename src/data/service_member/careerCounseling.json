@@ -5,6 +5,8 @@
             "degree": "Computer Science",
             "school": "Berkeley College - Online (NJ)",
             "submitted_by": "Bill Phillips",
+            "username": "bphillips",
+            "mosCode": "AET",
             "degree_startDate": "January 2019",
             "projected_graduation": "June 2023",
             "assigned_eso": "Mary Jane Doe",
@@ -70,6 +72,8 @@
             "degree": "Business Administration",
             "school": "University Of Central Florida - Online (FL)",
             "submitted_by": "Zack Blanchard",
+            "username": "zblanchard",
+            "mosCode": "ET",
             "degree_startDate": "January 2019",
             "projected_graduation": "December 2023",
             "assigned_eso": "John Doe",
@@ -116,13 +120,27 @@
                     "timestamp": "1/24/2023 2:43:19 PM"
                 }
             ],
-            "ESOComments": []
+            "ESOComments": [
+                {
+                    "date": "2/14/2023 3:12:57 PM",
+                    "purpose": "Approved",
+                    "comment": "Approved added elective courses"
+
+                },
+                {
+                    "date": "2/12/2023 11:30:25 AM",
+                    "purpose": "Advised",
+                    "comment": "Advised to add all courses including electives in the table. Waiting for update"
+                }
+            ]
         },
         {
             "id": 302,
             "degree": "Data Scientist",
             "school": "Florida State College at Jacksonville (FL)",
             "submitted_by": "Bill Phillips",
+            "username": "bphillips",
+            "mosCode": "AET",
             "degree_startDate": "May 2020",
             "projected_graduation": "December 2024",
             "assigned_eso": "Luis Doe",
@@ -169,7 +187,19 @@
                     "timestamp": "1/24/2023 2:43:19 PM"
                 }
             ],
-            "ESOComments": []
+            "ESOComments": [
+                {
+                    "date": "2/14/2023 3:12:57 PM",
+                    "purpose": "Approved",
+                    "comment": "Approved added elective courses"
+
+                },
+                {
+                    "date": "2/12/2023 11:30:25 AM",
+                    "purpose": "Advised",
+                    "comment": "Advised to add all courses including electives in the table. Waiting for update"
+                }
+            ]
         }
     ]
 }

@@ -1,8 +1,10 @@
 import { twMerge } from "tailwind-merge";
 import Button from "../buttons/Button";
 import { useState } from 'react';
+import useStore from "@/store/store";
 
 export default function ViewCard({ inquiry , className}){
+    const user = useStore((store) => store.userData);
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
@@ -20,7 +22,9 @@ export default function ViewCard({ inquiry , className}){
 
             </p>
             <p className="mt-6">
-                Submitted by {inquiry?.submitted_by} on {inquiry?.timestampCreated} 
+                {user?.role !== "Service Member" &&
+                    (`Submitted by ${inquiry?.submitted_by} on ${inquiry?.timestampCreated}`)
+                }
             </p>
         </div>
         

@@ -12,7 +12,7 @@ describe("Service Member Dashbaord Page", () => {
     expect(getByText('Transcripts')).toBeInTheDocument();
     expect(getByText('Inquiries')).toBeInTheDocument();
     expect(getByText('Degree Agreements')).toBeInTheDocument();
-    expect(getByText('Degree Pathways')).toBeInTheDocument();
+    expect(getByText('Degree Pathways Catalog')).toBeInTheDocument();
 
   });
 });

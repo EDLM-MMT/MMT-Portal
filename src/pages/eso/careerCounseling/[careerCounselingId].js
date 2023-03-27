@@ -10,6 +10,8 @@ import Button from '@/components/buttons/Button';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import ESOCommentsTable from '@/components/tables/ESOCommentsTable';
 import Checkbox from '@/components/Checkbox';
+import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
+
 
 export function getServerSideProps(context) {
     const { careerCounselingId } = context.query;
@@ -35,6 +37,9 @@ export default function CareerCounseling({careerCounselingId}) {
     const [dropdownValue, setDropdownValue] = useState("Select one");
     const [checkedState, setCheckedState] = useState(false);
     const [errorFlag, setErrorFlag] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [disableButton, setDisableButton] = useState(false);
+
 
     useEffect(() => {
         axios
@@ -99,12 +104,16 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleSave = (event) => {
-        event.preventDefault()
+        event.preventDefault();
     }
     
     const handleChange = () => {
         setCheckedState(!checkedState);
     };
+
+    const comfirmOverlay = () => {
+        setIsOpen(true);
+    }
 
     return (
       <DefaultLayout>
@@ -112,7 +121,12 @@ export default function CareerCounseling({careerCounselingId}) {
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     {career.degree} Career Counseling
+                    <div className='flex flex-row gap-6'>
                     <Button btnText={"View Transcript"} link={"/eso/careerCounseling/transcript"}/>
+                    <button onClick={comfirmOverlay} disabled={disableButton} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Confirm Plan</button>
+                    {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={`/eso/careerCounseling/${careerCounselingId}`}
+                    title={"Confirm Career Plan"} message={`Upon clicking Confirm, this Career Counseling plan will be approved.`}/>}
+                    </div>
                 </div> 
             </h1>
             <div>
@@ -121,9 +135,9 @@ export default function CareerCounseling({careerCounselingId}) {
               Career Counseling Dashboard</button> -{`>`} {career.degree}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
-                    <ViewCounselingCard key={career.id} title={career.degree} 
+                    <ViewCounselingCard career={career} key={career.id} title={career.degree} 
                                         school={career.school} startDate={career.degree_startDate} 
-                                        endDate={career.projected_graduation} serviceMember={career.submitted_by}
+                                        endDate={career.projected_graduation} serviceMember={career.submitted_by} 
                                         totalHours={career.total_creditHours} completedHours={career.creditHours_completed}/>                   
             </div>
             <div className='bg-white w-full border h-50 mt-4 rounded-md border-gray-200 p-4 pb-0 shadow'>

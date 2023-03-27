@@ -2,8 +2,9 @@ import { ArrowCircleDownIcon } from '@heroicons/react/solid'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
-export default function DownloadButton({ handleDownloadClick }) {
+export default function DownloadButton({link}) {
     const items = ['PDF', 'Word'];
+
     return (
         <div className="rounded-md">
             <Menu as="div" className="relative inline-block text-left">
@@ -31,14 +32,17 @@ export default function DownloadButton({ handleDownloadClick }) {
                             {items.map((eachItem) => (
                                 <Menu.Item key={eachItem}>
                                     {({ active }) => (
-                                        <button
-                                            onClick={() => handleDownloadClick(eachItem)}
-                                            className={`${active ? 'bg-dod-300 text-white' : 'text-gray-900'
-                                                } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                        >
+                                        
+                                            (eachItem === "PDF") ? (
 
-                                            {eachItem}
-                                        </button>
+                                                    <a className={`${active ? 'bg-dod-300 text-white' : 'text-gray-900'} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                                    href={`../../../${link}`} target="_blank" rel="noopener noreferrer" download><button>{eachItem}</button> </a>
+                                            ):(
+                                                <a className={`${active ? 'bg-dod-300 text-white' : 'text-gray-900'} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                                href='../../sampleFile.doc' download>{eachItem}</a>
+                                            )
+                                        
+
                                     )}
                                 </Menu.Item>
                             ))}
