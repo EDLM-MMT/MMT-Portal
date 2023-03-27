@@ -14,7 +14,7 @@ export default function handler(req, res) {
   if (username.toLowerCase().includes('eso') && password.includes('password')) {
     return res.status(200).json(esoData);
   }
-  if (username.toLowerCase().includes('stakeholder') && password.includes('password')) {
+  if (username.toLowerCase().includes('execstakeholder') && password.includes('password')) {
     return res.status(200).json(execStakeholderData);
   }
     return res.status(401).json()
