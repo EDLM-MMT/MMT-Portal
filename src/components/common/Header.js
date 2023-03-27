@@ -4,6 +4,7 @@ import Link from 'next/link';
 import logo from '/public/logo.png';
 import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
+import StatsMenu from '@/components/menus/StatsMenu';
 
 
 const ServiceMemberMenuItems = [
@@ -147,6 +148,9 @@ export default function Header() {
                 return <Button key={item.label} data={item} />;
             })}
             {user?.role === 'Executive Stakeholder' && ExecMenuItems.map((item) => {
+                if(item.label === "Enrollment Statistics"){
+                  return <StatsMenu />
+                }
                 return <Button key={item.label} data={item} />;
             })}
           </div>
