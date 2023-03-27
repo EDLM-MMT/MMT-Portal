@@ -78,7 +78,7 @@ export default function ESOInquiryView({inquiryId}) {
             <div>
               <button onClick={handleClick}
               className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
-              Service Member Inquiries </button> -{`>`} {inquiry.title}
+              ESO Inquiries </button> -{`>`} {inquiry.title}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCard key={inquiry.id} inquiry={inquiry}/>                  
