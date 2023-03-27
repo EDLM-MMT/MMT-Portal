@@ -9,15 +9,19 @@ const cards = [
         title: "Enrollment Statistics",
         description: "Manage service member inquiries, update service member profiles",
         buttonLabel: "Go to Enrollment By University",
+        secondButtonLabel: "Go to Enrollment By State",
         image: inquiriesImage,
-        routePath:"eso/inquiries"
+        routePath:"execStakehodler/universityEnrollment",
+        secondRoutePath:"execStakehodler/stateEnrollment"
     },
     {
         title: "Personnel Data by Branch",
         description: "View degree pathway options: by school, major or MOS code ",
         buttonLabel: "Go to Personnel Data",
+        secondButtonLabel: null,
         image: degreePathwaysImage,
-        routePath:"eso/degreePathways"
+        routePath:"execStakehodler/personnelData",
+        secondRoutePath: null
     },
 ]
 
@@ -34,7 +38,7 @@ export default function ExecStakeholderDashboard() {
                 {cards.map((card, index) => {
                     return(
                         <div className=''>
-                        <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} dashboardImage={card.image} routePath={card.routePath}/>
+                        <DashboardCard key={index} title={card.title} description={card.description} buttonLabel={card.buttonLabel} secondButtonLabel={card.secondButtonLabel} dashboardImage={card.image} routePath={card.routePath} secondRoutePath={card.secondRoutePath}/>
                         </div>
                     )
                 })}
