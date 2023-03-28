@@ -2,7 +2,7 @@ import InquiryView from "@/pages/serviceMember/inquiries/[inquiryId]";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import axios from 'axios'
-import CareerCounseling from "@/pages/serviceMember/careerCounseling/[careerCounselingId]";
+import CareerCounseling from "@/pages/serviceMember/counseling/[careerCounselingId]";
 
 let url = ''
 let body = {}

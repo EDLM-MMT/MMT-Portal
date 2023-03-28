@@ -25,8 +25,8 @@ const ServiceMemberMenuItems = [
     path: '/serviceMember/degreePathways',
   },
   {
-    label: 'Career Counseling',
-    path: '/serviceMember/careerCounseling',
+    label: 'Counseling',
+    path: '/serviceMember/counseling',
   },
   {
     label: 'Quick Links',
@@ -63,8 +63,8 @@ const ESOMenuItems = [
     path: '/eso/degreePathways',
   },
   {
-    label: 'Career Counseling',
-    path: '/eso/careerCounseling',
+    label: 'Counseling',
+    path: '/eso/counseling',
   },
   {
     label: 'Quick Links',
