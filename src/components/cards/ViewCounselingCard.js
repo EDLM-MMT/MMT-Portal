@@ -39,7 +39,7 @@ export default function ViewCounselingCard({ career, school, startDate, endDate,
                     Total Credit Hours: {totalHours}
                 </p>
                 <p className={descriptionClass}>
-                    Hours Still Needed: {totalHours - completedHours}
+                    Hours Still Required for Degree Completion: {totalHours - completedHours}
                 </p>
             </div>
             
