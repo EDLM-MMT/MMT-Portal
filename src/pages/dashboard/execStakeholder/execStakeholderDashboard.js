@@ -11,8 +11,8 @@ const cards = [
         buttonLabel: "Go to Enrollment By University",
         secondButtonLabel: "Go to Enrollment By State",
         image: inquiriesImage,
-        routePath:"execStakehodler/universityEnrollment",
-        secondRoutePath:"execStakehodler/stateEnrollment"
+        routePath:"execStakeholder/universityEnrollment",
+        secondRoutePath:"execStakeholder/stateEnrollment"
     },
     {
         title: "Personnel Data by Branch",
@@ -20,7 +20,7 @@ const cards = [
         buttonLabel: "Go to Personnel Data",
         secondButtonLabel: null,
         image: degreePathwaysImage,
-        routePath:"execStakehodler/personnelData",
+        routePath:"execStakeholder/personnelData",
         secondRoutePath: null
     },
 ]
