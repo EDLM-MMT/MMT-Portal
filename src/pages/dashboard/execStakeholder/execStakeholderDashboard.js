@@ -34,7 +34,7 @@ export default function ExecStakeholderDashboard() {
                     Executive Stakeholder Dashboard
                 </div> 
             </h1>
-            <div className="mx-6 grid grid-cols-3 gap-y-10 gap-x-16">
+            <div className="flex justify-between gap-x-16 px-56">
                 {cards.map((card, index) => {
                     return(
                         <div className=''>
