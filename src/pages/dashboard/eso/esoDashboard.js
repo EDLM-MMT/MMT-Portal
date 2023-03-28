@@ -20,11 +20,11 @@ const cards = [
         routePath:"eso/degreePathways"
     },
     {
-        title: "Career Counseling",
-        description: "Assist service memeber in career counseling and view service member transcripts",
-        buttonLabel: "Go to Career Counseling",
+        title: "Counseling",
+        description: "Assist service memeber in counseling and view service member transcripts",
+        buttonLabel: "Go to Counseling",
         image: careerCounselingImage,
-        routePath:"eso/careerCounseling"
+        routePath:"eso/counseling"
     },
 ]
 
