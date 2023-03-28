@@ -22,7 +22,7 @@ export default function ESOManagement() {
 
     const onChange = (e) => {
         setSelected(e.target.name);
-        if(e.target.name === "Student Name"){
+        if(e.target.name === "Name"){
             careerListNameSort()
         } else {
             careerListBranchSort()

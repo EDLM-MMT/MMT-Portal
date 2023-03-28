@@ -27,7 +27,7 @@ export default function AccountsManagement() {
 
     const onChange = (e) => {
         setSelected(e.target.name);
-        if(e.target.name === "Student Name"){
+        if(e.target.name === "Name"){
             careerListNameSort()
         } else {
             careerListRoleSort()
@@ -36,8 +36,8 @@ export default function AccountsManagement() {
     
     const careerListNameSort = () => {
         let newArray = modifiedData.sort(function(a, b) {
-            const nameA = a.name.toUpperCase();
-            const nameB = b.name.toUpperCase();
+            const nameA = a.name;
+            const nameB = b.name;
             if (nameA > nameB) {
               return 1;
             }
