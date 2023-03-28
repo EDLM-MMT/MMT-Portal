@@ -13,7 +13,7 @@ describe('CareerCounselingList component', () => {
     );
 
     
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
   });
 
 

@@ -67,14 +67,14 @@ describe('Table component', () => {
 
   });
 
-  it('calls the handleView function when the "Go to Career Counseling" button is clicked', () => {
+  it('calls the handleView function when the "Go to Counseling" button is clicked', () => {
     const { getByText } = render(
       <MemoryRouterProvider>
-        <Table rowsData={[["Go To Career Counseling"]]} columnTitles={columnTitles} />
+        <Table rowsData={[["Go To Counseling"]]} columnTitles={columnTitles} />
       </MemoryRouterProvider>
 
     );
-    const viewButton = getByText('Go To Career Counseling');
+    const viewButton = getByText('Go To Counseling');
     fireEvent.click(viewButton);
 
   });

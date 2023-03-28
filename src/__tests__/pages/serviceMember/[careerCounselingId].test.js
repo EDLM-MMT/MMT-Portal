@@ -25,8 +25,8 @@ describe("Career Counseling View Page", () => {
         </MemoryRouterProvider>
     );
 
-    expect(getByText('Career Counseling')).toBeInTheDocument();
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
     expect(getByText('School:')).toBeInTheDocument();
     expect(getByText('Degree Start Date:')).toBeInTheDocument();
     expect(getByText('Total Credit Hours:')).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe("Career Counseling View Page", () => {
 
     axios.get.mockResolvedValue({data: []});
 
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
     const button = getByText('Career Counseling Dashboard');
     act(() => {
         fireEvent.click(button);
