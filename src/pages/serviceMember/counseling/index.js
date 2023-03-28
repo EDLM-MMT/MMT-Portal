@@ -25,14 +25,20 @@ export default function CareerCounselingList() {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        Career Counseling Dashboard
+                        Counseling Dashboard
                     </div> 
                 </h1>
                 <p className="border-b-none">
-                    Welcome to Career Counseling! Below is a list of majors at schools you can add and remove from. You can contact an ESO for further questions for each option listed below by clicking "Go to Career Counseling".
+                    Welcome to Counseling! Below is a list of majors at schools you can add and remove from. You can contact an ESO for further questions for each option listed below by clicking "Go to Counseling".
                 
                 </p>
                 <CounselingTable careerList={careerList}/>
+                <p className="mt-8 border-t">
+                    <div className="mt-2">
+                        <b>Disclaimer:</b> "Hours Still Needed" is an <b><u>estimated</u></b> value based on courses completed on your transcript. Please contact ESO if further clarification is needed.  
+                    </div>             
+                </p>
+
             </div>
         </DefaultLayout>
     );

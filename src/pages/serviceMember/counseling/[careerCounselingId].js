@@ -49,7 +49,7 @@ export default function CareerCounseling({careerCounselingId}) {
     }, []);
 
     const handleClick = () => {
-        router.push("/serviceMember/careerCounseling");
+        router.push("/serviceMember/counseling");
     }
 
     const handleTranscript = () => {
@@ -95,7 +95,7 @@ export default function CareerCounseling({careerCounselingId}) {
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
-                    {career.degree} Career Counseling
+                    {career.degree} Counseling
                     <button onClick={handleTranscript} disabled={disableButton} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Send Unofficial Transcript to ESO</button>
                 </div> 
                 {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={`/serviceMember/careerCounseling/${careerCounselingId}`}
@@ -104,7 +104,7 @@ export default function CareerCounseling({careerCounselingId}) {
             <div>
               <button onClick={handleClick}
               className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
-              Career Counseling Dashboard</button> -{`>`} {career.degree}
+              Counseling Dashboard</button> -{`>`} {career.degree}
             </div>
             <div className=' flex-col flex h-18 justify-center w-full gap-5'>
                     <ViewCounselingCard key={career.id} title={career.degree} 
