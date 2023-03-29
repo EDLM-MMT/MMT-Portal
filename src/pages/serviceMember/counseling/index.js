@@ -32,12 +32,11 @@ export default function CareerCounselingList() {
                     Welcome to Counseling! Below is a list of majors at schools you can add and remove from. You can contact an ESO for further questions for each option listed below by clicking "Go to Counseling".
                 
                 </p>
+                <div className="mt-2">
+                    <b>Disclaimer:</b> Counseling Plans are tentative and require further confirmation from the Academic Institute. These are only for planning purposes. "Hours Still Needed" is an <b><u>estimated</u></b> value based on courses completed on your transcript. Please contact ESO if further clarification is needed.  
+                </div>  
                 <CounselingTable careerList={careerList}/>
-                <p className="mt-8 border-t">
-                    <div className="mt-2">
-                        <b>Disclaimer:</b> "Hours Still Needed" is an <b><u>estimated</u></b> value based on courses completed on your transcript. Please contact ESO if further clarification is needed.  
-                    </div>             
-                </p>
+
 
             </div>
         </DefaultLayout>

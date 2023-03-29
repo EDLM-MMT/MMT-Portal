@@ -93,7 +93,7 @@ function Button({ data }) {
     return (
       <Link href={data.path}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <button className='px-1 font-bold text-white border-b-2 border-white-800 hover:white-gray-900'>
+        <button className='px-1 font-bold text-lg text-white border-b-2 border-white-800 hover:white-gray-900'>
           {data.label}
         </button>
       </Link>
