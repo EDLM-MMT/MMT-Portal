@@ -41,7 +41,7 @@ export default function LoginActivity() {
 
             <div>
                 {user?.role === "Service Member" &&
-                    <Table columnTitles={["Login Date/Time", "Transcripts", "Inquiries", "Degree Agreements", "Degree Pathways", "Career Counseling", "Quick Links"]} rowsData={dataServiceMember}/>            
+                    <Table columnTitles={["Login Date/Time", "Transcripts", "Inquiries", "Degree Agreements", "Degree Pathways", "Counseling", "Quick Links"]} rowsData={dataServiceMember}/>            
                 }
             </div>
             <div>
@@ -51,7 +51,7 @@ export default function LoginActivity() {
             </div>
             <div>
                 {user?.role === "ESO" &&
-                    <Table columnTitles={["Login Date/Time", "ESO Inquiries", "Degree Pathways Catalog", "Career Counseling", "Quick Links"]} rowsData={dataESO}/>            
+                    <Table columnTitles={["Login Date/Time", "ESO Inquiries", "Degree Pathways Catalog", "Counseling", "Quick Links"]} rowsData={dataESO}/>            
                 }
             </div>
             

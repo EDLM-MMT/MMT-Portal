@@ -101,7 +101,7 @@ export default function ESOManagementView({esoManagementId}) {
                        <div className="flex flex-col pl-8">
                             <Checkbox label="Inquiries" index="Inquiries" onChange={onCheck}/>
                             <Checkbox label="Degree Pathways Catalog" index="Degree Pathways Catalog" onChange={onCheck}/>
-                            <Checkbox label="Career Counseling" index="Career Counseling" onChange={onCheck}/>
+                            <Checkbox label="Counseling" index="Counseling" onChange={onCheck}/>
                         </div>
                     </div>
                     <div className="flex justify-end">

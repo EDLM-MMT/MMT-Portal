@@ -64,7 +64,7 @@ describe('ESOCounselingDashboardTable component', () => {
 
   expect(getByText('Name')).toBeInTheDocument();
   expect(getByText('MOS Code')).toBeInTheDocument();
-  expect(getByText('Career Counseling')).toBeInTheDocument();
+  expect(getByText('Counseling')).toBeInTheDocument();
   expect(getByText('Unofficial Transscript')).toBeInTheDocument();
 
   });
