@@ -92,26 +92,42 @@ export default function Credits() {
                 </h1>
                 
                 <div className="border rounded-md border-gray-200 p-4 shadow">
-                    <h1 className='border-b mt-2 mb-2 text-xl font-semibold'>
+                    <h1 className='border-b mt-2 mb-6 text-xl font-semibold'>
                         <div className='flex flex-row justify-between'>  
                             BGS General Studies Overview
                         </div> 
                     </h1>
-                    <div className='flex flex-row justify-between'>  
-                    
-                    <div className="flex flex-col mt-2 pt-6">
-                        <div><b>College: </b> Fort Hays State University </div>
-                        <div><b>Student Name: </b> Bill Blanchard </div>
-                        <div><b>Branch of Service: </b> Navy </div>
-                        <div><b>Rank: </b> E-9 </div>
-                        <div><b>Rating: </b> ETNCM </div>
+                    <b className='mt-8'> Your Progress: 12% (15 out of 124 credits transferred)</b>
+                    <div className="border rounded-full border-gray-600 bg-gray-300 w-3/4 h-12 mt-2 shadow">
+                        <div className="border rounded-full border-gray-600 bg-dod-300 w-1/5 h-12 shadow">
+                        <div className="p-2 h-12 font-bold text-right items-center align-middle text-white text-lg "> 12% </div>
+                        </div>
+                    </div>
 
-                        
-                    </div>
-                    <div>
-                    <ReactApexChart options={state.options} series={state.series} type="radialBar" height={350} width={400} />
-                    <b className=''> Your Progress: 12% (15 out of 124 credits transferred)</b>
-                    </div>
+                    <div className='flex flex-row justify-between'>  
+                        <div className="flex flex-col mt-4 pt-4x">
+                            <div><b>College: </b> Fort Hays State University </div>
+                            <div><b>Student Name: </b> Bill Blanchard </div>
+                        </div>
+
+                        <div className="flex flex-col mt-4 pt-4x">
+                            <div><b>Branch of Service: </b> Navy </div>
+                            <div><b>Rank/Rating: </b> E-9/ETNCM </div>
+                        </div>
+                        <div></div>
+
+                        {/* code for radial progress bar */}
+                        {/* <div className="flex flex-col mt-2 pt-6">
+                            <div><b>College: </b> Fort Hays State University </div>
+                            <div><b>Student Name: </b> Bill Blanchard </div>
+                            <div><b>Branch of Service: </b> Navy </div>
+                            <div><b>Rank: </b> E-9 </div>
+                            <div><b>Rating: </b> ETNCM </div>
+                        </div>
+                        <div>
+                        <ReactApexChart options={state.options} series={state.series} type="radialBar" height={350} width={400} />
+                        <b className=''> Your Progress: 12% (15 out of 124 credits transferred)</b>
+                        </div> */}
                     </div>
 
                 </div>
@@ -124,7 +140,7 @@ export default function Credits() {
                     </h1>
                     <div>
                         <b className=''>Disclaimer: </b> Credits translation are tentative and require further confirmation from the Academic Institute. These are only for planning purposes. "Hours Still Needed" is an <b><u>estimated</u></b> value based on courses completed on your transcript. Please contact ESO if further clarification is needed. 
-                        <p className="pt-4">The following courses will need to be completed based on your current pathway selection:</p>
+                        <p className="pt-">The following courses will need to be completed based on your current pathway selection:</p>
                     </div>
                     <CreditsTable credits={credits.credits} />
                     
