@@ -2,6 +2,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState} from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import AddBtn from '@/components/buttons/AddButton';
+import ViewBtn from '@/components/buttons/ViewBtn';
 import Accordion from '@/components/Accordion';
 
 export default function DegreePathways() {  
@@ -278,7 +279,10 @@ export default function DegreePathways() {
                                         </div>
                                     );
                                 })}
-                                {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
+                                <div className="flex flex-row gap-2">
+                                    {<ViewBtn path='/serviceMember/credits'/>}
+                                    {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
+                                </div>
                                 </div>
                             }/>
                             );
