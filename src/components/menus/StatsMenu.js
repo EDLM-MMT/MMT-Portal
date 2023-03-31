@@ -12,11 +12,11 @@ import {
   const listMenuButtons = [
     {
       name: 'Enrollment by University',
-      href: '/execStakehodler/universityEnrollment',
+      href: '/execStakeholder/universityEnrollment',
     },
     {
       name: 'Enrollment by State',
-      href: '/execStakehodler/stateEnrollment',
+      href: '/execStakeholder/stateEnrollment',
     },
   ];
   

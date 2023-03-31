@@ -1,18 +1,11 @@
-import { twMerge } from "tailwind-merge";
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import Dropdown from '../dropdowns/Dropdown';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
-import Dropdown from "../dropdowns/Dropdown";
-import { useState } from "react";
 
-
-
-export default function BarGraphStatisticsViewCard({ title , routePath, className}){
-    const descriptionClass = twMerge(`
-        mt-4 font-sans line-clamp-6 
-        ${className ?? ""}
-    `);
-
-    const [graph, setGraph] = useState("Personnel Percent");
+export default function BarChart({ title, xAxisTitle, dataName, labels, data, routePath,  }){
+    
+    const [graph, setGraph] = useState("Total Personnel");
 
     const state = {
           
@@ -49,7 +42,7 @@ export default function BarGraphStatisticsViewCard({ title , routePath, classNam
             colors: ['#fff']
           },
           title: {
-            text: 'Total Personnel Distribution by State'
+            text: 'Total Personnel Distribution by University Enrollment'
           },
           xaxis: {
             categories: ['Maryland', 'Alaska', 'Arizona', 'Minnesota', 'Washington'],
@@ -62,9 +55,10 @@ export default function BarGraphStatisticsViewCard({ title , routePath, classNam
               text: "Number of Personnel"
             },
           },
+          colors: ['#2492C9','#8BC3E1'],
           yaxis: {
             title: {
-              text: "States"
+              text: "University Name"
             },
           },
           tooltip: {
@@ -110,10 +104,10 @@ export default function BarGraphStatisticsViewCard({ title , routePath, classNam
             colors: ['#fff']
           },
           title: {
-            text: 'Personnel Status Percent Distribution by State'
+            text: 'Personnel Status Percent Distribution by University Enrollment'
           },
           xaxis: {
-            categories: ['Maryland', 'Alaska', 'Arizona', 'Minnesota', 'Washington'],
+            categories: ['American Military University  ', 'University of Maryland Global Campus', 'Southern New Hampshire University Online (Main Campus)', 'Purdue University Global (Main Campus)', 'Western Governors University'],
             labels: {
               formatter: function (val) {
                 return val
@@ -123,9 +117,10 @@ export default function BarGraphStatisticsViewCard({ title , routePath, classNam
               text: "Personnel Percentage"
             },
           },
+          colors: ['#2492C9','#8BC3E1'],
           yaxis: {
             title: {
-              text: "States"
+              text: "University Name"
             },
           },
           tooltip: {
@@ -164,7 +159,7 @@ export default function BarGraphStatisticsViewCard({ title , routePath, classNam
                 {title}
                 <div>
                   <div className='font-medium'> <b className="pr-4">Display:</b>
-                    <Dropdown options={["Personnel Percent", "Total Personnel"]} keyName={"Display"} initialValue={"Personnel Percent"} onChange={onChange} />
+                    <Dropdown options={["Personnel Percent", "Total Personnel"]} keyName={"Display"} initialValue={"Total Personnel"} onChange={onChange} />
                   </div> 
                 </div>
             </h1>

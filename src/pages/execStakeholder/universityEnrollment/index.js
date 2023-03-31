@@ -2,24 +2,16 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/router"
-import Table from '@/components/tables/Table';
-import ProgramAdminViewCard from '@/components/cards/ProgAdminViewCard';
-
+import VerticalBarGraphStatisticsViewCard from '@/components/cards/execStakeholder/VerticalBarGraphCard';
+import DropdownViewCard from '@/components/cards/execStakeholder/DropdownSelectViewCard';
+import BarGraphStatisticsViewCard from '@/components/cards/execStakeholder/HorizontalBarGraphStatisticsViewCard';
+import BarChart from '@/components/charts/BarChart';
 
 export default function universityEnrollment() {
 
     const [accountData, setAccountData] = useState([]);
     const router = useRouter();
-
-    const data = [
-        ["01/22/2023 15:14 PM", 3, 1, 1, 2],
-        ["01/21/2023 14:32 PM", 2, "", 2, 1],
-        ["01/20/2023 12:18 PM", 3, 1, 1, 4],
-        ["01/20/2023 09:14 AM", "", 2, 2, 1],
-        ["01/19/2023 15:14 PM", 3, 1, "", 2],
-        ["01/18/2023 15:14 PM", 2, 1, 2, ""],
-
-    ]
+    const years = ['2019','2020', '2021', '2022'];
 
 
     const handleClick = () => {
@@ -30,21 +22,20 @@ export default function universityEnrollment() {
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
-                <div className='flex flex-row justify-between'>  
                     University Enrollment Statistics
-                </div> 
             </h1>
             <div>
               <button onClick={handleClick}
               className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
               Dashboard</button> -{`>`} Enrollment by University
             </div>
-            <div className="mb-8">
-                <ProgramAdminViewCard account={accountData} routePath={"/dashboard"}/>
+            <div className="flex flex-row justify-between mb-8">
+                <DropdownViewCard title={"Overall Statistics"} options={years}/>
+                <VerticalBarGraphStatisticsViewCard title={"Active Service Members Enrolled"} routePath={"/dashboard"}/>
             </div>
-            <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
-                <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>Login History</h1>
-                <Table columnTitles={["Date/Time", "Trascripts", "Inquiries", "Degree Agreements", "Degree Pathways"]} rowsData={data}/>
+            <div>
+                <BarChart title={"Institute Statistics"} routePath={"/dashboard"}/>
+                
             </div>
             
         </div>
