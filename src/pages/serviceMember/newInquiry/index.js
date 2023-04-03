@@ -26,7 +26,8 @@ export default function NewInquiry() {
     const issues = [
         "How do I view and print my student copy/unofficial transcript?",
         "Academic Institution Courses",
-        "How do I request an official transcript for employment?"
+        "How do I request an official transcript?",
+        "How do I start counseling?"
     ];
     
     const [commonSolution, setCommonSolution] = useState("");
