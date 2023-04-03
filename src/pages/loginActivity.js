@@ -34,6 +34,16 @@ export default function LoginActivity() {
 
     ]
 
+    const dataExecStak = [
+        ["1/24/2023 2:43:20 PM", 1, 3, 1],
+        ["1/21/2023 3:43:20 PM", 3, 2, ""],
+        ["1/20/2023 2:53:20 PM", 1, 3, 1],
+        ["1/20/2023 7:43:20 PM", 3, "", 2],
+        ["1/19/2023 9:45:20 PM", 1, 3, 1],
+        ["1/18/2023 2:30:20 PM", "", 2, 1],
+
+    ]
+
     return (
         <DefaultLayout >
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
@@ -52,6 +62,12 @@ export default function LoginActivity() {
             <div>
                 {user?.role === "ESO" &&
                     <Table columnTitles={["Login Date/Time", "ESO Inquiries", "Degree Pathways Catalog", "Counseling", "Quick Links"]} rowsData={dataESO}/>            
+                }
+            </div>
+
+            <div>
+                {user?.role === "Executive Stakeholder" &&
+                    <Table columnTitles={["Login Date/Time", "Enrollment Statistics", "Personnel by Branch", "Quick Links"]} rowsData={dataExecStak}/>            
                 }
             </div>
             
