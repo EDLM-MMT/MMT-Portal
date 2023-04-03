@@ -155,7 +155,7 @@ export default function BarChart({ title, xAxisTitle, dataName, labels, data, ro
 
     return(
         <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
-            <h1 className='flex flex-row justify-between text-med font-semibold border-b  h-10'>
+            <h1 className='flex flex-row justify-between text-xl items-center font-semibold border-b  h-10'>
                 {title}
                 <div>
                   <div className='font-medium'> <b className="pr-4">Display:</b>

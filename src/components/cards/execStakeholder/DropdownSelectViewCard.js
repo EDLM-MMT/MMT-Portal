@@ -6,7 +6,7 @@ export default function DropdownViewCard({ title, options, routePath,  }){
     const router = useRouter();
 
     const enrollmentList = [
-        {   year: "2022",
+        {   year: "2023-03-31",
             datas: [
                 {
                     totalPersonnel: 174852,
@@ -17,7 +17,7 @@ export default function DropdownViewCard({ title, options, routePath,  }){
                 }
             ]
         },
-        {   year: "2021",
+        {   year: "2023-04-05",
             datas: [
                 {
                     totalPersonnel: 150852,
@@ -28,7 +28,7 @@ export default function DropdownViewCard({ title, options, routePath,  }){
                 }
             ]
         },
-        {   year: "2020",
+        {   year: "2023-01-31",
             datas: [
                 {
                     totalPersonnel: 124852,
@@ -39,7 +39,7 @@ export default function DropdownViewCard({ title, options, routePath,  }){
                 }
             ]
         },
-        {   year: "2019",
+        {   year: "2022-12-31",
             datas: [
                 {
                     totalPersonnel: 152852,
@@ -53,7 +53,7 @@ export default function DropdownViewCard({ title, options, routePath,  }){
     ];
 
     const [dropdownList, setDropdownList] = useState(enrollmentList);
-    const [year, setYear] = useState("2022")
+    const [year, setYear] = useState("2023-04-05")
 
 
     const onChange = (e) => {
@@ -64,37 +64,76 @@ export default function DropdownViewCard({ title, options, routePath,  }){
 
     const panelCode = (content) =>{
         return(
-            dropdownList.map((value, index) => {
-                if (value?.year === content){
-                    return(
-                        <div>
-                            {value?.datas.map((data,index) =>{
-                                return(
-                                    <div>
-                                        <div className="mt-12"><b>Total Personnel Enrolled: </b>{data.totalPersonnel}</div>
-                                        <div className="mt-4"><b>Active Personnel Enrolled: </b>{data.activePersonnel}</div>
-                                        <div className="mt-4"><b>Separated Personnel Enrolled </b>{data.separatedPersonnel}</div>
-                                        <div className="mt-4"><b>Number of Institutes: </b>{data.numberInstitutes}</div>
-                                        <div className="mt-4"><b>Most Popular Institute by Enrollment: </b>{data.mostPopularInstitute}</div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    )
+            <>
+                {enrollmentList.map((value, index) => {
+                    console.log("value.year: ", value.year);
+                    console.log("content: ", content);
+                    if (value?.year === content){
+                        return(
+                            <div>
+                                {value?.datas.map((data,index) =>{
+                                    return(
+                                        <div>
+                                            <div className="mt-12"><b>Total Personnel Enrolled: </b>{data.totalPersonnel}</div>
+                                            <div className="mt-4"><b>Active Personnel Enrolled: </b>{data.activePersonnel}</div>
+                                            <div className="mt-4"><b>Separated Personnel Enrolled </b>{data.separatedPersonnel}</div>
+                                            <div className="mt-4"><b>Number of Institutes: </b>{data.numberInstitutes}</div>
+                                            <div className="mt-4"><b>Most Popular Institute by Enrollment: </b>{data.mostPopularInstitute}</div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        )
+                    }
+                    
+                })}
+
+                {(content !== "2022-12-31" && content !== "2023-01-31" && content !== "2023-03-31" && content !== "2023-04-05") &&
+                    <div>
+                        <div className="mt-12"><b>Total Personnel Enrolled: </b>103567</div>
+                        <div className="mt-4"><b>Active Personnel Enrolled: </b>73067</div>
+                        <div className="mt-4"><b>Separated Personnel Enrolled </b>30500</div>
+                        <div className="mt-4"><b>Number of Institutes: </b>25</div>
+                        <div className="mt-4"><b>Most Popular Institute by Enrollment: </b>Excelsior College</div>
+                    </div>
                 }
-                
-            })
+            </>
+
         )
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target.startDate?.value)
+        console.log(event.target.endDate?.value)
+        setYear(event.target.endDate?.value);
+        console.log(year)
     }
 
 
     return(
         <div className='bg-white border rounded-md w-1/2 mr-4 border-gray-200 p-4 shadow-lg focus:shadow-lg px-10'>
-            <h1 className='flex text-xl font-semibold h-14 items-center justify-center align-middle border-b'>
+            <h1 className='flex text-xl font-semibold h-14 items-center border-b'>
                 {title}
             </h1>
-            <div className='mt-4 font-medium'> <b className="pr-4">Year:</b>
-                <Dropdown options={options} keyName={"Display"} initialValue={"2022"} onChange={onChange} />
+            <div className='mt-4 font-medium'> 
+                {/* <Dropdown options={options} keyName={"Display"} initialValue={"2022"} onChange={onChange} /> */}
+                <form onSubmit={handleSubmit}>
+                    <div className="flex flew-row gap-10 justify-between">
+                        <div>
+                            <label for="startDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
+                            <input type="date" name="startDate" placeholder="Start Date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                        </div>
+                        <div>
+                            <label for="endDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End Date</label>
+                            <input type="date" name="endDate" placeholder="End Date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />     
+                        </div>   
+                        <div className="mt-7 w-full">
+                            <button className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-8 p-2.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Search</button>
+                        </div>
+                    </div>
+                </form>
+                
                 {panelCode(year)}
             </div> 
         </div>

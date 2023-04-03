@@ -16,7 +16,7 @@ export default function VerticalBarGraphStatisticsViewCard({ title , routePath, 
 
     return(
         <div className='bg-white w-1/2 ml-4 border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
-            <h1 className='flex flex-row justify-between text-med font-semibold border-b  h-10'>
+            <h1 className='flex flex-row justify-between text-xl items-center font-semibold border-b h-14'>
                 {title}
             </h1>
             <div className="mt-8">
