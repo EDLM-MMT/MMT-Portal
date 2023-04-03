@@ -20,6 +20,10 @@ export default function DegreePathways() {
         {   name: "City University",
             datas: [
                 {
+                    data: "BGS General Studies Overview",
+                    codes: ["Hours Required for Degree: 124", "Hours Still Needed: 109", "Start Date: August"]
+                },
+                {
                     data: "BA Applied Psychology",
                     codes: ["Hours Required for Degree: 120", "Hours Still Needed: 111", "Start Date: August"]
                 },
@@ -280,7 +284,7 @@ export default function DegreePathways() {
                                     );
                                 })}
                                 <div className="flex flex-row gap-2">
-                                    {<ViewBtn path='/serviceMember/credits'/>}
+                                    {<ViewBtn path={`/serviceMember/credits`}/>}
                                     {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
                                 </div>
                                 </div>
@@ -313,8 +317,6 @@ export default function DegreePathways() {
                         <Dropdown options={["All", "ABE", "ABF", "ABH", "AC", "AD", "AE", "BM", "CS", "CTR", "DC", "EM", "HT", "IC", "PS", "SW", "UT", "YN"]} keyName={"MOS"} initialValue={"All"} onChange={onFilterChange} />
                         <div className='p-2 font-medium'> Sort By: </div> 
                         <Dropdown options={["School", "Major"]} keyName={"Degree"} initialValue={"School"} onChange={onChange} />
-                       
-
                     </div>
                     {sort()}
                 </div>
