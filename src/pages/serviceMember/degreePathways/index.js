@@ -285,7 +285,7 @@ export default function DegreePathways() {
                                 })}
                                 <div className="flex flex-row gap-2">
                                     {<ViewBtn path={`/serviceMember/credits`}/>}
-                                    {<AddBtn btnText={"Add to List"} link={"/serviceMember/careerCounseling"}/>}
+                                    {<AddBtn btnText={"Add to List"} link={"/serviceMember/counseling"}/>}
                                 </div>
                                 </div>
                             }/>
