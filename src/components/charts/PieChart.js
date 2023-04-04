@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-export default function PieChart({ title, series, labels }){
+export default function PieChart({ title, series, labels, customLables }){
     
     const state = {
         series: series,
@@ -31,6 +31,14 @@ export default function PieChart({ title, series, labels }){
                 const name = opts.w.globals.labels[opts.seriesIndex]
                 return [name, val.toFixed(1) + '%']
             }
+            },
+            tooltip: {
+                y: {
+                    formatter(val, opts) {
+                        const name = customLables[opts.seriesIndex] || labels[opts.seriesIndex]
+                        return [name, " " + val.toFixed(1) + '%']
+                    }
+                }
             },
             colors: ['#2492C9'],
             legend: {
