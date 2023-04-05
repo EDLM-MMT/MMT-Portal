@@ -74,7 +74,7 @@ export default function NewInquiry() {
                 <div>
                     <div>
                         <label for="inquiry_title" class="flex mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-white">Type of Issue</label>
-                        <InquiryDropdown options={issues} keyName={"issueFilter"} initialValue={"Type of Issues"} onChange={onChange} />
+                        <InquiryDropdown options={issues} keyName={"Inquiries"} initialValue={"Type of Issues"} onChange={onChange} />
                     </div>
                     <div class="w-5/6">
                         <label for="description" class="flex text-sm mb-2 mt-4 font-medium text-gray-900 dark:text-white">Common Solution</label>
