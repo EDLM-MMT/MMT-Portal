@@ -52,7 +52,46 @@
         "permissions": "Inquiries, Career Counseling",
         "branch": "Army",
         "workload": "5",
-        "viewProfile": "View"
+        "viewProfile": "View",
+        "inProgressTasks": 35,
+        "notStartedTasks": 12,
+        "completedTasks": 16,
+        "totalTasks": 63,
+        "avgTime": "12 days",
+        "tasks": [
+            {
+                "taskId":"602",
+                "name": "Zach Blanchard",
+                "branch": "Army",
+                "title": "Computer Science",
+                "status": "In Progress",
+                "duration": "3 Days"
+            },
+            {
+                "taskId":"605",
+                "name": "Aimee Wallis",
+                "branch": "Army",
+                "title": "Data Science",
+                "status": "In Progress",
+                "duration": "5 Days"
+            },
+            {
+                "taskId":"607",
+                "name": "Alexia Jacobs",
+                "branch": "Army",
+                "title": "Computer Engineer",
+                "status": "Not Started",
+                "duration": "-"
+            },
+            {
+                "taskId":"607",
+                "name": "Jennie Haywards",
+                "branch": "Army",
+                "title": "Buisness Administration",
+                "status": "Done",
+                "duration": "8 days"
+            }
+        ]
     },
     {
         "id":"502",
@@ -60,7 +99,46 @@
         "permissions": "Career Counseling",
         "branch": "Army",
         "workload": "6",
-        "viewProfile": "View"
+        "viewProfile": "View",
+        "inProgressTasks": 35,
+        "notStartedTasks": 12,
+        "completedTasks": 16,
+        "totalTasks": 63,
+        "avgTime": "12 days",
+        "tasks": [
+            {
+                "taskId":"602",
+                "name": "Zach Blanchard",
+                "branch": "Army",
+                "title": "Computer Science",
+                "status": "In Progress",
+                "duration": "3 Days"
+            },
+            {
+                "taskId":"605",
+                "name": "Aimee Wallis",
+                "branch": "Army",
+                "title": "Data Science",
+                "status": "In Progress",
+                "duration": "5 Days"
+            },
+            {
+                "taskId":"607",
+                "name": "Alexia Jacobs",
+                "branch": "Army",
+                "title": "Computer Engineer",
+                "status": "Not Started",
+                "duration": "-"
+            },
+            {
+                "taskId":"607",
+                "name": "Jennie Haywards",
+                "branch": "Army",
+                "title": "Buisness Administration",
+                "status": "Done",
+                "duration": "8 days"
+            }
+        ]
     },
     {
         "id":"503",
@@ -68,7 +146,46 @@
         "permissions": "Inquiries",
         "branch": "Army",
         "workload": "3",
-        "viewProfile": "View"
+        "viewProfile": "View",
+        "inProgressTasks": 35,
+        "notStartedTasks": 12,
+        "completedTasks": 16,
+        "totalTasks": 63,
+        "avgTime": "12 days",
+        "tasks": [
+            {
+                "taskId":"602",
+                "name": "Zach Blanchard",
+                "branch": "Army",
+                "title": "Computer Science",
+                "status": "In Progress",
+                "duration": "3 Days"
+            },
+            {
+                "taskId":"605",
+                "name": "Aimee Wallis",
+                "branch": "Army",
+                "title": "Data Science",
+                "status": "In Progress",
+                "duration": "5 Days"
+            },
+            {
+                "taskId":"607",
+                "name": "Alexia Jacobs",
+                "branch": "Army",
+                "title": "Computer Engineer",
+                "status": "Not Started",
+                "duration": "-"
+            },
+            {
+                "taskId":"607",
+                "name": "Jennie Haywards",
+                "branch": "Army",
+                "title": "Buisness Administration",
+                "status": "Done",
+                "duration": "8 days"
+            }
+        ]
     },
     {
         "id":"504",
@@ -76,7 +193,46 @@
         "permissions": "Inquiries, Career Counseling",
         "branch": "Army",
         "workload": "8",
-        "viewProfile": "View"
+        "viewProfile": "View",
+        "inProgressTasks": 35,
+        "notStartedTasks": 12,
+        "completedTasks": 16,
+        "totalTasks": 63,
+        "avgTime": "12 days",
+        "tasks": [
+            {
+                "taskId":"602",
+                "name": "Zach Blanchard",
+                "branch": "Army",
+                "title": "Computer Science",
+                "status": "In Progress",
+                "duration": "3 Days"
+            },
+            {
+                "taskId":"605",
+                "name": "Aimee Wallis",
+                "branch": "Army",
+                "title": "Data Science",
+                "status": "In Progress",
+                "duration": "5 Days"
+            },
+            {
+                "taskId":"607",
+                "name": "Alexia Jacobs",
+                "branch": "Army",
+                "title": "Computer Engineer",
+                "status": "Not Started",
+                "duration": "-"
+            },
+            {
+                "taskId":"607",
+                "name": "Jennie Haywards",
+                "branch": "Army",
+                "title": "Buisness Administration",
+                "status": "Done",
+                "duration": "8 days"
+            }
+        ]
     },
     {
         "id":"505",
@@ -84,6 +240,45 @@
         "permissions": "Career Counseling",
         "branch": "Army",
         "workload": "2",
-        "viewProfile": "View"
+        "viewProfile": "View",
+        "inProgressTasks": 35,
+        "notStartedTasks": 12,
+        "completedTasks": 16,
+        "totalTasks": 63,
+        "avgTime": "12 days",
+        "tasks": [
+            {
+                "taskId":"602",
+                "name": "Zach Blanchard",
+                "branch": "Army",
+                "title": "Computer Science",
+                "status": "In Progress",
+                "duration": "3 Days"
+            },
+            {
+                "taskId":"605",
+                "name": "Aimee Wallis",
+                "branch": "Army",
+                "title": "Data Science",
+                "status": "In Progress",
+                "duration": "5 Days"
+            },
+            {
+                "taskId":"607",
+                "name": "Alexia Jacobs",
+                "branch": "Army",
+                "title": "Computer Engineer",
+                "status": "Not Started",
+                "duration": "-"
+            },
+            {
+                "taskId":"607",
+                "name": "Jennie Haywards",
+                "branch": "Army",
+                "title": "Buisness Administration",
+                "status": "Done",
+                "duration": "8 days"
+            }
+        ]
     }
 ]
