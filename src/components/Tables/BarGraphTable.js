@@ -22,7 +22,7 @@ export default function BarGraphTable({
     }
 
     const handleCareerCounseling = () =>{
-        router.push("/serviceMember/careerCounseling/ComputerScience"); 
+        router.push("/serviceMember/counseling/ComputerScience"); 
     }
 
     const handleDelete = () =>{
