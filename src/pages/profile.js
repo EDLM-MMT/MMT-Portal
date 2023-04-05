@@ -6,7 +6,7 @@ import Button from '@/components/buttons/Button';
 
 export default function Profile() {
     const userData = useStore((state) => state.userData);
-    //console.log("eso data:",userData?.learner.personnel.organization);
+    console.log("user data:",userData?.learner.personnel.organization);
 
     return (
         <DefaultLayout >
@@ -46,12 +46,16 @@ export default function Profile() {
                     <input type="text" id="position" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={userData?.role} required />
                 </div>
                 <div>
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sector</label>
+                    <label for="sector" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sector</label>
                     <input type="text" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={userData?.learner.personnel.organization.organizationname} required />
                 </div>  
                 <div>
-                    <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rank/Rating</label>
+                    <label for="rank" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rank/Rating</label>
                     <input type="text" id="position" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={userData?.learner.personnel.organization.organizationidentificationcode} required />
+                </div>
+                <div>
+                    <label for="location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
+                    <input type="text" id="position" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={userData?.learner.personnel.organization.location} required />
                 </div>
             </div>
             <div className='flex justify-between'>
