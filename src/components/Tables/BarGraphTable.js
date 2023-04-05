@@ -67,7 +67,7 @@ export default function BarGraphTable({
                                                         <td key={rindex} className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2 '>
                                                             {(eachItem === "View") && <button onClick={handleView} className="text-blue-700 ml-5">{(eachItem)} </button>}
                                                             {(eachItem === "Reset") && <button onClick={handleReset} className="text-blue-700 ml-5">{(eachItem)} </button>}
-                                                            {(eachItem === "Go To Career Counseling") && <button onClick={handleCareerCounseling} className="text-blue-700">{(eachItem)} </button>}
+                                                            {(eachItem === "Go To Counseling") && <button onClick={handleCareerCounseling} className="text-blue-700">{(eachItem)} </button>}
                                                             {(eachItem === "Delete") && <button onClick={handleDelete} className="text-blue-700">{(eachItem)} </button>}
                                                             {(eachItem !== "View" && eachItem !== "Reset" && eachItem !== "Go To Career Counseling" && eachItem !== "Delete") && (eachItem || '-')}
 
