@@ -49,14 +49,9 @@ export default function PieChart({ title, series, labels, customLables }){
 
 
     return(
-        <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
-            <h1 className='flex flex-row justify-between text-xl items-center font-semibold border-b h-10'>
-                {title}
-            </h1>
-            <div className="mt-8">
-                <ReactApexChart options={state.options} series={state.series} type="pie" height={350}/>
-            </div>
+        <div className="mt-8">
+            <ReactApexChart options={state.options} series={state.series} type="pie" height={350}/>
         </div>
-        
+
     )
 }
