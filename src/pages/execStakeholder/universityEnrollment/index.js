@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from "next/router"
 import VerticalBarGraphStatisticsViewCard from '@/components/cards/execStakeholder/VerticalBarGraphCard';
-import DropdownViewCard from '@/components/cards/execStakeholder/DropdownSelectViewCard';
 import BarGraphStatisticsViewCard from '@/components/cards/execStakeholder/HorizontalBarGraphStatisticsViewCard';
 import BarChart from '@/components/charts/BarChart';
+import DateRangeViewCard from '@/components/cards/execStakeholder/DateRangeViewCard';
 
 export default function universityEnrollment() {
 
@@ -30,7 +30,7 @@ export default function universityEnrollment() {
               Dashboard</button> -{`>`} Enrollment by University
             </div>
             <div className="flex flex-row justify-between mb-8">
-                <DropdownViewCard title={"Overall Statistics"} options={years}/>
+                <DateRangeViewCard title={"Overall Statistics"} options={years} width={"1/2"}/>
                 <VerticalBarGraphStatisticsViewCard title={"Active Service Members Enrolled"} routePath={"/dashboard"}/>
             </div>
             <div>

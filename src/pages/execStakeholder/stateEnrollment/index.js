@@ -4,10 +4,13 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import Table from '@/components/tables/Table';
 import BarGraphStatisticsViewCard from '@/components/cards/execStakeholder/HorizontalBarGraphStatisticsViewCard';
+import DropdownViewCard from '@/components/cards/execStakeholder/DropdownSelectViewCard';
 
 export default function stateEnrollment() {
 
     const [accountData, setAccountData] = useState([]);
+    const states = ['Florida','Alabama', 'Georgia', 'Maryland'];
+
     const router = useRouter();
 
 
@@ -30,10 +33,12 @@ export default function stateEnrollment() {
                 <BarGraphStatisticsViewCard title={"Overall Statistics"} routePath={"/dashboard"}/>
 
             </div>
-            <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
+            {/* <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mb-8 text-xl font-semibold'>State Statistics</h1>
                 
-            </div>
+            </div> */}
+            <DropdownViewCard title={"State Statistics"} options={states} width={"full"}/>
+
             
         </div>
       </DefaultLayout>
