@@ -4,8 +4,6 @@ import PieChart from '@/components/charts/PieChart';
 import Toggle from '@/components/Toggle';
 import { useState } from 'react'
 import Button from '@/components/buttons/Button';
-import ViewBtn from '@/components/buttons/ViewBtn';
-
 
 export default function PersonnelData() {
 

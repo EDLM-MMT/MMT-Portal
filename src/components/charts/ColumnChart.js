@@ -1,10 +1,9 @@
 import dynamic from 'next/dynamic';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-export default function ColumnChart({ xAxisTitle, dataName, labels, data, routePath,  }){
+export default function ColumnChart({ xAxisTitle, yAxisTitle, dataName, labels, data  }){
     
-    const state = {
-          
+    const state = { 
         series: [{
           name: dataName,
           data: data
@@ -36,9 +35,9 @@ export default function ColumnChart({ xAxisTitle, dataName, labels, data, routeP
           
           xaxis: {
             title: {
-                text: "Year",
+                text: xAxisTitle,
             },
-            categories: ["2019", "2020", "2021", "2022"],
+            categories: labels,
             position: 'bottom',
             axisBorder: {
               show: false
@@ -65,7 +64,7 @@ export default function ColumnChart({ xAxisTitle, dataName, labels, data, routeP
           colors: ['#2492C9'],
           yaxis: {
             title: {
-                text: "Number of Personnel",
+                text: yAxisTitle,
             },
             axisBorder: {
               show: false
@@ -79,12 +78,8 @@ export default function ColumnChart({ xAxisTitle, dataName, labels, data, routeP
                 return val;
               }
             }
-          
           },
-         
         },
-      
-      
     };
 
 

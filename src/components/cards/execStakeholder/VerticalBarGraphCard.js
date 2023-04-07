@@ -5,7 +5,7 @@ import ColumnChart from "@/components/charts/ColumnChart";
 
 
 
-export default function VerticalBarGraphStatisticsViewCard({ title , routePath, className}){
+export default function VerticalBarGraphStatisticsViewCard({ title, routePath, className}){
     const descriptionClass = twMerge(`
         mt-4 font-sans line-clamp-6 
         ${className ?? ""}
@@ -20,7 +20,7 @@ export default function VerticalBarGraphStatisticsViewCard({ title , routePath, 
                 {title}
             </h1>
             <div className="mt-8">
-                <ColumnChart xAxisTitle={"Year"} dataName={"Active Service Members"} data={data}/>
+                <ColumnChart labels={["2019", "2020", "2021", "2022"]} xAxisTitle={"Year"} yAxisTitle={"Number of Personnel"} dataName={"Active Service Members"} data={data}/>
             </div>
         </div>
         
