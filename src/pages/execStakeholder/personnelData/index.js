@@ -20,12 +20,12 @@ export default function PersonnelData() {
             <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
                 Personnel Data by Branch
             </h1>
-            <div className='flex flex-row justify-between'>
-                <div>
+            <div className='flex flex-row justify-end'>
+                {/* <div>
                 <button onClick={handleClick}
                 className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
                 Dashboard</button> -{`>`} Personnel Data by Branch
-                </div>
+                </div> */}
                 <div className='flex flex-row justify-end p-4'>
                     <p className='pt-1 text-lg items-center font-semibold'>Active</p>
                     <Toggle enabled={enabled} setEnabled={setEnabled}/>
