@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import ColumnChart from "@/components/charts/ColumnChart";
 
-export default function BranchPersonnelData({ title, avgData, personData, creditsData}){
+export default function BranchPersonnelData({ title, chartLabels, avgData, personData, creditsData}){
 
     const router = useRouter();
     const handleClick = () => {
@@ -25,7 +25,7 @@ export default function BranchPersonnelData({ title, avgData, personData, credit
                     Average Credits Taken by Each Pay Grade
                 </h1>
                 <div className="mt-8">
-                    <ColumnChart labels={["E-1", "E-2", "E-3", "E-4", "E-5", "E-6", "E-7", "E-8", "E-9"]} 
+                    <ColumnChart labels={chartLabels} 
                         xAxisTitle={"Pay Grade"} yAxisTitle={"Sum of Average Credits"} dataName={"Average Credits"} 
                         data={avgData}/>
                 </div>
@@ -36,7 +36,7 @@ export default function BranchPersonnelData({ title, avgData, personData, credit
                    Total Personnel by Pay Grade Enrolled
                 </h1>
                 <div className="mt-8">
-                    <ColumnChart labels={["E-1", "E-2", "E-3", "E-4", "E-5", "E-6", "E-7", "E-8", "E-9"]} 
+                    <ColumnChart labels={chartLabels} 
                         xAxisTitle={"Pay Grade"} yAxisTitle={"Total Personnel"} dataName={"Personnel Count"} 
                         data={personData}/>
                 </div>
@@ -48,7 +48,7 @@ export default function BranchPersonnelData({ title, avgData, personData, credit
                    Total Credits Taken by Each Pay Grade
                 </h1>
                 <div className="mt-8">
-                    <ColumnChart labels={["E-1", "E-2", "E-3", "E-4", "E-5", "E-6", "E-7", "E-8", "E-9"]} 
+                    <ColumnChart labels={chartLabels} 
                         xAxisTitle={"Pay Grade"} yAxisTitle={"Total Credits"} dataName={"Total Credits"} 
                         data={creditsData}/>
                 </div>
