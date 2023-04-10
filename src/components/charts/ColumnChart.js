@@ -10,7 +10,8 @@ export default function ColumnChart({ xAxisTitle, yAxisTitle, dataName, labels, 
         }],
         options: {
           chart: {
-            height: 350,
+            width: '100%',
+            // height: 350,
             type: 'bar',
           },
           plotOptions: {
