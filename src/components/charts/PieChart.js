@@ -36,7 +36,7 @@ export default function PieChart({ title, series, labels, customLables }){
                 y: {
                     formatter(val, opts) {
                         const name = customLables[opts.seriesIndex] || labels[opts.seriesIndex]
-                        return [name, " " + val.toFixed(1) + '%']
+                        return [name, " " + val.toFixed(1)]
                     }
                 }
             },

@@ -1,3 +1,4 @@
+import PieChart from "@/components/charts/PieChart";
 import Dropdown from "@/components/dropdowns/Dropdown";
 import { useRouter } from "next/router"
 import { useState } from "react";
@@ -53,7 +54,7 @@ export default function DropdownViewCard({ title, options, routePath, width }){
     ];
 
     const [dropdownList, setDropdownList] = useState(enrollmentList);
-    const [value, setValue] = useState("")
+    const [value, setValue] = useState("Florida")
 
 
     const onChange = (e) => {
@@ -73,12 +74,17 @@ export default function DropdownViewCard({ title, options, routePath, width }){
                             <div>
                                 {value?.datas.map((data,index) =>{
                                     return(
-                                        <div>
-                                            <div className="mt-12"><b>Total Personnel Enrolled: </b>{data.totalPersonnel}</div>
-                                            <div className="mt-4"><b>Active Personnel Enrolled: </b>{data.activePersonnel}</div>
-                                            <div className="mt-4"><b>Separated Personnel Enrolled </b>{data.separatedPersonnel}</div>
-                                            <div className="mt-4"><b>Number of Institutes: </b>{data.numberInstitutes}</div>
-                                            <div className="mt-4"><b>Most Popular Institute by Enrollment: </b>{data.mostPopularInstitute}</div>
+                                        <div className="flex flex-row gap-80">
+                                            <div>
+                                                <div className="mt-12"><b>Total Personnel Enrolled: </b>{data.totalPersonnel}</div>
+                                                <div className="mt-4"><b>Active Personnel Enrolled: </b>{data.activePersonnel}</div>
+                                                <div className="mt-4"><b>Separated Personnel Enrolled </b>{data.separatedPersonnel}</div>
+                                            </div>
+                                            <div >
+                                                <PieChart title={"State Stats"} series={[data?.activePersonnel,data?.separatedPersonnel]} 
+                                                labels={["Active", "Separated"]}
+                                                customLables={["Active Personnel Enrolled", "Separated Personnel Enrolled"]}/>
+                                            </div>
                                         </div>
                                     )
                                 })}
@@ -103,8 +109,11 @@ export default function DropdownViewCard({ title, options, routePath, width }){
             <div className='mt-4 font-medium'> 
                 {/* <Dropdown options={options} keyName={"Display"} initialValue={"2022"} onChange={onChange} /> */}
                 <div className='p-2 font-medium'> States: </div> 
-                <Dropdown options={options} keyName={"States"} initialValue={"Select State"} onChange={onChange} />
-                {panelCode(value)}
+                <Dropdown options={options} keyName={"State"} initialValue={"Florida"} onChange={onChange} />
+                <div>
+                    {panelCode(value)}
+                </div>
+                
                 
             </div> 
         </div>
