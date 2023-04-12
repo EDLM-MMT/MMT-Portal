@@ -26,7 +26,7 @@ export default function TranscriptView() {
             <div>
                 <button onClick={handleClick}
                 className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
-                Career Counseling Dashboard </button> -{`>`} Complete Transcript 
+                Counseling Dashboard </button> -{`>`} Complete Transcript 
             </div>
 
             <div className="m-4 bg-gray-200 h-screen text-center">
@@ -37,7 +37,7 @@ export default function TranscriptView() {
             </div>
 
             <div className='flex flex-row align-bottom justify-between mt-5'>
-                <Button btnText={"Return to Career Counseling Dashboard"} link={"/eso/counseling"}></Button>
+                <Button btnText={"Return to Counseling Dashboard"} link={"/eso/counseling"}></Button>
                 <DownloadButton link={downloadLink}/>
             </div>
         </div>

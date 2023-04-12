@@ -12,8 +12,8 @@ describe("Program Admin Dashbaord Page", () => {
     
     expect(getByText('ESO Inquiries')).toBeInTheDocument();
     expect(getByText('Go to ESO Inquiries')).toBeInTheDocument();
-    expect(getByText('Career Counseling')).toBeInTheDocument();
-    expect(getByText('Go to Career Counseling')).toBeInTheDocument();
+    expect(getByText('Counseling')).toBeInTheDocument();
+    expect(getByText('Go to Counseling')).toBeInTheDocument();
 
   });
 });

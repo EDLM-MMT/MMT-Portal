@@ -52,9 +52,9 @@ describe("Inquiry View Page", () => {
 
     axios.get.mockResolvedValue({data: []});
 
-    expect(getByText('Service Member Inquiries')).toBeInTheDocument();
+    expect(getByText('ESO Inquiries')).toBeInTheDocument();
    
-    const button = getByText('Service Member Inquiries');
+    const button = getByText('ESO Inquiries');
     act(() => {
         fireEvent.click(button);
     });

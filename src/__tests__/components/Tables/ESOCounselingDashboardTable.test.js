@@ -69,7 +69,7 @@ describe('ESOCounselingDashboardTable component', () => {
 
   });
 
-  it('clicks career counseling button', () => {
+  it('clicks counseling button', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
         <ESOCounselingDashboardTable careerArray={careerArrayOne} />

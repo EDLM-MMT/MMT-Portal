@@ -17,7 +17,7 @@ jest.mock("axios", () => ({
   })
 })) 
 
-describe("Career Counseling View Page", () => {
+describe("Counseling View Page", () => {
   it("should render the component", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
@@ -50,7 +50,7 @@ describe("Career Counseling View Page", () => {
 
   });
 
-  it("should navigate to Career Counseling Dashboard page", () => {
+  it("should navigate to Counseling Dashboard page", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
             <CareerCounseling />
@@ -60,7 +60,7 @@ describe("Career Counseling View Page", () => {
     axios.get.mockResolvedValue({data: []});
 
     expect(getByText('Counseling Dashboard')).toBeInTheDocument();
-    const button = getByText('Career Counseling Dashboard');
+    const button = getByText('Counseling Dashboard');
     act(() => {
         fireEvent.click(button);
     });

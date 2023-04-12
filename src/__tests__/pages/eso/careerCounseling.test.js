@@ -12,7 +12,7 @@ describe('CareerCounseling component', () => {
       </MemoryRouterProvider>
     );
     
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
   });
 
 });

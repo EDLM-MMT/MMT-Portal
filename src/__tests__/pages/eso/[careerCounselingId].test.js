@@ -49,7 +49,7 @@ describe("Counseling View Page", () => {
 
   });
 
-  it("should navigate to Career Counseling Dashboard page", () => {
+  it("should navigate to Counseling Dashboard page", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
             <CareerCounseling />
@@ -58,8 +58,8 @@ describe("Counseling View Page", () => {
 
     axios.get.mockResolvedValue({data: []});
 
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
-    const button = getByText('Career Counseling Dashboard');
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
+    const button = getByText('Counseling Dashboard');
     act(() => {
         fireEvent.click(button);
     });

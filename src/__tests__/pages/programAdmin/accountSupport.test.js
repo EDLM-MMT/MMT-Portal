@@ -19,7 +19,7 @@ describe("AccountSupport page", () => {
       </MemoryRouterProvider>
   );
     act(() => {
-      fireEvent.change(getByPlaceholderText('Search here'), {
+      fireEvent.change(getByPlaceholderText('Search here by name or username'), {
           target: { value: 'test' },
         });
     });
@@ -31,7 +31,6 @@ describe("AccountSupport page", () => {
             <AccountsManagement />
         </MemoryRouterProvider>
     );
-    expect(getByText('Name')).toBeInTheDocument();
     expect(getByText('Username')).toBeInTheDocument();
     expect(getByText('View Profile')).toBeInTheDocument();
   });
@@ -44,7 +43,7 @@ describe("AccountSupport page", () => {
     );
 
     act(() => {
-      fireEvent.change(getByPlaceholderText('Search here'), {
+      fireEvent.change(getByPlaceholderText('Search here by name or username'), {
           target: { value: 'jsmith' },
         });
     });

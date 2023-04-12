@@ -2,7 +2,7 @@
     {
         "id":"500",
         "name": "John Smith",
-        "permissions": "Career Counseling",
+        "permissions": "Counseling",
         "branch": "Army",
         "workload": "4",
         "viewProfile": "View",
@@ -49,7 +49,7 @@
     {
         "id":"501",
         "name": "Zach Blanchard",
-        "permissions": "Inquiries, Career Counseling",
+        "permissions": "Inquiries, Counseling",
         "branch": "Army",
         "workload": "5",
         "viewProfile": "View",
@@ -96,7 +96,7 @@
     {
         "id":"502",
         "name": "Aimee Wallis",
-        "permissions": "Career Counseling",
+        "permissions": "Counseling",
         "branch": "Army",
         "workload": "6",
         "viewProfile": "View",
@@ -190,7 +190,7 @@
     {
         "id":"504",
         "name": "Jennie Haywards",
-        "permissions": "Inquiries, Career Counseling",
+        "permissions": "Inquiries, Counseling",
         "branch": "Army",
         "workload": "8",
         "viewProfile": "View",
@@ -237,7 +237,7 @@
     {
         "id":"505",
         "name": "Tyreece Hume",
-        "permissions": "Career Counseling",
+        "permissions": "Counseling",
         "branch": "Army",
         "workload": "2",
         "viewProfile": "View",
