@@ -1,4 +1,4 @@
-import TranscriptView from "@/pages/eso/careerCounseling/transcript";
+import TranscriptView from "@/pages/eso/counseling/transcript";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
