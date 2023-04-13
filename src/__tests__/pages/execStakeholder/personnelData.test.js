@@ -5,7 +5,7 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 describe("Personnel Data page", () => {
 
     it("should render the page", () => {
-      const { getByText } = render(
+      const { getByText, getByTestId } = render(
         <MemoryRouterProvider>
           <PersonnelData />
         </MemoryRouterProvider>
@@ -15,20 +15,11 @@ describe("Personnel Data page", () => {
       expect(getByText("Army")).toBeInTheDocument();
       expect(getByText('Navy')).toBeInTheDocument();
 
+      const button = getByTestId('toggle');
+      act(() => {
+          fireEvent.click(button);
+      });
+
     });
-
-    // it("should click the toggle button", () => {
-    //   const { getByTestId } = render(
-    //     <MemoryRouterProvider>
-    //       <PersonnelData />
-    //     </MemoryRouterProvider>
-    //   );
-
-    //   const button = getByTestId('toggle');
-    //   act(() => {
-    //       fireEvent.click(button);
-    //   });
-
-    // });
 
 });
