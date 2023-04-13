@@ -5,7 +5,7 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 describe("State Enrollment page", () => {
 
     it("should render the page", () => {
-      const { getByText, getByTestId } = render(
+      const { getByText } = render(
         <MemoryRouterProvider>
           <StateEnrollment />
         </MemoryRouterProvider>
