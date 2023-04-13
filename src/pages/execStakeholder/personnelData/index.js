@@ -9,11 +9,6 @@ export default function PersonnelData() {
 
     const [enabled, setEnabled] = useState(false)
 
-    const router = useRouter();
-    const handleClick = () => {
-        router.push("/dashboard");
-    }
-
     return (
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
@@ -21,11 +16,6 @@ export default function PersonnelData() {
                 Personnel Data by Branch
             </h1>
             <div className='flex flex-row justify-end'>
-                {/* <div>
-                <button onClick={handleClick}
-                className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer mb-4 transition-all duration-150 ease-in-out'>                    
-                Dashboard</button> -{`>`} Personnel Data by Branch
-                </div> */}
                 <div className='flex flex-row justify-end p-4'>
                     <p className='pt-1 text-lg items-center font-semibold'>Active</p>
                     <Toggle enabled={enabled} setEnabled={setEnabled}/>

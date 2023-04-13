@@ -7,7 +7,7 @@ export default function Toggle({enabled, setEnabled}) {
     <div className="px-2">
       <Switch
         checked={enabled}
-        onChange={setEnabled}
+        onChange={setEnabled} data-testid="toggle"
         className={`${enabled ? 'bg-dod-300' : 'bg-dod-300'}
           relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
       >
