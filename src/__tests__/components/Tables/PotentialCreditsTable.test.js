@@ -33,7 +33,6 @@ describe('PotentialCreditsTable component', () => {
   expect(getByText('Course Number')).toBeInTheDocument();
   expect(getByText('Course Name')).toBeInTheDocument();
   expect(getByText('Hours')).toBeInTheDocument();
-  expect(getByText('Hours')).toBeInTheDocument();
   expect(getByText('Level')).toBeInTheDocument();
   expect(getByText('Institution')).toBeInTheDocument();
 

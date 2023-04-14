@@ -1,28 +1,4 @@
-import { useRouter } from "next/router"
-import DeletePopup from '@/components/overlays/DeletePopup'
-import { useState, useEffect } from 'react';
-
-
 export default function CreditsTable({credits}) {
-
-    const router = useRouter();
-    const [isOpen, setIsOpen] = useState(false);
-    const [degree, setDegree] = useState([]);
-
-    // useEffect(() => {
-    //     setDegree(careerList)
-    // }, [careerList]);
-
-    const handleCareerCounseling = (event) =>{
-        router.push(`/serviceMember/counseling/${event}`); 
-    }
-
-    const handleDelete = (degreeIndex, e) =>{
-        console.log("delete row")
-        setDegree(degree.filter((degree,i) => i !== degreeIndex));
-        setIsOpen(true)
-        console.log(degree)
-    }
 
     return(
         <div className='mt-4'>
