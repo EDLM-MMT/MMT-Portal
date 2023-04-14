@@ -55,13 +55,6 @@ export default function DateRangeViewCard({ title, options, routePath, width }){
     const [dropdownList, setDropdownList] = useState(enrollmentList);
     const [year, setYear] = useState("2023-04-05")
 
-
-    const onChange = (e) => {
-        console.log(e.target.value);
-        setYear(e.target.value);
-        //panelCode(e.target.value);
-    }
-
     const panelCode = (content) =>{
         return(
             <>
@@ -76,7 +69,7 @@ export default function DateRangeViewCard({ title, options, routePath, width }){
                                         <div>
                                             <div className="mt-12"><b>Total Personnel Enrolled: </b>{data.totalPersonnel}</div>
                                             <div className="mt-4"><b>Active Personnel Enrolled: </b>{data.activePersonnel}</div>
-                                            <div className="mt-4"><b>Separated Personnel Enrolled </b>{data.separatedPersonnel}</div>
+                                            <div className="mt-4"><b>Separated Personnel Enrolled: </b>{data.separatedPersonnel}</div>
                                             <div className="mt-4"><b>Number of Institutes: </b>{data.numberInstitutes}</div>
                                             <div className="mt-4"><b>Most Popular Institute by Enrollment: </b>{data.mostPopularInstitute}</div>
                                         </div>
@@ -92,7 +85,7 @@ export default function DateRangeViewCard({ title, options, routePath, width }){
                     <div>
                         <div className="mt-12"><b>Total Personnel Enrolled: </b>103567</div>
                         <div className="mt-4"><b>Active Personnel Enrolled: </b>73067</div>
-                        <div className="mt-4"><b>Separated Personnel Enrolled </b>30500</div>
+                        <div className="mt-4"><b>Separated Personnel Enrolled: </b>30500</div>
                         <div className="mt-4"><b>Number of Institutes: </b>25</div>
                         <div className="mt-4"><b>Most Popular Institute by Enrollment: </b>Excelsior College</div>
                     </div>
@@ -104,10 +97,7 @@ export default function DateRangeViewCard({ title, options, routePath, width }){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target.startDate?.value)
-        console.log(event.target.endDate?.value)
         setYear(event.target.endDate?.value);
-        console.log(year)
     }
 
 

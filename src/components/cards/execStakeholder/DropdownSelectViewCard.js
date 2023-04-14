@@ -58,7 +58,6 @@ export default function DropdownViewCard({ title, options, routePath, width }){
 
 
     const onChange = (e) => {
-        console.log(e.target.value);
         setValue(e.target.value);
         panelCode(e.target.value);
     }
@@ -74,13 +73,13 @@ export default function DropdownViewCard({ title, options, routePath, width }){
                             <div>
                                 {value?.datas.map((data,index) =>{
                                     return(
-                                        <div className="flex flex-row gap-80">
+                                        <div className="flex flex-row">
                                             <div>
                                                 <div className="mt-12"><b>Total Personnel Enrolled: </b>{data.totalPersonnel}</div>
                                                 <div className="mt-4"><b>Active Personnel Enrolled: </b>{data.activePersonnel}</div>
                                                 <div className="mt-4"><b>Separated Personnel Enrolled </b>{data.separatedPersonnel}</div>
                                             </div>
-                                            <div >
+                                            <div className="w-1/2" >
                                                 <PieChart title={"State Stats"} series={[data?.activePersonnel,data?.separatedPersonnel]} 
                                                 labels={["Active", "Separated"]}
                                                 customLables={["Active Personnel Enrolled", "Separated Personnel Enrolled"]}/>
@@ -108,7 +107,7 @@ export default function DropdownViewCard({ title, options, routePath, width }){
             </h1>
             <div className='mt-4 font-medium'> 
                 {/* <Dropdown options={options} keyName={"Display"} initialValue={"2022"} onChange={onChange} /> */}
-                <div className='p-2 font-medium'> States: </div> 
+                <div className='p-2 font-medium'> Select State: </div> 
                 <Dropdown options={options} keyName={"State"} initialValue={"Florida"} onChange={onChange} />
                 <div>
                     {panelCode(value)}

@@ -151,7 +151,6 @@ export default function BarGraphStatisticsViewCard({ title , routePath, classNam
     };
 
     const onChange = (e) => {
-      console.log(e.target.value);
       if(e.target.value === "Personnel Percent"){
         setGraph("Personnel Percent")
       } else{
