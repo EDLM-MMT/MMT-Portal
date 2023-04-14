@@ -20,16 +20,12 @@ export default function CounselingTable({coursePlan}) {
         const updatedCheckedState = checkedState.map((item, index) =>
             index === position ? !item : item
         );
-
         setCheckedState(updatedCheckedState);
-
-
     };
+    
     const handleDelete = (courseIndex,e) =>{
-        console.log("delete row")
         setCourseTable(courseTable.filter((course,i) => i !== courseIndex));
         //setIsOpen(true)
-        console.log("after delete:",courseTable)
     }
 
     return(
