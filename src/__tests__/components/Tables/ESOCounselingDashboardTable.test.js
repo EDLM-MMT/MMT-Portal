@@ -130,4 +130,21 @@ describe('ESOCounselingDashboardTable component', () => {
 
   });
 
+  it('changes sort by to student name', () => {
+    const { getByText } = render(
+      <MemoryRouterProvider url='/'>
+        <ESOCounselingDashboardTable careerArray={careerArray} />
+      </MemoryRouterProvider>
+    );
+
+    const btn = getByText('Most Recent');
+      act(() => {
+        fireEvent.click(btn);
+      });
+    const btn1 = getByText('Student Name');
+      act(() => {
+        fireEvent.click(btn);
+      });
+  });
+
 });
