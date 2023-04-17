@@ -12,6 +12,11 @@ describe("Horizontal Bar Graph Statistics View Card component", () => {
     );
 
     expect(getByText("test title")).toBeInTheDocument();
+
+    const button = getByText('Personnel Percent');
+      act(() => {
+          fireEvent.click(button);
+      });
  
 
   });
