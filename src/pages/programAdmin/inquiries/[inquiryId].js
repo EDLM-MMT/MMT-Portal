@@ -14,7 +14,7 @@ export function getServerSideProps(context) {
     };
   }
 
-export default function ESOInquiryView({inquiryId}) {
+export default function ProgramAdminInquiryView({inquiryId}) {
 
   const userData = useStore((state) => state.userData);
   const currDate = new Date().toLocaleDateString();
