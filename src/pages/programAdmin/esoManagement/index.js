@@ -9,7 +9,6 @@ export default function ESOManagement() {
     const [searchInput, setSearchInput] = useState("");
     const [selected, setSelected] = useState("");
 
-
     const handleChange = (e) => {
         setSearchInput(e.target.value);
     };
@@ -39,7 +38,6 @@ export default function ESOManagement() {
             if (nameA < nameB) {
               return -1;
             }
-          
             return 0;
           });
         return newArray
@@ -55,7 +53,6 @@ export default function ESOManagement() {
             if (nameA < nameB) {
               return -1;
             }
-          
             return 0;
           });
         return newArray

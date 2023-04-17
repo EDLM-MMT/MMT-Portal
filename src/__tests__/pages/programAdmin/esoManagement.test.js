@@ -60,4 +60,38 @@ describe("ESO Management Dashbaord page", () => {
 
   });
 
+  it('changes sort by to ESO Name', () => {
+    const { getByText } = render(
+      <MemoryRouterProvider url='/'>
+        <ESOManagement />
+      </MemoryRouterProvider>
+    );
+
+    const btn = getByText('Most Recent');
+      act(() => {
+        fireEvent.click(btn);
+      });
+    const btn1 = getByText('Name');
+      act(() => {
+        fireEvent.click(btn);
+      });
+  });
+
+  it('changes sort by to Branch', () => {
+    const { getByText, getByTestId } = render(
+      <MemoryRouterProvider url='/'>
+        <ESOManagement />
+      </MemoryRouterProvider>
+    );
+
+    const btn = getByText('Most Recent');
+      act(() => {
+        fireEvent.click(btn);
+      });
+    const btn1 = getByTestId('Branch');
+      act(() => {
+        fireEvent.click(btn);
+      });
+  });
+
 });
