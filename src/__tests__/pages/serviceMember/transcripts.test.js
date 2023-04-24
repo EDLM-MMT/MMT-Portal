@@ -17,11 +17,11 @@ describe("Transcripts Component", () => {
         </MemoryRouterProvider>
     );
     expect(getByText('My Transcripts')).toBeInTheDocument();
-    expect(getByText('Request Official Transcript')).toBeInTheDocument();
+    expect(getByText('Official Transcript')).toBeInTheDocument();
     expect(getByText('Basic Transcript')).toBeInTheDocument();
     expect(getByText('Summary Transcript')).toBeInTheDocument();
     expect(getByText('Academic Transcript')).toBeInTheDocument();
-    expect(getByText('Complete Enterpise Transcript')).toBeInTheDocument();
+    expect(getByText('Complete Transcript')).toBeInTheDocument();
     expect(getAllByText('View').length).toBe(4);
     expect(getAllByText('Download').length).toBe(4);
 

@@ -48,7 +48,6 @@ import {
   export default function UserMenu({logout, userData}) {
     
     const user = useStore((state) => state.userData);
-    const router = useRouter();
   
     return (
       <Menu
@@ -57,19 +56,19 @@ import {
       >
         {({ open }) => (
           <div className='relative'>
-            <Menu.Button className='group inline-flex justify-end items-center bg-blue-500 hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 font-semibold rounded-md outline-none focus:ring-4 ring-blue-400'>
+            <Menu.Button data-testid='user-menu-button' className='group inline-flex justify-end items-center bg-dod-300 hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 font-semibold rounded-md outline-none focus:ring-4 ring-blue-400'>
               <div
                 id='avatar'
                 className='h-8 w-8 rounded-full flex-shrink-0 bg-white shadow-inner-sm overflow-hidden flex justify-center items-center'
               >
-                <UserIcon className='h-6 text-blue-500 text-shadow' />
+                <UserIcon className='h-6 text-dod-300 text-shadow' />
               </div>
               <div className='line-clamp-1'>{user?.learner.personnel.person.firstName}</div>
   
               <ChevronUpIcon
                 className={`${
                   !open
-                    ? 'rotate-180  group-hover:bg-blue-500'
+                    ? 'rotate-180  group-hover:bg-dod-300'
                     : 'shadow-inner-sm'
                 } text-white h-5 rounded-md transition-all ease-in-out duration-75 `}
               />

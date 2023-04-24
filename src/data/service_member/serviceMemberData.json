@@ -33,7 +33,9 @@
           "organizationfein": "1234573",
           "organizationdescription": "NAVY",
           "parentorganization": "NAVY",
-          "recordstatus": "ACTIVE"
+          "recordstatus": "ACTIVE",
+          "assignedeso": "Mary Jane Doe",
+          "location": "USA"
         },
         "contactInformation": {
           "contactinformationid": 0,

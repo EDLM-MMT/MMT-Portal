@@ -10,7 +10,6 @@ describe("Profile Component", () => {
         </MemoryRouterProvider>
     );
     expect(getByText('Profile')).toBeInTheDocument();
-    expect(getByText('Upload Image')).toBeInTheDocument();
     expect(getByText('First name')).toBeInTheDocument();
     expect(getByText('Last name')).toBeInTheDocument();
     expect(getByText('Email')).toBeInTheDocument();

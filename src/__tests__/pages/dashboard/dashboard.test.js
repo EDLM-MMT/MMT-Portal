@@ -5,12 +5,12 @@ import Dashboard from "@/pages/dashboard";
 describe("Dashboard Component", () => {
     
     it("should render the component", () => {
-        const { getByText, getAllByText } = render(
+        const { getByText } = render(
             <MemoryRouterProvider>
                 <Dashboard />
             </MemoryRouterProvider> );
             
-        expect(getByText("Sign up")).toBeInTheDocument();
+        expect(getByText("Sign Up")).toBeInTheDocument();
         expect(getByText(/DOD Home Page/i)).toBeInTheDocument();
         expect(getByText(/About ADL/i)).toBeInTheDocument();
         expect(getByText(/Web Policy/i)).toBeInTheDocument();

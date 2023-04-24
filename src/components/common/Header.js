@@ -4,6 +4,7 @@ import Link from 'next/link';
 import logo from '/public/logo.png';
 import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
+import StatsMenu from '@/components/menus/StatsMenu';
 
 
 const ServiceMemberMenuItems = [
@@ -20,13 +21,13 @@ const ServiceMemberMenuItems = [
     path: '/serviceMember/degreeAgreements',
   },
   {
-    label: 'My Degree Pathways',
+    label: 'Degree Pathways Catalog',
     path: '/serviceMember/degreePathways',
   },
-  // {
-  //   label: 'Career Plans',
-  //   path: '/serviceMember/careerPlans',
-  // },
+  {
+    label: 'Counseling',
+    path: '/serviceMember/counseling',
+  },
   {
     label: 'Quick Links',
     path: '/quickLinks',
@@ -35,12 +36,50 @@ const ServiceMemberMenuItems = [
 
 const ProgramAdminMenuItems = [
   {
-    label: 'Inquiry Management',
-    path: '/programAdmin/inquiryManagement',
+    label: 'Inquiries',
+    path: '/programAdmin/inquiries',
   },
   {
-    label: 'Account Support',
-    path: '/accountSupport',
+    label: 'Accounts Management',
+    path: '/programAdmin/accountsManagement',
+  },
+  {
+    label: 'ESO Management',
+    path: '/programAdmin/esoManagement',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
+const ESOMenuItems = [
+  {
+    label: 'ESO Inquiries',
+    path: '/eso/inquiries',
+  },
+  {
+    label: 'Degree Pathways Catalog',
+    path: '/eso/degreePathways',
+  },
+  {
+    label: 'Counseling',
+    path: '/eso/counseling',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
+const ExecMenuItems = [
+  {
+    label: 'Enrollment Statistics',
+    path: '/execStakeholder/enrollment',
+  },
+  {
+    label: 'Personnel by Branch',
+    path: '/execStakeholder/personnelData',
   },
   {
     label: 'Quick Links',
@@ -54,7 +93,7 @@ function Button({ data }) {
     return (
       <Link href={data.path}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <button className='px-1 font-bold text-white border-b-2 border-white-800 hover:white-gray-900'>
+        <button className='px-1 font-bold text-lg text-white border-b-2 border-white-800 hover:white-gray-900'>
           {data.label}
         </button>
       </Link>
@@ -86,16 +125,18 @@ export default function Header() {
       >
         <div className='w-full py-4 inline-flex items-center justify-between z-50'>
           <div className={'flex items-center justify-start gap-2'}>
+            {user &&
             <Link href={'/dashboard'} passHref>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <button
-                title='home'
+                title='Home'
                 id={'homepage-button'}
                 className={'cursor-pointer'}
               >
-                <Image src={logo} alt={'home'} height={'60'} width={'60'} />
+                <Image src={logo} alt={'Home'} height={'60'} width={'60'} />
               </button>
             </Link>
+            }
             
             {user?.role === 'Service Member' && ServiceMemberMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
@@ -103,17 +144,26 @@ export default function Header() {
             {user?.role === 'Program Administrator' && ProgramAdminMenuItems.map((item) => {
                 return <Button key={item.label} data={item} />;
             })}
+            {user?.role === 'ESO' && ESOMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
+            })}
+            {user?.role === 'Executive Stakeholder' && ExecMenuItems.map((item) => {
+                if(item.label === "Enrollment Statistics"){
+                  return <StatsMenu />
+                }
+                return <Button key={item.label} data={item} />;
+            })}
           </div>
             <div className='space-x-4'>
               {!user? (
               <>
               <Link href={'/'} passHref>
-                <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
+                <button className='disabled:hidden bg-dod-500 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
                   Sign In
                 </button>
               </Link>
               <Link href={'/register'} passHref>
-                <button className='disabled:hidden bg-dod-300/40 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
+                <button className='disabled:hidden bg-dod-500 py-2 px-4 rounded inline-block text-white hover:opacity-90 hover:shadow transform transition-all duration-100 ease-in-out font-semibold'>
                   Sign Up
                 </button>
               </Link>

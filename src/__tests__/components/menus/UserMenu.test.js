@@ -27,9 +27,18 @@ describe("User Menu Component", () => {
                 <UserMenu/>
             </MemoryRouterProvider> );
 
-        // const button = getByText('Test user');
-        // act(() => {
-        //     fireEvent.click(button);
-        // });
+        expect(getByTestId('user-menu-button')).toBeInTheDocument();
+        
+        const button = getByTestId('user-menu-button');
+        act(() => {
+            fireEvent.click(button);
+        });
+        
+        expect(getByText('Profile')).toBeInTheDocument();
+        const button2 = getByText('Profile');
+        act(() => {
+            fireEvent.click(button);
+        });
     });
+    
 });

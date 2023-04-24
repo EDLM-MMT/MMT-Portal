@@ -26,9 +26,9 @@ describe('Header', () => {
             <Header />
             </MemoryRouterProvider>);
 
-        expect(getByText('Sign up')).toBeInTheDocument();
+        expect(getByText('Sign Up')).toBeInTheDocument();
 
-        const button = getByText('Sign up');
+        const button = getByText('Sign Up');
         act(() => {
             fireEvent.click(button);
         });

@@ -14,8 +14,7 @@ const renderer = () => {
 describe('Default Layout', () => {
   it('should show the header & footer component', () => {
     renderer();
-    expect(screen.getByText('Sign up')).toBeInTheDocument();
-    expect(screen.getByAltText('home')).toBeInTheDocument();
+    expect(screen.getByText('Sign Up')).toBeInTheDocument();
 
     expect(screen.getByText('DOD Home Page')).toBeInTheDocument();
     expect(screen.getByText('About ADL')).toBeInTheDocument();
