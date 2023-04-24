@@ -1,4 +1,4 @@
-import TranscriptView from "@/pages/eso/careerCounseling/transcript";
+import TranscriptView from "@/pages/eso/counseling/transcript";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
@@ -12,11 +12,11 @@ describe("Transcript Type View Component", () => {
     );
 
     expect(getByText('Complete Transcript')).toBeInTheDocument();
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
-    expect(getByText('Return to Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Return to Counseling Dashboard')).toBeInTheDocument();
     expect(getByText('Download')).toBeInTheDocument();
 
-    const button = getByText('Career Counseling Dashboard');
+    const button = getByText('Counseling Dashboard');
     act(() => {
         fireEvent.click(button);
     });

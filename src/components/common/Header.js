@@ -4,6 +4,7 @@ import Link from 'next/link';
 import logo from '/public/logo.png';
 import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
+import StatsMenu from '@/components/menus/StatsMenu';
 
 
 const ServiceMemberMenuItems = [
@@ -24,8 +25,8 @@ const ServiceMemberMenuItems = [
     path: '/serviceMember/degreePathways',
   },
   {
-    label: 'Career Counseling',
-    path: '/serviceMember/careerCounseling',
+    label: 'Counseling',
+    path: '/serviceMember/counseling',
   },
   {
     label: 'Quick Links',
@@ -62,8 +63,23 @@ const ESOMenuItems = [
     path: '/eso/degreePathways',
   },
   {
-    label: 'Career Counseling',
-    path: '/eso/careerCounseling',
+    label: 'Counseling',
+    path: '/eso/counseling',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
+const ExecMenuItems = [
+  {
+    label: 'Enrollment Statistics',
+    path: '/execStakeholder/enrollment',
+  },
+  {
+    label: 'Personnel by Branch',
+    path: '/execStakeholder/personnelData',
   },
   {
     label: 'Quick Links',
@@ -77,7 +93,7 @@ function Button({ data }) {
     return (
       <Link href={data.path}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <button className='px-1 font-bold text-white border-b-2 border-white-800 hover:white-gray-900'>
+        <button className='px-1 font-bold text-lg text-white border-b-2 border-white-800 hover:white-gray-900'>
           {data.label}
         </button>
       </Link>
@@ -129,6 +145,12 @@ export default function Header() {
                 return <Button key={item.label} data={item} />;
             })}
             {user?.role === 'ESO' && ESOMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
+            })}
+            {user?.role === 'Executive Stakeholder' && ExecMenuItems.map((item) => {
+                if(item.label === "Enrollment Statistics"){
+                  return <StatsMenu />
+                }
                 return <Button key={item.label} data={item} />;
             })}
           </div>

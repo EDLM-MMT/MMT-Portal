@@ -23,7 +23,7 @@ export default function CareerCounseling({}) {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mt-4 mb-8 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        Career Counseling Dashboard
+                        Counseling Dashboard
                     </div> 
                 </h1>
                 <EsoCounselingDashboardTable careerArray={careerList}/>

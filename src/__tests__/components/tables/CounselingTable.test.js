@@ -1,7 +1,7 @@
 import React from 'react';
 import { act, render, fireEvent } from '@testing-library/react';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
-import CounselingTable from '@/components/tables/CounselingTable';
+import CounselingTable from '@/components/Tables/CounselingTable';
 
 describe('Counseling Table component', () => {
   const course_plan = [
@@ -27,7 +27,17 @@ describe('Counseling Table component', () => {
         "status": "Pending Approval"
     }
   ]
-        
+
+  const one_course_plan = [
+    {
+        "course_number": "MAC1105",
+        "course_name": "Intro to Algebra",
+        "credit_hours": 3,
+        "projected_semester": "Fall 2022",
+        "status": "Approved"
+    }
+  ]
+
   it('renders the component with the correct number of rows and columns', () => {
     const { getByText, getByTestId, container } = render(
       <MemoryRouterProvider url='/'>
@@ -46,4 +56,17 @@ describe('Counseling Table component', () => {
     });
   });
 
+  it('clicks delete', () => {
+    const { getByTestId } = render(
+      <MemoryRouterProvider url='/'>
+        <CounselingTable coursePlan={one_course_plan} />
+      </MemoryRouterProvider>
+    );
+
+    expect(getByTestId('delete-button')).toBeInTheDocument();
+    const deleteButton = getByTestId('delete-button');
+      act(() => {
+        fireEvent.click(deleteButton);
+      });
+  });
 });

@@ -2,7 +2,7 @@ import InquiryView from "@/pages/serviceMember/inquiries/[inquiryId]";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import axios from 'axios'
-import CareerCounseling from "@/pages/serviceMember/careerCounseling/[careerCounselingId]";
+import CareerCounseling from "@/pages/serviceMember/counseling/[careerCounselingId]";
 
 let url = ''
 let body = {}
@@ -17,7 +17,7 @@ jest.mock("axios", () => ({
   })
 })) 
 
-describe("Career Counseling View Page", () => {
+describe("Counseling View Page", () => {
   it("should render the component", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
@@ -25,8 +25,8 @@ describe("Career Counseling View Page", () => {
         </MemoryRouterProvider>
     );
 
-    expect(getByText('Career Counseling')).toBeInTheDocument();
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
     expect(getByText('School:')).toBeInTheDocument();
     expect(getByText('Degree Start Date:')).toBeInTheDocument();
     expect(getByText('Total Credit Hours:')).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe("Career Counseling View Page", () => {
 
   });
 
-  it("should navigate to Career Counseling Dashboard page", () => {
+  it("should navigate to Counseling Dashboard page", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
             <CareerCounseling />
@@ -59,8 +59,8 @@ describe("Career Counseling View Page", () => {
 
     axios.get.mockResolvedValue({data: []});
 
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
-    const button = getByText('Career Counseling Dashboard');
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
+    const button = getByText('Counseling Dashboard');
     act(() => {
         fireEvent.click(button);
     });

@@ -64,12 +64,12 @@ describe('ESOCounselingDashboardTable component', () => {
 
   expect(getByText('Name')).toBeInTheDocument();
   expect(getByText('MOS Code')).toBeInTheDocument();
-  expect(getByText('Career Counseling')).toBeInTheDocument();
+  expect(getByText('Counseling')).toBeInTheDocument();
   expect(getByText('Unofficial Transscript')).toBeInTheDocument();
 
   });
 
-  it('clicks career counseling button', () => {
+  it('clicks counseling button', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
         <ESOCounselingDashboardTable careerArray={careerArrayOne} />
@@ -128,6 +128,23 @@ describe('ESOCounselingDashboardTable component', () => {
         });
     });
 
+  });
+
+  it('changes sort by to student name', () => {
+    const { getByText } = render(
+      <MemoryRouterProvider url='/'>
+        <ESOCounselingDashboardTable careerArray={careerArray} />
+      </MemoryRouterProvider>
+    );
+
+    const btn = getByText('Most Recent');
+      act(() => {
+        fireEvent.click(btn);
+      });
+    const btn1 = getByText('Student Name');
+      act(() => {
+        fireEvent.click(btn);
+      });
   });
 
 });

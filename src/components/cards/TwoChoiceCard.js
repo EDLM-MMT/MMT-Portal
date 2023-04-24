@@ -23,11 +23,14 @@ export default function TwoChoiceCard({ buttonLabel, className, data, card, degr
             <h1 className='text-xl font-semibold h-10'>
                 <div className='flex flex-row justify-between'>
                     {card.title}
-                    {(type === 'I') && <div className='text-lg'> Inquiry ID: {card.id}</div>}
-                    {(type === 'ESO') && <div className='text-lg'> Service Member: {card.submitted_by}</div>}
+                    <button className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md text-white bg-gray-900 px-6 p-1.5 mb-2 transform transition-all duration-150 ease-in-out border-dod-500 border-2  ring-dod-500 outline-none" disabled>Status: {card.inquiry_status}</button>
+
+                    
                 </div>
             </h1>
             <p className={descriptionClass}>
+                {(type === 'I') && <div className='font-medium'> Inquiry ID: {card.id}</div>}
+                {(type === 'ESO') && <div className='font-medium'> Service Member: {card.submitted_by}</div>}
                 {card.description}
             </p>
             
@@ -37,7 +40,7 @@ export default function TwoChoiceCard({ buttonLabel, className, data, card, degr
                         h-18 w-full align-middle pt-2 text-sm font-bold items-center border-grey border border-l-0 border-b-0 rounded-none gap-2'
                         onClick={handleClick}>
                         {card.status} 
-                    </button>
+                    </button>  
 
                     {(isOpen && buttonLabel=== "Assign Inquiry") &&
                     (<AssignInquiryOverlay toggleModal={setIsOpen} message={"Enter email address or account name below"} />)}

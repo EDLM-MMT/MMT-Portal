@@ -75,14 +75,14 @@ describe('CounselingDashboardTable component', () => {
   
     });
 
-  it('clicks career counseling button', () => {
+  it('clicks counseling button', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
         <CounselingDashboardTable careerList={counselingOne} />
       </MemoryRouterProvider>
     );
   
-    const counselingButton = getByText('Go To Career Counseling');
+    const counselingButton = getByText('Go To Counseling');
       act(() => {
         fireEvent.click(counselingButton);
       });

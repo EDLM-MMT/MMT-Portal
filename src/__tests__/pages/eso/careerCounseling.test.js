@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import CareerCounseling from '@/pages/eso/careerCounseling/index';
+import CareerCounseling from '@/pages/eso/counseling/index';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 describe('CareerCounseling component', () => {
@@ -12,7 +12,7 @@ describe('CareerCounseling component', () => {
       </MemoryRouterProvider>
     );
     
-    expect(getByText('Career Counseling Dashboard')).toBeInTheDocument();
+    expect(getByText('Counseling Dashboard')).toBeInTheDocument();
   });
 
 });

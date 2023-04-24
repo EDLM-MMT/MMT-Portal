@@ -46,6 +46,7 @@ export default function Dropdown({
                     <button
                       name={group}
                       value={group}
+                      data-testid={group}
                       onClick={(e) => {
                         onChange(e);
                         setSelected(group);

@@ -10,11 +10,11 @@ export default function CounselingTable(careerList) {
     const [selected, setSelected] = useState("");
 
     const handleView = (e) =>{
-        router.push("/eso/careerCounseling/transcript");
+        router.push("/eso/counseling/transcript");
     }
 
     const handleCareerClick = (e) =>{
-        router.push(`/eso/careerCounseling/${e}`);
+        router.push(`/eso/counseling/${e}`);
     }
 
     const handleChange = (e) => {
@@ -98,7 +98,7 @@ export default function CounselingTable(careerList) {
                                     text-left font-semibold text-gray-900 backdrop-blur
                                     backdrop-filter sm:table-cell'
                             >
-                                Career Counseling
+                                Counseling
                             </th> 
                             <th scope='col'
                                 className='text-lg sticky top-0 z-10 hidden border-b

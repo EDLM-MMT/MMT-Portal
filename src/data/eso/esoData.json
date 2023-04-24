@@ -8,6 +8,7 @@
           "firstName": "Brinleigh",
           "middleName": "Belarmino",
           "lastName": "Blanchard",
+          "email": "blanchardbrinleigh@gmail.com",
           "namePrefix": "Adm.",
           "titleAffixcode": null,
           "nameSuffix": null,
@@ -32,7 +33,8 @@
           "organizationfein": "1234573",
           "organizationdescription": "NAVY",
           "parentorganization": "NAVY",
-          "recordstatus": "ACTIVE"
+          "recordstatus": "ACTIVE",
+          "location": "USA"
         },
         "contactInformation": {
           "contactinformationid": 101,

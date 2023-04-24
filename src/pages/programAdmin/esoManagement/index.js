@@ -9,7 +9,6 @@ export default function ESOManagement() {
     const [searchInput, setSearchInput] = useState("");
     const [selected, setSelected] = useState("");
 
-
     const handleChange = (e) => {
         setSearchInput(e.target.value);
     };
@@ -22,7 +21,7 @@ export default function ESOManagement() {
 
     const onChange = (e) => {
         setSelected(e.target.name);
-        if(e.target.name === "Student Name"){
+        if(e.target.name === "Name"){
             careerListNameSort()
         } else {
             careerListBranchSort()
@@ -39,7 +38,6 @@ export default function ESOManagement() {
             if (nameA < nameB) {
               return -1;
             }
-          
             return 0;
           });
         return newArray
@@ -55,7 +53,6 @@ export default function ESOManagement() {
             if (nameA < nameB) {
               return -1;
             }
-          
             return 0;
           });
         return newArray
@@ -70,7 +67,7 @@ export default function ESOManagement() {
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search by ESO Name" onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
                     <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Name", "Branch"]} keyName={"Sort"} initialValue={"Name"} onChange={onChange} />
+                    <Dropdown options={["Name", "Branch"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
                 </div>
             </div>
 

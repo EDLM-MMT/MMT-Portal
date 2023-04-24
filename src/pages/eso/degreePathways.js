@@ -19,35 +19,35 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "BA Applied Psychology",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BA Applied Psychology (Criminal Behavior)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "BSBA Project Management",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BSIS Information Networking Track",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BSIS Information Security",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BSIS Programming",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 106", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BSIS Speciality Systems Development and Mgmt",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 96", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "BSIS Web 2.0 Web Track",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 }
             ]
         },
@@ -55,15 +55,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "AS Professional Aeronautics",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BS Professional Aeronautics",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "BS Technical Management",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 }
             ]
         },
@@ -71,23 +71,23 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "AA Business Administration",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "AA Criminal Justice",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 103", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "AS Accounting",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 100", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "AS Business Administration",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "AS Computer Information Technology",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 112", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 }
             ]
         },
@@ -95,19 +95,19 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "BA Sociology",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 86", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BGS General Studies",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "BS Justice Studies",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BS Organizational Leadership",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 }
             ]
         },
@@ -115,15 +115,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "BS Interdisciplinary Studies",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 89", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "BS Psychology",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "BS Religion",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 116", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 }
             ]
         },
@@ -134,15 +134,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "American Military University (WV)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "Florida National University (FL)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 110", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "Strayer University (DC)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 96", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
             ]
         },
@@ -150,15 +150,15 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "Bismarck State College (ND)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 97", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "Central Texas College (TX)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 98", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "Dallas County Community College District - TeleCollege (TX)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 102", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
             ]
         },
@@ -166,19 +166,19 @@ export default function DegreePathways() {
             datas: [
                 {
                     data: "American Military University (WV)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 111", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "American Military University (WV)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 104", "Start Date: January"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: January"]
                 },
                 {
                     data: "Berkeley College - Online (NJ)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 109", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 },
                 {
                     data: "University of the Incarnate Word (TX)",
-                    codes: ["Hours Required for degree: 120", "Hours Still Needed: 115", "Start Date: August"]
+                    codes: ["Hours Required for Degree: 120", "Start Date: August"]
                 }
             ]
         }

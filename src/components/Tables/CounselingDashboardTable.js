@@ -14,7 +14,7 @@ export default function CounselingDashboardTable({careerList}) {
     }, [careerList]);
 
     const handleCareerCounseling = (event) =>{
-        router.push(`/serviceMember/careerCounseling/${event}`); 
+        router.push(`/serviceMember/counseling/${event}`); 
     }
 
     const handleDelete = (degreeIndex, e) =>{
@@ -67,7 +67,7 @@ export default function CounselingDashboardTable({careerList}) {
                                     text-left font-semibold text-gray-900 backdrop-blur
                                     backdrop-filter sm:table-cell'
                             >
-                                Career Counseling
+                                Counseling
                             </th>     
                             <th scope='col'
                                 className='text-lg sticky top-0 z-10 hidden border-b
@@ -86,7 +86,7 @@ export default function CounselingDashboardTable({careerList}) {
                                 <td className='pl-2'>{career.school}</td>
                                 <td className='pl-14'>{career.total_creditHours}</td>
                                 <td className='pl-16'>{career.total_creditHours - career.creditHours_completed}</td>
-                                <td><button onClick={() => handleCareerCounseling(career.id)} className="text-dod-500 pl-2">Go To Career Counseling</button></td>
+                                <td><button onClick={() => handleCareerCounseling(career.id)} className="text-dod-500 pl-2">Go To Counseling</button></td>
                                 <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-dod-700 pl-2">Delete</button></td>
                             </tr>
                 ))}

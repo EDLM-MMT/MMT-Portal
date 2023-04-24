@@ -1,12 +1,12 @@
 {
     "degreeAgreements": [
-
       {
-        "id": 100,
-        "title": "AA Degree (Engineering Path)",
-        "description": "AA Degree, 100 level Engineering course",
-        "status": "Reopen Degree Agreement",
-        "secondRoutePath": "degreeAgreements/100",
+        "id": 101,
+        "title": "Management Course",
+        "description": "Management 101 Course, intro to mangement including logistics and operational procedures. ",
+        "status": "Close Degree Agreement",
+        "inquiry_status": "Open",
+        "secondRoutePath": "degreeAgreements/101",
         "approvedBy": "John Doe (ESO)",
         "assignedESO": "Mary Jane",
         "degreeStartDate": "Jan 2019",
@@ -16,11 +16,12 @@
         "degAgr_status": "Open"
       },
       {
-        "id": 101,
-        "title": "Management Course",
-        "description": "Management 101 Course, intro to mangement including logistics and operational procedures. ",
-        "status": "Close Degree Agreement",
-        "secondRoutePath": "degreeAgreements/101",
+        "id": 100,
+        "title": "AA Degree (Engineering Path)",
+        "description": "AA Degree, 100 level Engineering course",
+        "status": "Reopen Degree Agreement",
+        "inquiry_status": "Closed",
+        "secondRoutePath": "degreeAgreements/100",
         "approvedBy": "John Doe (ESO)",
         "assignedESO": "Mary Jane",
         "degreeStartDate": "Jan 2019",

@@ -34,7 +34,8 @@
           "organizationdescription": "NAVY",
           "parentorganization": "NAVY",
           "recordstatus": "ACTIVE",
-          "assignedeso": "Mary Jane Doe"
+          "assignedeso": "Mary Jane Doe",
+          "location": "USA"
         },
         "contactInformation": {
           "contactinformationid": 0,

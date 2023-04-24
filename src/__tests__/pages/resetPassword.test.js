@@ -11,7 +11,7 @@ describe("Reset password page", () => {
         </MemoryRouterProvider>
       );
 
-      expect(getByText(/Reset Password/i)).toBeInTheDocument();
+      expect(getByText(/Change Password/i)).toBeInTheDocument();
     });
 
     it("should change the text in the form field", () => {
@@ -22,13 +22,13 @@ describe("Reset password page", () => {
       );
 
       act(() => {
-        fireEvent.change(getByPlaceholderText('password'), {
+        fireEvent.change(getByPlaceholderText('New Password'), {
             target: { value: 'test' },
           });
       });
 
       act(() => {
-        fireEvent.change(getByPlaceholderText('confirm password'), {
+        fireEvent.change(getByPlaceholderText('Confirm New Password'), {
             target: { value: 'test' },
           });
       });
@@ -75,13 +75,13 @@ describe("Reset password page", () => {
       );
 
       act(() => {
-        fireEvent.change(getByPlaceholderText('password'), {
+        fireEvent.change(getByPlaceholderText('New Password'), {
             target: { value: 'test' },
           });
       });
 
       act(() => {
-        fireEvent.change(getByPlaceholderText('confirm password'), {
+        fireEvent.change(getByPlaceholderText('Confirm New Password'), {
             target: { value: 'test2' },
           });
       });
