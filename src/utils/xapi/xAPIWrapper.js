@@ -18,7 +18,7 @@ export const sendStatement = (actor, verb, obj, resultExtName, resultExtValue) =
         homePage: "https://ecc.gov",
         name: `${actor.first_name} ${actor.last_name}`,
       },
-      objectType: "Agent"
+      // objectType: "Agent"
     },
     verb: {
       id: verb.id,
@@ -33,19 +33,19 @@ export const sendStatement = (actor, verb, obj, resultExtName, resultExtValue) =
           "en-US": obj.definitionName
         }
       },
-      objectType: "Activity"
+      // objectType: "Activity"
     },
-    result: {
-      extensions: {
-        [resultExtName]: resultExtValue
-      }
-    },
-    timestamp: new Date().toUTCString()
+    // result: {
+    //   extensions: {
+    //     [resultExtName]: resultExtValue
+    //   }
+    // },
+    // timestamp: new Date().toUTCString()
   }
 
   obj.description && (statement['object']['definition']['description'] = {
     "en-US": obj.description
   })
-
+  console.log("statement",statement);
   return xAPIMapper.sendStatement({ statement });
 }

@@ -8,7 +8,7 @@ describe('xAPI', () => {
       .mockImplementation(() => Promise.resolve({})
       );
 
-    const actorObj = {
+    const actorObj = { 
       first_name: "John",
       last_name: "Doe",
     }

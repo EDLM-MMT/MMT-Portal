@@ -7,6 +7,7 @@ class XAPIMapper {
 
   constructor() {
     const auth = XAPI.toBasicAuth(key, secret);
+    console.log("auth", auth)
 
     if (!xapiInstance) { xapiInstance = this; }
     if (endpoint) {
@@ -16,10 +17,12 @@ class XAPIMapper {
       });
     }
 
+    console.log("xapiInstance", xapiInstance)
     return xapiInstance;
   }
 
   sendStatement = ({ statement }) => {
+    console.log("xapiInstance", this.xapiInstance)
     return this.xapiInstance?.sendStatement({ statement }).catch((err) => console.error(err));
   }
 }

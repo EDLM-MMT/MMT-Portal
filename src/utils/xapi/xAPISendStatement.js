@@ -13,6 +13,7 @@ import { sendStatement } from './xAPIWrapper';
  */
 
 export function xAPISendStatement(context) {
+  console.log("context",context);
   // verify there is a user object
   if (!context.actor) return console.error('no user object');
 
