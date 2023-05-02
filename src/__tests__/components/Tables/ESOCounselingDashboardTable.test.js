@@ -1,7 +1,7 @@
 import React from 'react';
 import { act, render, fireEvent } from '@testing-library/react';
-import ESOCounselingDashboardTable from '@/components/tables/ESOCounselingDashboardTable';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+import CounselingTable from '@/components/tables/ESOCounselingDashboardTable';
 
 describe('ESOCounselingDashboardTable component', () => {
   const careerArray = [
@@ -58,7 +58,7 @@ describe('ESOCounselingDashboardTable component', () => {
   it('renders the component with the correct number of rows and columns', () => {
   const { getByText } = render(
     <MemoryRouterProvider url='/'>
-      <ESOCounselingDashboardTable careerArray={careerArray} />
+      <CounselingTable careerArray={careerArray} />
     </MemoryRouterProvider>
   );
 
@@ -72,7 +72,7 @@ describe('ESOCounselingDashboardTable component', () => {
   it('clicks counseling button', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
-        <ESOCounselingDashboardTable careerArray={careerArrayOne} />
+        <CounselingTable careerArray={careerArrayOne} />
       </MemoryRouterProvider>
     );
   
@@ -86,7 +86,7 @@ describe('ESOCounselingDashboardTable component', () => {
   it('clicks delete', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
-        <ESOCounselingDashboardTable careerArray={careerArrayOne} />
+        <CounselingTable careerArray={careerArrayOne} />
       </MemoryRouterProvider>
     );
 
@@ -99,7 +99,7 @@ describe('ESOCounselingDashboardTable component', () => {
   it('searches in search bar by name', () => {
     const { getByPlaceholderText } = render(
       <MemoryRouterProvider url='/'>
-        <ESOCounselingDashboardTable careerArray={careerArray} />
+        <CounselingTable careerArray={careerArray} />
       </MemoryRouterProvider>
     );
 
@@ -116,7 +116,7 @@ describe('ESOCounselingDashboardTable component', () => {
   it('searches in search bar by MOS code', () => {
     const { getByPlaceholderText } = render(
       <MemoryRouterProvider url='/'>
-        <ESOCounselingDashboardTable careerArray={careerArray} />
+        <CounselingTable careerArray={careerArray} />
       </MemoryRouterProvider>
     );
 
@@ -133,7 +133,7 @@ describe('ESOCounselingDashboardTable component', () => {
   it('changes sort by to student name', () => {
     const { getByText } = render(
       <MemoryRouterProvider url='/'>
-        <ESOCounselingDashboardTable careerArray={careerArray} />
+        <CounselingTable careerArray={careerArray} />
       </MemoryRouterProvider>
     );
 
