@@ -52,6 +52,6 @@ describe("Inquiries Page", () => {
     const result = onClickHandler(originalData, searchInput);
     // ASSERT
     expect([result]).toEqual(originalData[0]);
-  }
+  })
 
 });
