@@ -22,7 +22,7 @@ describe("GeneralPurposeOverlay Component", () => {
     it("should render the component", () => {
         const { getByText } = render(
             <MemoryRouterProvider>
-                <GeneralPurposeOverlay toggleModal={()=>{}} disable={()=>{}}
+                <GeneralPurposeOverlay toggleModal={()=>{}} toggle2ndModal={()=>{}} disable={()=>{}}
                     title={"Reset Password Confirmation"}
                     message={"Please confirm you want to test"} path={"/"}/>
             </MemoryRouterProvider> );
@@ -50,7 +50,7 @@ describe("GeneralPurposeOverlay Component", () => {
         
         const { getByText } = render(
             <MemoryRouterProvider>
-                <GeneralPurposeOverlay toggleModal={()=>{}} disable={()=>{}}
+                <GeneralPurposeOverlay toggleModal={()=>{}} 
                     title={"Reset Password Confirmation"}
                     message={"Please confirm you want to test"} path={"/"}/>
             </MemoryRouterProvider> );

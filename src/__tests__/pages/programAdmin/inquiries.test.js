@@ -1,4 +1,4 @@
-import { act, fireEvnt, render } from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import mockAxios from 'jest-mock-axios';
 import Inquiry from "@/pages/programAdmin/inquiries";

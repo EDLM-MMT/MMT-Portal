@@ -36,10 +36,10 @@ export default function DownloadButton({link}) {
                                             (eachItem === "PDF") ? (
 
                                                     <a className={`${active ? 'bg-dod-300 text-white' : 'text-gray-900'} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                                    href={`../../../${link}`} target="_blank" rel="noopener noreferrer" download><button>{eachItem}</button> </a>
+                                                    href={`../../../${link}`} value="PDF" target="_blank" rel="noopener noreferrer" download><button>{eachItem}</button> </a>
                                             ):(
                                                 <a className={`${active ? 'bg-dod-300 text-white' : 'text-gray-900'} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                                                href='../../sampleFile.doc' download>{eachItem}</a>
+                                                href='../../sampleFile.doc' value="Word" download>{eachItem}</a>
                                             )
                                         
 

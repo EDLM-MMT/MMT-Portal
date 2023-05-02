@@ -23,7 +23,7 @@ describe("User Menu Component", () => {
 
     it("should render the component", () => {
         const { getByText, getByTestId } = render(
-            <MemoryRouterProvider>
+            <MemoryRouterProvider url='/'>
                 <UserMenu/>
             </MemoryRouterProvider> );
 
@@ -37,7 +37,7 @@ describe("User Menu Component", () => {
         expect(getByText('Profile')).toBeInTheDocument();
         const button2 = getByText('Profile');
         act(() => {
-            fireEvent.click(button);
+            fireEvent.click(button2);
         });
     });
     
