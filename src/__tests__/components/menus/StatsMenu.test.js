@@ -23,8 +23,8 @@ describe("Stats Menu Component", () => {
 
     it("should render the component", () => {
         const { getByText, getByTestId } = render(
-            <MemoryRouterProvider>
-                <StatsMenu/>
+            <MemoryRouterProvider url='/' >
+                <StatsMenu />
             </MemoryRouterProvider> );
 
         expect(getByText('Enrollment Statistics')).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("Stats Menu Component", () => {
         expect(getByText('Enrollment by University')).toBeInTheDocument();
         const button2 = getByText('Enrollment by University');
         act(() => {
-            fireEvent.click(button);
+            fireEvent.click(button2);
         });
     });
     
