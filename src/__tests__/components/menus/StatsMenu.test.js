@@ -27,18 +27,18 @@ describe("Stats Menu Component", () => {
                 <StatsMenu/>
             </MemoryRouterProvider> );
 
-        expect(getByTestId('stats-menu-button')).toBeInTheDocument();
+        expect(getByText('Enrollment Statistics')).toBeInTheDocument();
         
-        const button = getByTestId('stats-menu-button');
+        const button = getByText('Enrollment Statistics');
         act(() => {
             fireEvent.click(button);
         });
         
-        // expect(getByText('Profile')).toBeInTheDocument();
-        // const button2 = getByText('Profile');
-        // act(() => {
-        //     fireEvent.click(button);
-        // });
+        expect(getByText('Enrollment by University')).toBeInTheDocument();
+        const button2 = getByText('Enrollment by University');
+        act(() => {
+            fireEvent.click(button);
+        });
     });
     
 });
