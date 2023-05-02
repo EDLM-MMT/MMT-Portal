@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import mockAxios from 'jest-mock-axios';
-import Inquiry from "@/pages/programAdmin/inquiries/index";
+import Inquiry from "@/pages/programAdmin/inquiries";
 
 describe("Inquiries Page", () => {
   it("should render the component", () => {
@@ -16,5 +16,33 @@ describe("Inquiries Page", () => {
     expect(getByText('Inquiries')).toBeInTheDocument();
 
   });
+
+  it("should check the search bar in the component", () => {
+    const { getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <Inquiry />
+        </MemoryRouterProvider>
+    );
+    expect(getByPlaceholderText('Search by Service Member Name')).toBeInTheDocument();
+    
+    act(() => {
+      fireEvent.change(getByPlaceholderText('Search by Service Member Name'), {
+          target: { value: '' },
+      });
+    });
+
+    act(() => {
+        fireEvent.change(getByPlaceholderText('Search by Service Member Name'), {
+            target: { value: 'Bill Phillips' },
+        });
+    });
+
+    act(() => {
+        fireEvent.change(getByPlaceholderText('Search by Service Member Name'), {
+            target: { value: 'Zack Blanchard' },
+        });
+    });
+  });
+
 
 });

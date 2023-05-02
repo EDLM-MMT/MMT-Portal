@@ -49,7 +49,7 @@ import {
       >
         {({ open }) => (
           <div className='relative'>
-            <Menu.Button data-testid='user-menu-button' className='group inline-flex justify-end items-center w-full hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 text-lg rounded-md outline-none focus:ring-4 ring-blue-400'>
+            <Menu.Button data-testid='stats-menu-button' className='group inline-flex justify-end items-center w-full hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 text-lg rounded-md outline-none focus:ring-4 ring-blue-400'>
               <div className='line-clamp-1'>Enrollment Statistics</div>
   
               {/* <ChevronUpIcon

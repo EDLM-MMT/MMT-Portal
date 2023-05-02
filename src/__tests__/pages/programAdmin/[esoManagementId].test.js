@@ -1,12 +1,25 @@
 import ESOManagementView from "@/pages/programAdmin/esoManagement/[esoManagementId]";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+import 'react-minimal-pie-chart';
+
+jest.mock('react-minimal-pie-chart', () => {
+  const OriginalModule = jest.requireActual('react-minimal-pie-chart')
+  return {
+      ...OriginalModule,
+      ResponsiveContainer: ({ children }) => (
+          <OriginalModule.ResponsiveContainer width={800} height={800}>
+              {children}
+          </OriginalModule.ResponsiveContainer>
+      ),
+  }
+})
 
 describe("ESO Management View page", () => {
   it("should render the page", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
-            <ESOManagementView />
+            <ESOManagementView esoManagementId={500}/>
         </MemoryRouterProvider>
     );
     expect(getByText('- ESO')).toBeInTheDocument();
@@ -19,7 +32,7 @@ describe("ESO Management View page", () => {
   it("should render the table", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
-            <ESOManagementView />
+            <ESOManagementView esoManagementId={500}/>
         </MemoryRouterProvider>
     );
     expect(getByText('Task ID')).toBeInTheDocument();
@@ -33,7 +46,7 @@ describe("ESO Management View page", () => {
   it("should click the edit button", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
-            <ESOManagementView />
+            <ESOManagementView esoManagementId={500}/>
         </MemoryRouterProvider>
     );
 
@@ -52,7 +65,7 @@ describe("ESO Management View page", () => {
   it("route back to ESOManagement page", () => {
     const { getByText, getByPlaceholderText } = render(
         <MemoryRouterProvider>
-            <ESOManagementView />
+            <ESOManagementView esoManagementId={500}/>
         </MemoryRouterProvider>
     );
 
