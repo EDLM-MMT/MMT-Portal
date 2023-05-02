@@ -5,9 +5,9 @@ import PieChart from "@/components/charts/PieChart";
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 
-jest.mock('react-apexcharts', () => ({ __esModule: true, default: () => <div /> }));
-
 describe("Pie Chart component", () => {
+
+  jest.mock('react-apexcharts', () => ({ __esModule: true, default: () => <div /> }));
 
   it("should render the component", () => {
     const { getByText } = render(

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { act, fireEvnt, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import mockAxios from 'jest-mock-axios';
 import Inquiry from "@/pages/programAdmin/inquiries";
@@ -44,5 +44,14 @@ describe("Inquiries Page", () => {
     });
   });
 
+  it('should filter values be searchInput', () => {
+    // ARRANGE
+    const searchInput = 'fo';
+    const originalData = [{ entityType: 'FOO' }, { entityType: 'BAR' }]
+    // ACT
+    const result = onClickHandler(originalData, searchInput);
+    // ASSERT
+    expect([result]).toEqual(originalData[0]);
+  }
 
 });
