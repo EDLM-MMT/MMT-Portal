@@ -40,6 +40,29 @@ describe('TwoChoiceCard', () => {
     }); 
   });
 
+  it('ESO Inquiry', () => {
+    const card = {
+      title: 'Test Title',
+      description: 'Test Description',
+      status: 'Assign Inquiry',
+      secondRoutePath:"/"
+    };
+
+    const mockIntersectionObserver = jest.fn();
+    mockIntersectionObserver.mockReturnValue({
+        observe: () => null,
+        unobserve: () => null,
+        disconnect: () => null
+    });
+    window.IntersectionObserver = mockIntersectionObserver;
+
+    const { getByText, queryByText } = render(
+    <MemoryRouterProvider>
+      <TwoChoiceCard card={card} firstRoutePath={"/"} viewRoutePath={"/"} buttonLabel={"Open Degree Agreement"} type={"ESO"}/>
+    </MemoryRouterProvider>);
+
+  });
+
   it('opens DA on button click', () => {
     const card = {
       title: 'Test Title',
@@ -56,14 +79,35 @@ describe('TwoChoiceCard', () => {
     });
     window.IntersectionObserver = mockIntersectionObserver;
 
+    const data = {
+      "degreeAgreements": [
+      {
+        "id": 101,
+        "title": "Management Course",
+        "description": "Management 101 Course, intro to mangement including logistics and operational procedures. ",
+        "status": "Close Degree Agreement",
+        "inquiry_status": "Open",
+        "secondRoutePath": "degreeAgreements/101",
+        "approvedBy": "John Doe (ESO)",
+        "assignedESO": "Mary Jane",
+        "degreeStartDate": "Jan 2019",
+        "totalCreditHours": "60",
+        "completedCreditHours": "6",
+        "projectedGradDate": "Jun 2023",
+        "degAgr_status": "Open"
+      },
+      ]
+    }
+    
     const { getByText } = render(
     <MemoryRouterProvider>
-      <TwoChoiceCard card={card} firstRoutePath={"/"} viewRoutePath={"/"} buttonLabel={"Close Degree Agreement"}/>
+      <TwoChoiceCard card={card} firstRoutePath={"/"} viewRoutePath={"/"} buttonLabel={"Close Degree Agreement"} toggleModalUpdate={()=>{}} 
+        data={data} degreeIndex={0}/>
     </MemoryRouterProvider>);
 
     const button = getByText('Close Degree Agreement');
-    // act(() => {
-    //     fireEvent.click(button);
-    // });
+    act(() => {
+        fireEvent.click(button);
+    });
   });
 });
