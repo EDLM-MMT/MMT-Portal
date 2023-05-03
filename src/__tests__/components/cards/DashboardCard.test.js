@@ -17,4 +17,19 @@ describe("Dashbaord Card Component", () => {
     });
 
   });
+
+  it("should click the second button", () => {
+    const { getByText } = render(
+        <MemoryRouterProvider>
+            <DashboardCard title={"Test title"} secondButtonLabel={"Button2"} secondRoutePath={"/"}/>
+        </MemoryRouterProvider>
+    );
+    expect(getByText(/Test title/i)).toBeInTheDocument();
+
+    const button = getByText('Button2');
+    act(() => {
+        fireEvent.click(button);
+    });
+
+  });
 });

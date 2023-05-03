@@ -18,7 +18,6 @@ export default function CounselingEditableCard({ career , routePath, className})
     const one_day = 1000*60*60*24;
     console.log("currDate", currDate)
     const [edit, setEdit] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
     const [dropdownValue, setDropdownValue] = useState(career.assigned_eso);
     const [secondDropdownValue, setSecondDropdownValue] = useState(career.projected_graduation);
 
@@ -47,11 +46,6 @@ export default function CounselingEditableCard({ career , routePath, className})
         setEdit(!edit);
 
     }
-    
-    const handleReset = () => {
-        console.log("Click Reset!");
-        setIsOpen(!isOpen);
-    }
 
     return(
         <div className='bg-white w-full border h-50 pb-4 rounded-md border-gray-200 p-4 shadow'>
@@ -64,18 +58,12 @@ export default function CounselingEditableCard({ career , routePath, className})
                     <div className="flex flex-row justify-between">
                         <p className="flex flex-row mt-4 font-sans line-clamp-6">
                             <b className="mt-2 mr-2">Assigned ESO:</b>
-                            {!isOpen ? 
-                                (<Dropdown options={["John Doe", "Mary Jane Doe"]} initialValue={career?.assigned_eso} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>
-                                ):(<>{career?.assigned_eso}</>)
-                            }
+                            <Dropdown options={["John Doe", "Mary Jane Doe"]} initialValue={career?.assigned_eso || "None"} onChange={(event)=>{event.preventDefault(); setDropdownValue(event.target.value);}}/>                                   
                         </p>
                         <p className="mt-4">
                             <div className="flex flex-row justify-between">
                                 <b className="mt-2 mr-2">Projected Graduation Date:</b>
-                                {!isOpen ? 
-                                    (<Dropdown options={["Fall 2023", "Spring 2024", "Summer 2024", "Fall 2024"]} initialValue={career?.projected_graduation} onChange={(event)=>{event.preventDefault(); setSecondDropdownValue(event.target.value);}}/>
-                                    ):(<>{career?.projected_graduation}</>)
-                                }
+                                <Dropdown options={["Fall 2023", "Spring 2024", "Summer 2024", "Fall 2024"]} initialValue={career?.projected_graduation || "TBD"} onChange={(event)=>{event.preventDefault(); setSecondDropdownValue(event.target.value);}}/>
                             </div>
                         </p>
                     </div>
