@@ -23,7 +23,7 @@ describe("ESO Management View page", () => {
         </MemoryRouterProvider>
     );
     expect(getByText('- ESO')).toBeInTheDocument();
-    expect(getByText('Permissions')).toBeInTheDocument();
+    expect(getByText('Permissions:')).toBeInTheDocument();
     expect(getByText('Assigned Tasks')).toBeInTheDocument();
     expect(getByText('Statistics')).toBeInTheDocument();
 
