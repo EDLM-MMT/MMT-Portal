@@ -10,8 +10,8 @@ describe("Bar Chart component", () => {
   it("should render the component", () => {
     const { getByText } = render(
       <MemoryRouterProvider>
-        <BarChart chartTitle={"test title"}/>
-      </MemoryRouterProvider>
+        <BarChart chartTitle={"test title"} xAxisTitle="x Axis"/>
+      </MemoryRouterProvider> 
     );
 
     //  expect(getByText('test title')).toBeInTheDocument();
