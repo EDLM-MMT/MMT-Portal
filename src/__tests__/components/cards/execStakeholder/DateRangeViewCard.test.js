@@ -18,7 +18,10 @@ describe("Date Range View Card component", () => {
     expect(getByText("Active Personnel Enrolled:")).toBeInTheDocument();
     expect(getByText("Separated Personnel Enrolled:")).toBeInTheDocument();
 
-    
+    const button = getByText('Search');
+    act(() => {
+        fireEvent.click(button);
+    });
 
   });
 
