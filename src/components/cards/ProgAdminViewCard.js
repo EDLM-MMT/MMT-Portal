@@ -62,7 +62,7 @@ export default function ProgramAdminViewCard({ account , routePath, className}){
                     <p className="mt-4 font-sans line-clamp-6">
                         <b className="mr-2">Status:</b>
                         {!isOpen ? 
-                            (<Dropdown options={["Active", "Veteran"]} initialValue={account?.status} onChange={(event)=>{
+                            (<Dropdown options={["Active", "Veteran"]} initialValue={account?.status || "Active"} onChange={(event)=>{
                                 event.preventDefault(); setDropdownValue(event.target.value);  }}/>
                             ):(<>{account?.status}</>)
                         }
