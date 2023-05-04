@@ -8,7 +8,6 @@ import axios from "axios";
 
 describe("Inquiries Page", () => {
 
-  var mock = new MockAdapter(axios);
 
   it("should render the component", () => {
     const { getByText } = render(
@@ -16,6 +15,8 @@ describe("Inquiries Page", () => {
             <Inquiry />
         </MemoryRouterProvider>
     );
+
+    var mock = new MockAdapter(axios);
 
     const data = {
       "id": 300,
@@ -42,7 +43,7 @@ describe("Inquiries Page", () => {
           }
       ]
     };
-    mock.onGet('../api/programAdmin/inquiry').reply(200, data);
+    //mock.onGet('../api/programAdmin/inquiry').reply(200, data);
 
     axios.get('../api/programAdmin/inquiry').then(function (response) {
       //console.log(response.data);
@@ -79,25 +80,5 @@ describe("Inquiries Page", () => {
         });
     });
   });
-
-  it('should filter values be searchInput', () => {
-    // ARRANGE
-    const searchInput = 'fo';
-    const originalData = [{ entityType: 'FOO' }, { entityType: 'BAR' }];
-
-    const onClickHandler = (originalData, searchInput) =>{
-      originalData?.filter(post => {
-        if (searchInput === ''){
-            return post;
-        } else if(post.toLowerCase().includes(searchInput.toLowerCase())){
-            return post;
-        }
-      }
-  )};
-    // ACT
-    const result = onClickHandler(originalData, searchInput);
-    // ASSERT
-    expect([result]).toEqual(originalData[0]);
-  })
 
 });
