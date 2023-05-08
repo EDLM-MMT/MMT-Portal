@@ -6,15 +6,15 @@ export default function DashboardCard({ title, description, buttonLabel, secondB
     const handleClick = () => {
         const context = {
             actor: {
-              first_name: 'Anonymous',
-              last_name: 'User',
+              first_name: user?.user?.first_name || 'Anonymous',
+              last_name: user?.user?.last_name || 'User',
             },
             verb: {
               id: "http://example.org/verb/did",
               display: `viewed`,
             },
             object: {
-                definitionName: `Viewed`,
+                definitionName: `viewed`,
             },
             resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
             resultExtValue: "test",
