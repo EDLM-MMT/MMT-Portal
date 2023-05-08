@@ -51,4 +51,15 @@ describe("Degree Agreements View  Page", () => {
 
   });
 
+  it("axios error", () => {
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <DegreeAgreementsView />
+        </MemoryRouterProvider>
+    );
+
+    axios.get.mockRejectedValueOnce(new Error('some error'));
+
+  });
+
 });
