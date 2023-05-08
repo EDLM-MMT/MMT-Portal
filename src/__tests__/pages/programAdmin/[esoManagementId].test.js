@@ -2,6 +2,20 @@ import ESOManagementView from "@/pages/programAdmin/esoManagement/[esoManagement
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import 'react-minimal-pie-chart';
+import axios from 'axios'
+
+let url = ''
+let body = {}
+
+jest.mock("axios", () => ({
+  get: jest.fn((_url, _body) => { 
+    return new Promise((resolve) => {
+      url = _url
+      body = _body
+      resolve(true)
+    })
+  })
+}))
 
 jest.mock('react-minimal-pie-chart', () => {
   const OriginalModule = jest.requireActual('react-minimal-pie-chart')
@@ -22,6 +36,9 @@ describe("ESO Management View page", () => {
             <ESOManagementView esoManagementId={500}/>
         </MemoryRouterProvider>
     );
+
+    axios.get.mockResolvedValue({data: "test data"});
+
     expect(getByText('- ESO')).toBeInTheDocument();
     expect(getByText('Permissions:')).toBeInTheDocument();
     expect(getByText('Assigned Tasks')).toBeInTheDocument();
@@ -73,6 +90,17 @@ describe("ESO Management View page", () => {
     act(() => {
       fireEvent.click(button);
     });
+  });
+
+  it("axios error", () => {
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <ESOManagementView esoManagementId={500}/>
+        </MemoryRouterProvider>
+    );
+
+    axios.get.mockRejectedValueOnce(new Error('some error'));
+
   });
 
 });

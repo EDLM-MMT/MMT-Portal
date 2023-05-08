@@ -61,4 +61,26 @@ describe("Inquiry View Page", () => {
 
   });
 
+  it("should close the inquiry", () => {
+    const { getByText } = render(
+        <MemoryRouterProvider>
+            <InquiryView />
+        </MemoryRouterProvider>
+    );
+
+    axios.get.mockResolvedValue({data: []});
+
+    expect(getByText('Close Inquiry')).toBeInTheDocument();
+   
+    const button = getByText('Close Inquiry');
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    const button1 = getByText('Reopen Inquiry');
+    act(() => {
+        fireEvent.click(button1);
+    });
+  });
+
 });

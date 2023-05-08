@@ -112,5 +112,5 @@ describe("Degree Pathways Page", () => {
         fireEvent.click(getByText('ABE'));
     });
   });
-
+ 
 });
