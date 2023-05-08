@@ -124,5 +124,29 @@ describe("Counseling View Page", () => {
     });
   });
 
+  it("should click send unoffical transcript button", () => {
+    const mockIntersectionObserver = jest.fn();
+    mockIntersectionObserver.mockReturnValue({
+        observe: () => null,
+        unobserve: () => null,
+        disconnect: () => null
+    });
+    window.IntersectionObserver = mockIntersectionObserver;
+    
+    const { getByText } = render(
+        <MemoryRouterProvider>
+            <CareerCounseling />
+        </MemoryRouterProvider>
+    );
+
+    axios.get.mockResolvedValue({data: []});
+
+    expect(getByText('Send Unofficial Transcript to ESO')).toBeInTheDocument();
+    const button = getByText('Send Unofficial Transcript to ESO');
+    act(() => {
+        fireEvent.click(button);
+    });
+  });
+
 
 });
