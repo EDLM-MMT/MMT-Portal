@@ -2582,6 +2582,13 @@
     "@webassemblyjs/ast" "1.11.1"
     "@xtuc/long" "4.2.2"
 
+"@xapi/xapi@^2.0.1":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@xapi/xapi/-/xapi-2.1.2.tgz#25ff434829eac7935215a81e1d3a7392a6924ee0"
+  integrity sha512-sBsS/Mm+moiungITZU7FZgu7BqbnkHy/TRYiR/Jsc36TUOONCP1pABlNGyL/M7nGcty6zQdTUQ+Z/75/5RyCqA==
+  dependencies:
+    axios "^1.2.2"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"

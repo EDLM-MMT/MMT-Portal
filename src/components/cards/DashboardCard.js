@@ -1,10 +1,26 @@
 import { useRouter } from "next/router"
-import Image from "next/image";
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
-export default function DashboardCard({ title, description, buttonLabel, secondButtonLabel, dashboardImage, routePath, secondRoutePath, children }){
+export default function DashboardCard({ title, description, buttonLabel, secondButtonLabel, dashboardImage, routePath, secondRoutePath, children, user }){
     const router = useRouter();
-
     const handleClick = () => {
+        const context = {
+            actor: {
+              first_name: user?.user?.first_name || 'Anonymous',
+              last_name: user?.user?.last_name || 'User',
+            },
+            verb: {
+              id: "http://example.org/verb/did",
+              display: `viewed`,
+            },
+            object: {
+                definitionName: `viewed`,
+            },
+            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            resultExtValue: "test",
+        };
+        xAPISendStatement(context);
+        console.log("sent")
         router.push(`/${routePath}`);
     }
     const handleSecondClick = () => {
