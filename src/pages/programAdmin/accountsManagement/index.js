@@ -1,16 +1,18 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import useStore from '@/store/store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import modifiedData from "../../../data/programAdmin/accountsManagement.json";
 import { useRouter } from 'next/router';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import Dropdown from '@/components/dropdowns/Dropdown';
+import Sort from '@/components/Sort';
 
 
 export default function AccountsManagement() {
     const [searchInput, setSearchInput] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState("");
+    const [modifyData,setModifyData] = useState(modifiedData);
 
     const router = useRouter();
 
@@ -21,50 +23,56 @@ export default function AccountsManagement() {
     //     viewHistory: "",
     // });
 
+    useEffect(() =>{
+
+    },[]);
+    //console.log("modifyData inside useEffect:",modifyData)
+
     const handleChange = (e) => {
         setSearchInput(e.target.value);
     };
 
-    const onChange = (e) => {
-        setSelected(e.target.name);
-        if(e.target.name === "Name"){
-            careerListNameSort()
-        } else {
-            careerListRoleSort()
-        }
-    }
+    // const onChange = (e) => {
+    //     setSelected(e.target.name);
+    //     if(e.target.name === "Name"){
+    //         //Sort(modifiedData);
+    //         //careerListNameSort();
+    //     } else {
+    //         //careerListRoleSort()
+    //     }
+    // }
     
-    const careerListNameSort = () => {
-        let newArray = modifiedData.sort(function(a, b) {
-            const nameA = a.name;
-            const nameB = b.name;
-            if (nameA > nameB) {
-              return 1;
-            }
-            if (nameA < nameB) {
-              return -1;
-            }
+    // const careerListNameSort = () => {
+    //     let newArray = modifiedData.sort(function(a, b) {
+    //         const nameA = a.name;
+    //         const nameB = b.name;
+    //         if (nameA > nameB) {
+    //           return 1;
+    //         }
+    //         if (nameA < nameB) {
+    //           return -1;
+    //         }
           
-            return 0;
-          });
-        return newArray
-    }
+    //         return 0;
+    //       });
+    //     return newArray
+    // }
 
-    const careerListRoleSort = () => {
-        let newArray = modifiedData.sort(function(a, b) {
-            const nameA = a.role
-            const nameB = b.role
-            if (nameA > nameB) {
-              return 1;
-            }
-            if (nameA < nameB) {
-              return -1;
-            }
+    // const careerListRoleSort = () => {
+    //     let newArray = modifiedData.sort(function(a, b) {
+    //         const nameA = a.role
+    //         const nameB = b.role
+    //         if (nameA > nameB) {
+    //           return 1;
+    //         }
+    //         if (nameA < nameB) {
+    //           return -1;
+    //         }
           
-            return 0;
-          });
-        return newArray
-    }
+    //         return 0;
+    //       });
+    //     return newArray
+    // }
     
 
     const handleView = (e) =>{
@@ -75,6 +83,10 @@ export default function AccountsManagement() {
         setIsOpen(!isOpen);
     }
 
+    const updateData = (data) =>{
+        setModifyData(data);
+    }
+
     return (
         <DefaultLayout >
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
@@ -83,8 +95,9 @@ export default function AccountsManagement() {
             <div className='flex align-middle justify-between'>
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search here by name or username " onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
-                    <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Name", "Role"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
+                    {/* <div className='p-2 font-medium'> Sort By: </div> 
+                    <Dropdown options={["Name", "Role"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} /> */}
+                    <Sort modifiedData={modifyData} setModifyData={updateData}/>
                 </div>
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
@@ -134,7 +147,8 @@ export default function AccountsManagement() {
                 </thead>
 
                 {
-                    modifiedData.filter(post => {
+                    modifyData.filter(post => {
+                        console.log("modify data:", modifyData);
                         if (searchInput === ''){
                             return post;
                         } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
