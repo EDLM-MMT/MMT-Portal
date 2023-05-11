@@ -50,7 +50,7 @@ describe("Inquiry View Page", () => {
         </MemoryRouterProvider>
     );
 
-    axios.get.mockResolvedValue({data: []});
+    axios.get.mockResolvedValue({data: "data"});
 
     expect(getByText('Inquiry Management')).toBeInTheDocument();
 
