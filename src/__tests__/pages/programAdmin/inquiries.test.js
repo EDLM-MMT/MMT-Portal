@@ -4,10 +4,46 @@ import mockAxios from 'jest-mock-axios';
 import Inquiry from "@/pages/programAdmin/inquiries";
 import axios from "axios";
 
+let url = ''
+let body = {}
+
+jest.mock("axios", () => ({
+  get: jest.fn((_url, _body) => { 
+    return new Promise((resolve) => {
+      url = _url
+      body = _body
+      resolve(true)
+    })
+  })
+}))
 
 describe("Inquiries Page", () => {
 
-  jest.mock('axios');
+  const data = {
+    "id": 300,
+    "title": "Leadership Course",
+    "description": "Course authorization required to join class to complete as a part of my degree. This is the first course for the required classes in the Buisness admin specialization track. This is my choosen elective class that approval is required for.",
+    "status": "Close Inquiry",
+    "inquiry_status": "Open",
+    "firstRoutePath": "transcripts/basicTranscript",
+    "secondRoutePath": "inquiries/300",
+    "timestampCreated": "1/21/2023 1:43:20 PM",
+    "submitted_by": "Bill Phillips",
+    "inquiryComments": [
+        {
+            "author": "Brinleigh Blanchard",
+            "title": "ESO",
+            "comment": "Please provide more information to better assist you on our end",
+            "timestamp": "1/24/2023 2:43:20 PM"
+        },
+        {
+            "author": "Bill Phillips",
+            "title": "",
+            "comment": "Can I please get an ETA on when this can be resolved?",
+            "timestamp": "1/24/2023 2:43:19 PM"
+        }
+    ]
+  };
 
   it("should render the component", () => {
     const { getByText } = render(
@@ -16,51 +52,11 @@ describe("Inquiries Page", () => {
         </MemoryRouterProvider>
     );
 
-    // axios.get = jest.fn()
-    //         .mockImplementationOnce(() => Promise.resolve({ data: 'mock data' }));
-
-
-    // const data = {
-    //   "id": 300,
-    //   "title": "Leadership Course",
-    //   "description": "Course authorization required to join class to complete as a part of my degree. This is the first course for the required classes in the Buisness admin specialization track. This is my choosen elective class that approval is required for.",
-    //   "status": "Close Inquiry",
-    //   "inquiry_status": "Open",
-    //   "firstRoutePath": "transcripts/basicTranscript",
-    //   "secondRoutePath": "inquiries/300",
-    //   "timestampCreated": "1/21/2023 1:43:20 PM",
-    //   "submitted_by": "Bill Phillips",
-    //   "inquiryComments": [
-    //       {
-    //           "author": "Brinleigh Blanchard",
-    //           "title": "ESO",
-    //           "comment": "Please provide more information to better assist you on our end",
-    //           "timestamp": "1/24/2023 2:43:20 PM"
-    //       },
-    //       {
-    //           "author": "Bill Phillips",
-    //           "title": "",
-    //           "comment": "Can I please get an ETA on when this can be resolved?",
-    //           "timestamp": "1/24/2023 2:43:19 PM"
-    //       }
-    //   ]
-    // };
-    //mock.onGet('../api/programAdmin/inquiry').reply(200, data);
-    
-
-    // axios.get('../api/programAdmin/inquiry').then(function (response) {
-    //   //console.log(response.data);
-    //   expect(response.data).toEqual(data);
-    // });
-
+    axios.get.mockResolvedValue({data: "data"});
     expect(getByText('Inquiries')).toBeInTheDocument();
 
   });
 
-  test('Component rendered successfully', async () => {
-    axios.get = jest.fn()
-            .mockImplementationOnce(() => Promise.resolve({ data: 'mock data' }));
-  })
 
   it("should check the search bar in the component", () => {
     const { getByPlaceholderText } = render(
@@ -87,6 +83,18 @@ describe("Inquiries Page", () => {
             target: { value: 'Zack Blanchard' },
         });
     });
+  });
+
+  test('axios error', () => {
+    const { getByText, } = render(
+      <MemoryRouterProvider url='/'>
+        <Inquiry />
+      </MemoryRouterProvider>
+    );
+    
+    axios.get.mockRejectedValueOnce(new Error('some error'));
+
+    expect(getByText('Inquiries')).toBeInTheDocument();
   });
 
 });
