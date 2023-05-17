@@ -11,6 +11,8 @@ export default function Sort({options, data, setModifiedData}) {
       setModifiedData(idListSort([...data]));
     } if(e.target.name === "Status"){
       setModifiedData(statusListSort([...data]));
+    } if(e.target.name === "Branch"){
+      setModifiedData(branchListSort([...data]));
     }
 
   }
@@ -77,7 +79,23 @@ export default function Sort({options, data, setModifiedData}) {
         return 0;
       });
     return newArray
-}
+  }
+
+  const branchListSort = (data) => {
+    let newArray = data?.sort(function(a, b) {
+        const nameA = a.branch
+        const nameB = b.branch
+        if (nameA > nameB) {
+          return 1;
+        }
+        if (nameA < nameB) {
+          return -1;
+        }
+      
+        return 0;
+      });
+    return newArray
+  }
 
   return(
     <>
