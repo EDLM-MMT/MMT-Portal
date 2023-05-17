@@ -8,7 +8,7 @@ import Sort from '@/components/Sort';
 export default function AccountsManagement() {
     const [searchInput, setSearchInput] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [modifyData,setModifyData] = useState(modifiedData);
+    const [modifyData, setModifyData] = useState(modifiedData);
     const router = useRouter();
 
     const handleChange = (e) => {
@@ -26,7 +26,7 @@ export default function AccountsManagement() {
             <div className='flex align-middle justify-between'>
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search here by name or username " onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
-                    <Sort data={modifyData} setModifiedData={setModifyData}/>
+                    <Sort options={["Most Recent", "Name", "Role"]} data={modifyData} setModifiedData={setModifyData}/>
                 </div>
             </div>
             <table className='w-full border-separate border' style={{ borderSpacing: 0 }}>
