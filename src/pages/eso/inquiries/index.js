@@ -4,7 +4,6 @@ import TwoChoiceCard from '@/components/cards/TwoChoiceCard';
 import AddBtn from '@/components/buttons/AddButton';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Dropdown from '@/components/dropdowns/Dropdown';
 import Sort from '@/components/Sort';
 
 export default function ESOInquiryDashboard() {
