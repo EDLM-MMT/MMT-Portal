@@ -65,7 +65,7 @@ describe('ESOCounselingDashboardTable component', () => {
   expect(getByText('Name')).toBeInTheDocument();
   expect(getByText('MOS Code')).toBeInTheDocument();
   expect(getByText('Counseling')).toBeInTheDocument();
-  expect(getByText('Unofficial Transscript')).toBeInTheDocument();
+  expect(getByText('Unofficial Transcript')).toBeInTheDocument();
 
   });
 
@@ -130,8 +130,8 @@ describe('ESOCounselingDashboardTable component', () => {
 
   });
 
-  it('changes sort by to student name', () => {
-    const { getByText } = render(
+  it('changes sort by to name', () => {
+    const { getByText, getByTestId } = render(
       <MemoryRouterProvider url='/'>
         <CounselingTable careerArray={careerArray} />
       </MemoryRouterProvider>
@@ -141,7 +141,7 @@ describe('ESOCounselingDashboardTable component', () => {
       act(() => {
         fireEvent.click(btn);
       });
-    const btn1 = getByText('Student Name');
+    const btn1 = getByTestId('Name');
       act(() => {
         fireEvent.click(btn);
       });

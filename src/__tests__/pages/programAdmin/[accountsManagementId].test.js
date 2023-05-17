@@ -51,5 +51,16 @@ describe("Management View page", () => {
           fireEvent.click(button);
       });
     });
+
+    it("axios error", () => {
+      const { getByText, getByPlaceholderText } = render(
+          <MemoryRouterProvider>
+              <AccountsManagementId />
+          </MemoryRouterProvider>
+      );
+  
+      axios.get.mockRejectedValueOnce(new Error('some error'));
+  
+    });
     
   });

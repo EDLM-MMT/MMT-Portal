@@ -1,5 +1,5 @@
 import UniversityEnrollment from "@/pages/execStakeholder/universityEnrollment/index";
-import { render } from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 describe("State Enrollment page", () => {
@@ -15,6 +15,20 @@ describe("State Enrollment page", () => {
       expect(getByText("Overall Statistics")).toBeInTheDocument();
       expect(getByText('Active Service Members Enrolled')).toBeInTheDocument();
       expect(getByText('Institute Statistics')).toBeInTheDocument();
+
+      const button = getByText('Personnel Percent');
+      act(() => {
+          fireEvent.click(button);
+      });
+      act(() => {
+        fireEvent.click(getByText('Total Personnel'));
+      });
+      act(() => {
+        fireEvent.click(getByText('Total Personnel'));
+      });
+      act(() => {
+        fireEvent.click(button);
+      });
 
     });
 

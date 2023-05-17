@@ -30,6 +30,54 @@ jest.mock('react-minimal-pie-chart', () => {
 })
 
 describe("ESO Management View page", () => {
+  const data = {
+    "id":"500",
+    "name": "John Smith",
+    "permissions": "Counseling",
+    "branch": "Army",
+    "workload": "4",
+    "viewProfile": "View",
+    "inProgressTasks": 35,
+    "notStartedTasks": 12,
+    "completedTasks": 16,
+    "totalTasks": 63,
+    "avgTime": "12 days",
+    "tasks": [
+        {
+            "taskId":"602",
+            "name": "Zach Blanchard",
+            "branch": "Army",
+            "title": "Computer Science",
+            "status": "In Progress",
+            "duration": "3 Days"
+        },
+        {
+            "taskId":"605",
+            "name": "Aimee Wallis",
+            "branch": "Army",
+            "title": "Data Science",
+            "status": "In Progress",
+            "duration": "5 Days"
+        },
+        {
+            "taskId":"607",
+            "name": "Alexia Jacobs",
+            "branch": "Army",
+            "title": "Computer Engineer",
+            "status": "Not Started",
+            "duration": "-"
+        },
+        {
+            "taskId":"607",
+            "name": "Jennie Haywards",
+            "branch": "Army",
+            "title": "Buisness Administration",
+            "status": "Done",
+            "duration": "8 days"
+        }
+    ]
+  }
+
   it("should render the page", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
@@ -37,7 +85,7 @@ describe("ESO Management View page", () => {
         </MemoryRouterProvider>
     );
 
-    axios.get.mockResolvedValue({data: "test data"});
+    axios.get.mockResolvedValue({data: "test data"}); 
 
     expect(getByText('- ESO')).toBeInTheDocument();
     expect(getByText('Permissions:')).toBeInTheDocument();

@@ -95,8 +95,8 @@ export default function AccountsManagement() {
                     ))
                 }
             </table>
-            {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/programAdmin/accountSupport"}
-                title={"Reset Password Confirmation"} message={"Upon clicking Confirm, a reset password email will be sent to the associated account."}/>}
+            {/* {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} path={"/programAdmin/accountSupport"}
+                title={"Reset Password Confirmation"} message={"Upon clicking Confirm, a reset password email will be sent to the associated account."}/>} */}
         </div>
         </DefaultLayout>
     );
