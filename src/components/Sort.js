@@ -9,6 +9,8 @@ export default function Sort({options, data, setModifiedData}) {
       setModifiedData(roleListSort([...data]));
     } if(e.target.name === "Most Recent"){
       setModifiedData(idListSort([...data]));
+    } if(e.target.name === "Status"){
+      setModifiedData(statusListSort([...data]));
     }
 
   }
@@ -60,6 +62,22 @@ export default function Sort({options, data, setModifiedData}) {
       });
     return newArray
   }
+
+  const statusListSort = (data) => {
+    let newArray = data?.sort(function(a, b) {
+        const nameA = a.inquiry_status
+        const nameB = b.inquiry_status
+        if (nameA > nameB) {
+          return 1;
+        }
+        if (nameA < nameB) {
+          return -1;
+        }
+      
+        return 0;
+      });
+    return newArray
+}
 
   return(
     <>
