@@ -1,19 +1,22 @@
 import Dropdown from "./dropdowns/Dropdown";
 
-export default function Sort({data, setModifiedData}) {
+export default function Sort({options, data, setModifiedData}) {
   
   const onChange = (e) => {
     if(e.target.name === "Name"){
       setModifiedData(nameListSort([...data]));
-    } else {
+    } if(e.target.name === "Role"){
       setModifiedData(roleListSort([...data]));
+    } if(e.target.name === "Most Recent"){
+      setModifiedData(idListSort([...data]));
     }
+
   }
   
   const nameListSort = (data) => {
     let newArray = data?.sort(function(a, b) {
-      const nameA = a.name;
-      const nameB = b.name;
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
       if (nameA > nameB) {
         return 1;
       }
@@ -42,10 +45,26 @@ export default function Sort({data, setModifiedData}) {
     return newArray
   }
 
+  const idListSort = (data) => {
+    let newArray = data?.sort(function(a, b) {
+        const nameA = a.id
+        const nameB = b.id
+        if (nameA > nameB) {
+          return 1;
+        }
+        if (nameA < nameB) {
+          return -1;
+        }
+      
+        return 0;
+      });
+    return newArray
+  }
+
   return(
     <>
       <div className='p-2 font-medium'> Sort By: </div> 
-      <Dropdown options={["Name", "Role"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
+      <Dropdown options={options} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
     </>
   );
 }

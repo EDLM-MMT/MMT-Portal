@@ -1,14 +1,20 @@
 import { useRouter } from "next/router";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
+import Sort from '@/components/Sort';
 
-
-export default function CounselingTable(careerList) {
+export default function CounselingTable(careerArray) {
 
     const router = useRouter();
     const [searchInput, setSearchInput] = useState("");
     const [selected, setSelected] = useState("");
+    const [data, setData] = useState(careerArray.careerArray);
 
+
+    useEffect(()=> {
+        setData(careerArray.careerArray);
+    },[careerArray]) 
+    
     const handleView = (e) =>{
         router.push("/eso/counseling/transcript");
     }
@@ -21,55 +27,12 @@ export default function CounselingTable(careerList) {
         setSearchInput(e.target.value);
     };
 
-    const onChange = (e) => {
-        setSelected(e.target.name);
-        if(e.target.name === "Student Name"){
-            careerListNameSort()
-        } else {
-            careerListIDSort()
-        }
-    }
-
-    const careerListNameSort = () => {
-        let newArray = careerList.careerArray.sort(function(a, b) {
-            const nameA = a.name.toUpperCase();
-            const nameB = b.name.toUpperCase();
-            if (nameA > nameB) {
-              return 1;
-            }
-            if (nameA < nameB) {
-              return -1;
-            }
-          
-            return 0;
-          });
-        return newArray
-    }
-
-    const careerListIDSort = () => {
-        let newArray = careerList.careerArray.sort(function(a, b) {
-            const nameA = a.id
-            const nameB = b.id
-            if (nameA > nameB) {
-              return 1;
-            }
-            if (nameA < nameB) {
-              return -1;
-            }
-          
-            return 0;
-          });
-        return newArray
-    }
-
     return(
         <div>
-
             <div className='flex align-middle justify-between'>
                 <input type="text" className=" w-1/2 mb-6 pl-4  bg-gray-50 border border-gray-300 text-gray-900 text-mid rounded-xl p-2" placeholder="Search Service Member Name" onChange={handleChange} value={searchInput} />
                 <div className='flex flex-row align-middle'>
-                    <div className='p-2 font-medium'> Sort By: </div> 
-                    <Dropdown options={["Student Name", "Most Recent"]} keyName={"Sort"} initialValue={"Most Recent"} onChange={onChange} />
+                    <Sort options={["Most Recent", "Name"]} data={data} setModifiedData={setData}/>
                 </div>
             </div>
 
@@ -106,12 +69,12 @@ export default function CounselingTable(careerList) {
                                     text-left font-semibold text-gray-900 backdrop-blur
                                     backdrop-filter sm:table-cell'
                             >
-                                Unofficial Transscript
+                                Unofficial Transcript
                             </th>                          
                     </tr>
                 </thead>
                 {
-                    careerList.careerArray.filter(post => {
+                    data?.filter(post => {
                         if (searchInput === ''){
                             return post;
                         } else if(post.name.toLowerCase().includes(searchInput.toLowerCase())){
