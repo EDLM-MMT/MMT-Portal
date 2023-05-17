@@ -21,7 +21,7 @@ describe("State Enrollment page", () => {
       });
       act(() => {
         fireEvent.click(getByText('Georgia'));
-    });
+      });
 
     });
 
