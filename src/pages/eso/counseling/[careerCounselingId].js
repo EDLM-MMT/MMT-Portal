@@ -71,7 +71,7 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleCommentPost = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         if(dropdownValue !== "Select one" && event.target.comment?.value){
             const newComment = {
             date: timestamp,

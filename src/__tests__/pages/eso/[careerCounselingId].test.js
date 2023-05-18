@@ -144,14 +144,14 @@ describe("Counseling View Page", () => {
         fireEvent.click(button);
     });
 
-    const button2 = getByText('Updated');
+    const button2 = getByText('Advised');
     act(() => {
         fireEvent.click(button2);
     });
 
     act(() => {
       fireEvent.change(getByPlaceholderText('Notes'), {
-        target: { value: 'Test Comment' },
+        target: { value: 'Comment Added' },
       });
     });
 
