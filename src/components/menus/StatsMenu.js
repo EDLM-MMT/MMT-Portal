@@ -7,6 +7,7 @@ import {
   import { Menu, Transition } from '@headlessui/react';
   import { useRouter } from 'next/router';
   import useStore from '@/store/store';
+  import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
   
   const listMenuButtons = [
@@ -19,15 +20,41 @@ import {
       href: '/execStakeholder/stateEnrollment',
     },
   ];
+
+  
   
   
   const StatMenu = ({ name, href }) => {
     const router = useRouter();
+    const userData = useStore((state) => state.userData);
+
+    const handleClick = (event) => {
+      console.log("here");
+      const context = {
+        actor: {
+          first_name: userData?.user?.first_name || 'Anonymous',
+          last_name: userData?.user?.last_name || 'User',
+        },
+        verb: {
+          id: "http://example.org/verb/explored",
+          display: `Viewed ${name}`,
+        },
+        object: {
+            definitionName: `Viewed ${name}`,
+        },
+        resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+        resultExtValue: "test",
+      };
+      xAPISendStatement(context);
+      console.log(event?.target.innerHTML);
+    }
+    
     return (
       <Menu.Item>
         {({ active }) => (
           <button
-            onClick={() => router.push(href)}
+            // onClick={() => router.push(href)}
+            onClick={() => {handleClick(event); router.push(href);}}
             id={name.toLowerCase().replace(/\s/g, '-')}
             className={`${
               active ? 'bg-gray-100' : 'bg-white'

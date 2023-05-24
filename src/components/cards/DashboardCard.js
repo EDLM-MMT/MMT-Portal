@@ -10,17 +10,17 @@ export default function DashboardCard({ title, description, buttonLabel, secondB
               last_name: user?.user?.last_name || 'User',
             },
             verb: {
-              id: "http://example.org/verb/did",
-              display: `viewed`,
+              id: "http://example.org/verb/explored",
+              display: `Viewed ${title}`,
             },
             object: {
-                definitionName: `viewed`,
+                definitionName: `Viewed ${title}`,
             },
             resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
             resultExtValue: "test",
         };
         xAPISendStatement(context);
-        console.log("sent")
+        console.log("sent");
         router.push(`/${routePath}`);
     }
     const handleSecondClick = () => {

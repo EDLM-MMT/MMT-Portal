@@ -66,8 +66,8 @@ export default function DropdownViewCard({ title, options, routePath, width }){
         return(
             <>
                 {enrollmentList.map((value, index) => {
-                    console.log("value.year: ", value.year);
-                    console.log("content: ", content);
+                    // console.log("value.year: ", value.year);
+                    // console.log("content: ", content);
                     if (value?.state === content){
                         return(
                             <div>

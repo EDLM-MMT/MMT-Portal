@@ -11,6 +11,7 @@ import Dropdown from '@/components/dropdowns/Dropdown';
 import ESOCommentsTable from '@/components/tables/ESOCommentsTable';
 import Checkbox from '@/components/Checkbox';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 
 export function getServerSideProps(context) {
@@ -104,6 +105,23 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleSave = (event) => {
+        const context = {
+            actor: {
+              first_name: userData?.user?.first_name || 'Anonymous',
+              last_name: userData?.user?.last_name || 'User',
+            },
+            verb: {
+              id: "http://example.org/verb/recommended",
+              display: `Recommended`,
+            },
+            object: {
+                definitionName: `Recommended`,
+            },
+            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            resultExtValue: "test",
+        };
+        xAPISendStatement(context);
+        console.log("sent")
         event.preventDefault();
     }
     
@@ -114,6 +132,30 @@ export default function CareerCounseling({careerCounselingId}) {
     const comfirmOverlay = () => {
         setIsOpen(true);
     }
+
+    useEffect(() => {
+        if (disableButton === true){
+            const context = {
+                actor: {
+                  first_name: userData?.user?.first_name || 'Anonymous',
+                  last_name: userData?.user?.last_name || 'User',
+                },
+                verb: {
+                  id: "http://example.org/verb/approved",
+                  display: `Approved ${career.degree}`,
+                },
+                object: {
+                    definitionName: `Approved ${career.degree}`,
+                },
+                resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+                resultExtValue: "test",
+            };
+            console.log(context);
+            xAPISendStatement(context);
+            console.log("sent");
+        }
+    }, [disableButton]);
+
 
     return (
       <DefaultLayout>
