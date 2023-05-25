@@ -3,7 +3,7 @@ import useStore from '@/store/store';
 import profileImage from '@/../public/profile-picture.png';
 import Image from 'next/image';
 import Button from '@/components/buttons/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import Alert from '@/components/overlays/Alert';
 
@@ -12,6 +12,7 @@ export default function ResetPassword() {
     const userData = useStore((state) => state.userData);
     const [errorMessage, setErrorMessage] = useState();
     const [isOpen, setIsOpen] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [newPassword, setNewPassword] = useState({
         password: '',
         retypePassword: '',
@@ -25,16 +26,42 @@ export default function ResetPassword() {
       };
 
     function handleSubmit(event){
+        setIsSubmitted(false);
         if (newPassword.password && newPassword.retypePassword){
             event.preventDefault();
             if(newPassword.password === newPassword.retypePassword){
                 setIsOpen(!isOpen);
+                setIsSubmitted(true);
             }
             else{
                 setErrorMessage("Passwords do not match");
+                setIsSubmitted(false);
             }
         }
     }
+
+    useEffect(() => {
+        if (isSubmitted === true){
+            const context = {
+                actor: {
+                  first_name: userData?.user?.first_name || 'Anonymous',
+                  last_name: userData?.user?.last_name || 'User',
+                },
+                verb: {
+                  id: "http://example.org/verb/reset",
+                  display: `Reset Password`,
+                },
+                object: {
+                    definitionName: `Reset Password`,
+                },
+                resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+                resultExtValue: "test",
+            };
+            console.log(context);
+            xAPISendStatement(context);
+            console.log("sent");
+        }
+    }, [isOpen]);
 
     return (
         <DefaultLayout >
