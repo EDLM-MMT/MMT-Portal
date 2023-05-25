@@ -61,7 +61,7 @@ export default function ResetPassword() {
             xAPISendStatement(context);
             console.log("sent");
         }
-    }, [isOpen]);
+    }, [isSubmitted]);
 
     return (
         <DefaultLayout >
