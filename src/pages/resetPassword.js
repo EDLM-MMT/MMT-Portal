@@ -27,22 +27,19 @@ export default function ResetPassword() {
       };
 
     function handleSubmit(event){
-        setIsSubmitted(false);
         if (newPassword.password && newPassword.retypePassword){
             event.preventDefault();
             if(newPassword.password === newPassword.retypePassword){
                 setIsOpen(!isOpen);
-                setIsSubmitted(true);
             }
             else{
                 setErrorMessage("Passwords do not match");
-                setIsSubmitted(false);
             }
         }
     }
 
     useEffect(() => {
-        if (isSubmitted === true){
+        if (isSubmitted){
             const context = {
                 actor: {
                   first_name: userData?.user?.first_name || 'Anonymous',
@@ -50,10 +47,10 @@ export default function ResetPassword() {
                 },
                 verb: {
                   id: "http://example.org/verb/reset",
-                  display: `Reset Password`,
+                  display: `Password Updated`,
                 },
                 object: {
-                    definitionName: `Reset Password`,
+                    definitionName: `Password Updated`,
                 },
                 resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
                 resultExtValue: "test",
@@ -90,7 +87,7 @@ export default function ResetPassword() {
                 <button onClick={handleSubmit} type="submit" class="text-white bg-dod-500/80 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 border-dod-500 border-2 ring-dod-500 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Password</button>
             </div>
         </form>
-        {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} title={"Reset Password Confirmation"} message={"Are you sure you want to reset you password?"} path={"/profile"}/>}
+        {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} title={"Reset Password Confirmation"} disable={setIsSubmitted} message={"Are you sure you want to reset you password?"} path={"/profile"}/>}
         {errorMessage && <Alert message={errorMessage} toggleModal={setIsOpen}></Alert>}
 
         </div>
