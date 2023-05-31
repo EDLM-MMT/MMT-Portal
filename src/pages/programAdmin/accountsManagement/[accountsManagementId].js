@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useRouter } from "next/router"
 import Table from '@/components/tables/Table';
 import ProgramAdminViewCard from '@/components/cards/ProgAdminViewCard';
+import useStore from '@/store/store';
 
 export function getServerSideProps(context) {
     const { accountsManagementId } = context.query;
@@ -18,6 +19,7 @@ export default function AccountManagementView({accountsManagementId}) {
 
     const [accountData, setAccountData] = useState([]);
     const router = useRouter();
+    const userData = useStore((state) => state.userData);
 
     const data = [
         ["01/22/2023 15:14 PM", 3, 1, 1, 2, 1],
@@ -58,7 +60,7 @@ export default function AccountManagementView({accountsManagementId}) {
               Account Management</button> -{`>`} {accountData.name}
             </div>
             <div className="mb-8">
-                <ProgramAdminViewCard account={accountData} routePath={accountsManagementId}/>
+                <ProgramAdminViewCard userData={userData} account={accountData} routePath={accountsManagementId}/>
             </div>
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mb-8 text-3xl font-semibold'>Login History</h1>
