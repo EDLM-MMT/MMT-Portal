@@ -6,6 +6,7 @@ import Button from '@/components/buttons/Button';
 import { useState, useEffect } from 'react';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import Alert from '@/components/overlays/Alert';
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 
 export default function ResetPassword() {
