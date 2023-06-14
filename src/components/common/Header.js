@@ -5,7 +5,7 @@ import logo from '/public/logo.png';
 import useStore from '@/store/store';
 import UserMenu from '@/components/menus/UserMenu';
 import StatsMenu from '@/components/menus/StatsMenu';
-
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 const ServiceMemberMenuItems = [
   {
@@ -87,13 +87,35 @@ const ExecMenuItems = [
   },
 ];
 
-function Button({ data }) {
+const handleClick = (label, user) => {
+  console.log(label)
+  const context = {
+      actor: {
+        first_name: user?.user?.first_name || 'Anonymous',
+        last_name: user?.user?.last_name || 'User',
+      },
+      verb: {
+        id: "http://example.org/verb/explored",
+        display: `Viewed ${label}`,
+      },
+      object: {
+          definitionName: `Viewed ${label}`,
+      },
+      resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+      resultExtValue: "test",
+  };
+  console.log(context)
+  xAPISendStatement(context);
+  console.log("sent")
+}
+
+function Button({ data, user }) {
   const router = useRouter();
   if (data.path === router?.asPath) {
     return (
       <Link href={data.path}>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <button className='px-1 font-bold text-lg text-white border-b-2 border-white-800 hover:white-gray-900'>
+        <button onClick={handleClick(data.label, user)} className='px-1 font-bold text-lg text-white border-b-2 border-white-800 hover:white-gray-900'>
           {data.label}
         </button>
       </Link>
@@ -151,7 +173,7 @@ export default function Header() {
                 if(item.label === "Enrollment Statistics"){
                   return <StatsMenu />
                 }
-                return <Button key={item.label} data={item} />;
+                return <Button key={item.label} data={item} user={user}/>;
             })}
           </div>
             <div className='space-x-4'>

@@ -11,6 +11,7 @@ import Dropdown from '@/components/dropdowns/Dropdown';
 import ESOCommentsTable from '@/components/tables/ESOCommentsTable';
 import Checkbox from '@/components/Checkbox';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 
 export function getServerSideProps(context) {
@@ -71,7 +72,7 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleCommentPost = (event) => {
-        event.preventDefault()
+        event.preventDefault();
         if(dropdownValue !== "Select one" && event.target.comment?.value){
             const newComment = {
             date: timestamp,
@@ -104,6 +105,23 @@ export default function CareerCounseling({careerCounselingId}) {
     }
 
     const handleSave = (event) => {
+        const context = {
+            actor: {
+              first_name: userData?.user?.first_name || 'Anonymous',
+              last_name: userData?.user?.last_name || 'User',
+            },
+            verb: {
+              id: "http://example.org/verb/recommended",
+              display: `Recommended`,
+            },
+            object: {
+                definitionName: `Recommended`,
+            },
+            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            resultExtValue: "test",
+        };
+        xAPISendStatement(context);
+        console.log("sent")
         event.preventDefault();
     }
     
@@ -114,6 +132,30 @@ export default function CareerCounseling({careerCounselingId}) {
     const comfirmOverlay = () => {
         setIsOpen(true);
     }
+
+    useEffect(() => {
+        if (disableButton === true){
+            const context = {
+                actor: {
+                  first_name: userData?.user?.first_name || 'Anonymous',
+                  last_name: userData?.user?.last_name || 'User',
+                },
+                verb: {
+                  id: "http://example.org/verb/approved",
+                  display: `Approved ${career.degree}`,
+                },
+                object: {
+                    definitionName: `Approved ${career.degree}`,
+                },
+                resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+                resultExtValue: "test",
+            };
+            console.log(context);
+            xAPISendStatement(context);
+            console.log("sent");
+        }
+    }, [disableButton]);
+
 
     return (
       <DefaultLayout>
@@ -191,7 +233,7 @@ export default function CareerCounseling({careerCounselingId}) {
                                             name="requiredCheck"
                                             checked={checkedState}
                                             onChange={handleChange}
-                                            data-testid="test-course-required"
+                                            data-testid="test-course-required" 
                                         />
                                     </label>
                                 </div>
@@ -263,7 +305,7 @@ export default function CareerCounseling({careerCounselingId}) {
                         {errorFlag && <div className="font-md text-red-500 w-3/4">Value for dropdown must be selected and comment must be added before posting!</div>}  
                     </div>
                     <div className="flex justify-end w-full pt-2">      
-                        <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Post</button>
+                        <button className="flex justify-end items-center tect-sm gap-2 dod-500 rounded-md hover:shadow-md text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 p-1.5 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Post Note</button>
                     </div>
                     
                 </form>

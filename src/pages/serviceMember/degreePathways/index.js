@@ -4,10 +4,16 @@ import Dropdown from '@/components/dropdowns/Dropdown';
 import AddBtn from '@/components/buttons/AddButton';
 import ViewBtn from '@/components/buttons/ViewBtn';
 import Accordion from '@/components/Accordion';
+import { PlusCircleIcon } from '@heroicons/react/outline';
+import useStore from '@/store/store';
+import { useRouter } from "next/router"
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School");
     const [searchInput, setSearchInput] = useState("");
+    const router = useRouter();
+    const userData = useStore((state) => state.userData);
 
     const onChange = (e) => {
         setSelected(e.target.name);
@@ -265,6 +271,28 @@ export default function DegreePathways() {
         } 
     }
 
+    const handleClick = () =>{
+        const context = {
+            actor: {
+              first_name: userData?.user?.first_name || 'Anonymous',
+              last_name: userData?.user?.last_name || 'User',
+            },
+            verb: {
+              id: "http://example.org/verb/planned",
+              display: `Counseling started with ESO`,
+            },
+            object: {
+                definitionName: `Counseling started with ESO`,
+            },
+            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            resultExtValue: "test",
+        };
+        xAPISendStatement(context);
+        console.log("sent");
+        router.push(`/serviceMember/counseling`);
+
+    }
+
     const panelCode = (content) =>
         content.map((school, index) => {
             return(
@@ -285,7 +313,11 @@ export default function DegreePathways() {
                                 })}
                                 <div className="flex flex-row gap-2">
                                     {<ViewBtn path={`/serviceMember/credits`}/>}
-                                    {<AddBtn btnText={"Add to List"} link={"/serviceMember/counseling"}/>}
+                                    <button id={'add-to-list-button'} onClick={handleClick} className='flex justify-center items-center w-max px-2 p-1.5 gap-2 dod-500 hover:shadow-md font-medium rounded-lg text-sm text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none' title={"Add to List"}>
+                                        <PlusCircleIcon className='h-5 w-5'/>
+                                        Add to List 
+                                    </button>
+                                    {/* {<AddBtn btnText={"Add to List"} onClick={handleClick} link={"/serviceMember/counseling"}/>} */}
                                 </div>
                                 </div>
                             }/>

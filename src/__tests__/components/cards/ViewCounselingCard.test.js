@@ -15,4 +15,18 @@ describe("View Counseling Card component", () => {
     expect(getByText(/Overview/i)).toBeInTheDocument();
   });
 
+  it("should render the ESO component", () => {
+    const career = {
+      "username": "user",
+      "mosCode":"code"
+    }
+    const { getByText } = render(
+      <MemoryRouterProvider>
+        <ViewCounselingCard title={"Counseling Card"} serviceMember="test" assignedESO="ESO" career={career}/>
+      </MemoryRouterProvider>
+    );
+
+    expect(getByText(/Overview/i)).toBeInTheDocument();
+  });
+
 });

@@ -32,7 +32,7 @@ describe("Counseling View Page", () => {
     expect(getByText('Total Credit Hours:')).toBeInTheDocument();
     expect(getByText('Save Changes')).toBeInTheDocument();
     expect(getAllByText('Add a comment:').length).toBe(2);
-    expect(getAllByText('Post').length).toBe(2);
+    expect(getAllByText('Post').length).toBe(1);
     expect(getByText('Counseling Communication Timeline')).toBeInTheDocument();
 
     expect(getByPlaceholderText('Please provide comments if necessary.')).toBeInTheDocument();
@@ -42,10 +42,10 @@ describe("Counseling View Page", () => {
       });
     });
 
-    // const button = getByText('Post');
-    // act(() => {
-    //   fireEvent.click(button);
-    // });
+    const button = getByText('Post');
+    act(() => {
+      fireEvent.click(button);
+    });
 
   });
 
@@ -66,7 +66,7 @@ describe("Counseling View Page", () => {
   });
 
   it("should add course", () => {
-    const { getByText, getByPlaceholderText } = render(
+    const { getByText, getByPlaceholderText, getByTestId } = render(
         <MemoryRouterProvider>
             <CareerCounseling />
         </MemoryRouterProvider>
@@ -94,6 +94,12 @@ describe("Counseling View Page", () => {
         target: { value: '3' },
       });
     });
+
+    const reqButton = getByTestId('test-course-required');
+    act(() => {
+        fireEvent.click(reqButton);
+    });
+
     act(() => {
       fireEvent.change(getByPlaceholderText('Projected Semester'), {
         target: { value: 'Fall 2023' },
@@ -123,5 +129,61 @@ describe("Counseling View Page", () => {
     });
   });
 
+  it("should update Notes section", () => {
+    const { getByText, getByPlaceholderText } = render(
+        <MemoryRouterProvider>
+            <CareerCounseling />
+        </MemoryRouterProvider>
+    );
+
+    axios.get.mockResolvedValue({data: []});
+
+    expect(getByText('Select one')).toBeInTheDocument();
+    const button = getByText('Select one');
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    const button2 = getByText('Advised');
+    act(() => {
+        fireEvent.click(button2);
+    });
+
+    act(() => {
+      fireEvent.change(getByPlaceholderText('Notes'), {
+        target: { value: 'Comment Added' },
+      });
+    });
+
+    const postBtton = getByText('Post Note');
+    act(() => {
+        fireEvent.click(postBtton);
+    });
+
+  });
+
+  it("should click confirm plan button", () => {
+    const mockIntersectionObserver = jest.fn();
+    mockIntersectionObserver.mockReturnValue({
+        observe: () => null,
+        unobserve: () => null,
+        disconnect: () => null
+    });
+    window.IntersectionObserver = mockIntersectionObserver;
+
+    const { getByText } = render(
+        <MemoryRouterProvider>
+            <CareerCounseling />
+        </MemoryRouterProvider>
+    );
+
+    axios.get.mockResolvedValue({data: []});
+
+    expect(getByText('Confirm Plan')).toBeInTheDocument();
+    const button = getByText('Confirm Plan');
+    act(() => {
+        fireEvent.click(button);
+    });
+  });
 
 });

@@ -16,7 +16,7 @@ describe("Edit Card component", () => {
   }]
 
   it("should render the component", () => {
-    const { getByText } = render(
+    const { getByText, getByTestId } = render(
       <MemoryRouterProvider>
         <CounselingEditableCard career={mockData} routePath={mockData.id} />
       </MemoryRouterProvider>
@@ -29,6 +29,26 @@ describe("Edit Card component", () => {
     const editButton = getByText('Edit');
     act(() => {
         fireEvent.click(editButton);
+    });
+
+    const button = getByText('None');
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    const button2 = getByText('John Doe');
+    act(() => {
+        fireEvent.click(button2);
+    });
+
+    const dateButton = getByText('TBD');
+    act(() => {
+        fireEvent.click(dateButton);
+    });
+
+    const button3 = getByText('Fall 2023');
+    act(() => {
+        fireEvent.click(button3);
     });
 
     const saveButton = getByText('Save Changes');
