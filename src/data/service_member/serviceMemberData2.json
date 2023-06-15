@@ -4,16 +4,16 @@
       "personnel": {
         "person": {
           "personid": 105,
-          "name": "Bill Christian Phillips",
-          "firstName": "Bill",
-          "middleName": "Christian",
-          "lastName": "Phillips",
+          "name": "Benjamin William",
+          "firstName": "Benjamin",
+          "middleName": "",
+          "lastName": "William",
           "namePrefix": "Mr.",
-          "email": "phillips@us.navy.mil",
+          "email": "william@us.ARMY.mil",
           "titleAffixcode": null,
           "nameSuffix": null,
           "qualificationAffixcode": null,
-          "maidenName": "Phillips",
+          "maidenName": "William",
           "preferredName": null,
           "humanResourceIdentifier": "0123456789",
           "personnelIdentificationSystem": null,
@@ -25,16 +25,16 @@
         },
         "organization": {
           "organizationid": 100,
-          "organizationname": "NAVY",
+          "organizationname": "ARMY",
           "organizationidentifier": "D0DAF",
           "organizationidentificationcode": "G0V4",
           "organizationidentificationsystem": null,
           "industrytypeidentifier": null,
           "organizationfein": "1234573",
-          "organizationdescription": "NAVY",
-          "parentorganization": "NAVY",
+          "organizationdescription": "ARMY",
+          "parentorganization": "ARMY",
           "recordstatus": "ACTIVE",
-          "assignedeso": "Mary Jane Doe",
+          "assignedeso": "Liz May Glass",
           "location": "USA"
         },
         "contactInformation": {
@@ -52,7 +52,7 @@
         "employment": [
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -66,7 +66,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -80,7 +80,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
