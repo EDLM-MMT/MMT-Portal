@@ -2,23 +2,39 @@ import DefaultLayout from "@/components/layouts/DefaultLayout";
 import CounselingTable from '@/components/tables/CounselingDashboardTable';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import useStore from '@/store/store';
+
 
 
 
 export default function CareerCounselingList() {
 
     const [careerList, setCareerList] = useState([])
+    const user = useStore((state) => state.userData);
+
 
     useEffect(() => {
         axios
           .get(`/api/careerCounseling`)
           .then((res) => {
-            setCareerList(res.data.counseling);
+            let data = res.data.counseling
+            for(let x in data){
+                //console.log("x: ", data[x])
+              if(data[x].personid === user?.learner.personnel.person.personid ){
+                const newCareer = data[x];
+                setCareerList(careerList =>[...careerList, newCareer]);
+              }
+            }
           })
           .catch((err) => {
             console.log(err);
           });
+
     }, []);
+
+    // console.log("user career list:", userCareerList);
+    // console.log("user:", user)
+
 
     return (
         <DefaultLayout>

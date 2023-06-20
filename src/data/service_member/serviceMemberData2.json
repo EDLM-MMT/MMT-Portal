@@ -3,7 +3,7 @@
     "learner": {
       "personnel": {
         "person": {
-          "personid": 105,
+          "personid": 106,
           "name": "Benjamin William",
           "firstName": "Benjamin",
           "middleName": "",
@@ -51,7 +51,7 @@
         },
         "employment": [
           {
-            "employmentid": 100,
+            "employmentid": 101,
             "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
@@ -65,7 +65,7 @@
             "recordstatus": "ACTIVE"
           },
           {
-            "employmentid": 100,
+            "employmentid": 101,
             "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
@@ -79,7 +79,7 @@
             "recordstatus": "ACTIVE"
           },
           {
-            "employmentid": 100,
+            "employmentid": 101,
             "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
