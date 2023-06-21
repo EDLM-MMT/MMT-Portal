@@ -1,13 +1,51 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
 import AddBtn from '@/components/buttons/AddButton';
 import ViewBtn from '@/components/buttons/ViewBtn';
 import Accordion from '@/components/Accordion';
+import { PlusCircleIcon } from '@heroicons/react/outline';
+import { useRouter } from "next/router"
+import axios from 'axios';
+import { data } from 'autoprefixer';
+import useStore from '@/store/store';
+
+
+
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School");
     const [searchInput, setSearchInput] = useState("");
+    const [degree, setDegree] = useState([]);
+
+    const user = useStore((state) => state.userData);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        axios
+          .get(`/api/careerCounseling`)
+          .then((res) => {
+            let data = res.data.counseling
+            console.log("data:", data)
+            setDegree(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+    }, []);
+
+    console.log("degree list:", degree);
+
+    // const handlePost = (newDegree) =>{
+    //     axios.post('/api/careerCounseling', {body: newDegree}).then((response) => {
+    //         console.log(response.status, response.data);
+    //         console.log("degree list inside axios post: ", degree)
+            
+    //     });
+    // }
+
 
     const onChange = (e) => {
         setSelected(e.target.name);
@@ -265,6 +303,54 @@ export default function DegreePathways() {
         } 
     }
 
+    const handleClick = (name, schoolData) => {
+
+        console.log("school data: ", schoolData)
+          
+        const newDegree= {
+            "id": 303,
+            "degree": schoolData.data,
+            "school": name,
+            "submitted_by": user?.learner.personnel.person.name,
+            "username": "",
+            "personid": user?.learner.personnel.person.personid,
+            "mosCode": "AET",
+            "degree_startDate": "May 2023",
+            "projected_graduation": "December 2027",
+            "assigned_eso": "Luis Doe",
+            "total_creditHours": 60,
+            "creditHours_completed": 28,
+            "course_plan": [
+                {
+                    "course_number": "MAC1105",
+                    "course_name": "Intro to Algebra",
+                    "required": "Yes",
+                    "credit_hours": 3,
+                    "projected_semester": "Fall 2022",
+                    "status": "Approved"
+                }
+            ],
+            "counselingComments": [],
+            "ESOComments": [
+                {
+                    "date": "2/14/2023 3:12:57 PM",
+                    "purpose": "Approved",
+                    "comment": "Approved added required courses"
+
+                }
+            ]
+        }
+        
+        //handlePost(newDegree)
+
+        axios.post('/api/careerCounseling', {body: newDegree}).then((response) => {
+            console.log(response.status, response.data);
+            console.log("degree list inside axios post: ", degree)          
+        });
+        
+        router.push("/serviceMember/counseling");
+    }
+
     const panelCode = (content) =>
         content.map((school, index) => {
             return(
@@ -285,7 +371,16 @@ export default function DegreePathways() {
                                 })}
                                 <div className="flex flex-row gap-2">
                                     {<ViewBtn path={`/serviceMember/credits`}/>}
-                                    {<AddBtn btnText={"Add to List"} link={"/serviceMember/counseling"}/>}
+                                    {/* {<AddBtn btnText={"Add to List"} link={"/serviceMember/counseling"}/>} */}
+                                    {<button 
+                                        id={'add-button-to-list'}
+                                        className='flex justify-center items-center w-max px-2 p-1.5 gap-2 dod-500 hover:shadow-md font-medium rounded-lg text-sm text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none' 
+                                        title='Add to list'
+                                        onClick={()=> handleClick(school.name, data)}
+                                    >
+                                        <PlusCircleIcon className='h-5 w-5'/>
+                                        Add to List
+                                    </button>}
                                 </div>
                                 </div>
                             }/>

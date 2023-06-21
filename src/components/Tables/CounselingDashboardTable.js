@@ -80,7 +80,6 @@ export default function CounselingDashboardTable({careerList}) {
                     </tr>
                 </thead>
                 {degree.map((career, index) => ( 
-                        <thead>
                             <tr key={index} className=' even:bg-gray-50 group'>
                                 {/* {setData(post)} */}
                                 <td className='whitespace-nowrap text-sm font-medium text-gray-900 pl-2 py-2'>{career.degree}</td>
@@ -90,7 +89,6 @@ export default function CounselingDashboardTable({careerList}) {
                                 <td><button onClick={() => handleCareerCounseling(career.id)} className="text-dod-500 pl-2">Go To Counseling</button></td>
                                 <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-dod-700 pl-2">Delete</button></td>
                             </tr>
-                        </thead>
                 ))}
             </table>
             {/* {isOpen && <DeletePopup toggleModal={setIsOpen} message={"Are you sure you want to delete this row?"} path={"/serviceMember/careerCounseling"} degree={degree}/>} */} 
