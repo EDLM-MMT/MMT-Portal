@@ -103,6 +103,32 @@
                     "timestamp": "2/24/2023 4:43:19 PM"
                 }
             ]
+        },
+        {
+            "id": 320,
+            "title": "Does my courses transfer just fine for an IT career?",
+            "description": "I was wondering if all the courses I've taken would work well if I decide to pursue IT as a career",
+            "status": "Close Inquiry",
+            "inquiry_status": "Open",
+            "firstRoutePath": "transcripts/basicTranscript",
+            "secondRoutePath": "inquiries/320",
+            "timestampCreated": "6/23/2023  4:05:42 AM",
+            "submitted_by": "Bill Christian Phillips",
+            "submitter_id": 105,
+            "inquiryComments": []
+        },
+        {
+            "id": 361,
+            "title": "Assessment on my current choices for Academic Institutes",
+            "description": "I have many options and would like to speak with an ESO about what are the appropriate next steps to follow",
+            "status": "Close Inquiry",
+            "inquiry_status": "Open",
+            "firstRoutePath": "transcripts/basicTranscript",
+            "secondRoutePath": "inquiries/361",
+            "timestampCreated": "6/23/2023  4:29:15 AM",
+            "submitted_by": "Noah Smith",
+            "submitter_id": 107,
+            "inquiryComments": []
         }
     ]
 }

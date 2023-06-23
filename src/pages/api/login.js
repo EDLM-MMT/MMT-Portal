@@ -9,7 +9,7 @@ import execStakeholderData from '@/data/execStakeholder/execStakeholderData.json
 
 export default function handler(req, res) {
   const { username, password } = req.body;
-  if (username.toLowerCase().includes('phillips@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('phillips@us.army.mil') && password.includes('password')) {
     return res.status(200).json(serviceMemberData1);
   }
   if (username.toLowerCase().includes('william@us.navy.mil') && password.includes('password')) {

@@ -221,8 +221,8 @@
                     "status": "Approved"
                 },
                 {
-                    "course_number": "COP1000",
-                    "course_name": "Intro to Programming",
+                    "course_number": "ENC 1101",
+                    "course_name": "English Composition I",
                     "required": "Yes",
                     "credit_hours": 3,
                     "projected_semester": "Spring 2023",
@@ -265,7 +265,7 @@
             ]
         },
         {
-            "id": 303,
+            "id": 304,
             "degree": "AA Criminal Justice",
             "school": "Florida National University",
             "submitted_by": "Bill Christian Phillips",
@@ -297,7 +297,7 @@
             ]
         },
         {
-            "id": 303,
+            "id": 305,
             "degree": "BS Technical Management",
             "school": "Emory Riddle",
             "submitted_by": "Noah Smith",
