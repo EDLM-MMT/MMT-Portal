@@ -306,9 +306,12 @@ export default function DegreePathways() {
     const handleClick = (name, schoolData) => {
 
         console.log("school data: ", schoolData)
+        const min = 306;
+        const max = 407;
+        const randId = parseInt(min + Math.random() * (max - min));
           
         const newDegree= {
-            "id": 303,
+            "id": randId,
             "degree": schoolData.data,
             "school": name,
             "submitted_by": user?.learner.personnel.person.name,

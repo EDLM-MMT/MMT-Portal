@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import DeletePopup from '@/components/overlays/DeletePopup'
 import { useState, useEffect } from 'react';
+import axios from 'axios'
 
 
 export default function CounselingDashboardTable({careerList}) {
@@ -17,8 +18,13 @@ export default function CounselingDashboardTable({careerList}) {
         router.push(`/serviceMember/counseling/${event}`); 
     }
 
-    const handleDelete = (degreeIndex, e) =>{
+    const handleDelete = (degreeIndex, careerIndex, e) =>{
         console.log("delete row")
+        console.log("degree Index: ", degreeIndex)
+        axios.delete(`/api/careerCounseling/${careerIndex}`)
+        .then((response) =>{
+            console.log(response.status, response.data);
+        });
         setDegree(degree.filter((degree,i) => i !== degreeIndex));
         setIsOpen(true)
         console.log(degree)
@@ -87,7 +93,7 @@ export default function CounselingDashboardTable({careerList}) {
                                 <td className='pl-14'>{career.total_creditHours}</td>
                                 <td className='pl-16'>{career.total_creditHours - career.creditHours_completed}</td>
                                 <td><button onClick={() => handleCareerCounseling(career.id)} className="text-dod-500 pl-2">Go To Counseling</button></td>
-                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,e)} className="text-dod-700 pl-2">Delete</button></td>
+                                <td><button data-testid={"delete-button"} onClick={(e) => handleDelete(index,career.id,e)} className="text-dod-700 pl-2">Delete</button></td>
                             </tr>
                 ))}
             </table>
