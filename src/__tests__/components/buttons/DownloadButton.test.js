@@ -9,12 +9,32 @@ describe("Download Button Component", () => {
   }
 
   it("should render the component", () => {
-    const { getByText } = render(<DownloadButton handleDownloadClick={onChange}/>);
+    const { getByText } = render(<DownloadButton link={"test"}/>);
     expect(getByText(/Download/i)).toBeInTheDocument();
     
     const button = getByText('Download');
     act(() => {
         fireEvent.click(button);
+    });
+
+    const button1 = getByText('PDF');
+    act(() => {
+        fireEvent.click(button1);
+    });
+  });
+
+  it("should render the component", () => {
+    const { getByText } = render(<DownloadButton link={"www.google.com"}/>);
+    expect(getByText(/Download/i)).toBeInTheDocument();
+    
+    const button = getByText('Download');
+    act(() => {
+        fireEvent.click(button);
+    });
+
+    const button1 = getByText('Word');
+    act(() => {
+        fireEvent.click(button1);
     });
   });
 

@@ -3,15 +3,17 @@ import useStore from '@/store/store';
 import profileImage from '@/../public/profile-picture.png';
 import Image from 'next/image';
 import Button from '@/components/buttons/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import GeneralPurposeOverlay from '@/components/overlays/GeneralPurposeOverlay';
 import Alert from '@/components/overlays/Alert';
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 
 export default function ResetPassword() {
     const userData = useStore((state) => state.userData);
     const [errorMessage, setErrorMessage] = useState();
     const [isOpen, setIsOpen] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [newPassword, setNewPassword] = useState({
         password: '',
         retypePassword: '',
@@ -35,6 +37,29 @@ export default function ResetPassword() {
             }
         }
     }
+
+    useEffect(() => {
+        if (isSubmitted){
+            const context = {
+                actor: {
+                  first_name: userData?.user?.first_name || 'Anonymous',
+                  last_name: userData?.user?.last_name || 'User',
+                },
+                verb: {
+                  id: "http://example.org/verb/reset",
+                  display: `Password Updated`,
+                },
+                object: {
+                    definitionName: `Password Updated`,
+                },
+                resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+                resultExtValue: "test",
+            };
+            console.log(context);
+            xAPISendStatement(context);
+            console.log("sent");
+        }
+    }, [isSubmitted]);
 
     return (
         <DefaultLayout >
@@ -62,7 +87,7 @@ export default function ResetPassword() {
                 <button onClick={handleSubmit} type="submit" class="text-white bg-dod-500/80 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 border-dod-500 border-2 ring-dod-500 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update Password</button>
             </div>
         </form>
-        {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} title={"Reset Password Confirmation"} message={"Are you sure you want to reset you password?"} path={"/profile"}/>}
+        {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} title={"Reset Password Confirmation"} disable={setIsSubmitted} message={"Are you sure you want to reset you password?"} path={"/profile"}/>}
         {errorMessage && <Alert message={errorMessage} toggleModal={setIsOpen}></Alert>}
 
         </div>

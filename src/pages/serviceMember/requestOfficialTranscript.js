@@ -3,7 +3,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import Table from '@/components/tables/Table';
 import useStore from '@/store/store';
 import { useRouter } from "next/router"
-
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 export default function RequestOfficialTranscript() {
     const userData = useStore((state) => state.userData);
@@ -19,6 +19,27 @@ export default function RequestOfficialTranscript() {
         ["01/18/2023 15:14 PM", "University of Florida", "On-Line Delivery", "2814", "01/20/2023", "kelly"],
 
     ]
+
+    const handleSendClick = () => {
+        const context = {
+            actor: {
+              first_name: userData?.user?.first_name || 'Anonymous',
+              last_name: userData?.user?.last_name || 'User',
+            },
+            verb: {
+              id: "http://example.org/verb/requested",
+              display: `Requested Official Transcript`,
+            },
+            object: {
+                definitionName: `Requested Official Transcript`,
+            },
+            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            resultExtValue: "test",
+        };
+        xAPISendStatement(context);
+        console.log("sent");
+        router.push(`/dashboard`);
+    }
 
     return (
         <DefaultLayout>
@@ -53,7 +74,12 @@ export default function RequestOfficialTranscript() {
                 </div>
                 <div className='flex my-5 justify-between'>
                     <Button btnText={"Cancel"} link={"/serviceMember/transcripts"}></Button>
-                    <Button btnText={"Send Transcript"} link={"/dashboard"}></Button>
+                    <button id={'view-course-button-'}
+                        className='`text-white bg-dod-500/80 text-white hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                        onClick={handleSendClick}>
+                        Send Transcript
+                    </button>
+                    {/* <Button btnText={"Send Transcript"} link={"/dashboard"}></Button> */}
                 </div>
                 </div>
 

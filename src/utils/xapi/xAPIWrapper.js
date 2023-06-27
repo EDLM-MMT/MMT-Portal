@@ -15,7 +15,7 @@ export const sendStatement = (actor, verb, obj, resultExtName, resultExtValue) =
   const statement = {
     actor: {
       account: {
-        homePage: "https://ecc.gov",
+        homePage: "https://elrr.gov",
         name: `${actor.first_name} ${actor.last_name}`,
       },
       // objectType: "Agent"

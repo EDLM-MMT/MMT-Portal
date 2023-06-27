@@ -16,6 +16,7 @@
     "autoprefixer": "^10.4.13",
     "axios": "^1.2.2",
     "fs": "^0.0.1-security",
+    "axios-mock-adapter": "^1.21.4",
     "heroicons": "^2.0.13",
     "next": "^13.1.1",
     "next-router-mock": "^0.8.0",
@@ -29,6 +30,7 @@
     "react-scripts": "5.0.1",
     "tailwind-merge": "^1.8.1",
     "web-vitals": "^2.1.4",
+    "xapi": "^0.0.1",
     "zustand": "^4.2.0"
   },
   "scripts": {

@@ -9,9 +9,7 @@ import { useRouter } from "next/router"
 import axios from 'axios';
 import { data } from 'autoprefixer';
 import useStore from '@/store/store';
-
-
-
+import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School");
@@ -350,8 +348,25 @@ export default function DegreePathways() {
             console.log(response.status, response.data);
             console.log("degree list inside axios post: ", degree)          
         });
-        
+        const context = {
+            actor: {
+              first_name: user?.user?.first_name || 'Anonymous',
+              last_name: user?.user?.last_name || 'User',
+            },
+            verb: {
+              id: "http://example.org/verb/planned",
+              display: `Counseling started with ESO`,
+            },
+            object: {
+                definitionName: `Counseling started with ESO`,
+            },
+            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+            resultExtValue: "test",
+        };
+        xAPISendStatement(context);
+        console.log("sent");
         router.push("/serviceMember/counseling");
+
     }
 
     const panelCode = (content) =>

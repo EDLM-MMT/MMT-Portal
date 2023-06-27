@@ -7,6 +7,7 @@ import {
   import { Menu, Transition } from '@headlessui/react';
   import { useRouter } from 'next/router';
   import useStore from '@/store/store';
+  import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
   
   const listMenuButtons = [
@@ -19,15 +20,41 @@ import {
       href: '/execStakeholder/stateEnrollment',
     },
   ];
+
+  
   
   
   const StatMenu = ({ name, href }) => {
     const router = useRouter();
+    const userData = useStore((state) => state.userData);
+
+    const handleClick = (event) => {
+      console.log("here");
+      const context = {
+        actor: {
+          first_name: userData?.user?.first_name || 'Anonymous',
+          last_name: userData?.user?.last_name || 'User',
+        },
+        verb: {
+          id: "http://example.org/verb/explored",
+          display: `Viewed ${name}`,
+        },
+        object: {
+            definitionName: `Viewed ${name}`,
+        },
+        resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
+        resultExtValue: "test",
+      };
+      xAPISendStatement(context);
+      console.log(event?.target.innerHTML);
+    }
+    
     return (
       <Menu.Item>
         {({ active }) => (
           <button
-            onClick={() => router.push(href)}
+            // onClick={() => router.push(href)}
+            onClick={() => {handleClick(event); router.push(href);}}
             id={name.toLowerCase().replace(/\s/g, '-')}
             className={`${
               active ? 'bg-gray-100' : 'bg-white'
@@ -49,7 +76,7 @@ import {
       >
         {({ open }) => (
           <div className='relative'>
-            <Menu.Button data-testid='user-menu-button' className='group inline-flex justify-end items-center w-full hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 text-lg rounded-md outline-none focus:ring-4 ring-blue-400'>
+            <Menu.Button data-testid='stats-menu-button' className='group inline-flex justify-end items-center w-full hover:bg-opacity-95 hover:shadow transform transition-all ease-in-out duration-150 px-2 py-1 text-white gap-2 text-lg rounded-md outline-none focus:ring-4 ring-blue-400'>
               <div className='line-clamp-1'>Enrollment Statistics</div>
   
               {/* <ChevronUpIcon

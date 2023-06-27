@@ -2,7 +2,7 @@ import AccountsManagement from "@/pages/programAdmin/accountsManagement";
 import { act, fireEvent, render } from "@testing-library/react";
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
-describe("AccountSupport page", () => {
+describe("Account Management page", () => {
   it("should render the page", () => {
     const { getByText } = render(
         <MemoryRouterProvider>
@@ -45,6 +45,12 @@ describe("AccountSupport page", () => {
     act(() => {
       fireEvent.change(getByPlaceholderText('Search here by name or username'), {
           target: { value: 'jsmith' },
+        });
+    });
+
+    act(() => {
+      fireEvent.change(getByPlaceholderText('Search here by name or username'), {
+          target: { value: 'Alexia' },
         });
     });
 
