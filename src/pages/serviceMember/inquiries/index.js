@@ -16,12 +16,22 @@ export default function Inquiry() {
         axios
           .get('../api/inquiry')
           .then((res) => {
-            setData(res.data.inquiries);
+            // setData(res.data.inquiries);
+            let data = res.data.inquiries
+            for(let x in data){
+                //console.log("x: ", data[x])
+              if(data[x].submitter_id === user?.learner.personnel.person.personid ){
+                const addUserInquiry = data[x];
+                setData(data =>[...data, addUserInquiry]);
+              }
+            }
           })
           .catch((err) => {
             console.log(err);
           });
     }, []);
+
+    console.log("data:", data);
 
     return (
         <DefaultLayout>

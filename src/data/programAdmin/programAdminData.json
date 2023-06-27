@@ -25,14 +25,14 @@
         },
         "organization": {
           "organizationid": 100,
-          "organizationname": "NAVY",
+          "organizationname": "ARMY",
           "organizationidentifier": "D0DAF",
           "organizationidentificationcode": "G0V4",
           "organizationidentificationsystem": null,
           "industrytypeidentifier": null,
           "organizationfein": "1234573",
-          "organizationdescription": "NAVY",
-          "parentorganization": "NAVY",
+          "organizationdescription": "ARMY",
+          "parentorganization": "ARMY",
           "recordstatus": "ACTIVE",
           "location": "USA"
         },
@@ -51,7 +51,7 @@
         "employment": [
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -65,7 +65,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -79,7 +79,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -93,7 +93,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -107,7 +107,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
@@ -121,7 +121,7 @@
           },
           {
             "employmentid": 100,
-            "employerName": "NAVY",
+            "employerName": "ARMY",
             "employerdepartment": "",
             "hiredate": "06/30/2012",
             "employmentstartdate": "2012-07-07",
