@@ -39,7 +39,7 @@ export default function NewInquiry() {
     const [commonSolution, setCommonSolution] = useState("");
     const [isNewInqFlag, setNewInqFlag] = useState(false);
     const [isNewInquiryForm, setNewInquiryForm] = useState([]);
-    // const [selectedFile, setSelectedFile] = useState();
+    const [selectedFile, setSelectedFile] = useState();
 	const [isFilePicked, setIsFilePicked] = useState(false);
 
     const onChange = (e) => {

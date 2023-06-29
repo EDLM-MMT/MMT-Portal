@@ -46,7 +46,16 @@
       "react-app",
       "react-app/jest"
     ],
-    "ignoreDuringBuilds": true
+    "ignoreDuringBuilds": true,
+    "rules": {
+      "testing-library/prefer-screen-queries": "off",
+      "testing-library/no-unnecessary-act": "off",
+      "testing-library/no-node-access": "off",
+      "jest/no-identical-title": "off",
+      "jest/no-mocks-import": "off",
+      "import/first": "off",
+      "testing-library/no-container": "off"
+    }
   },
   "browserslist": {
     "production": [
