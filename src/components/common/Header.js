@@ -87,6 +87,21 @@ const ExecMenuItems = [
   },
 ];
 
+const AcademicInstituteMenuItems = [
+  {
+    label: 'Assessment Reporting',
+    path: '/execStakeholder/enrollment',
+  },
+  {
+    label: 'Official Transcript Access',
+    path: '/execStakeholder/personnelData',
+  },
+  {
+    label: 'Quick Links',
+    path: '/quickLinks',
+  },
+];
+
 const handleClick = (label, user) => {
   console.log(label)
   const context = {
@@ -174,6 +189,9 @@ export default function Header() {
                   return <StatsMenu />
                 }
                 return <Button key={item.label} data={item} user={user}/>;
+            })}
+            {user?.role === 'Academic Institute' && AcademicInstituteMenuItems.map((item) => {
+                return <Button key={item.label} data={item} />;
             })}
           </div>
             <div className='space-x-4'>

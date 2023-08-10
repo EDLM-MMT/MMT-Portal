@@ -5,6 +5,7 @@ import serviceMemberData3 from '@/data/service_member/serviceMemberData3.json';
 import programAdminData from '@/data/programAdmin/programAdminData.json'
 import esoData1 from '@/data/eso/esoData1.json'
 import esoData2 from '@/data/eso/esoData2.json'
+import academicInstituteData from '@/data/academicInstitute/academicInstituteData.json'
 import execStakeholderData from '@/data/execStakeholder/execStakeholderData.json'
 
 export default function handler(req, res) {
@@ -26,6 +27,9 @@ export default function handler(req, res) {
   }
   if (username.toLowerCase().includes('doe@us.navy.mil') && password.includes('password')) {
     return res.status(200).json(esoData2);
+  }
+  if (username.toLowerCase().includes('gordon@us.navy.mil') && password.includes('password')) {
+    return res.status(200).json(academicInstituteData);
   }
   if (username.toLowerCase().includes('martinez@us.navy.mil') && password.includes('password')) {
     return res.status(200).json(execStakeholderData);

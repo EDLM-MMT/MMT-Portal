@@ -1,0 +1,69 @@
+{
+    "role": "Academic Institute",
+    "learner": {
+      "personnel": {
+        "person": {
+          "personid": 601,
+          "name": "Mario Gordon",
+          "firstName": "Mario",
+          "middleName": "",
+          "lastName": "Gordon",
+          "email": "mariogordonh@gmail.com",
+          "namePrefix": "Margor.",
+          "titleAffixcode": null,
+          "nameSuffix": null,
+          "qualificationAffixcode": null,
+          "maidenName": "",
+          "preferredName": null,
+          "humanResourceIdentifier": "3599900350",
+          "personnelIdentificationSystem": null,
+          "birthdate": "10/03/1999",
+          "sex": "M",
+          "primaryLanguage": "English",
+          "militaryVeteranindicator": "Y",
+          "recordStatus": "ACTIVE"
+        },
+        "organization": {
+          "organizationid": 400,
+          "organizationname": "American Military University",
+          "organizationidentifier": "AMUAF",
+          "organizationidentificationcode": "AMU4",
+          "organizationidentificationsystem": null,
+          "industrytypeidentifier": null,
+          "organizationfein": "1234583",
+          "organizationdescription": "American Military University",
+          "parentorganization": "",
+          "recordstatus": "",
+          "location": "USA"
+        },
+        "contactInformation": {
+          "contactinformationid": 101,
+          "personid": 101,
+          "contactinformation": "Email",
+          "telephonenumber": "1-935-456-4578",
+          "isprimaryindicator": "Y",
+          "telephonetype": "Private",
+          "electronicmailaddress": "Alexandrina@gmail.com",
+          "electronicmailaddresstype": "Personal",
+          "emergencycontact": "Email",
+          "recordstatus": "ACTIVE"
+        },
+        "employment": [
+          {
+            "employmentid": 100,
+            "employerName": "ARMY",
+            "employerdepartment": "",
+            "hiredate": "06/30/2012",
+            "employmentstartdate": "2012-07-07",
+            "employmentenddate": null,
+            "joblevel": "Petty Officer Third Class",
+            "occupation": "Mass Communications Specialist",
+            "employed": "Y",
+            "primarycareercategory": null,
+            "secondcarrercategory": null,
+            "recordstatus": "ACTIVE"
+          }
+        ]
+      }
+    }
+  }

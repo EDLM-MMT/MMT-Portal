@@ -4,6 +4,8 @@ import ProgramAdminDashboard from './programAdmin/programAdminDashboard';
 import useStore from '@/store/store';
 import ESODashboard from './eso/esoDashboard';
 import ExecStakeholderDashboard from './execStakeholder/execStakeholderDashboard';
+import AcademicInstituteDashboard from './academicInstitute/academicInstituteDashboard';
+
 
 export default function Dashboard() {
   const userData = useStore((state) => state.userData);
@@ -14,6 +16,7 @@ export default function Dashboard() {
       {userData?.role === 'Program Administrator' && <ProgramAdminDashboard />}
       {userData?.role === 'ESO' && <ESODashboard />}
       {userData?.role === 'Executive Stakeholder' && <ExecStakeholderDashboard/>}
+      {userData?.role === 'Academic Institute' && <AcademicInstituteDashboard/>}
     </DefaultLayout>
   );
 }
