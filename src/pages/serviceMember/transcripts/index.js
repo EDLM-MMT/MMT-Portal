@@ -13,25 +13,25 @@ export default function Transcripts() {
             title: "Basic Transcript",
             description: "Includes military courses taken by service member.",
             type: "Basic",
-            downloadLink : 'Phillips,Bill_TRANSCRIPT.pdf'
+            downloadLink : 'Smith,Noah_TRANSCRIPT.pdf'
         },
         {
             title: "Summary Transcript",
             description: "Summary of trainings and courses completed. ",
             type: "Summary",
-            downloadLink : 'Phillips,Bill_SUMMARY_TRANSCRIPT.pdf'
+            downloadLink : 'Smith,Noah_SUMMARY_TRANSCRIPT.pdf'
         },
         {
             title: "Academic Transcript",
             description: "Includes degree and certificates completed as well as all academic courses taken.",
             type: "Academic",
-            downloadLink : 'Phillips,Bill_ACADEMIC_TRANSCRIPT.pdf'
+            downloadLink : 'Smith,Noah_ACADEMIC_TRANSCRIPT.pdf'
         },
         {
             title: "Complete Transcript",
             description: "Included the Basic transcript data, Summary Transcript data, and Academic Courses completed.",
             type: "Complete",
-            downloadLink : 'Phillips,Bill_COMBO_TRANSCRIPT.pdf'
+            downloadLink : 'Smith,Noah_COMBO_TRANSCRIPT.pdf'
         },
     ]
 

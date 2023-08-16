@@ -55,7 +55,8 @@ export default function LoginPage() {
       <DefaultLayout >
         <div className='w-1/3 mx-auto p-8 rounded flex flex-col justify-center mb-10'>
           <Image src={DODImage} alt='DOD' width={200} height={200} className='mx-auto' />
-            <h1 className="my-2 mx-auto text-2xl font-bold"> Sign in to your account </h1>
+          <h1 className="my-2 mx-auto text-2xl font-bold"> Modern Military Transcript </h1>
+            <h2 className="my-2 mx-auto text-2xl font-semibold"> Sign in to your account </h2>
 
             <span className="mx-auto">
               or &nbsp;

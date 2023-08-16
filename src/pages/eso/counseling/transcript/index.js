@@ -7,12 +7,12 @@ import Button from '@/components/buttons/Button';
 
 export default function TranscriptView() {
     const userData = useStore((state) => state.userData);
-    let link = " https://jst-transcript.s3.us-east-2.amazonaws.com/Sample_ComboTranscript.pdf?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEC0aCXVzLWVhc3QtMSJHMEUCIQDnMd5IbFkcM8biwN5SHXcP1gsFl3HNrsBbWcauOZZzwAIgM1j8llN4hLOH9BFpfTl5V0dqQdm%2Fug5LVcMables06kqrwMIFhACGgw5NTUwMzg1ODAxNjciDPUehISjPGu%2FNz3lESqMAyOBFfHpLzC8El8pgFjoj34w0ET186wTZjYa3c%2BOW3lFHjP3i%2FO3GoI99XN8YdYboOE9Bd6eJudsxd1CP2IV1f%2FQDOT59UYdw79Se0Tx9mHQ39FuA0H8qT2BPOEY6asEsmEHeZh5mj1gH73bnFipFtRCjwoWGPFqY%2BxVRZBmi0XzFASBcsgONmA8V2%2FN4hS%2B3tSicC9OUcBTHDbNIUWmme1N1pvQX%2FLk6koVjrORHGlCk5DGnVsq3Wwvtzcp9sxMVy1XvKQFSB63jxQE6F%2F0nErEz2AHeYVXwkurzCMOBMGERQzqh9eN8LNtWTjZdJBh%2FsMYSqeKl5g3igjg%2Bwo9s%2ByeJSzcGtM4%2Flu0Spc5NS%2BPfYCXJLh3fBvH2zmE2dOrYL1hGKWEg%2FTHsOnHfb%2BODBu41ud%2FU9lBAk4XvCnNh58NpCam3QYT%2F6bM%2F7jySfqt4WaIZrMqEAlU8sVCWXGOIRLOmKa0zeEY1NXVn0yycEU2IjVsW5PEun6jVg%2FI6pdt01T2T20aPzUaFTg1NjDB07WhBjqMAvZJujEKxWA6fGpcuvVkA4Pm4wqoIZMe%2BhFDpvk4JdqQ4LjbyBP7Bt%2FehHX65FW%2F9sJZINX7%2FFoCa3t21P1UepKCNhIl2S0hiK0RouDpzLALzmLk517jts4Uxie68A67IAjMjlsixkwRBYz0iSQaJ2XC5kuh%2FQVIP0ArGtvG26BJmVPK5z%2BdLx9eQNEjkKlqHyg5cUKtQ7qFscVxPY332EhmRveOXFnkPPvLj4BQwQg9cJqeTRJfhXTZLEcSglClb%2BIYD53PC0hGpe5KdodQAz2MqaB4rmxL%2FXeQCLhn007DNyA1b7wghMUXZHIembuYK71b%2FPpb0TjXRmuj3l%2FzL%2Fi2%2BkDkyaapduoVQIc%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230405T123133Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43200&X-Amz-Credential=ASIA54XF4HXDYCJUS46I%2F20230405%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=cd6581e0162467396f0e3b292e0f06ab575f0ca68592d84f87d8b05b3d70f9c6";
-    let downloadLink = 'Phillips,Bill_COMBO_TRANSCRIPT.pdf';
+    let link = "https://jst-transcript.s3.us-east-2.amazonaws.com/Sample_ComboTranscript.pdf?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEHYaCXVzLWVhc3QtMSJIMEYCIQCvxdidpBmEt7Iaz4ZFAta6cQ9AFtHhv1I5dzCKdQON8wIhAJMK1uG9F%2F4H7BpWVcDazhC6JkFOKgtotsXHmRQ1QNsOKq8DCC8QAxoMOTU1MDM4NTgwMTY3IgzUBL%2B9EwBh40MOZ7gqjAMrQss966l9F1wrDo8K4Xv6ahIx1t9LTRtKC4wWKCtIxQr1ZmgG93ujgoctFr3hOFbaHI9Z0sKOHpvmy22pQOPA2juF9xwp3PXLjuldZZoQWHwPHn%2B7VP3jof9rJNnUB4H2m1DjU13VCh%2Bu2tD7fJM0s8CKO%2Bi727XkHogTvEVTrb1L5u3ckDONCXicSXu4GvesY74RgD4HfWUU05BkAIDUApmMPOsiEyVLoSZ9%2Bft5ElYN3zrQLOWwxG4MTpAB4SMYrcSp4wmdhnE%2FHACNNEKbr7URiF3FkPhA%2B4NAeX5rHGZ5IVk%2Bk7JR0n%2B5JEtZGcT8qK%2F9E1%2B2jSly2GX2bLdXK%2BBHQb8Bxb4CrFwv8gvRdnw1JaY2%2Fbog2KRDsIHw23FWBoccDt%2BjjFHwRPWTIrq83rnE2natJ%2FOaEoNBO7sjdBAkjCeZ2mFU6TLahAq%2Bkd5yYNIBmoazvLOakfoctM9ftqTz%2FTAVyNkjz7M7RlnZ1F9GvMt1hRKA2nNwYI6vkALfArNL%2F8flT4yh2bAwmtnopgY6iwI9R9Gz%2FilWpWTLZnJ8nJPaa2JRgFOYWtjjyyba%2FM45PNwBqa1QnJqOPArH3XAWdqSJjechLNwVRcOayXwgzjU1hMyFS1tFNCBnNsITL1dKthE2TowOmZti%2FWeoEo2wghSGPaOKHrHOmEQ4Ts8dfvTcpO8kCqpCkoxn0dbfLSVQ%2Bo00x0WRmLlY2zOhXHqlqPaBH1SZumJM%2BWQMoH%2B%2BHVHG5v6TUzHuGlwEg3bwTOsalDQzyIbclVDxGQh%2FVCDpkMLCfvTxHrAIjZPJfMSmNc%2Bzy8yUZREyuNvK1PzItiBIDlTDKe%2FuQaV0PbJFWopBdhnLZ72PsI6rc7E4eTMeBNVTbBTFIj3OCmCjxnI%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20230814T134807Z&X-Amz-SignedHeaders=host&X-Amz-Expires=43199&X-Amz-Credential=ASIA54XF4HXDVTFODRG7%2F20230814%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=f36d160b616209df94e3f2541a4f07672558377dd20faa60144149b3f1532e5c";
+    let downloadLink = 'Smith,John_SAMPLE_TRANSCRIPT.pdf';
 
     const router = useRouter();
     const handleClick = () => {
-        router.push('/eso/careerCounseling');
+        router.push('/eso/counseling');
     }
 
     return (
@@ -20,13 +20,13 @@ export default function TranscriptView() {
             <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'>
                 <h1 className='pb-4 border-b mb-2 text-3xl font-semibold'>
                     <div className='flex flex-row justify-between'>  
-                        Complete Transcript
+                        Unofficial Transcript
                     </div> 
                 </h1>
             <div>
                 <button onClick={handleClick}
                 className='text-dod-500 hover:underline underline hover:text-blue-500 cursor-pointer transition-all duration-150 ease-in-out'>                    
-                Counseling Dashboard </button> -{`>`} Complete Transcript 
+                Counseling Dashboard </button> -{`>`} Unofficial Transcript 
             </div>
 
             <div className="m-4 bg-gray-200 h-screen text-center">

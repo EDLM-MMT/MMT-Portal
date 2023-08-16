@@ -318,9 +318,9 @@ export default function DegreePathways() {
             "mosCode": "AET",
             "degree_startDate": "May 2023",
             "projected_graduation": "December 2027",
-            "assigned_eso": "Luis Doe",
-            "total_creditHours": 60,
-            "creditHours_completed": 28,
+            "assigned_eso": "Brinleigh Blanchard ",
+            "total_creditHours": 120,
+            "creditHours_completed": 9,
             "course_plan": [
                 {
                     "course_number": "MAC1105",

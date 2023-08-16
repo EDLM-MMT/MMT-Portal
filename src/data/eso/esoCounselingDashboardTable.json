@@ -2,11 +2,11 @@
     "counseling": [
         {
             "id": 200,
-            "name": "John Smith",
+            "name": "Noah Smith",
             "mos_code": "AET",
             "career_counseling": [{
-                "id": 300,
-                "major": "Computer Science"
+                "id": 303,
+                "major": "General Studies"
             }]
         },
         {
@@ -27,8 +27,8 @@
                 "major": "Data Scientist"
             },
             {
-                "id": 300,
-                "major": "Computer Science"
+                "id": 303,
+                "major": "General Studies"
             },
             {
                 "id": 303,
@@ -40,8 +40,8 @@
             "name": "Tyreece Hume",
             "mos_code": "DC",
             "career_counseling": [{
-                "id": 300,
-                "major": "Computer Science"
+                "id": 305,
+                "major": "General Studies"
             }]
         },
         {
