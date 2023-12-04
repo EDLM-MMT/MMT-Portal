@@ -15,26 +15,26 @@ export default function DegreePathways() {
     const [selected, setSelected] = useState("School");
     const [searchInput, setSearchInput] = useState("");
     const [degree, setDegree] = useState([]);
+    const [degreePathways, setDegreePathways] = useState([]);
 
     const user = useStore((state) => state.userData);
-
     const router = useRouter();
 
     useEffect(() => {
         axios
-          .get(`/api/careerCounseling`)
+          .get(`/api/degreePathways`)
           .then((res) => {
-            let data = res.data.counseling
+            let data = res.data.degreePathways
             console.log("data:", data)
-            setDegree(data);
+            setDegreePathways(data);
           })
           .catch((err) => {
             console.log(err);
           });
 
-    }, []);
+    },[]);
 
-    console.log("degree list:", degree);
+    console.log("degreePathways list:", degreePathways[0]);
 
     // const handlePost = (newDegree) =>{
     //     axios.post('/api/careerCounseling', {body: newDegree}).then((response) => {
@@ -264,6 +264,9 @@ export default function DegreePathways() {
             ]
         },
     ]
+
+    console.log("schoolsList list:", schoolsList);
+
 
     const sort = () => {
         if (selected === "School"){
