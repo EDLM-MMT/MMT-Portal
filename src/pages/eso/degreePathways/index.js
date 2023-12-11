@@ -1,24 +1,13 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState, useEffect} from 'react';
 import Dropdown from '@/components/dropdowns/Dropdown';
-import AddBtn from '@/components/buttons/AddButton';
-import ViewBtn from '@/components/buttons/ViewBtn';
 import Accordion from '@/components/Accordion';
-import { PlusCircleIcon } from '@heroicons/react/outline';
-import { useRouter } from "next/router"
 import axios from 'axios';
-import { data } from 'autoprefixer';
-import useStore from '@/store/store';
-import { xAPISendStatement } from "@/utils/xapi/xAPISendStatement";
 
 export default function DegreePathways() {  
     const [selected, setSelected] = useState("School");
     const [searchInput, setSearchInput] = useState("");
-    const [degree, setDegree] = useState([]);
     const [degreePathways, setDegreePathways] = useState([]);
-
-    const user = useStore((state) => state.userData);
-    const router = useRouter();
 
     useEffect(() => {
         axios
@@ -34,15 +23,7 @@ export default function DegreePathways() {
 
     },[]);
 
-    console.log("degreePathways list:", degreePathways[0]?.schoolsList);
-
-    // const handlePost = (newDegree) =>{
-    //     axios.post('/api/careerCounseling', {body: newDegree}).then((response) => {
-    //         console.log(response.status, response.data);
-    //         console.log("degree list inside axios post: ", degree)
-            
-    //     });
-    // }
+    //console.log("degreePathways list:", degreePathways[0]?.schoolsList[0]?.datas[0].data);
 
 
     const onChange = (e) => {
@@ -51,8 +32,6 @@ export default function DegreePathways() {
 
     const onFilterChange = (e) => {
     }
-
-    
 
     const sort = () => {
         if (selected === "School"){
@@ -90,74 +69,6 @@ export default function DegreePathways() {
         } 
     }
 
-    const handleClick = (name, schoolData) => {
-
-        console.log("school data: ", schoolData)
-        const min = 306;
-        const max = 407;
-        const randId = parseInt(min + Math.random() * (max - min));
-          
-        const newDegree= {
-            "id": randId,
-            "degree": schoolData.data,
-            "school": name,
-            "submitted_by": user?.learner.personnel.person.name,
-            "username": "",
-            "personid": user?.learner.personnel.person.personid,
-            "mosCode": "AET",
-            "degree_startDate": "May 2023",
-            "projected_graduation": "December 2027",
-            "assigned_eso": "Luis Doe",
-            "total_creditHours": 60,
-            "creditHours_completed": 28,
-            "course_plan": [
-                {
-                    "course_number": "MAC1105",
-                    "course_name": "Intro to Algebra",
-                    "required": "Yes",
-                    "credit_hours": 3,
-                    "projected_semester": "Fall 2022",
-                    "status": "Approved"
-                }
-            ],
-            "counselingComments": [],
-            "ESOComments": [
-                {
-                    "date": "2/14/2023 3:12:57 PM",
-                    "purpose": "Approved",
-                    "comment": "Approved added required courses"
-
-                }
-            ]
-        }
-        
-        //handlePost(newDegree)
-
-        axios.post('/api/careerCounseling', {body: newDegree}).then((response) => {
-            console.log(response.status, response.data);
-            console.log("degree list inside axios post: ", degree)          
-        });
-        const context = {
-            actor: {
-              first_name: user?.user?.first_name || 'Anonymous',
-              last_name: user?.user?.last_name || 'User',
-            },
-            verb: {
-              id: "http://example.org/verb/planned",
-              display: `Counseling started with ESO`,
-            },
-            object: {
-                definitionName: `Counseling started with ESO`,
-            },
-            resultExtName: 'https://w3id.org/xapi/ecc/result/extensions/searchTerm',
-            resultExtValue: "test",
-        };
-        xAPISendStatement(context);
-        console.log("sent");
-        router.push("/serviceMember/counseling");
-
-    }
-
     const panelCode = (content) =>
         content?.map((school, index) => {
             return(
@@ -176,19 +87,6 @@ export default function DegreePathways() {
                                         </div>
                                     );
                                 })}
-                                <div className="flex flex-row gap-2">
-                                    {<ViewBtn path={`/serviceMember/credits`}/>}
-                                    {/* {<AddBtn btnText={"Add to List"} link={"/serviceMember/counseling"}/>} */}
-                                    {<button 
-                                        id={'add-button-to-list'}
-                                        className='flex justify-center items-center w-max px-2 p-1.5 gap-2 dod-500 hover:shadow-md font-medium rounded-lg text-sm text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none' 
-                                        title='Add to list'
-                                        onClick={()=> handleClick(school.name, data)}
-                                    >
-                                        <PlusCircleIcon className='h-5 w-5'/>
-                                        Add to List
-                                    </button>}
-                                </div>
                                 </div>
                             }/>
                             );
@@ -219,6 +117,8 @@ export default function DegreePathways() {
                         <Dropdown options={["All", "ABE", "ABF", "ABH", "AC", "AD", "AE", "BM", "CS", "CTR", "DC", "EM", "HT", "IC", "PS", "SW", "UT", "YN"]} keyName={"MOS"} initialValue={"All"} onChange={onFilterChange} />
                         <div className='p-2 font-medium'> Sort By: </div> 
                         <Dropdown options={["School", "Major"]} keyName={"Degree"} initialValue={"School"} onChange={onChange} />
+                       
+
                     </div>
                     {sort()}
                 </div>
