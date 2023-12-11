@@ -23,7 +23,7 @@ export default function DegreePathways() {
 
     },[]);
 
-    console.log("degreePathways list:", degreePathways[0]?.schoolsList[0]?.datas);
+    //console.log("degreePathways list:", degreePathways[0]?.schoolsList[0]?.datas[0].data);
 
 
     const onChange = (e) => {
