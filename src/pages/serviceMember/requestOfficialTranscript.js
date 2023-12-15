@@ -64,8 +64,8 @@ export default function RequestOfficialTranscript() {
                     </div>
                     <div className='mt-3'>
 
-                        <label for="institute_name" class="block mb-2 text-sm font-medium dark:text-white">Enter Academic Institute </label>
-                        <input type="text" id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder={"Institute name"} required />
+                        <label for="institute_name" class="block mb-2 text-sm font-medium">Enter Academic Institute </label>
+                        <input type="text" id="company" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder={"Institute name"} required />
                     </div>  
                     <div className='mt-3 flex flex-col font-medium'>
                         By pressing the "Send Transcript" button below, I give my consent to release my transcript to the institute selected above.
@@ -75,7 +75,7 @@ export default function RequestOfficialTranscript() {
                 <div className='flex my-5 justify-between'>
                     <Button btnText={"Cancel"} link={"/serviceMember/transcripts"}></Button>
                     <button id={'view-course-button-'}
-                        className='`text-white bg-dod-500/80 text-white hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+                        className='`text-white bg-dod-500/80 text-white hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'
                         onClick={handleSendClick}>
                         Send Transcript
                     </button>
