@@ -1,7 +1,7 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import EsoCounselingDashboardTable from '@/components/Tables/EsoCounselingDashboardTable'
+import EsoCounselingDashboardTable from '@/components/tables/ESOCounselingDashboardTable'
 
 
 export default function CareerCounseling({}) {
