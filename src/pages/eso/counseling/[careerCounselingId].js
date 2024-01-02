@@ -160,11 +160,12 @@ export default function CareerCounseling({careerCounselingId}) {
     return (
       <DefaultLayout>
         <div className='bg-white w-full border rounded-md border-gray-200 p-4 shadow'> 
-            <h1 className='pb-4 border-b mt-4 mb-4 text-3xl font-semibold'>
+            <h1 className='pb-4 border-b mt-4 text-3xl font-semibold'>
                 <div className='flex flex-row justify-between'>  
                     {career.degree} Counseling
                     <div className='flex flex-row gap-6'>
                     <Button btnText={"View Transcript"} link={"/eso/counseling/transcript"}/>
+                    <Button btnText={"View Credits"} link={`/eso/counseling/${careerCounselingId}/credits`}/>
                     <button onClick={comfirmOverlay} disabled={disableButton} className="flex justify-end items-center text-sm gap-2 dod-500 rounded-md hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed text-white bg-dod-500/80 hover:bg-blue-400 hover:text-white px-6 transform transition-all duration-150 ease-in-out border-dod-500 border-2 focus:ring-2 ring-dod-500 outline-none">Confirm Plan</button>
                     {isOpen && <GeneralPurposeOverlay toggleModal={setIsOpen} disable={setDisableButton} path={`/eso/counseling/${careerCounselingId}`}
                     title={"Confirm Career Plan"} message={`Upon clicking Confirm, this Counseling plan will be approved.`}/>}
