@@ -12,7 +12,7 @@ export default function TranscriptView() {
 
     const router = useRouter();
     const handleClick = () => {
-        router.push('/eso/careerCounseling');
+        router.push('/eso/counseling');
     }
 
     return (
