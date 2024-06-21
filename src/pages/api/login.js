@@ -9,25 +9,25 @@ import execStakeholderData from '@/data/execStakeholder/execStakeholderData.json
 
 export default function handler(req, res) {
   const { username, password } = req.body;
-  if (username.toLowerCase().includes('phillips@us.army.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('phillips@us.army.mil')) {
     return res.status(200).json(serviceMemberData1);
   }
-  if (username.toLowerCase().includes('william@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('william@us.navy.mil')) {
     return res.status(200).json(serviceMemberData2);
   }
-  if (username.toLowerCase().includes('smith@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('smith@us.navy.mil')) {
     return res.status(200).json(serviceMemberData3);
   }
-  if (username.toLowerCase().includes('glass@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('glass@us.navy.mil')) {
     return res.status(200).json(programAdminData);
   }
-  if (username.toLowerCase().includes('blanchard@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('blanchard@us.navy.mil')) {
     return res.status(200).json(esoData1);
   }
-  if (username.toLowerCase().includes('doe@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('doe@us.navy.mil')) {
     return res.status(200).json(esoData2);
   }
-  if (username.toLowerCase().includes('martinez@us.navy.mil') && password.includes('password')) {
+  if (username.toLowerCase().includes('martinez@us.navy.mil')) {
     return res.status(200).json(execStakeholderData);
   }
     return res.status(401).json()
