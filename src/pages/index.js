@@ -74,7 +74,7 @@ export default function LoginPage() {
                   type="text" name="username" placeholder="Username"/> 
               <input 
                   className='mt-2 shadow focus:shadow-md rounded-md p-2 w-full border border-gray-200 text-gray-700 focus:ring-2 outline-none transition-all duration-200'
-                  type="password" name="password" placeholder="Password"/>
+                  type="password" name="password" required placeholder="Password"/>
               
               
               <div className='flex mx-auto flex-col justify-center items-center'>
