@@ -28,7 +28,7 @@ jobs:
         run: yarn install
       
       - name: Run Jest tests
-        run: npm test
+        run: npm test:unit
         
   build:
     # requires dependency from step above
