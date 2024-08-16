@@ -12,37 +12,23 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   code-test:
-# Kicks off the workflow and prepares Github to run coverage test using a ubuntu-latest container.
-    name: Dependencies
+  # Kicks off the workflow and prepares Github to run coverage test using a ubuntu-latest container.
+    name: Code-Test/Coverage  
     runs-on: ubuntu-latest
-    env:
-      OS: ubuntu-latest
-      PYTHON: '3.9'
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-# Install dependencies required for tests
-    - name: Install Dependencies
-      run: |
-        yarn install
-    # - name: Generate Coverage Report
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-    #   run: |
-        # echo "Cloning private repository"
-        # git clone https://openlxp-host:${{ secrets.ACCESS_TOKEN }}@github.com/OpenLXP/openlxp-private.git
-        # echo "Private repository cloned successfully"
-        # echo "Copying .env file from openlxp-private to current working directory"
-        # cp ./openlxp-private/openlxp-xds-ui-v2-env/.env .
-        # echo "Copied .env file successfully"
-        # echo "Create openlxp docker network"
-        # docker network create openlxp
-        # echo "Docker network successfully created"
-        # echo "Running coverage unit test"
-        # docker-compose --env-file ./.env run app_xia_dau sh -c "python manage.py waitdb && coverage run manage.py test --tag=unit && flake8 && coverage report && coverage report --fail-under=80"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.20'
+
+      - name: Install dependencies
+        run: npm install
+      
+      # - name: Run Jest tests
+      #   run: npm test
         
   build:
     # requires dependency from step above
@@ -70,7 +56,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.ECR_REPO }}
-        IMAGE_TAG: mmt-portal
+        IMAGE_TAG: latest
       run: |
         echo "Cloning openlxp-private repository"
         # git clone https://openlxp-host:${{ secrets.ACCESS_TOKEN }}@github.com/OpenLXP/openlxp-private.git
