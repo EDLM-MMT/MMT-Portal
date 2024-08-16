@@ -1,9 +1,9 @@
-import logo from '@/../public/logo.png';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from "next/router"
 import Link from 'next/link';
+import logo from '@/../public/logo.png';
+import { useRouter } from "next/router"
+import { useState } from 'react';
 
 export default function Register() {
     const router = useRouter();
