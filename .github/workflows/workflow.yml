@@ -13,7 +13,7 @@ on:
 jobs:
   code-test:
   # Kicks off the workflow and prepares Github to run coverage test using a ubuntu-latest container.
-    name: Code-test/Coverage  
+    name: Code-Test/Coverage  
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -25,10 +25,10 @@ jobs:
           node-version: '18.20'
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       
-      # - name: Run Jest tests
-      #   run: npm test
+      - name: Run Jest tests
+        run: npm run test:unit
         
   build:
     # requires dependency from step above

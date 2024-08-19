@@ -1,8 +1,15 @@
 import InquiryView from "@/pages/serviceMember/inquiries/[inquiryId]";
-import { act, fireEvent, render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
+import {act} from 'react';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import axios from 'axios'
 import CareerCounseling from "@/pages/serviceMember/counseling/[careerCounselingId]";
+
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}))
 
 let url = ''
 let body = {}
